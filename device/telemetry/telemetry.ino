@@ -7,11 +7,11 @@
 /****************************************************************************
  * Parameter Setting                                                        *
  ****************************************************************************/
-#define NETWORK_SSID "Kangho"
-#define NETWORK_PASSWORD "20021202"
-#define SERVER_NAME "commanderk.site"
-#define CHANNEL_NAME "24KSAE"
-#define CHANNEL_KEY "3225"
+#define NETWORK_SSID "<YOUR_HOTSPOT_ID>"
+#define NETWORK_PASSWORD "<YOUR_HOTSPOT_PW>"
+#define SERVER_NAME "<YOUR_SERVER_DOMAIN>"
+#define CHANNEL_NAME "<YOUR_CHANNEL_NAME>"
+#define CHANNEL_KEY "<YOUR_CHANNEL_KEY>"
 
 /****************************************************************************
  * Hotspot AP configurations                                                *
