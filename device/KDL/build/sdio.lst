@@ -1,0 +1,770 @@
+ARM GAS  C:\Users\user\AppData\Local\Temp\cct4ghzb.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"sdio.c"
+  16              		.text
+  17              		.global	logname
+  18              		.section	.bss.logname,"aw",%nobits
+  19              		.align	2
+  22              	logname:
+  23 0000 00000000 		.space	40
+  23      00000000 
+  23      00000000 
+  23      00000000 
+  23      00000000 
+  24              		.global	syslog_buffer
+  25              		.section	.bss.syslog_buffer,"aw",%nobits
+  26              		.align	2
+  29              	syslog_buffer:
+  30 0000 00000000 		.space	16
+  30      00000000 
+  30      00000000 
+  30      00000000 
+  31              		.section	.rodata
+  32              		.align	2
+  33              	.LC0:
+  34 0000 00       		.ascii	"\000"
+  35 0001 000000   		.align	2
+  36              	.LC1:
+  37 0004 32302530 		.ascii	"20%02d-%02d-%02d %02d-%02d-%02d.log\000"
+  37      32642D25 
+  37      3032642D 
+  37      25303264 
+  37      20253032 
+  38              		.section	.text.SD_SETUP,"ax",%progbits
+  39              		.align	1
+  40              		.global	SD_SETUP
+  41              		.syntax unified
+  42              		.thumb
+  43              		.thumb_func
+  45              	SD_SETUP:
+  46              		@ args = 0, pretend = 0, frame = 4168
+  47              		@ frame_needed = 1, uses_anonymous_args = 0
+  48 0000 B0B5     		push	{r4, r5, r7, lr}
+  49 0002 ADF5825D 		sub	sp, sp, #4160
+  50 0006 86B0     		sub	sp, sp, #24
+  51 0008 04AF     		add	r7, sp, #16
+ARM GAS  C:\Users\user\AppData\Local\Temp\cct4ghzb.s 			page 2
+
+
+  52 000a 07F14803 		add	r3, r7, #72
+  53 000e 43F8440C 		str	r0, [r3, #-68]
+  54 0012 4FF48052 		mov	r2, #4096
+  55 0016 4949     		ldr	r1, .L6
+  56 0018 4948     		ldr	r0, .L6+4
+  57 001a FFF7FEFF 		bl	ring_buffer_init
+  58 001e 0020     		movs	r0, #0
+  59 0020 FFF7FEFF 		bl	disk_initialize
+  60 0024 07F12803 		add	r3, r7, #40
+  61 0028 1C3B     		subs	r3, r3, #28
+  62 002a 0022     		movs	r2, #0
+  63 002c 4549     		ldr	r1, .L6+8
+  64 002e 1846     		mov	r0, r3
+  65 0030 FFF7FEFF 		bl	f_mount
+  66 0034 0346     		mov	r3, r0
+  67 0036 07F58252 		add	r2, r7, #4160
+  68 003a 02F10402 		add	r2, r2, #4
+  69 003e 1360     		str	r3, [r2]
+  70 0040 07F58253 		add	r3, r7, #4160
+  71 0044 03F10403 		add	r3, r3, #4
+  72 0048 1B68     		ldr	r3, [r3]
+  73 004a 002B     		cmp	r3, #0
+  74 004c 13D0     		beq	.L2
+  75 004e 3E4B     		ldr	r3, .L6+12
+  76 0050 0022     		movs	r2, #0
+  77 0052 5A70     		strb	r2, [r3, #1]
+  78 0054 0022     		movs	r2, #0
+  79 0056 4FF40051 		mov	r1, #8192
+  80 005a 3C48     		ldr	r0, .L6+16
+  81 005c FFF7FEFF 		bl	HAL_GPIO_WritePin
+  82 0060 0D22     		movs	r2, #13
+  83 0062 0021     		movs	r1, #0
+  84 0064 0120     		movs	r0, #1
+  85 0066 FFF7FEFF 		bl	SYS_LOG
+  86 006a 07F58253 		add	r3, r7, #4160
+  87 006e 03F10403 		add	r3, r3, #4
+  88 0072 1B68     		ldr	r3, [r3]
+  89 0074 5CE0     		b	.L5
+  90              	.L2:
+  91 0076 07F14803 		add	r3, r7, #72
+  92 007a 53F8443C 		ldr	r3, [r3, #-68]
+  93 007e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  94 0080 1C46     		mov	r4, r3
+  95 0082 07F14803 		add	r3, r7, #72
+  96 0086 53F8443C 		ldr	r3, [r3, #-68]
+  97 008a 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+  98 008c 1D46     		mov	r5, r3
+  99 008e 07F14803 		add	r3, r7, #72
+ 100 0092 53F8443C 		ldr	r3, [r3, #-68]
+ 101 0096 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 102 0098 1A46     		mov	r2, r3
+ 103 009a 07F14803 		add	r3, r7, #72
+ 104 009e 53F8443C 		ldr	r3, [r3, #-68]
+ 105 00a2 DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+ 106 00a4 1946     		mov	r1, r3
+ 107 00a6 07F14803 		add	r3, r7, #72
+ 108 00aa 53F8443C 		ldr	r3, [r3, #-68]
+ARM GAS  C:\Users\user\AppData\Local\Temp\cct4ghzb.s 			page 3
+
+
+ 109 00ae 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+ 110 00b0 1846     		mov	r0, r3
+ 111 00b2 07F14803 		add	r3, r7, #72
+ 112 00b6 53F8443C 		ldr	r3, [r3, #-68]
+ 113 00ba 5B79     		ldrb	r3, [r3, #5]	@ zero_extendqisi2
+ 114 00bc 0393     		str	r3, [sp, #12]
+ 115 00be 0290     		str	r0, [sp, #8]
+ 116 00c0 0191     		str	r1, [sp, #4]
+ 117 00c2 0092     		str	r2, [sp]
+ 118 00c4 2B46     		mov	r3, r5
+ 119 00c6 2246     		mov	r2, r4
+ 120 00c8 2149     		ldr	r1, .L6+20
+ 121 00ca 2248     		ldr	r0, .L6+24
+ 122 00cc FFF7FEFF 		bl	sprintf
+ 123 00d0 3222     		movs	r2, #50
+ 124 00d2 2049     		ldr	r1, .L6+24
+ 125 00d4 2048     		ldr	r0, .L6+28
+ 126 00d6 FFF7FEFF 		bl	f_open
+ 127 00da 0346     		mov	r3, r0
+ 128 00dc 07F58252 		add	r2, r7, #4160
+ 129 00e0 02F10402 		add	r2, r2, #4
+ 130 00e4 1360     		str	r3, [r2]
+ 131 00e6 07F58253 		add	r3, r7, #4160
+ 132 00ea 03F10403 		add	r3, r3, #4
+ 133 00ee 1B68     		ldr	r3, [r3]
+ 134 00f0 002B     		cmp	r3, #0
+ 135 00f2 13D0     		beq	.L4
+ 136 00f4 144B     		ldr	r3, .L6+12
+ 137 00f6 0022     		movs	r2, #0
+ 138 00f8 5A70     		strb	r2, [r3, #1]
+ 139 00fa 0022     		movs	r2, #0
+ 140 00fc 4FF40051 		mov	r1, #8192
+ 141 0100 1248     		ldr	r0, .L6+16
+ 142 0102 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 143 0106 0D22     		movs	r2, #13
+ 144 0108 0021     		movs	r1, #0
+ 145 010a 0120     		movs	r0, #1
+ 146 010c FFF7FEFF 		bl	SYS_LOG
+ 147 0110 07F58253 		add	r3, r7, #4160
+ 148 0114 03F10403 		add	r3, r3, #4
+ 149 0118 1B68     		ldr	r3, [r3]
+ 150 011a 09E0     		b	.L5
+ 151              	.L4:
+ 152 011c 0A4B     		ldr	r3, .L6+12
+ 153 011e 0122     		movs	r2, #1
+ 154 0120 5A70     		strb	r2, [r3, #1]
+ 155 0122 0122     		movs	r2, #1
+ 156 0124 4FF40051 		mov	r1, #8192
+ 157 0128 0848     		ldr	r0, .L6+16
+ 158 012a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 159 012e 0023     		movs	r3, #0
+ 160              	.L5:
+ 161 0130 1846     		mov	r0, r3
+ 162 0132 07F58257 		add	r7, r7, #4160
+ 163 0136 0837     		adds	r7, r7, #8
+ 164 0138 BD46     		mov	sp, r7
+ 165              		@ sp needed
+ARM GAS  C:\Users\user\AppData\Local\Temp\cct4ghzb.s 			page 4
+
+
+ 166 013a B0BD     		pop	{r4, r5, r7, pc}
+ 167              	.L7:
+ 168              		.align	2
+ 169              	.L6:
+ 170 013c 00000000 		.word	SD_BUFFER_ARR
+ 171 0140 00000000 		.word	SD_BUFFER
+ 172 0144 00000000 		.word	.LC0
+ 173 0148 00000000 		.word	sys_state
+ 174 014c 00100240 		.word	1073876992
+ 175 0150 04000000 		.word	.LC1
+ 176 0154 00000000 		.word	logname
+ 177 0158 00000000 		.word	logfile
+ 179              		.section	.text.SD_WRITE,"ax",%progbits
+ 180              		.align	1
+ 181              		.global	SD_WRITE
+ 182              		.syntax unified
+ 183              		.thumb
+ 184              		.thumb_func
+ 186              	SD_WRITE:
+ 187              		@ args = 0, pretend = 0, frame = 8
+ 188              		@ frame_needed = 1, uses_anonymous_args = 0
+ 189 0000 80B5     		push	{r7, lr}
+ 190 0002 82B0     		sub	sp, sp, #8
+ 191 0004 00AF     		add	r7, sp, #0
+ 192 0006 1E4B     		ldr	r3, .L15
+ 193 0008 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 194 000a 002B     		cmp	r3, #0
+ 195 000c 02D1     		bne	.L9
+ 196 000e 4FF0FF33 		mov	r3, #-1
+ 197 0012 30E0     		b	.L10
+ 198              	.L9:
+ 199 0014 1B48     		ldr	r0, .L15+4
+ 200 0016 FFF7FEFF 		bl	ring_buffer_is_empty
+ 201 001a 0346     		mov	r3, r0
+ 202 001c 002B     		cmp	r3, #0
+ 203 001e 02D0     		beq	.L11
+ 204 0020 4FF0FF33 		mov	r3, #-1
+ 205 0024 27E0     		b	.L10
+ 206              	.L11:
+ 207 0026 0023     		movs	r3, #0
+ 208 0028 7B60     		str	r3, [r7, #4]
+ 209 002a 0CE0     		b	.L12
+ 210              	.L13:
+ 211 002c 1022     		movs	r2, #16
+ 212 002e 1649     		ldr	r1, .L15+8
+ 213 0030 1448     		ldr	r0, .L15+4
+ 214 0032 FFF7FEFF 		bl	ring_buffer_dequeue_arr
+ 215 0036 154B     		ldr	r3, .L15+12
+ 216 0038 1022     		movs	r2, #16
+ 217 003a 1349     		ldr	r1, .L15+8
+ 218 003c 1448     		ldr	r0, .L15+16
+ 219 003e FFF7FEFF 		bl	f_write
+ 220 0042 0346     		mov	r3, r0
+ 221 0044 7B60     		str	r3, [r7, #4]
+ 222              	.L12:
+ 223 0046 0F48     		ldr	r0, .L15+4
+ 224 0048 FFF7FEFF 		bl	ring_buffer_is_empty
+ARM GAS  C:\Users\user\AppData\Local\Temp\cct4ghzb.s 			page 5
+
+
+ 225 004c 0346     		mov	r3, r0
+ 226 004e 002B     		cmp	r3, #0
+ 227 0050 ECD0     		beq	.L13
+ 228 0052 7B68     		ldr	r3, [r7, #4]
+ 229 0054 002B     		cmp	r3, #0
+ 230 0056 0DD0     		beq	.L14
+ 231 0058 094B     		ldr	r3, .L15
+ 232 005a 0022     		movs	r2, #0
+ 233 005c 5A70     		strb	r2, [r3, #1]
+ 234 005e 0022     		movs	r2, #0
+ 235 0060 4FF40051 		mov	r1, #8192
+ 236 0064 0B48     		ldr	r0, .L15+20
+ 237 0066 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 238 006a 0D22     		movs	r2, #13
+ 239 006c 0021     		movs	r1, #0
+ 240 006e 0120     		movs	r0, #1
+ 241 0070 FFF7FEFF 		bl	SYS_LOG
+ 242              	.L14:
+ 243 0074 7B68     		ldr	r3, [r7, #4]
+ 244              	.L10:
+ 245 0076 1846     		mov	r0, r3
+ 246 0078 0837     		adds	r7, r7, #8
+ 247 007a BD46     		mov	sp, r7
+ 248              		@ sp needed
+ 249 007c 80BD     		pop	{r7, pc}
+ 250              	.L16:
+ 251 007e 00BF     		.align	2
+ 252              	.L15:
+ 253 0080 00000000 		.word	sys_state
+ 254 0084 00000000 		.word	SD_BUFFER
+ 255 0088 00000000 		.word	syslog_buffer
+ 256 008c 00000000 		.word	written_count.0
+ 257 0090 00000000 		.word	logfile
+ 258 0094 00100240 		.word	1073876992
+ 260              		.section	.text.SD_SYNC,"ax",%progbits
+ 261              		.align	1
+ 262              		.global	SD_SYNC
+ 263              		.syntax unified
+ 264              		.thumb
+ 265              		.thumb_func
+ 267              	SD_SYNC:
+ 268              		@ args = 0, pretend = 0, frame = 8
+ 269              		@ frame_needed = 1, uses_anonymous_args = 0
+ 270 0000 80B5     		push	{r7, lr}
+ 271 0002 82B0     		sub	sp, sp, #8
+ 272 0004 00AF     		add	r7, sp, #0
+ 273 0006 114B     		ldr	r3, .L21
+ 274 0008 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 275 000a 002B     		cmp	r3, #0
+ 276 000c 02D1     		bne	.L18
+ 277 000e 4FF0FF33 		mov	r3, #-1
+ 278 0012 16E0     		b	.L19
+ 279              	.L18:
+ 280 0014 0E48     		ldr	r0, .L21+4
+ 281 0016 FFF7FEFF 		bl	f_sync
+ 282 001a 0346     		mov	r3, r0
+ 283 001c 7B60     		str	r3, [r7, #4]
+ARM GAS  C:\Users\user\AppData\Local\Temp\cct4ghzb.s 			page 6
+
+
+ 284 001e 7B68     		ldr	r3, [r7, #4]
+ 285 0020 002B     		cmp	r3, #0
+ 286 0022 0DD0     		beq	.L20
+ 287 0024 094B     		ldr	r3, .L21
+ 288 0026 0022     		movs	r2, #0
+ 289 0028 5A70     		strb	r2, [r3, #1]
+ 290 002a 0022     		movs	r2, #0
+ 291 002c 4FF40051 		mov	r1, #8192
+ 292 0030 0848     		ldr	r0, .L21+8
+ 293 0032 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 294 0036 0D22     		movs	r2, #13
+ 295 0038 0021     		movs	r1, #0
+ 296 003a 0120     		movs	r0, #1
+ 297 003c FFF7FEFF 		bl	SYS_LOG
+ 298              	.L20:
+ 299 0040 7B68     		ldr	r3, [r7, #4]
+ 300              	.L19:
+ 301 0042 1846     		mov	r0, r3
+ 302 0044 0837     		adds	r7, r7, #8
+ 303 0046 BD46     		mov	sp, r7
+ 304              		@ sp needed
+ 305 0048 80BD     		pop	{r7, pc}
+ 306              	.L22:
+ 307 004a 00BF     		.align	2
+ 308              	.L21:
+ 309 004c 00000000 		.word	sys_state
+ 310 0050 00000000 		.word	logfile
+ 311 0054 00100240 		.word	1073876992
+ 313              		.global	hsd
+ 314              		.section	.bss.hsd,"aw",%nobits
+ 315              		.align	2
+ 318              	hsd:
+ 319 0000 00000000 		.space	132
+ 319      00000000 
+ 319      00000000 
+ 319      00000000 
+ 319      00000000 
+ 320              		.global	hdma_sdio_rx
+ 321              		.section	.bss.hdma_sdio_rx,"aw",%nobits
+ 322              		.align	2
+ 325              	hdma_sdio_rx:
+ 326 0000 00000000 		.space	96
+ 326      00000000 
+ 326      00000000 
+ 326      00000000 
+ 326      00000000 
+ 327              		.global	hdma_sdio_tx
+ 328              		.section	.bss.hdma_sdio_tx,"aw",%nobits
+ 329              		.align	2
+ 332              	hdma_sdio_tx:
+ 333 0000 00000000 		.space	96
+ 333      00000000 
+ 333      00000000 
+ 333      00000000 
+ 333      00000000 
+ 334              		.section	.text.MX_SDIO_SD_Init,"ax",%progbits
+ 335              		.align	1
+ARM GAS  C:\Users\user\AppData\Local\Temp\cct4ghzb.s 			page 7
+
+
+ 336              		.global	MX_SDIO_SD_Init
+ 337              		.syntax unified
+ 338              		.thumb
+ 339              		.thumb_func
+ 341              	MX_SDIO_SD_Init:
+ 342              		@ args = 0, pretend = 0, frame = 0
+ 343              		@ frame_needed = 1, uses_anonymous_args = 0
+ 344              		@ link register save eliminated.
+ 345 0000 80B4     		push	{r7}
+ 346 0002 00AF     		add	r7, sp, #0
+ 347 0004 0D4B     		ldr	r3, .L24
+ 348 0006 0E4A     		ldr	r2, .L24+4
+ 349 0008 1A60     		str	r2, [r3]
+ 350 000a 0C4B     		ldr	r3, .L24
+ 351 000c 0022     		movs	r2, #0
+ 352 000e 5A60     		str	r2, [r3, #4]
+ 353 0010 0A4B     		ldr	r3, .L24
+ 354 0012 0022     		movs	r2, #0
+ 355 0014 9A60     		str	r2, [r3, #8]
+ 356 0016 094B     		ldr	r3, .L24
+ 357 0018 0022     		movs	r2, #0
+ 358 001a DA60     		str	r2, [r3, #12]
+ 359 001c 074B     		ldr	r3, .L24
+ 360 001e 0022     		movs	r2, #0
+ 361 0020 1A61     		str	r2, [r3, #16]
+ 362 0022 064B     		ldr	r3, .L24
+ 363 0024 4FF48042 		mov	r2, #16384
+ 364 0028 5A61     		str	r2, [r3, #20]
+ 365 002a 044B     		ldr	r3, .L24
+ 366 002c 0C22     		movs	r2, #12
+ 367 002e 9A61     		str	r2, [r3, #24]
+ 368 0030 00BF     		nop
+ 369 0032 BD46     		mov	sp, r7
+ 370              		@ sp needed
+ 371 0034 5DF8047B 		ldr	r7, [sp], #4
+ 372 0038 7047     		bx	lr
+ 373              	.L25:
+ 374 003a 00BF     		.align	2
+ 375              	.L24:
+ 376 003c 00000000 		.word	hsd
+ 377 0040 002C0140 		.word	1073818624
+ 379              		.section	.text.HAL_SD_MspInit,"ax",%progbits
+ 380              		.align	1
+ 381              		.global	HAL_SD_MspInit
+ 382              		.syntax unified
+ 383              		.thumb
+ 384              		.thumb_func
+ 386              	HAL_SD_MspInit:
+ 387              		@ args = 0, pretend = 0, frame = 40
+ 388              		@ frame_needed = 1, uses_anonymous_args = 0
+ 389 0000 80B5     		push	{r7, lr}
+ 390 0002 8AB0     		sub	sp, sp, #40
+ 391 0004 00AF     		add	r7, sp, #0
+ 392 0006 7860     		str	r0, [r7, #4]
+ 393 0008 07F11403 		add	r3, r7, #20
+ 394 000c 0022     		movs	r2, #0
+ 395 000e 1A60     		str	r2, [r3]
+ARM GAS  C:\Users\user\AppData\Local\Temp\cct4ghzb.s 			page 8
+
+
+ 396 0010 5A60     		str	r2, [r3, #4]
+ 397 0012 9A60     		str	r2, [r3, #8]
+ 398 0014 DA60     		str	r2, [r3, #12]
+ 399 0016 1A61     		str	r2, [r3, #16]
+ 400 0018 7B68     		ldr	r3, [r7, #4]
+ 401 001a 1B68     		ldr	r3, [r3]
+ 402 001c 704A     		ldr	r2, .L31
+ 403 001e 9342     		cmp	r3, r2
+ 404 0020 40F0DA80 		bne	.L30
+ 405 0024 0023     		movs	r3, #0
+ 406 0026 3B61     		str	r3, [r7, #16]
+ 407 0028 6E4B     		ldr	r3, .L31+4
+ 408 002a 5B6C     		ldr	r3, [r3, #68]
+ 409 002c 6D4A     		ldr	r2, .L31+4
+ 410 002e 43F40063 		orr	r3, r3, #2048
+ 411 0032 5364     		str	r3, [r2, #68]
+ 412 0034 6B4B     		ldr	r3, .L31+4
+ 413 0036 5B6C     		ldr	r3, [r3, #68]
+ 414 0038 03F40063 		and	r3, r3, #2048
+ 415 003c 3B61     		str	r3, [r7, #16]
+ 416 003e 3B69     		ldr	r3, [r7, #16]
+ 417 0040 0023     		movs	r3, #0
+ 418 0042 FB60     		str	r3, [r7, #12]
+ 419 0044 674B     		ldr	r3, .L31+4
+ 420 0046 1B6B     		ldr	r3, [r3, #48]
+ 421 0048 664A     		ldr	r2, .L31+4
+ 422 004a 43F00403 		orr	r3, r3, #4
+ 423 004e 1363     		str	r3, [r2, #48]
+ 424 0050 644B     		ldr	r3, .L31+4
+ 425 0052 1B6B     		ldr	r3, [r3, #48]
+ 426 0054 03F00403 		and	r3, r3, #4
+ 427 0058 FB60     		str	r3, [r7, #12]
+ 428 005a FB68     		ldr	r3, [r7, #12]
+ 429 005c 0023     		movs	r3, #0
+ 430 005e BB60     		str	r3, [r7, #8]
+ 431 0060 604B     		ldr	r3, .L31+4
+ 432 0062 1B6B     		ldr	r3, [r3, #48]
+ 433 0064 5F4A     		ldr	r2, .L31+4
+ 434 0066 43F00803 		orr	r3, r3, #8
+ 435 006a 1363     		str	r3, [r2, #48]
+ 436 006c 5D4B     		ldr	r3, .L31+4
+ 437 006e 1B6B     		ldr	r3, [r3, #48]
+ 438 0070 03F00803 		and	r3, r3, #8
+ 439 0074 BB60     		str	r3, [r7, #8]
+ 440 0076 BB68     		ldr	r3, [r7, #8]
+ 441 0078 4FF48073 		mov	r3, #256
+ 442 007c 7B61     		str	r3, [r7, #20]
+ 443 007e 0223     		movs	r3, #2
+ 444 0080 BB61     		str	r3, [r7, #24]
+ 445 0082 0123     		movs	r3, #1
+ 446 0084 FB61     		str	r3, [r7, #28]
+ 447 0086 0323     		movs	r3, #3
+ 448 0088 3B62     		str	r3, [r7, #32]
+ 449 008a 0C23     		movs	r3, #12
+ 450 008c 7B62     		str	r3, [r7, #36]
+ 451 008e 07F11403 		add	r3, r7, #20
+ 452 0092 1946     		mov	r1, r3
+ARM GAS  C:\Users\user\AppData\Local\Temp\cct4ghzb.s 			page 9
+
+
+ 453 0094 5448     		ldr	r0, .L31+8
+ 454 0096 FFF7FEFF 		bl	HAL_GPIO_Init
+ 455 009a 4FF48053 		mov	r3, #4096
+ 456 009e 7B61     		str	r3, [r7, #20]
+ 457 00a0 0223     		movs	r3, #2
+ 458 00a2 BB61     		str	r3, [r7, #24]
+ 459 00a4 0023     		movs	r3, #0
+ 460 00a6 FB61     		str	r3, [r7, #28]
+ 461 00a8 0323     		movs	r3, #3
+ 462 00aa 3B62     		str	r3, [r7, #32]
+ 463 00ac 0C23     		movs	r3, #12
+ 464 00ae 7B62     		str	r3, [r7, #36]
+ 465 00b0 07F11403 		add	r3, r7, #20
+ 466 00b4 1946     		mov	r1, r3
+ 467 00b6 4C48     		ldr	r0, .L31+8
+ 468 00b8 FFF7FEFF 		bl	HAL_GPIO_Init
+ 469 00bc 0423     		movs	r3, #4
+ 470 00be 7B61     		str	r3, [r7, #20]
+ 471 00c0 0223     		movs	r3, #2
+ 472 00c2 BB61     		str	r3, [r7, #24]
+ 473 00c4 0123     		movs	r3, #1
+ 474 00c6 FB61     		str	r3, [r7, #28]
+ 475 00c8 0323     		movs	r3, #3
+ 476 00ca 3B62     		str	r3, [r7, #32]
+ 477 00cc 0C23     		movs	r3, #12
+ 478 00ce 7B62     		str	r3, [r7, #36]
+ 479 00d0 07F11403 		add	r3, r7, #20
+ 480 00d4 1946     		mov	r1, r3
+ 481 00d6 4548     		ldr	r0, .L31+12
+ 482 00d8 FFF7FEFF 		bl	HAL_GPIO_Init
+ 483 00dc 444B     		ldr	r3, .L31+16
+ 484 00de 454A     		ldr	r2, .L31+20
+ 485 00e0 1A60     		str	r2, [r3]
+ 486 00e2 434B     		ldr	r3, .L31+16
+ 487 00e4 4FF00062 		mov	r2, #134217728
+ 488 00e8 5A60     		str	r2, [r3, #4]
+ 489 00ea 414B     		ldr	r3, .L31+16
+ 490 00ec 0022     		movs	r2, #0
+ 491 00ee 9A60     		str	r2, [r3, #8]
+ 492 00f0 3F4B     		ldr	r3, .L31+16
+ 493 00f2 0022     		movs	r2, #0
+ 494 00f4 DA60     		str	r2, [r3, #12]
+ 495 00f6 3E4B     		ldr	r3, .L31+16
+ 496 00f8 4FF48062 		mov	r2, #1024
+ 497 00fc 1A61     		str	r2, [r3, #16]
+ 498 00fe 3C4B     		ldr	r3, .L31+16
+ 499 0100 4FF48052 		mov	r2, #4096
+ 500 0104 5A61     		str	r2, [r3, #20]
+ 501 0106 3A4B     		ldr	r3, .L31+16
+ 502 0108 4FF48042 		mov	r2, #16384
+ 503 010c 9A61     		str	r2, [r3, #24]
+ 504 010e 384B     		ldr	r3, .L31+16
+ 505 0110 2022     		movs	r2, #32
+ 506 0112 DA61     		str	r2, [r3, #28]
+ 507 0114 364B     		ldr	r3, .L31+16
+ 508 0116 0022     		movs	r2, #0
+ 509 0118 1A62     		str	r2, [r3, #32]
+ARM GAS  C:\Users\user\AppData\Local\Temp\cct4ghzb.s 			page 10
+
+
+ 510 011a 354B     		ldr	r3, .L31+16
+ 511 011c 0422     		movs	r2, #4
+ 512 011e 5A62     		str	r2, [r3, #36]
+ 513 0120 334B     		ldr	r3, .L31+16
+ 514 0122 0322     		movs	r2, #3
+ 515 0124 9A62     		str	r2, [r3, #40]
+ 516 0126 324B     		ldr	r3, .L31+16
+ 517 0128 4FF40002 		mov	r2, #8388608
+ 518 012c DA62     		str	r2, [r3, #44]
+ 519 012e 304B     		ldr	r3, .L31+16
+ 520 0130 4FF40012 		mov	r2, #2097152
+ 521 0134 1A63     		str	r2, [r3, #48]
+ 522 0136 2E48     		ldr	r0, .L31+16
+ 523 0138 FFF7FEFF 		bl	HAL_DMA_Init
+ 524 013c 0346     		mov	r3, r0
+ 525 013e 002B     		cmp	r3, #0
+ 526 0140 01D0     		beq	.L28
+ 527 0142 FFF7FEFF 		bl	Error_Handler
+ 528              	.L28:
+ 529 0146 7B68     		ldr	r3, [r7, #4]
+ 530 0148 294A     		ldr	r2, .L31+16
+ 531 014a 1A64     		str	r2, [r3, #64]
+ 532 014c 284A     		ldr	r2, .L31+16
+ 533 014e 7B68     		ldr	r3, [r7, #4]
+ 534 0150 9363     		str	r3, [r2, #56]
+ 535 0152 294B     		ldr	r3, .L31+24
+ 536 0154 294A     		ldr	r2, .L31+28
+ 537 0156 1A60     		str	r2, [r3]
+ 538 0158 274B     		ldr	r3, .L31+24
+ 539 015a 4FF00062 		mov	r2, #134217728
+ 540 015e 5A60     		str	r2, [r3, #4]
+ 541 0160 254B     		ldr	r3, .L31+24
+ 542 0162 4022     		movs	r2, #64
+ 543 0164 9A60     		str	r2, [r3, #8]
+ 544 0166 244B     		ldr	r3, .L31+24
+ 545 0168 0022     		movs	r2, #0
+ 546 016a DA60     		str	r2, [r3, #12]
+ 547 016c 224B     		ldr	r3, .L31+24
+ 548 016e 4FF48062 		mov	r2, #1024
+ 549 0172 1A61     		str	r2, [r3, #16]
+ 550 0174 204B     		ldr	r3, .L31+24
+ 551 0176 4FF48052 		mov	r2, #4096
+ 552 017a 5A61     		str	r2, [r3, #20]
+ 553 017c 1E4B     		ldr	r3, .L31+24
+ 554 017e 4FF48042 		mov	r2, #16384
+ 555 0182 9A61     		str	r2, [r3, #24]
+ 556 0184 1C4B     		ldr	r3, .L31+24
+ 557 0186 2022     		movs	r2, #32
+ 558 0188 DA61     		str	r2, [r3, #28]
+ 559 018a 1B4B     		ldr	r3, .L31+24
+ 560 018c 0022     		movs	r2, #0
+ 561 018e 1A62     		str	r2, [r3, #32]
+ 562 0190 194B     		ldr	r3, .L31+24
+ 563 0192 0422     		movs	r2, #4
+ 564 0194 5A62     		str	r2, [r3, #36]
+ 565 0196 184B     		ldr	r3, .L31+24
+ 566 0198 0322     		movs	r2, #3
+ARM GAS  C:\Users\user\AppData\Local\Temp\cct4ghzb.s 			page 11
+
+
+ 567 019a 9A62     		str	r2, [r3, #40]
+ 568 019c 164B     		ldr	r3, .L31+24
+ 569 019e 4FF40002 		mov	r2, #8388608
+ 570 01a2 DA62     		str	r2, [r3, #44]
+ 571 01a4 144B     		ldr	r3, .L31+24
+ 572 01a6 4FF40012 		mov	r2, #2097152
+ 573 01aa 1A63     		str	r2, [r3, #48]
+ 574 01ac 1248     		ldr	r0, .L31+24
+ 575 01ae FFF7FEFF 		bl	HAL_DMA_Init
+ 576 01b2 0346     		mov	r3, r0
+ 577 01b4 002B     		cmp	r3, #0
+ 578 01b6 01D0     		beq	.L29
+ 579 01b8 FFF7FEFF 		bl	Error_Handler
+ 580              	.L29:
+ 581 01bc 7B68     		ldr	r3, [r7, #4]
+ 582 01be 0E4A     		ldr	r2, .L31+24
+ 583 01c0 DA63     		str	r2, [r3, #60]
+ 584 01c2 0D4A     		ldr	r2, .L31+24
+ 585 01c4 7B68     		ldr	r3, [r7, #4]
+ 586 01c6 9363     		str	r3, [r2, #56]
+ 587 01c8 0022     		movs	r2, #0
+ 588 01ca 0021     		movs	r1, #0
+ 589 01cc 3120     		movs	r0, #49
+ 590 01ce FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 591 01d2 3120     		movs	r0, #49
+ 592 01d4 FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 593              	.L30:
+ 594 01d8 00BF     		nop
+ 595 01da 2837     		adds	r7, r7, #40
+ 596 01dc BD46     		mov	sp, r7
+ 597              		@ sp needed
+ 598 01de 80BD     		pop	{r7, pc}
+ 599              	.L32:
+ 600              		.align	2
+ 601              	.L31:
+ 602 01e0 002C0140 		.word	1073818624
+ 603 01e4 00380240 		.word	1073887232
+ 604 01e8 00080240 		.word	1073874944
+ 605 01ec 000C0240 		.word	1073875968
+ 606 01f0 00000000 		.word	hdma_sdio_rx
+ 607 01f4 A0640240 		.word	1073898656
+ 608 01f8 00000000 		.word	hdma_sdio_tx
+ 609 01fc 58640240 		.word	1073898584
+ 611              		.section	.text.HAL_SD_MspDeInit,"ax",%progbits
+ 612              		.align	1
+ 613              		.global	HAL_SD_MspDeInit
+ 614              		.syntax unified
+ 615              		.thumb
+ 616              		.thumb_func
+ 618              	HAL_SD_MspDeInit:
+ 619              		@ args = 0, pretend = 0, frame = 8
+ 620              		@ frame_needed = 1, uses_anonymous_args = 0
+ 621 0000 80B5     		push	{r7, lr}
+ 622 0002 82B0     		sub	sp, sp, #8
+ 623 0004 00AF     		add	r7, sp, #0
+ 624 0006 7860     		str	r0, [r7, #4]
+ 625 0008 7B68     		ldr	r3, [r7, #4]
+ARM GAS  C:\Users\user\AppData\Local\Temp\cct4ghzb.s 			page 12
+
+
+ 626 000a 1B68     		ldr	r3, [r3]
+ 627 000c 114A     		ldr	r2, .L36
+ 628 000e 9342     		cmp	r3, r2
+ 629 0010 1BD1     		bne	.L35
+ 630 0012 114B     		ldr	r3, .L36+4
+ 631 0014 5B6C     		ldr	r3, [r3, #68]
+ 632 0016 104A     		ldr	r2, .L36+4
+ 633 0018 23F40063 		bic	r3, r3, #2048
+ 634 001c 5364     		str	r3, [r2, #68]
+ 635 001e 4FF48851 		mov	r1, #4352
+ 636 0022 0E48     		ldr	r0, .L36+8
+ 637 0024 FFF7FEFF 		bl	HAL_GPIO_DeInit
+ 638 0028 0421     		movs	r1, #4
+ 639 002a 0D48     		ldr	r0, .L36+12
+ 640 002c FFF7FEFF 		bl	HAL_GPIO_DeInit
+ 641 0030 7B68     		ldr	r3, [r7, #4]
+ 642 0032 1B6C     		ldr	r3, [r3, #64]
+ 643 0034 1846     		mov	r0, r3
+ 644 0036 FFF7FEFF 		bl	HAL_DMA_DeInit
+ 645 003a 7B68     		ldr	r3, [r7, #4]
+ 646 003c DB6B     		ldr	r3, [r3, #60]
+ 647 003e 1846     		mov	r0, r3
+ 648 0040 FFF7FEFF 		bl	HAL_DMA_DeInit
+ 649 0044 3120     		movs	r0, #49
+ 650 0046 FFF7FEFF 		bl	HAL_NVIC_DisableIRQ
+ 651              	.L35:
+ 652 004a 00BF     		nop
+ 653 004c 0837     		adds	r7, r7, #8
+ 654 004e BD46     		mov	sp, r7
+ 655              		@ sp needed
+ 656 0050 80BD     		pop	{r7, pc}
+ 657              	.L37:
+ 658 0052 00BF     		.align	2
+ 659              	.L36:
+ 660 0054 002C0140 		.word	1073818624
+ 661 0058 00380240 		.word	1073887232
+ 662 005c 00080240 		.word	1073874944
+ 663 0060 000C0240 		.word	1073875968
+ 665              		.section	.bss.written_count.0,"aw",%nobits
+ 666              		.align	2
+ 669              	written_count.0:
+ 670 0000 00000000 		.space	4
+ 671              		.ident	"GCC: (GNU Tools for STM32 12.3.rel1.20240306-1730) 12.3.1 20230626"
+ARM GAS  C:\Users\user\AppData\Local\Temp\cct4ghzb.s 			page 13
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 sdio.c
+C:\Users\user\AppData\Local\Temp\cct4ghzb.s:22     .bss.logname:00000000 logname
+C:\Users\user\AppData\Local\Temp\cct4ghzb.s:19     .bss.logname:00000000 $d
+C:\Users\user\AppData\Local\Temp\cct4ghzb.s:29     .bss.syslog_buffer:00000000 syslog_buffer
+C:\Users\user\AppData\Local\Temp\cct4ghzb.s:26     .bss.syslog_buffer:00000000 $d
+C:\Users\user\AppData\Local\Temp\cct4ghzb.s:32     .rodata:00000000 $d
+C:\Users\user\AppData\Local\Temp\cct4ghzb.s:39     .text.SD_SETUP:00000000 $t
+C:\Users\user\AppData\Local\Temp\cct4ghzb.s:45     .text.SD_SETUP:00000000 SD_SETUP
+C:\Users\user\AppData\Local\Temp\cct4ghzb.s:170    .text.SD_SETUP:0000013c $d
+C:\Users\user\AppData\Local\Temp\cct4ghzb.s:180    .text.SD_WRITE:00000000 $t
+C:\Users\user\AppData\Local\Temp\cct4ghzb.s:186    .text.SD_WRITE:00000000 SD_WRITE
+C:\Users\user\AppData\Local\Temp\cct4ghzb.s:253    .text.SD_WRITE:00000080 $d
+C:\Users\user\AppData\Local\Temp\cct4ghzb.s:669    .bss.written_count.0:00000000 written_count.0
+C:\Users\user\AppData\Local\Temp\cct4ghzb.s:261    .text.SD_SYNC:00000000 $t
+C:\Users\user\AppData\Local\Temp\cct4ghzb.s:267    .text.SD_SYNC:00000000 SD_SYNC
+C:\Users\user\AppData\Local\Temp\cct4ghzb.s:309    .text.SD_SYNC:0000004c $d
+C:\Users\user\AppData\Local\Temp\cct4ghzb.s:318    .bss.hsd:00000000 hsd
+C:\Users\user\AppData\Local\Temp\cct4ghzb.s:315    .bss.hsd:00000000 $d
+C:\Users\user\AppData\Local\Temp\cct4ghzb.s:325    .bss.hdma_sdio_rx:00000000 hdma_sdio_rx
+C:\Users\user\AppData\Local\Temp\cct4ghzb.s:322    .bss.hdma_sdio_rx:00000000 $d
+C:\Users\user\AppData\Local\Temp\cct4ghzb.s:332    .bss.hdma_sdio_tx:00000000 hdma_sdio_tx
+C:\Users\user\AppData\Local\Temp\cct4ghzb.s:329    .bss.hdma_sdio_tx:00000000 $d
+C:\Users\user\AppData\Local\Temp\cct4ghzb.s:335    .text.MX_SDIO_SD_Init:00000000 $t
+C:\Users\user\AppData\Local\Temp\cct4ghzb.s:341    .text.MX_SDIO_SD_Init:00000000 MX_SDIO_SD_Init
+C:\Users\user\AppData\Local\Temp\cct4ghzb.s:376    .text.MX_SDIO_SD_Init:0000003c $d
+C:\Users\user\AppData\Local\Temp\cct4ghzb.s:380    .text.HAL_SD_MspInit:00000000 $t
+C:\Users\user\AppData\Local\Temp\cct4ghzb.s:386    .text.HAL_SD_MspInit:00000000 HAL_SD_MspInit
+C:\Users\user\AppData\Local\Temp\cct4ghzb.s:602    .text.HAL_SD_MspInit:000001e0 $d
+C:\Users\user\AppData\Local\Temp\cct4ghzb.s:612    .text.HAL_SD_MspDeInit:00000000 $t
+C:\Users\user\AppData\Local\Temp\cct4ghzb.s:618    .text.HAL_SD_MspDeInit:00000000 HAL_SD_MspDeInit
+C:\Users\user\AppData\Local\Temp\cct4ghzb.s:660    .text.HAL_SD_MspDeInit:00000054 $d
+C:\Users\user\AppData\Local\Temp\cct4ghzb.s:666    .bss.written_count.0:00000000 $d
+
+UNDEFINED SYMBOLS
+ring_buffer_init
+disk_initialize
+f_mount
+HAL_GPIO_WritePin
+SYS_LOG
+sprintf
+f_open
+SD_BUFFER_ARR
+SD_BUFFER
+sys_state
+logfile
+ring_buffer_is_empty
+ring_buffer_dequeue_arr
+f_write
+f_sync
+HAL_GPIO_Init
+HAL_DMA_Init
+Error_Handler
+HAL_NVIC_SetPriority
+HAL_NVIC_EnableIRQ
+HAL_GPIO_DeInit
+HAL_DMA_DeInit
+ARM GAS  C:\Users\user\AppData\Local\Temp\cct4ghzb.s 			page 14
+
+
+HAL_NVIC_DisableIRQ

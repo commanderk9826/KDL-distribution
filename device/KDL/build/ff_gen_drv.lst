@@ -1,0 +1,287 @@
+ARM GAS  C:\Users\user\AppData\Local\Temp\cc4RpNdh.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"ff_gen_drv.c"
+  16              		.text
+  17              		.global	disk
+  18              		.section	.bss.disk,"aw",%nobits
+  19              		.align	2
+  22              	disk:
+  23 0000 00000000 		.space	12
+  23      00000000 
+  23      00000000 
+  24              		.section	.text.FATFS_LinkDriverEx,"ax",%progbits
+  25              		.align	1
+  26              		.global	FATFS_LinkDriverEx
+  27              		.syntax unified
+  28              		.thumb
+  29              		.thumb_func
+  31              	FATFS_LinkDriverEx:
+  32              		@ args = 0, pretend = 0, frame = 24
+  33              		@ frame_needed = 1, uses_anonymous_args = 0
+  34              		@ link register save eliminated.
+  35 0000 80B4     		push	{r7}
+  36 0002 87B0     		sub	sp, sp, #28
+  37 0004 00AF     		add	r7, sp, #0
+  38 0006 F860     		str	r0, [r7, #12]
+  39 0008 B960     		str	r1, [r7, #8]
+  40 000a 1346     		mov	r3, r2
+  41 000c FB71     		strb	r3, [r7, #7]
+  42 000e 0123     		movs	r3, #1
+  43 0010 FB75     		strb	r3, [r7, #23]
+  44 0012 0023     		movs	r3, #0
+  45 0014 BB75     		strb	r3, [r7, #22]
+  46 0016 1F4B     		ldr	r3, .L4
+  47 0018 5B7A     		ldrb	r3, [r3, #9]
+  48 001a DBB2     		uxtb	r3, r3
+  49 001c 002B     		cmp	r3, #0
+  50 001e 31D1     		bne	.L2
+  51 0020 1C4B     		ldr	r3, .L4
+  52 0022 5B7A     		ldrb	r3, [r3, #9]
+  53 0024 DBB2     		uxtb	r3, r3
+  54 0026 1A46     		mov	r2, r3
+  55 0028 1A4B     		ldr	r3, .L4
+  56 002a 0021     		movs	r1, #0
+  57 002c 9954     		strb	r1, [r3, r2]
+  58 002e 194B     		ldr	r3, .L4
+ARM GAS  C:\Users\user\AppData\Local\Temp\cc4RpNdh.s 			page 2
+
+
+  59 0030 5B7A     		ldrb	r3, [r3, #9]
+  60 0032 DBB2     		uxtb	r3, r3
+  61 0034 174A     		ldr	r2, .L4
+  62 0036 9B00     		lsls	r3, r3, #2
+  63 0038 1344     		add	r3, r3, r2
+  64 003a FA68     		ldr	r2, [r7, #12]
+  65 003c 5A60     		str	r2, [r3, #4]
+  66 003e 154B     		ldr	r3, .L4
+  67 0040 5B7A     		ldrb	r3, [r3, #9]
+  68 0042 DBB2     		uxtb	r3, r3
+  69 0044 1A46     		mov	r2, r3
+  70 0046 134B     		ldr	r3, .L4
+  71 0048 1344     		add	r3, r3, r2
+  72 004a FA79     		ldrb	r2, [r7, #7]
+  73 004c 1A72     		strb	r2, [r3, #8]
+  74 004e 114B     		ldr	r3, .L4
+  75 0050 5B7A     		ldrb	r3, [r3, #9]
+  76 0052 DBB2     		uxtb	r3, r3
+  77 0054 5A1C     		adds	r2, r3, #1
+  78 0056 D1B2     		uxtb	r1, r2
+  79 0058 0E4A     		ldr	r2, .L4
+  80 005a 5172     		strb	r1, [r2, #9]
+  81 005c BB75     		strb	r3, [r7, #22]
+  82 005e BB7D     		ldrb	r3, [r7, #22]
+  83 0060 3033     		adds	r3, r3, #48
+  84 0062 DAB2     		uxtb	r2, r3
+  85 0064 BB68     		ldr	r3, [r7, #8]
+  86 0066 1A70     		strb	r2, [r3]
+  87 0068 BB68     		ldr	r3, [r7, #8]
+  88 006a 0133     		adds	r3, r3, #1
+  89 006c 3A22     		movs	r2, #58
+  90 006e 1A70     		strb	r2, [r3]
+  91 0070 BB68     		ldr	r3, [r7, #8]
+  92 0072 0233     		adds	r3, r3, #2
+  93 0074 2F22     		movs	r2, #47
+  94 0076 1A70     		strb	r2, [r3]
+  95 0078 BB68     		ldr	r3, [r7, #8]
+  96 007a 0333     		adds	r3, r3, #3
+  97 007c 0022     		movs	r2, #0
+  98 007e 1A70     		strb	r2, [r3]
+  99 0080 0023     		movs	r3, #0
+ 100 0082 FB75     		strb	r3, [r7, #23]
+ 101              	.L2:
+ 102 0084 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 103 0086 1846     		mov	r0, r3
+ 104 0088 1C37     		adds	r7, r7, #28
+ 105 008a BD46     		mov	sp, r7
+ 106              		@ sp needed
+ 107 008c 5DF8047B 		ldr	r7, [sp], #4
+ 108 0090 7047     		bx	lr
+ 109              	.L5:
+ 110 0092 00BF     		.align	2
+ 111              	.L4:
+ 112 0094 00000000 		.word	disk
+ 114              		.section	.text.FATFS_LinkDriver,"ax",%progbits
+ 115              		.align	1
+ 116              		.global	FATFS_LinkDriver
+ARM GAS  C:\Users\user\AppData\Local\Temp\cc4RpNdh.s 			page 3
+
+
+ 117              		.syntax unified
+ 118              		.thumb
+ 119              		.thumb_func
+ 121              	FATFS_LinkDriver:
+ 122              		@ args = 0, pretend = 0, frame = 8
+ 123              		@ frame_needed = 1, uses_anonymous_args = 0
+ 124 0000 80B5     		push	{r7, lr}
+ 125 0002 82B0     		sub	sp, sp, #8
+ 126 0004 00AF     		add	r7, sp, #0
+ 127 0006 7860     		str	r0, [r7, #4]
+ 128 0008 3960     		str	r1, [r7]
+ 129 000a 0022     		movs	r2, #0
+ 130 000c 3968     		ldr	r1, [r7]
+ 131 000e 7868     		ldr	r0, [r7, #4]
+ 132 0010 FFF7FEFF 		bl	FATFS_LinkDriverEx
+ 133 0014 0346     		mov	r3, r0
+ 134 0016 1846     		mov	r0, r3
+ 135 0018 0837     		adds	r7, r7, #8
+ 136 001a BD46     		mov	sp, r7
+ 137              		@ sp needed
+ 138 001c 80BD     		pop	{r7, pc}
+ 140              		.section	.text.FATFS_UnLinkDriverEx,"ax",%progbits
+ 141              		.align	1
+ 142              		.global	FATFS_UnLinkDriverEx
+ 143              		.syntax unified
+ 144              		.thumb
+ 145              		.thumb_func
+ 147              	FATFS_UnLinkDriverEx:
+ 148              		@ args = 0, pretend = 0, frame = 16
+ 149              		@ frame_needed = 1, uses_anonymous_args = 0
+ 150              		@ link register save eliminated.
+ 151 0000 80B4     		push	{r7}
+ 152 0002 85B0     		sub	sp, sp, #20
+ 153 0004 00AF     		add	r7, sp, #0
+ 154 0006 7860     		str	r0, [r7, #4]
+ 155 0008 0B46     		mov	r3, r1
+ 156 000a FB70     		strb	r3, [r7, #3]
+ 157 000c 0023     		movs	r3, #0
+ 158 000e BB73     		strb	r3, [r7, #14]
+ 159 0010 0123     		movs	r3, #1
+ 160 0012 FB73     		strb	r3, [r7, #15]
+ 161 0014 154B     		ldr	r3, .L11
+ 162 0016 5B7A     		ldrb	r3, [r3, #9]
+ 163 0018 DBB2     		uxtb	r3, r3
+ 164 001a 002B     		cmp	r3, #0
+ 165 001c 1ED0     		beq	.L9
+ 166 001e 7B68     		ldr	r3, [r7, #4]
+ 167 0020 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 168 0022 303B     		subs	r3, r3, #48
+ 169 0024 BB73     		strb	r3, [r7, #14]
+ 170 0026 BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 171 0028 104A     		ldr	r2, .L11
+ 172 002a 9B00     		lsls	r3, r3, #2
+ 173 002c 1344     		add	r3, r3, r2
+ 174 002e 5B68     		ldr	r3, [r3, #4]
+ 175 0030 002B     		cmp	r3, #0
+ 176 0032 13D0     		beq	.L9
+ARM GAS  C:\Users\user\AppData\Local\Temp\cc4RpNdh.s 			page 4
+
+
+ 177 0034 BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 178 0036 0D4A     		ldr	r2, .L11
+ 179 0038 9B00     		lsls	r3, r3, #2
+ 180 003a 1344     		add	r3, r3, r2
+ 181 003c 0022     		movs	r2, #0
+ 182 003e 5A60     		str	r2, [r3, #4]
+ 183 0040 BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 184 0042 0A4A     		ldr	r2, .L11
+ 185 0044 1344     		add	r3, r3, r2
+ 186 0046 0022     		movs	r2, #0
+ 187 0048 1A72     		strb	r2, [r3, #8]
+ 188 004a 084B     		ldr	r3, .L11
+ 189 004c 5B7A     		ldrb	r3, [r3, #9]
+ 190 004e DBB2     		uxtb	r3, r3
+ 191 0050 013B     		subs	r3, r3, #1
+ 192 0052 DAB2     		uxtb	r2, r3
+ 193 0054 054B     		ldr	r3, .L11
+ 194 0056 5A72     		strb	r2, [r3, #9]
+ 195 0058 0023     		movs	r3, #0
+ 196 005a FB73     		strb	r3, [r7, #15]
+ 197              	.L9:
+ 198 005c FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 199 005e 1846     		mov	r0, r3
+ 200 0060 1437     		adds	r7, r7, #20
+ 201 0062 BD46     		mov	sp, r7
+ 202              		@ sp needed
+ 203 0064 5DF8047B 		ldr	r7, [sp], #4
+ 204 0068 7047     		bx	lr
+ 205              	.L12:
+ 206 006a 00BF     		.align	2
+ 207              	.L11:
+ 208 006c 00000000 		.word	disk
+ 210              		.section	.text.FATFS_UnLinkDriver,"ax",%progbits
+ 211              		.align	1
+ 212              		.global	FATFS_UnLinkDriver
+ 213              		.syntax unified
+ 214              		.thumb
+ 215              		.thumb_func
+ 217              	FATFS_UnLinkDriver:
+ 218              		@ args = 0, pretend = 0, frame = 8
+ 219              		@ frame_needed = 1, uses_anonymous_args = 0
+ 220 0000 80B5     		push	{r7, lr}
+ 221 0002 82B0     		sub	sp, sp, #8
+ 222 0004 00AF     		add	r7, sp, #0
+ 223 0006 7860     		str	r0, [r7, #4]
+ 224 0008 0021     		movs	r1, #0
+ 225 000a 7868     		ldr	r0, [r7, #4]
+ 226 000c FFF7FEFF 		bl	FATFS_UnLinkDriverEx
+ 227 0010 0346     		mov	r3, r0
+ 228 0012 1846     		mov	r0, r3
+ 229 0014 0837     		adds	r7, r7, #8
+ 230 0016 BD46     		mov	sp, r7
+ 231              		@ sp needed
+ 232 0018 80BD     		pop	{r7, pc}
+ 234              		.section	.text.FATFS_GetAttachedDriversNbr,"ax",%progbits
+ 235              		.align	1
+ 236              		.global	FATFS_GetAttachedDriversNbr
+ARM GAS  C:\Users\user\AppData\Local\Temp\cc4RpNdh.s 			page 5
+
+
+ 237              		.syntax unified
+ 238              		.thumb
+ 239              		.thumb_func
+ 241              	FATFS_GetAttachedDriversNbr:
+ 242              		@ args = 0, pretend = 0, frame = 0
+ 243              		@ frame_needed = 1, uses_anonymous_args = 0
+ 244              		@ link register save eliminated.
+ 245 0000 80B4     		push	{r7}
+ 246 0002 00AF     		add	r7, sp, #0
+ 247 0004 034B     		ldr	r3, .L17
+ 248 0006 5B7A     		ldrb	r3, [r3, #9]
+ 249 0008 DBB2     		uxtb	r3, r3
+ 250 000a 1846     		mov	r0, r3
+ 251 000c BD46     		mov	sp, r7
+ 252              		@ sp needed
+ 253 000e 5DF8047B 		ldr	r7, [sp], #4
+ 254 0012 7047     		bx	lr
+ 255              	.L18:
+ 256              		.align	2
+ 257              	.L17:
+ 258 0014 00000000 		.word	disk
+ 260              		.ident	"GCC: (GNU Tools for STM32 12.3.rel1.20240306-1730) 12.3.1 20230626"
+ARM GAS  C:\Users\user\AppData\Local\Temp\cc4RpNdh.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 ff_gen_drv.c
+C:\Users\user\AppData\Local\Temp\cc4RpNdh.s:22     .bss.disk:00000000 disk
+C:\Users\user\AppData\Local\Temp\cc4RpNdh.s:19     .bss.disk:00000000 $d
+C:\Users\user\AppData\Local\Temp\cc4RpNdh.s:25     .text.FATFS_LinkDriverEx:00000000 $t
+C:\Users\user\AppData\Local\Temp\cc4RpNdh.s:31     .text.FATFS_LinkDriverEx:00000000 FATFS_LinkDriverEx
+C:\Users\user\AppData\Local\Temp\cc4RpNdh.s:112    .text.FATFS_LinkDriverEx:00000094 $d
+C:\Users\user\AppData\Local\Temp\cc4RpNdh.s:115    .text.FATFS_LinkDriver:00000000 $t
+C:\Users\user\AppData\Local\Temp\cc4RpNdh.s:121    .text.FATFS_LinkDriver:00000000 FATFS_LinkDriver
+C:\Users\user\AppData\Local\Temp\cc4RpNdh.s:141    .text.FATFS_UnLinkDriverEx:00000000 $t
+C:\Users\user\AppData\Local\Temp\cc4RpNdh.s:147    .text.FATFS_UnLinkDriverEx:00000000 FATFS_UnLinkDriverEx
+C:\Users\user\AppData\Local\Temp\cc4RpNdh.s:208    .text.FATFS_UnLinkDriverEx:0000006c $d
+C:\Users\user\AppData\Local\Temp\cc4RpNdh.s:211    .text.FATFS_UnLinkDriver:00000000 $t
+C:\Users\user\AppData\Local\Temp\cc4RpNdh.s:217    .text.FATFS_UnLinkDriver:00000000 FATFS_UnLinkDriver
+C:\Users\user\AppData\Local\Temp\cc4RpNdh.s:235    .text.FATFS_GetAttachedDriversNbr:00000000 $t
+C:\Users\user\AppData\Local\Temp\cc4RpNdh.s:241    .text.FATFS_GetAttachedDriversNbr:00000000 FATFS_GetAttachedDriversNbr
+C:\Users\user\AppData\Local\Temp\cc4RpNdh.s:258    .text.FATFS_GetAttachedDriversNbr:00000014 $d
+
+NO UNDEFINED SYMBOLS

@@ -1,0 +1,1869 @@
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccehUHz3.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"stm32f4xx_hal_adc_ex.c"
+  16              		.text
+  17              		.section	.text.HAL_ADCEx_InjectedStart,"ax",%progbits
+  18              		.align	1
+  19              		.global	HAL_ADCEx_InjectedStart
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  24              	HAL_ADCEx_InjectedStart:
+  25              		@ args = 0, pretend = 0, frame = 24
+  26              		@ frame_needed = 1, uses_anonymous_args = 0
+  27              		@ link register save eliminated.
+  28 0000 80B4     		push	{r7}
+  29 0002 87B0     		sub	sp, sp, #28
+  30 0004 00AF     		add	r7, sp, #0
+  31 0006 7860     		str	r0, [r7, #4]
+  32 0008 0023     		movs	r3, #0
+  33 000a BB60     		str	r3, [r7, #8]
+  34 000c 0023     		movs	r3, #0
+  35 000e 7B61     		str	r3, [r7, #20]
+  36 0010 0023     		movs	r3, #0
+  37 0012 3B61     		str	r3, [r7, #16]
+  38 0014 7B68     		ldr	r3, [r7, #4]
+  39 0016 93F83C30 		ldrb	r3, [r3, #60]	@ zero_extendqisi2
+  40 001a 012B     		cmp	r3, #1
+  41 001c 01D1     		bne	.L2
+  42 001e 0223     		movs	r3, #2
+  43 0020 AAE0     		b	.L3
+  44              	.L2:
+  45 0022 7B68     		ldr	r3, [r7, #4]
+  46 0024 0122     		movs	r2, #1
+  47 0026 83F83C20 		strb	r2, [r3, #60]
+  48 002a 7B68     		ldr	r3, [r7, #4]
+  49 002c 1B68     		ldr	r3, [r3]
+  50 002e 9B68     		ldr	r3, [r3, #8]
+  51 0030 03F00103 		and	r3, r3, #1
+  52 0034 012B     		cmp	r3, #1
+  53 0036 18D0     		beq	.L4
+  54 0038 7B68     		ldr	r3, [r7, #4]
+  55 003a 1B68     		ldr	r3, [r3]
+  56 003c 9A68     		ldr	r2, [r3, #8]
+  57 003e 7B68     		ldr	r3, [r7, #4]
+  58 0040 1B68     		ldr	r3, [r3]
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccehUHz3.s 			page 2
+
+
+  59 0042 42F00102 		orr	r2, r2, #1
+  60 0046 9A60     		str	r2, [r3, #8]
+  61 0048 4E4B     		ldr	r3, .L11
+  62 004a 1B68     		ldr	r3, [r3]
+  63 004c 4E4A     		ldr	r2, .L11+4
+  64 004e A2FB0323 		umull	r2, r3, r2, r3
+  65 0052 9A0C     		lsrs	r2, r3, #18
+  66 0054 1346     		mov	r3, r2
+  67 0056 5B00     		lsls	r3, r3, #1
+  68 0058 1344     		add	r3, r3, r2
+  69 005a BB60     		str	r3, [r7, #8]
+  70 005c 02E0     		b	.L5
+  71              	.L6:
+  72 005e BB68     		ldr	r3, [r7, #8]
+  73 0060 013B     		subs	r3, r3, #1
+  74 0062 BB60     		str	r3, [r7, #8]
+  75              	.L5:
+  76 0064 BB68     		ldr	r3, [r7, #8]
+  77 0066 002B     		cmp	r3, #0
+  78 0068 F9D1     		bne	.L6
+  79              	.L4:
+  80 006a 7B68     		ldr	r3, [r7, #4]
+  81 006c 1B68     		ldr	r3, [r3]
+  82 006e 9B68     		ldr	r3, [r3, #8]
+  83 0070 03F00103 		and	r3, r3, #1
+  84 0074 012B     		cmp	r3, #1
+  85 0076 72D1     		bne	.L7
+  86 0078 7B68     		ldr	r3, [r7, #4]
+  87 007a 1B6C     		ldr	r3, [r3, #64]
+  88 007c 23F44053 		bic	r3, r3, #12288
+  89 0080 23F00103 		bic	r3, r3, #1
+  90 0084 43F48052 		orr	r2, r3, #4096
+  91 0088 7B68     		ldr	r3, [r7, #4]
+  92 008a 1A64     		str	r2, [r3, #64]
+  93 008c 7B68     		ldr	r3, [r7, #4]
+  94 008e 1B6C     		ldr	r3, [r3, #64]
+  95 0090 03F48073 		and	r3, r3, #256
+  96 0094 002B     		cmp	r3, #0
+  97 0096 02D1     		bne	.L8
+  98 0098 7B68     		ldr	r3, [r7, #4]
+  99 009a 0022     		movs	r2, #0
+ 100 009c 5A64     		str	r2, [r3, #68]
+ 101              	.L8:
+ 102 009e 7B68     		ldr	r3, [r7, #4]
+ 103 00a0 0022     		movs	r2, #0
+ 104 00a2 83F83C20 		strb	r2, [r3, #60]
+ 105 00a6 7B68     		ldr	r3, [r7, #4]
+ 106 00a8 1B68     		ldr	r3, [r3]
+ 107 00aa 6FF00402 		mvn	r2, #4
+ 108 00ae 1A60     		str	r2, [r3]
+ 109 00b0 364B     		ldr	r3, .L11+8
+ 110 00b2 FB60     		str	r3, [r7, #12]
+ 111 00b4 FB68     		ldr	r3, [r7, #12]
+ 112 00b6 5B68     		ldr	r3, [r3, #4]
+ 113 00b8 03F01F03 		and	r3, r3, #31
+ 114 00bc 002B     		cmp	r3, #0
+ 115 00be 24D1     		bne	.L9
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccehUHz3.s 			page 3
+
+
+ 116 00c0 7B68     		ldr	r3, [r7, #4]
+ 117 00c2 1B68     		ldr	r3, [r3]
+ 118 00c4 9B68     		ldr	r3, [r3, #8]
+ 119 00c6 03F44013 		and	r3, r3, #3145728
+ 120 00ca 002B     		cmp	r3, #0
+ 121 00cc 0CBF     		ite	eq
+ 122 00ce 0123     		moveq	r3, #1
+ 123 00d0 0023     		movne	r3, #0
+ 124 00d2 DBB2     		uxtb	r3, r3
+ 125 00d4 7B61     		str	r3, [r7, #20]
+ 126 00d6 7B68     		ldr	r3, [r7, #4]
+ 127 00d8 1B68     		ldr	r3, [r3]
+ 128 00da 5B68     		ldr	r3, [r3, #4]
+ 129 00dc 03F48063 		and	r3, r3, #1024
+ 130 00e0 002B     		cmp	r3, #0
+ 131 00e2 0CBF     		ite	eq
+ 132 00e4 0123     		moveq	r3, #1
+ 133 00e6 0023     		movne	r3, #0
+ 134 00e8 DBB2     		uxtb	r3, r3
+ 135 00ea 3B61     		str	r3, [r7, #16]
+ 136 00ec 7B69     		ldr	r3, [r7, #20]
+ 137 00ee 002B     		cmp	r3, #0
+ 138 00f0 41D0     		beq	.L10
+ 139 00f2 3B69     		ldr	r3, [r7, #16]
+ 140 00f4 002B     		cmp	r3, #0
+ 141 00f6 3ED0     		beq	.L10
+ 142 00f8 7B68     		ldr	r3, [r7, #4]
+ 143 00fa 1B68     		ldr	r3, [r3]
+ 144 00fc 9A68     		ldr	r2, [r3, #8]
+ 145 00fe 7B68     		ldr	r3, [r7, #4]
+ 146 0100 1B68     		ldr	r3, [r3]
+ 147 0102 42F48002 		orr	r2, r2, #4194304
+ 148 0106 9A60     		str	r2, [r3, #8]
+ 149 0108 35E0     		b	.L10
+ 150              	.L9:
+ 151 010a 7B68     		ldr	r3, [r7, #4]
+ 152 010c 1B68     		ldr	r3, [r3]
+ 153 010e 9B68     		ldr	r3, [r3, #8]
+ 154 0110 03F44013 		and	r3, r3, #3145728
+ 155 0114 002B     		cmp	r3, #0
+ 156 0116 0CBF     		ite	eq
+ 157 0118 0123     		moveq	r3, #1
+ 158 011a 0023     		movne	r3, #0
+ 159 011c DBB2     		uxtb	r3, r3
+ 160 011e 7B61     		str	r3, [r7, #20]
+ 161 0120 7B68     		ldr	r3, [r7, #4]
+ 162 0122 1B68     		ldr	r3, [r3]
+ 163 0124 5B68     		ldr	r3, [r3, #4]
+ 164 0126 03F48063 		and	r3, r3, #1024
+ 165 012a 002B     		cmp	r3, #0
+ 166 012c 0CBF     		ite	eq
+ 167 012e 0123     		moveq	r3, #1
+ 168 0130 0023     		movne	r3, #0
+ 169 0132 DBB2     		uxtb	r3, r3
+ 170 0134 3B61     		str	r3, [r7, #16]
+ 171 0136 7B68     		ldr	r3, [r7, #4]
+ 172 0138 1B68     		ldr	r3, [r3]
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccehUHz3.s 			page 4
+
+
+ 173 013a 154A     		ldr	r2, .L11+12
+ 174 013c 9342     		cmp	r3, r2
+ 175 013e 1AD1     		bne	.L10
+ 176 0140 7B69     		ldr	r3, [r7, #20]
+ 177 0142 002B     		cmp	r3, #0
+ 178 0144 17D0     		beq	.L10
+ 179 0146 3B69     		ldr	r3, [r7, #16]
+ 180 0148 002B     		cmp	r3, #0
+ 181 014a 14D0     		beq	.L10
+ 182 014c 7B68     		ldr	r3, [r7, #4]
+ 183 014e 1B68     		ldr	r3, [r3]
+ 184 0150 9A68     		ldr	r2, [r3, #8]
+ 185 0152 7B68     		ldr	r3, [r7, #4]
+ 186 0154 1B68     		ldr	r3, [r3]
+ 187 0156 42F48002 		orr	r2, r2, #4194304
+ 188 015a 9A60     		str	r2, [r3, #8]
+ 189 015c 0BE0     		b	.L10
+ 190              	.L7:
+ 191 015e 7B68     		ldr	r3, [r7, #4]
+ 192 0160 1B6C     		ldr	r3, [r3, #64]
+ 193 0162 43F01002 		orr	r2, r3, #16
+ 194 0166 7B68     		ldr	r3, [r7, #4]
+ 195 0168 1A64     		str	r2, [r3, #64]
+ 196 016a 7B68     		ldr	r3, [r7, #4]
+ 197 016c 5B6C     		ldr	r3, [r3, #68]
+ 198 016e 43F00102 		orr	r2, r3, #1
+ 199 0172 7B68     		ldr	r3, [r7, #4]
+ 200 0174 5A64     		str	r2, [r3, #68]
+ 201              	.L10:
+ 202 0176 0023     		movs	r3, #0
+ 203              	.L3:
+ 204 0178 1846     		mov	r0, r3
+ 205 017a 1C37     		adds	r7, r7, #28
+ 206 017c BD46     		mov	sp, r7
+ 207              		@ sp needed
+ 208 017e 5DF8047B 		ldr	r7, [sp], #4
+ 209 0182 7047     		bx	lr
+ 210              	.L12:
+ 211              		.align	2
+ 212              	.L11:
+ 213 0184 00000000 		.word	SystemCoreClock
+ 214 0188 83DE1B43 		.word	1125899907
+ 215 018c 00230140 		.word	1073816320
+ 216 0190 00200140 		.word	1073815552
+ 218              		.section	.text.HAL_ADCEx_InjectedStart_IT,"ax",%progbits
+ 219              		.align	1
+ 220              		.global	HAL_ADCEx_InjectedStart_IT
+ 221              		.syntax unified
+ 222              		.thumb
+ 223              		.thumb_func
+ 225              	HAL_ADCEx_InjectedStart_IT:
+ 226              		@ args = 0, pretend = 0, frame = 24
+ 227              		@ frame_needed = 1, uses_anonymous_args = 0
+ 228              		@ link register save eliminated.
+ 229 0000 80B4     		push	{r7}
+ 230 0002 87B0     		sub	sp, sp, #28
+ 231 0004 00AF     		add	r7, sp, #0
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccehUHz3.s 			page 5
+
+
+ 232 0006 7860     		str	r0, [r7, #4]
+ 233 0008 0023     		movs	r3, #0
+ 234 000a BB60     		str	r3, [r7, #8]
+ 235 000c 0023     		movs	r3, #0
+ 236 000e 7B61     		str	r3, [r7, #20]
+ 237 0010 0023     		movs	r3, #0
+ 238 0012 3B61     		str	r3, [r7, #16]
+ 239 0014 7B68     		ldr	r3, [r7, #4]
+ 240 0016 93F83C30 		ldrb	r3, [r3, #60]	@ zero_extendqisi2
+ 241 001a 012B     		cmp	r3, #1
+ 242 001c 01D1     		bne	.L14
+ 243 001e 0223     		movs	r3, #2
+ 244 0020 B2E0     		b	.L15
+ 245              	.L14:
+ 246 0022 7B68     		ldr	r3, [r7, #4]
+ 247 0024 0122     		movs	r2, #1
+ 248 0026 83F83C20 		strb	r2, [r3, #60]
+ 249 002a 7B68     		ldr	r3, [r7, #4]
+ 250 002c 1B68     		ldr	r3, [r3]
+ 251 002e 9B68     		ldr	r3, [r3, #8]
+ 252 0030 03F00103 		and	r3, r3, #1
+ 253 0034 012B     		cmp	r3, #1
+ 254 0036 18D0     		beq	.L16
+ 255 0038 7B68     		ldr	r3, [r7, #4]
+ 256 003a 1B68     		ldr	r3, [r3]
+ 257 003c 9A68     		ldr	r2, [r3, #8]
+ 258 003e 7B68     		ldr	r3, [r7, #4]
+ 259 0040 1B68     		ldr	r3, [r3]
+ 260 0042 42F00102 		orr	r2, r2, #1
+ 261 0046 9A60     		str	r2, [r3, #8]
+ 262 0048 524B     		ldr	r3, .L23
+ 263 004a 1B68     		ldr	r3, [r3]
+ 264 004c 524A     		ldr	r2, .L23+4
+ 265 004e A2FB0323 		umull	r2, r3, r2, r3
+ 266 0052 9A0C     		lsrs	r2, r3, #18
+ 267 0054 1346     		mov	r3, r2
+ 268 0056 5B00     		lsls	r3, r3, #1
+ 269 0058 1344     		add	r3, r3, r2
+ 270 005a BB60     		str	r3, [r7, #8]
+ 271 005c 02E0     		b	.L17
+ 272              	.L18:
+ 273 005e BB68     		ldr	r3, [r7, #8]
+ 274 0060 013B     		subs	r3, r3, #1
+ 275 0062 BB60     		str	r3, [r7, #8]
+ 276              	.L17:
+ 277 0064 BB68     		ldr	r3, [r7, #8]
+ 278 0066 002B     		cmp	r3, #0
+ 279 0068 F9D1     		bne	.L18
+ 280              	.L16:
+ 281 006a 7B68     		ldr	r3, [r7, #4]
+ 282 006c 1B68     		ldr	r3, [r3]
+ 283 006e 9B68     		ldr	r3, [r3, #8]
+ 284 0070 03F00103 		and	r3, r3, #1
+ 285 0074 012B     		cmp	r3, #1
+ 286 0076 7AD1     		bne	.L19
+ 287 0078 7B68     		ldr	r3, [r7, #4]
+ 288 007a 1B6C     		ldr	r3, [r3, #64]
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccehUHz3.s 			page 6
+
+
+ 289 007c 23F44053 		bic	r3, r3, #12288
+ 290 0080 23F00103 		bic	r3, r3, #1
+ 291 0084 43F48052 		orr	r2, r3, #4096
+ 292 0088 7B68     		ldr	r3, [r7, #4]
+ 293 008a 1A64     		str	r2, [r3, #64]
+ 294 008c 7B68     		ldr	r3, [r7, #4]
+ 295 008e 1B6C     		ldr	r3, [r3, #64]
+ 296 0090 03F48073 		and	r3, r3, #256
+ 297 0094 002B     		cmp	r3, #0
+ 298 0096 02D1     		bne	.L20
+ 299 0098 7B68     		ldr	r3, [r7, #4]
+ 300 009a 0022     		movs	r2, #0
+ 301 009c 5A64     		str	r2, [r3, #68]
+ 302              	.L20:
+ 303 009e 7B68     		ldr	r3, [r7, #4]
+ 304 00a0 0022     		movs	r2, #0
+ 305 00a2 83F83C20 		strb	r2, [r3, #60]
+ 306 00a6 7B68     		ldr	r3, [r7, #4]
+ 307 00a8 1B68     		ldr	r3, [r3]
+ 308 00aa 6FF00402 		mvn	r2, #4
+ 309 00ae 1A60     		str	r2, [r3]
+ 310 00b0 7B68     		ldr	r3, [r7, #4]
+ 311 00b2 1B68     		ldr	r3, [r3]
+ 312 00b4 5A68     		ldr	r2, [r3, #4]
+ 313 00b6 7B68     		ldr	r3, [r7, #4]
+ 314 00b8 1B68     		ldr	r3, [r3]
+ 315 00ba 42F08002 		orr	r2, r2, #128
+ 316 00be 5A60     		str	r2, [r3, #4]
+ 317 00c0 364B     		ldr	r3, .L23+8
+ 318 00c2 FB60     		str	r3, [r7, #12]
+ 319 00c4 FB68     		ldr	r3, [r7, #12]
+ 320 00c6 5B68     		ldr	r3, [r3, #4]
+ 321 00c8 03F01F03 		and	r3, r3, #31
+ 322 00cc 002B     		cmp	r3, #0
+ 323 00ce 24D1     		bne	.L21
+ 324 00d0 7B68     		ldr	r3, [r7, #4]
+ 325 00d2 1B68     		ldr	r3, [r3]
+ 326 00d4 9B68     		ldr	r3, [r3, #8]
+ 327 00d6 03F44013 		and	r3, r3, #3145728
+ 328 00da 002B     		cmp	r3, #0
+ 329 00dc 0CBF     		ite	eq
+ 330 00de 0123     		moveq	r3, #1
+ 331 00e0 0023     		movne	r3, #0
+ 332 00e2 DBB2     		uxtb	r3, r3
+ 333 00e4 7B61     		str	r3, [r7, #20]
+ 334 00e6 7B68     		ldr	r3, [r7, #4]
+ 335 00e8 1B68     		ldr	r3, [r3]
+ 336 00ea 5B68     		ldr	r3, [r3, #4]
+ 337 00ec 03F48063 		and	r3, r3, #1024
+ 338 00f0 002B     		cmp	r3, #0
+ 339 00f2 0CBF     		ite	eq
+ 340 00f4 0123     		moveq	r3, #1
+ 341 00f6 0023     		movne	r3, #0
+ 342 00f8 DBB2     		uxtb	r3, r3
+ 343 00fa 3B61     		str	r3, [r7, #16]
+ 344 00fc 7B69     		ldr	r3, [r7, #20]
+ 345 00fe 002B     		cmp	r3, #0
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccehUHz3.s 			page 7
+
+
+ 346 0100 41D0     		beq	.L22
+ 347 0102 3B69     		ldr	r3, [r7, #16]
+ 348 0104 002B     		cmp	r3, #0
+ 349 0106 3ED0     		beq	.L22
+ 350 0108 7B68     		ldr	r3, [r7, #4]
+ 351 010a 1B68     		ldr	r3, [r3]
+ 352 010c 9A68     		ldr	r2, [r3, #8]
+ 353 010e 7B68     		ldr	r3, [r7, #4]
+ 354 0110 1B68     		ldr	r3, [r3]
+ 355 0112 42F48002 		orr	r2, r2, #4194304
+ 356 0116 9A60     		str	r2, [r3, #8]
+ 357 0118 35E0     		b	.L22
+ 358              	.L21:
+ 359 011a 7B68     		ldr	r3, [r7, #4]
+ 360 011c 1B68     		ldr	r3, [r3]
+ 361 011e 9B68     		ldr	r3, [r3, #8]
+ 362 0120 03F44013 		and	r3, r3, #3145728
+ 363 0124 002B     		cmp	r3, #0
+ 364 0126 0CBF     		ite	eq
+ 365 0128 0123     		moveq	r3, #1
+ 366 012a 0023     		movne	r3, #0
+ 367 012c DBB2     		uxtb	r3, r3
+ 368 012e 7B61     		str	r3, [r7, #20]
+ 369 0130 7B68     		ldr	r3, [r7, #4]
+ 370 0132 1B68     		ldr	r3, [r3]
+ 371 0134 5B68     		ldr	r3, [r3, #4]
+ 372 0136 03F48063 		and	r3, r3, #1024
+ 373 013a 002B     		cmp	r3, #0
+ 374 013c 0CBF     		ite	eq
+ 375 013e 0123     		moveq	r3, #1
+ 376 0140 0023     		movne	r3, #0
+ 377 0142 DBB2     		uxtb	r3, r3
+ 378 0144 3B61     		str	r3, [r7, #16]
+ 379 0146 7B68     		ldr	r3, [r7, #4]
+ 380 0148 1B68     		ldr	r3, [r3]
+ 381 014a 154A     		ldr	r2, .L23+12
+ 382 014c 9342     		cmp	r3, r2
+ 383 014e 1AD1     		bne	.L22
+ 384 0150 7B69     		ldr	r3, [r7, #20]
+ 385 0152 002B     		cmp	r3, #0
+ 386 0154 17D0     		beq	.L22
+ 387 0156 3B69     		ldr	r3, [r7, #16]
+ 388 0158 002B     		cmp	r3, #0
+ 389 015a 14D0     		beq	.L22
+ 390 015c 7B68     		ldr	r3, [r7, #4]
+ 391 015e 1B68     		ldr	r3, [r3]
+ 392 0160 9A68     		ldr	r2, [r3, #8]
+ 393 0162 7B68     		ldr	r3, [r7, #4]
+ 394 0164 1B68     		ldr	r3, [r3]
+ 395 0166 42F48002 		orr	r2, r2, #4194304
+ 396 016a 9A60     		str	r2, [r3, #8]
+ 397 016c 0BE0     		b	.L22
+ 398              	.L19:
+ 399 016e 7B68     		ldr	r3, [r7, #4]
+ 400 0170 1B6C     		ldr	r3, [r3, #64]
+ 401 0172 43F01002 		orr	r2, r3, #16
+ 402 0176 7B68     		ldr	r3, [r7, #4]
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccehUHz3.s 			page 8
+
+
+ 403 0178 1A64     		str	r2, [r3, #64]
+ 404 017a 7B68     		ldr	r3, [r7, #4]
+ 405 017c 5B6C     		ldr	r3, [r3, #68]
+ 406 017e 43F00102 		orr	r2, r3, #1
+ 407 0182 7B68     		ldr	r3, [r7, #4]
+ 408 0184 5A64     		str	r2, [r3, #68]
+ 409              	.L22:
+ 410 0186 0023     		movs	r3, #0
+ 411              	.L15:
+ 412 0188 1846     		mov	r0, r3
+ 413 018a 1C37     		adds	r7, r7, #28
+ 414 018c BD46     		mov	sp, r7
+ 415              		@ sp needed
+ 416 018e 5DF8047B 		ldr	r7, [sp], #4
+ 417 0192 7047     		bx	lr
+ 418              	.L24:
+ 419              		.align	2
+ 420              	.L23:
+ 421 0194 00000000 		.word	SystemCoreClock
+ 422 0198 83DE1B43 		.word	1125899907
+ 423 019c 00230140 		.word	1073816320
+ 424 01a0 00200140 		.word	1073815552
+ 426              		.section	.text.HAL_ADCEx_InjectedStop,"ax",%progbits
+ 427              		.align	1
+ 428              		.global	HAL_ADCEx_InjectedStop
+ 429              		.syntax unified
+ 430              		.thumb
+ 431              		.thumb_func
+ 433              	HAL_ADCEx_InjectedStop:
+ 434              		@ args = 0, pretend = 0, frame = 16
+ 435              		@ frame_needed = 1, uses_anonymous_args = 0
+ 436              		@ link register save eliminated.
+ 437 0000 80B4     		push	{r7}
+ 438 0002 85B0     		sub	sp, sp, #20
+ 439 0004 00AF     		add	r7, sp, #0
+ 440 0006 7860     		str	r0, [r7, #4]
+ 441 0008 0023     		movs	r3, #0
+ 442 000a FB73     		strb	r3, [r7, #15]
+ 443 000c 7B68     		ldr	r3, [r7, #4]
+ 444 000e 93F83C30 		ldrb	r3, [r3, #60]	@ zero_extendqisi2
+ 445 0012 012B     		cmp	r3, #1
+ 446 0014 01D1     		bne	.L26
+ 447 0016 0223     		movs	r3, #2
+ 448 0018 37E0     		b	.L27
+ 449              	.L26:
+ 450 001a 7B68     		ldr	r3, [r7, #4]
+ 451 001c 0122     		movs	r2, #1
+ 452 001e 83F83C20 		strb	r2, [r3, #60]
+ 453 0022 7B68     		ldr	r3, [r7, #4]
+ 454 0024 1B6C     		ldr	r3, [r3, #64]
+ 455 0026 03F48073 		and	r3, r3, #256
+ 456 002a 002B     		cmp	r3, #0
+ 457 002c 20D1     		bne	.L28
+ 458 002e 7B68     		ldr	r3, [r7, #4]
+ 459 0030 1B68     		ldr	r3, [r3]
+ 460 0032 5B68     		ldr	r3, [r3, #4]
+ 461 0034 03F48063 		and	r3, r3, #1024
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccehUHz3.s 			page 9
+
+
+ 462 0038 002B     		cmp	r3, #0
+ 463 003a 19D1     		bne	.L28
+ 464 003c 7B68     		ldr	r3, [r7, #4]
+ 465 003e 1B68     		ldr	r3, [r3]
+ 466 0040 9A68     		ldr	r2, [r3, #8]
+ 467 0042 7B68     		ldr	r3, [r7, #4]
+ 468 0044 1B68     		ldr	r3, [r3]
+ 469 0046 22F00102 		bic	r2, r2, #1
+ 470 004a 9A60     		str	r2, [r3, #8]
+ 471 004c 7B68     		ldr	r3, [r7, #4]
+ 472 004e 1B68     		ldr	r3, [r3]
+ 473 0050 9B68     		ldr	r3, [r3, #8]
+ 474 0052 03F00103 		and	r3, r3, #1
+ 475 0056 002B     		cmp	r3, #0
+ 476 0058 12D1     		bne	.L30
+ 477 005a 7B68     		ldr	r3, [r7, #4]
+ 478 005c 1B6C     		ldr	r3, [r3, #64]
+ 479 005e 23F48853 		bic	r3, r3, #4352
+ 480 0062 23F00103 		bic	r3, r3, #1
+ 481 0066 43F00102 		orr	r2, r3, #1
+ 482 006a 7B68     		ldr	r3, [r7, #4]
+ 483 006c 1A64     		str	r2, [r3, #64]
+ 484 006e 07E0     		b	.L30
+ 485              	.L28:
+ 486 0070 7B68     		ldr	r3, [r7, #4]
+ 487 0072 1B6C     		ldr	r3, [r3, #64]
+ 488 0074 43F02002 		orr	r2, r3, #32
+ 489 0078 7B68     		ldr	r3, [r7, #4]
+ 490 007a 1A64     		str	r2, [r3, #64]
+ 491 007c 0123     		movs	r3, #1
+ 492 007e FB73     		strb	r3, [r7, #15]
+ 493              	.L30:
+ 494 0080 7B68     		ldr	r3, [r7, #4]
+ 495 0082 0022     		movs	r2, #0
+ 496 0084 83F83C20 		strb	r2, [r3, #60]
+ 497 0088 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 498              	.L27:
+ 499 008a 1846     		mov	r0, r3
+ 500 008c 1437     		adds	r7, r7, #20
+ 501 008e BD46     		mov	sp, r7
+ 502              		@ sp needed
+ 503 0090 5DF8047B 		ldr	r7, [sp], #4
+ 504 0094 7047     		bx	lr
+ 506              		.section	.text.HAL_ADCEx_InjectedPollForConversion,"ax",%progbits
+ 507              		.align	1
+ 508              		.global	HAL_ADCEx_InjectedPollForConversion
+ 509              		.syntax unified
+ 510              		.thumb
+ 511              		.thumb_func
+ 513              	HAL_ADCEx_InjectedPollForConversion:
+ 514              		@ args = 0, pretend = 0, frame = 16
+ 515              		@ frame_needed = 1, uses_anonymous_args = 0
+ 516 0000 80B5     		push	{r7, lr}
+ 517 0002 84B0     		sub	sp, sp, #16
+ 518 0004 00AF     		add	r7, sp, #0
+ 519 0006 7860     		str	r0, [r7, #4]
+ 520 0008 3960     		str	r1, [r7]
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccehUHz3.s 			page 10
+
+
+ 521 000a 0023     		movs	r3, #0
+ 522 000c FB60     		str	r3, [r7, #12]
+ 523 000e FFF7FEFF 		bl	HAL_GetTick
+ 524 0012 F860     		str	r0, [r7, #12]
+ 525 0014 1EE0     		b	.L33
+ 526              	.L37:
+ 527 0016 3B68     		ldr	r3, [r7]
+ 528 0018 B3F1FF3F 		cmp	r3, #-1
+ 529 001c 1AD0     		beq	.L33
+ 530 001e 3B68     		ldr	r3, [r7]
+ 531 0020 002B     		cmp	r3, #0
+ 532 0022 07D0     		beq	.L34
+ 533 0024 FFF7FEFF 		bl	HAL_GetTick
+ 534 0028 0246     		mov	r2, r0
+ 535 002a FB68     		ldr	r3, [r7, #12]
+ 536 002c D31A     		subs	r3, r2, r3
+ 537 002e 3A68     		ldr	r2, [r7]
+ 538 0030 9A42     		cmp	r2, r3
+ 539 0032 0FD2     		bcs	.L33
+ 540              	.L34:
+ 541 0034 7B68     		ldr	r3, [r7, #4]
+ 542 0036 1B68     		ldr	r3, [r3]
+ 543 0038 1B68     		ldr	r3, [r3]
+ 544 003a 03F00403 		and	r3, r3, #4
+ 545 003e 042B     		cmp	r3, #4
+ 546 0040 08D0     		beq	.L33
+ 547 0042 7B68     		ldr	r3, [r7, #4]
+ 548 0044 0422     		movs	r2, #4
+ 549 0046 1A64     		str	r2, [r3, #64]
+ 550 0048 7B68     		ldr	r3, [r7, #4]
+ 551 004a 0022     		movs	r2, #0
+ 552 004c 83F83C20 		strb	r2, [r3, #60]
+ 553 0050 0323     		movs	r3, #3
+ 554 0052 4BE0     		b	.L36
+ 555              	.L33:
+ 556 0054 7B68     		ldr	r3, [r7, #4]
+ 557 0056 1B68     		ldr	r3, [r3]
+ 558 0058 1B68     		ldr	r3, [r3]
+ 559 005a 03F00403 		and	r3, r3, #4
+ 560 005e 042B     		cmp	r3, #4
+ 561 0060 D9D1     		bne	.L37
+ 562 0062 7B68     		ldr	r3, [r7, #4]
+ 563 0064 1B68     		ldr	r3, [r3]
+ 564 0066 6FF00C02 		mvn	r2, #12
+ 565 006a 1A60     		str	r2, [r3]
+ 566 006c 7B68     		ldr	r3, [r7, #4]
+ 567 006e 1B6C     		ldr	r3, [r3, #64]
+ 568 0070 43F40052 		orr	r2, r3, #8192
+ 569 0074 7B68     		ldr	r3, [r7, #4]
+ 570 0076 1A64     		str	r2, [r3, #64]
+ 571 0078 7B68     		ldr	r3, [r7, #4]
+ 572 007a 1B68     		ldr	r3, [r3]
+ 573 007c 9B68     		ldr	r3, [r3, #8]
+ 574 007e 03F44013 		and	r3, r3, #3145728
+ 575 0082 002B     		cmp	r3, #0
+ 576 0084 31D1     		bne	.L38
+ 577 0086 7B68     		ldr	r3, [r7, #4]
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccehUHz3.s 			page 11
+
+
+ 578 0088 1B68     		ldr	r3, [r3]
+ 579 008a 9B6B     		ldr	r3, [r3, #56]
+ 580 008c 03F44013 		and	r3, r3, #3145728
+ 581 0090 002B     		cmp	r3, #0
+ 582 0092 06D0     		beq	.L39
+ 583 0094 7B68     		ldr	r3, [r7, #4]
+ 584 0096 1B68     		ldr	r3, [r3]
+ 585 0098 9B68     		ldr	r3, [r3, #8]
+ 586 009a 03F48063 		and	r3, r3, #1024
+ 587 009e 002B     		cmp	r3, #0
+ 588 00a0 23D1     		bne	.L38
+ 589              	.L39:
+ 590 00a2 7B68     		ldr	r3, [r7, #4]
+ 591 00a4 1B68     		ldr	r3, [r3]
+ 592 00a6 5B68     		ldr	r3, [r3, #4]
+ 593 00a8 03F48063 		and	r3, r3, #1024
+ 594 00ac 002B     		cmp	r3, #0
+ 595 00ae 1CD1     		bne	.L38
+ 596 00b0 7B68     		ldr	r3, [r7, #4]
+ 597 00b2 1B68     		ldr	r3, [r3]
+ 598 00b4 9B68     		ldr	r3, [r3, #8]
+ 599 00b6 03F04053 		and	r3, r3, #805306368
+ 600 00ba 002B     		cmp	r3, #0
+ 601 00bc 15D1     		bne	.L38
+ 602 00be 7B68     		ldr	r3, [r7, #4]
+ 603 00c0 1B7E     		ldrb	r3, [r3, #24]	@ zero_extendqisi2
+ 604 00c2 002B     		cmp	r3, #0
+ 605 00c4 11D1     		bne	.L38
+ 606 00c6 7B68     		ldr	r3, [r7, #4]
+ 607 00c8 1B6C     		ldr	r3, [r3, #64]
+ 608 00ca 23F48052 		bic	r2, r3, #4096
+ 609 00ce 7B68     		ldr	r3, [r7, #4]
+ 610 00d0 1A64     		str	r2, [r3, #64]
+ 611 00d2 7B68     		ldr	r3, [r7, #4]
+ 612 00d4 1B6C     		ldr	r3, [r3, #64]
+ 613 00d6 03F48073 		and	r3, r3, #256
+ 614 00da 002B     		cmp	r3, #0
+ 615 00dc 05D1     		bne	.L38
+ 616 00de 7B68     		ldr	r3, [r7, #4]
+ 617 00e0 1B6C     		ldr	r3, [r3, #64]
+ 618 00e2 43F00102 		orr	r2, r3, #1
+ 619 00e6 7B68     		ldr	r3, [r7, #4]
+ 620 00e8 1A64     		str	r2, [r3, #64]
+ 621              	.L38:
+ 622 00ea 0023     		movs	r3, #0
+ 623              	.L36:
+ 624 00ec 1846     		mov	r0, r3
+ 625 00ee 1037     		adds	r7, r7, #16
+ 626 00f0 BD46     		mov	sp, r7
+ 627              		@ sp needed
+ 628 00f2 80BD     		pop	{r7, pc}
+ 630              		.section	.text.HAL_ADCEx_InjectedStop_IT,"ax",%progbits
+ 631              		.align	1
+ 632              		.global	HAL_ADCEx_InjectedStop_IT
+ 633              		.syntax unified
+ 634              		.thumb
+ 635              		.thumb_func
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccehUHz3.s 			page 12
+
+
+ 637              	HAL_ADCEx_InjectedStop_IT:
+ 638              		@ args = 0, pretend = 0, frame = 16
+ 639              		@ frame_needed = 1, uses_anonymous_args = 0
+ 640              		@ link register save eliminated.
+ 641 0000 80B4     		push	{r7}
+ 642 0002 85B0     		sub	sp, sp, #20
+ 643 0004 00AF     		add	r7, sp, #0
+ 644 0006 7860     		str	r0, [r7, #4]
+ 645 0008 0023     		movs	r3, #0
+ 646 000a FB73     		strb	r3, [r7, #15]
+ 647 000c 7B68     		ldr	r3, [r7, #4]
+ 648 000e 93F83C30 		ldrb	r3, [r3, #60]	@ zero_extendqisi2
+ 649 0012 012B     		cmp	r3, #1
+ 650 0014 01D1     		bne	.L41
+ 651 0016 0223     		movs	r3, #2
+ 652 0018 3FE0     		b	.L42
+ 653              	.L41:
+ 654 001a 7B68     		ldr	r3, [r7, #4]
+ 655 001c 0122     		movs	r2, #1
+ 656 001e 83F83C20 		strb	r2, [r3, #60]
+ 657 0022 7B68     		ldr	r3, [r7, #4]
+ 658 0024 1B6C     		ldr	r3, [r3, #64]
+ 659 0026 03F48073 		and	r3, r3, #256
+ 660 002a 002B     		cmp	r3, #0
+ 661 002c 28D1     		bne	.L43
+ 662 002e 7B68     		ldr	r3, [r7, #4]
+ 663 0030 1B68     		ldr	r3, [r3]
+ 664 0032 5B68     		ldr	r3, [r3, #4]
+ 665 0034 03F48063 		and	r3, r3, #1024
+ 666 0038 002B     		cmp	r3, #0
+ 667 003a 21D1     		bne	.L43
+ 668 003c 7B68     		ldr	r3, [r7, #4]
+ 669 003e 1B68     		ldr	r3, [r3]
+ 670 0040 9A68     		ldr	r2, [r3, #8]
+ 671 0042 7B68     		ldr	r3, [r7, #4]
+ 672 0044 1B68     		ldr	r3, [r3]
+ 673 0046 22F00102 		bic	r2, r2, #1
+ 674 004a 9A60     		str	r2, [r3, #8]
+ 675 004c 7B68     		ldr	r3, [r7, #4]
+ 676 004e 1B68     		ldr	r3, [r3]
+ 677 0050 9B68     		ldr	r3, [r3, #8]
+ 678 0052 03F00103 		and	r3, r3, #1
+ 679 0056 002B     		cmp	r3, #0
+ 680 0058 1AD1     		bne	.L45
+ 681 005a 7B68     		ldr	r3, [r7, #4]
+ 682 005c 1B68     		ldr	r3, [r3]
+ 683 005e 5A68     		ldr	r2, [r3, #4]
+ 684 0060 7B68     		ldr	r3, [r7, #4]
+ 685 0062 1B68     		ldr	r3, [r3]
+ 686 0064 22F08002 		bic	r2, r2, #128
+ 687 0068 5A60     		str	r2, [r3, #4]
+ 688 006a 7B68     		ldr	r3, [r7, #4]
+ 689 006c 1B6C     		ldr	r3, [r3, #64]
+ 690 006e 23F48853 		bic	r3, r3, #4352
+ 691 0072 23F00103 		bic	r3, r3, #1
+ 692 0076 43F00102 		orr	r2, r3, #1
+ 693 007a 7B68     		ldr	r3, [r7, #4]
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccehUHz3.s 			page 13
+
+
+ 694 007c 1A64     		str	r2, [r3, #64]
+ 695 007e 07E0     		b	.L45
+ 696              	.L43:
+ 697 0080 7B68     		ldr	r3, [r7, #4]
+ 698 0082 1B6C     		ldr	r3, [r3, #64]
+ 699 0084 43F02002 		orr	r2, r3, #32
+ 700 0088 7B68     		ldr	r3, [r7, #4]
+ 701 008a 1A64     		str	r2, [r3, #64]
+ 702 008c 0123     		movs	r3, #1
+ 703 008e FB73     		strb	r3, [r7, #15]
+ 704              	.L45:
+ 705 0090 7B68     		ldr	r3, [r7, #4]
+ 706 0092 0022     		movs	r2, #0
+ 707 0094 83F83C20 		strb	r2, [r3, #60]
+ 708 0098 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 709              	.L42:
+ 710 009a 1846     		mov	r0, r3
+ 711 009c 1437     		adds	r7, r7, #20
+ 712 009e BD46     		mov	sp, r7
+ 713              		@ sp needed
+ 714 00a0 5DF8047B 		ldr	r7, [sp], #4
+ 715 00a4 7047     		bx	lr
+ 717              		.section	.text.HAL_ADCEx_InjectedGetValue,"ax",%progbits
+ 718              		.align	1
+ 719              		.global	HAL_ADCEx_InjectedGetValue
+ 720              		.syntax unified
+ 721              		.thumb
+ 722              		.thumb_func
+ 724              	HAL_ADCEx_InjectedGetValue:
+ 725              		@ args = 0, pretend = 0, frame = 16
+ 726              		@ frame_needed = 1, uses_anonymous_args = 0
+ 727              		@ link register save eliminated.
+ 728 0000 80B4     		push	{r7}
+ 729 0002 85B0     		sub	sp, sp, #20
+ 730 0004 00AF     		add	r7, sp, #0
+ 731 0006 7860     		str	r0, [r7, #4]
+ 732 0008 3960     		str	r1, [r7]
+ 733 000a 0023     		movs	r3, #0
+ 734 000c FB60     		str	r3, [r7, #12]
+ 735 000e 7B68     		ldr	r3, [r7, #4]
+ 736 0010 1B68     		ldr	r3, [r3]
+ 737 0012 6FF00402 		mvn	r2, #4
+ 738 0016 1A60     		str	r2, [r3]
+ 739 0018 3B68     		ldr	r3, [r7]
+ 740 001a 013B     		subs	r3, r3, #1
+ 741 001c 032B     		cmp	r3, #3
+ 742 001e 1FD8     		bhi	.L55
+ 743 0020 01A2     		adr	r2, .L49
+ 744 0022 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+ 745 0026 00BF     		.p2align 2
+ 746              	.L49:
+ 747 0028 57000000 		.word	.L52+1
+ 748 002c 4D000000 		.word	.L51+1
+ 749 0030 43000000 		.word	.L50+1
+ 750 0034 39000000 		.word	.L48+1
+ 751              		.p2align 1
+ 752              	.L48:
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccehUHz3.s 			page 14
+
+
+ 753 0038 7B68     		ldr	r3, [r7, #4]
+ 754 003a 1B68     		ldr	r3, [r3]
+ 755 003c 9B6C     		ldr	r3, [r3, #72]
+ 756 003e FB60     		str	r3, [r7, #12]
+ 757 0040 0FE0     		b	.L53
+ 758              	.L50:
+ 759 0042 7B68     		ldr	r3, [r7, #4]
+ 760 0044 1B68     		ldr	r3, [r3]
+ 761 0046 5B6C     		ldr	r3, [r3, #68]
+ 762 0048 FB60     		str	r3, [r7, #12]
+ 763 004a 0AE0     		b	.L53
+ 764              	.L51:
+ 765 004c 7B68     		ldr	r3, [r7, #4]
+ 766 004e 1B68     		ldr	r3, [r3]
+ 767 0050 1B6C     		ldr	r3, [r3, #64]
+ 768 0052 FB60     		str	r3, [r7, #12]
+ 769 0054 05E0     		b	.L53
+ 770              	.L52:
+ 771 0056 7B68     		ldr	r3, [r7, #4]
+ 772 0058 1B68     		ldr	r3, [r3]
+ 773 005a DB6B     		ldr	r3, [r3, #60]
+ 774 005c FB60     		str	r3, [r7, #12]
+ 775 005e 00E0     		b	.L53
+ 776              	.L55:
+ 777 0060 00BF     		nop
+ 778              	.L53:
+ 779 0062 FB68     		ldr	r3, [r7, #12]
+ 780 0064 1846     		mov	r0, r3
+ 781 0066 1437     		adds	r7, r7, #20
+ 782 0068 BD46     		mov	sp, r7
+ 783              		@ sp needed
+ 784 006a 5DF8047B 		ldr	r7, [sp], #4
+ 785 006e 7047     		bx	lr
+ 787              		.section	.text.HAL_ADCEx_MultiModeStart_DMA,"ax",%progbits
+ 788              		.align	1
+ 789              		.global	HAL_ADCEx_MultiModeStart_DMA
+ 790              		.syntax unified
+ 791              		.thumb
+ 792              		.thumb_func
+ 794              	HAL_ADCEx_MultiModeStart_DMA:
+ 795              		@ args = 0, pretend = 0, frame = 24
+ 796              		@ frame_needed = 1, uses_anonymous_args = 0
+ 797 0000 80B5     		push	{r7, lr}
+ 798 0002 86B0     		sub	sp, sp, #24
+ 799 0004 00AF     		add	r7, sp, #0
+ 800 0006 F860     		str	r0, [r7, #12]
+ 801 0008 B960     		str	r1, [r7, #8]
+ 802 000a 7A60     		str	r2, [r7, #4]
+ 803 000c 0023     		movs	r3, #0
+ 804 000e 3B61     		str	r3, [r7, #16]
+ 805 0010 FB68     		ldr	r3, [r7, #12]
+ 806 0012 93F83C30 		ldrb	r3, [r3, #60]	@ zero_extendqisi2
+ 807 0016 012B     		cmp	r3, #1
+ 808 0018 01D1     		bne	.L57
+ 809 001a 0223     		movs	r3, #2
+ 810 001c ABE0     		b	.L58
+ 811              	.L57:
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccehUHz3.s 			page 15
+
+
+ 812 001e FB68     		ldr	r3, [r7, #12]
+ 813 0020 0122     		movs	r2, #1
+ 814 0022 83F83C20 		strb	r2, [r3, #60]
+ 815 0026 FB68     		ldr	r3, [r7, #12]
+ 816 0028 1B68     		ldr	r3, [r3]
+ 817 002a 9B68     		ldr	r3, [r3, #8]
+ 818 002c 03F00103 		and	r3, r3, #1
+ 819 0030 012B     		cmp	r3, #1
+ 820 0032 18D0     		beq	.L59
+ 821 0034 FB68     		ldr	r3, [r7, #12]
+ 822 0036 1B68     		ldr	r3, [r3]
+ 823 0038 9A68     		ldr	r2, [r3, #8]
+ 824 003a FB68     		ldr	r3, [r7, #12]
+ 825 003c 1B68     		ldr	r3, [r3]
+ 826 003e 42F00102 		orr	r2, r2, #1
+ 827 0042 9A60     		str	r2, [r3, #8]
+ 828 0044 4E4B     		ldr	r3, .L69
+ 829 0046 1B68     		ldr	r3, [r3]
+ 830 0048 4E4A     		ldr	r2, .L69+4
+ 831 004a A2FB0323 		umull	r2, r3, r2, r3
+ 832 004e 9A0C     		lsrs	r2, r3, #18
+ 833 0050 1346     		mov	r3, r2
+ 834 0052 5B00     		lsls	r3, r3, #1
+ 835 0054 1344     		add	r3, r3, r2
+ 836 0056 3B61     		str	r3, [r7, #16]
+ 837 0058 02E0     		b	.L60
+ 838              	.L61:
+ 839 005a 3B69     		ldr	r3, [r7, #16]
+ 840 005c 013B     		subs	r3, r3, #1
+ 841 005e 3B61     		str	r3, [r7, #16]
+ 842              	.L60:
+ 843 0060 3B69     		ldr	r3, [r7, #16]
+ 844 0062 002B     		cmp	r3, #0
+ 845 0064 F9D1     		bne	.L61
+ 846              	.L59:
+ 847 0066 FB68     		ldr	r3, [r7, #12]
+ 848 0068 1B68     		ldr	r3, [r3]
+ 849 006a 9B68     		ldr	r3, [r3, #8]
+ 850 006c 03F00103 		and	r3, r3, #1
+ 851 0070 012B     		cmp	r3, #1
+ 852 0072 73D1     		bne	.L62
+ 853 0074 FB68     		ldr	r3, [r7, #12]
+ 854 0076 1B6C     		ldr	r3, [r3, #64]
+ 855 0078 23F4E063 		bic	r3, r3, #1792
+ 856 007c 23F00103 		bic	r3, r3, #1
+ 857 0080 43F48072 		orr	r2, r3, #256
+ 858 0084 FB68     		ldr	r3, [r7, #12]
+ 859 0086 1A64     		str	r2, [r3, #64]
+ 860 0088 FB68     		ldr	r3, [r7, #12]
+ 861 008a 1B68     		ldr	r3, [r3]
+ 862 008c 5B68     		ldr	r3, [r3, #4]
+ 863 008e 03F48063 		and	r3, r3, #1024
+ 864 0092 002B     		cmp	r3, #0
+ 865 0094 07D0     		beq	.L63
+ 866 0096 FB68     		ldr	r3, [r7, #12]
+ 867 0098 1B6C     		ldr	r3, [r3, #64]
+ 868 009a 23F44053 		bic	r3, r3, #12288
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccehUHz3.s 			page 16
+
+
+ 869 009e 43F48052 		orr	r2, r3, #4096
+ 870 00a2 FB68     		ldr	r3, [r7, #12]
+ 871 00a4 1A64     		str	r2, [r3, #64]
+ 872              	.L63:
+ 873 00a6 FB68     		ldr	r3, [r7, #12]
+ 874 00a8 1B6C     		ldr	r3, [r3, #64]
+ 875 00aa 03F48053 		and	r3, r3, #4096
+ 876 00ae B3F5805F 		cmp	r3, #4096
+ 877 00b2 06D1     		bne	.L64
+ 878 00b4 FB68     		ldr	r3, [r7, #12]
+ 879 00b6 5B6C     		ldr	r3, [r3, #68]
+ 880 00b8 23F00602 		bic	r2, r3, #6
+ 881 00bc FB68     		ldr	r3, [r7, #12]
+ 882 00be 5A64     		str	r2, [r3, #68]
+ 883 00c0 02E0     		b	.L65
+ 884              	.L64:
+ 885 00c2 FB68     		ldr	r3, [r7, #12]
+ 886 00c4 0022     		movs	r2, #0
+ 887 00c6 5A64     		str	r2, [r3, #68]
+ 888              	.L65:
+ 889 00c8 FB68     		ldr	r3, [r7, #12]
+ 890 00ca 0022     		movs	r2, #0
+ 891 00cc 83F83C20 		strb	r2, [r3, #60]
+ 892 00d0 FB68     		ldr	r3, [r7, #12]
+ 893 00d2 9B6B     		ldr	r3, [r3, #56]
+ 894 00d4 2C4A     		ldr	r2, .L69+8
+ 895 00d6 DA63     		str	r2, [r3, #60]
+ 896 00d8 FB68     		ldr	r3, [r7, #12]
+ 897 00da 9B6B     		ldr	r3, [r3, #56]
+ 898 00dc 2B4A     		ldr	r2, .L69+12
+ 899 00de 1A64     		str	r2, [r3, #64]
+ 900 00e0 FB68     		ldr	r3, [r7, #12]
+ 901 00e2 9B6B     		ldr	r3, [r3, #56]
+ 902 00e4 2A4A     		ldr	r2, .L69+16
+ 903 00e6 DA64     		str	r2, [r3, #76]
+ 904 00e8 FB68     		ldr	r3, [r7, #12]
+ 905 00ea 1B68     		ldr	r3, [r3]
+ 906 00ec 6FF00202 		mvn	r2, #2
+ 907 00f0 1A60     		str	r2, [r3]
+ 908 00f2 FB68     		ldr	r3, [r7, #12]
+ 909 00f4 1B68     		ldr	r3, [r3]
+ 910 00f6 5A68     		ldr	r2, [r3, #4]
+ 911 00f8 FB68     		ldr	r3, [r7, #12]
+ 912 00fa 1B68     		ldr	r3, [r3]
+ 913 00fc 42F08062 		orr	r2, r2, #67108864
+ 914 0100 5A60     		str	r2, [r3, #4]
+ 915 0102 244B     		ldr	r3, .L69+20
+ 916 0104 7B61     		str	r3, [r7, #20]
+ 917 0106 FB68     		ldr	r3, [r7, #12]
+ 918 0108 93F83030 		ldrb	r3, [r3, #48]	@ zero_extendqisi2
+ 919 010c 002B     		cmp	r3, #0
+ 920 010e 06D0     		beq	.L66
+ 921 0110 7B69     		ldr	r3, [r7, #20]
+ 922 0112 5B68     		ldr	r3, [r3, #4]
+ 923 0114 43F40052 		orr	r2, r3, #8192
+ 924 0118 7B69     		ldr	r3, [r7, #20]
+ 925 011a 5A60     		str	r2, [r3, #4]
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccehUHz3.s 			page 17
+
+
+ 926 011c 05E0     		b	.L67
+ 927              	.L66:
+ 928 011e 7B69     		ldr	r3, [r7, #20]
+ 929 0120 5B68     		ldr	r3, [r3, #4]
+ 930 0122 23F40052 		bic	r2, r3, #8192
+ 931 0126 7B69     		ldr	r3, [r7, #20]
+ 932 0128 5A60     		str	r2, [r3, #4]
+ 933              	.L67:
+ 934 012a FB68     		ldr	r3, [r7, #12]
+ 935 012c 986B     		ldr	r0, [r3, #56]
+ 936 012e 7B69     		ldr	r3, [r7, #20]
+ 937 0130 0833     		adds	r3, r3, #8
+ 938 0132 1946     		mov	r1, r3
+ 939 0134 BA68     		ldr	r2, [r7, #8]
+ 940 0136 7B68     		ldr	r3, [r7, #4]
+ 941 0138 FFF7FEFF 		bl	HAL_DMA_Start_IT
+ 942 013c FB68     		ldr	r3, [r7, #12]
+ 943 013e 1B68     		ldr	r3, [r3]
+ 944 0140 9B68     		ldr	r3, [r3, #8]
+ 945 0142 03F04053 		and	r3, r3, #805306368
+ 946 0146 002B     		cmp	r3, #0
+ 947 0148 14D1     		bne	.L68
+ 948 014a FB68     		ldr	r3, [r7, #12]
+ 949 014c 1B68     		ldr	r3, [r3]
+ 950 014e 9A68     		ldr	r2, [r3, #8]
+ 951 0150 FB68     		ldr	r3, [r7, #12]
+ 952 0152 1B68     		ldr	r3, [r3]
+ 953 0154 42F08042 		orr	r2, r2, #1073741824
+ 954 0158 9A60     		str	r2, [r3, #8]
+ 955 015a 0BE0     		b	.L68
+ 956              	.L62:
+ 957 015c FB68     		ldr	r3, [r7, #12]
+ 958 015e 1B6C     		ldr	r3, [r3, #64]
+ 959 0160 43F01002 		orr	r2, r3, #16
+ 960 0164 FB68     		ldr	r3, [r7, #12]
+ 961 0166 1A64     		str	r2, [r3, #64]
+ 962 0168 FB68     		ldr	r3, [r7, #12]
+ 963 016a 5B6C     		ldr	r3, [r3, #68]
+ 964 016c 43F00102 		orr	r2, r3, #1
+ 965 0170 FB68     		ldr	r3, [r7, #12]
+ 966 0172 5A64     		str	r2, [r3, #68]
+ 967              	.L68:
+ 968 0174 0023     		movs	r3, #0
+ 969              	.L58:
+ 970 0176 1846     		mov	r0, r3
+ 971 0178 1837     		adds	r7, r7, #24
+ 972 017a BD46     		mov	sp, r7
+ 973              		@ sp needed
+ 974 017c 80BD     		pop	{r7, pc}
+ 975              	.L70:
+ 976 017e 00BF     		.align	2
+ 977              	.L69:
+ 978 0180 00000000 		.word	SystemCoreClock
+ 979 0184 83DE1B43 		.word	1125899907
+ 980 0188 00000000 		.word	ADC_MultiModeDMAConvCplt
+ 981 018c 00000000 		.word	ADC_MultiModeDMAHalfConvCplt
+ 982 0190 00000000 		.word	ADC_MultiModeDMAError
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccehUHz3.s 			page 18
+
+
+ 983 0194 00230140 		.word	1073816320
+ 985              		.section	.text.HAL_ADCEx_MultiModeStop_DMA,"ax",%progbits
+ 986              		.align	1
+ 987              		.global	HAL_ADCEx_MultiModeStop_DMA
+ 988              		.syntax unified
+ 989              		.thumb
+ 990              		.thumb_func
+ 992              	HAL_ADCEx_MultiModeStop_DMA:
+ 993              		@ args = 0, pretend = 0, frame = 16
+ 994              		@ frame_needed = 1, uses_anonymous_args = 0
+ 995 0000 80B5     		push	{r7, lr}
+ 996 0002 84B0     		sub	sp, sp, #16
+ 997 0004 00AF     		add	r7, sp, #0
+ 998 0006 7860     		str	r0, [r7, #4]
+ 999 0008 0023     		movs	r3, #0
+ 1000 000a FB73     		strb	r3, [r7, #15]
+ 1001 000c 7B68     		ldr	r3, [r7, #4]
+ 1002 000e 93F83C30 		ldrb	r3, [r3, #60]	@ zero_extendqisi2
+ 1003 0012 012B     		cmp	r3, #1
+ 1004 0014 01D1     		bne	.L72
+ 1005 0016 0223     		movs	r3, #2
+ 1006 0018 38E0     		b	.L73
+ 1007              	.L72:
+ 1008 001a 7B68     		ldr	r3, [r7, #4]
+ 1009 001c 0122     		movs	r2, #1
+ 1010 001e 83F83C20 		strb	r2, [r3, #60]
+ 1011 0022 7B68     		ldr	r3, [r7, #4]
+ 1012 0024 1B68     		ldr	r3, [r3]
+ 1013 0026 9A68     		ldr	r2, [r3, #8]
+ 1014 0028 7B68     		ldr	r3, [r7, #4]
+ 1015 002a 1B68     		ldr	r3, [r3]
+ 1016 002c 22F00102 		bic	r2, r2, #1
+ 1017 0030 9A60     		str	r2, [r3, #8]
+ 1018 0032 184B     		ldr	r3, .L75
+ 1019 0034 BB60     		str	r3, [r7, #8]
+ 1020 0036 7B68     		ldr	r3, [r7, #4]
+ 1021 0038 1B68     		ldr	r3, [r3]
+ 1022 003a 9B68     		ldr	r3, [r3, #8]
+ 1023 003c 03F00103 		and	r3, r3, #1
+ 1024 0040 002B     		cmp	r3, #0
+ 1025 0042 1ED1     		bne	.L74
+ 1026 0044 BB68     		ldr	r3, [r7, #8]
+ 1027 0046 5B68     		ldr	r3, [r3, #4]
+ 1028 0048 23F40052 		bic	r2, r3, #8192
+ 1029 004c BB68     		ldr	r3, [r7, #8]
+ 1030 004e 5A60     		str	r2, [r3, #4]
+ 1031 0050 7B68     		ldr	r3, [r7, #4]
+ 1032 0052 9B6B     		ldr	r3, [r3, #56]
+ 1033 0054 1846     		mov	r0, r3
+ 1034 0056 FFF7FEFF 		bl	HAL_DMA_Abort
+ 1035 005a 0346     		mov	r3, r0
+ 1036 005c FB73     		strb	r3, [r7, #15]
+ 1037 005e 7B68     		ldr	r3, [r7, #4]
+ 1038 0060 1B68     		ldr	r3, [r3]
+ 1039 0062 5A68     		ldr	r2, [r3, #4]
+ 1040 0064 7B68     		ldr	r3, [r7, #4]
+ 1041 0066 1B68     		ldr	r3, [r3]
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccehUHz3.s 			page 19
+
+
+ 1042 0068 22F08062 		bic	r2, r2, #67108864
+ 1043 006c 5A60     		str	r2, [r3, #4]
+ 1044 006e 7B68     		ldr	r3, [r7, #4]
+ 1045 0070 1B6C     		ldr	r3, [r3, #64]
+ 1046 0072 23F48853 		bic	r3, r3, #4352
+ 1047 0076 23F00103 		bic	r3, r3, #1
+ 1048 007a 43F00102 		orr	r2, r3, #1
+ 1049 007e 7B68     		ldr	r3, [r7, #4]
+ 1050 0080 1A64     		str	r2, [r3, #64]
+ 1051              	.L74:
+ 1052 0082 7B68     		ldr	r3, [r7, #4]
+ 1053 0084 0022     		movs	r2, #0
+ 1054 0086 83F83C20 		strb	r2, [r3, #60]
+ 1055 008a FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 1056              	.L73:
+ 1057 008c 1846     		mov	r0, r3
+ 1058 008e 1037     		adds	r7, r7, #16
+ 1059 0090 BD46     		mov	sp, r7
+ 1060              		@ sp needed
+ 1061 0092 80BD     		pop	{r7, pc}
+ 1062              	.L76:
+ 1063              		.align	2
+ 1064              	.L75:
+ 1065 0094 00230140 		.word	1073816320
+ 1067              		.section	.text.HAL_ADCEx_MultiModeGetValue,"ax",%progbits
+ 1068              		.align	1
+ 1069              		.global	HAL_ADCEx_MultiModeGetValue
+ 1070              		.syntax unified
+ 1071              		.thumb
+ 1072              		.thumb_func
+ 1074              	HAL_ADCEx_MultiModeGetValue:
+ 1075              		@ args = 0, pretend = 0, frame = 16
+ 1076              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1077              		@ link register save eliminated.
+ 1078 0000 80B4     		push	{r7}
+ 1079 0002 85B0     		sub	sp, sp, #20
+ 1080 0004 00AF     		add	r7, sp, #0
+ 1081 0006 7860     		str	r0, [r7, #4]
+ 1082 0008 044B     		ldr	r3, .L79
+ 1083 000a FB60     		str	r3, [r7, #12]
+ 1084 000c FB68     		ldr	r3, [r7, #12]
+ 1085 000e 9B68     		ldr	r3, [r3, #8]
+ 1086 0010 1846     		mov	r0, r3
+ 1087 0012 1437     		adds	r7, r7, #20
+ 1088 0014 BD46     		mov	sp, r7
+ 1089              		@ sp needed
+ 1090 0016 5DF8047B 		ldr	r7, [sp], #4
+ 1091 001a 7047     		bx	lr
+ 1092              	.L80:
+ 1093              		.align	2
+ 1094              	.L79:
+ 1095 001c 00230140 		.word	1073816320
+ 1097              		.section	.text.HAL_ADCEx_InjectedConvCpltCallback,"ax",%progbits
+ 1098              		.align	1
+ 1099              		.weak	HAL_ADCEx_InjectedConvCpltCallback
+ 1100              		.syntax unified
+ 1101              		.thumb
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccehUHz3.s 			page 20
+
+
+ 1102              		.thumb_func
+ 1104              	HAL_ADCEx_InjectedConvCpltCallback:
+ 1105              		@ args = 0, pretend = 0, frame = 8
+ 1106              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1107              		@ link register save eliminated.
+ 1108 0000 80B4     		push	{r7}
+ 1109 0002 83B0     		sub	sp, sp, #12
+ 1110 0004 00AF     		add	r7, sp, #0
+ 1111 0006 7860     		str	r0, [r7, #4]
+ 1112 0008 00BF     		nop
+ 1113 000a 0C37     		adds	r7, r7, #12
+ 1114 000c BD46     		mov	sp, r7
+ 1115              		@ sp needed
+ 1116 000e 5DF8047B 		ldr	r7, [sp], #4
+ 1117 0012 7047     		bx	lr
+ 1119              		.section	.text.HAL_ADCEx_InjectedConfigChannel,"ax",%progbits
+ 1120              		.align	1
+ 1121              		.global	HAL_ADCEx_InjectedConfigChannel
+ 1122              		.syntax unified
+ 1123              		.thumb
+ 1124              		.thumb_func
+ 1126              	HAL_ADCEx_InjectedConfigChannel:
+ 1127              		@ args = 0, pretend = 0, frame = 16
+ 1128              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1129              		@ link register save eliminated.
+ 1130 0000 80B4     		push	{r7}
+ 1131 0002 85B0     		sub	sp, sp, #20
+ 1132 0004 00AF     		add	r7, sp, #0
+ 1133 0006 7860     		str	r0, [r7, #4]
+ 1134 0008 3960     		str	r1, [r7]
+ 1135 000a 7B68     		ldr	r3, [r7, #4]
+ 1136 000c 93F83C30 		ldrb	r3, [r3, #60]	@ zero_extendqisi2
+ 1137 0010 012B     		cmp	r3, #1
+ 1138 0012 01D1     		bne	.L83
+ 1139 0014 0223     		movs	r3, #2
+ 1140 0016 7DE1     		b	.L84
+ 1141              	.L83:
+ 1142 0018 7B68     		ldr	r3, [r7, #4]
+ 1143 001a 0122     		movs	r2, #1
+ 1144 001c 83F83C20 		strb	r2, [r3, #60]
+ 1145 0020 3B68     		ldr	r3, [r7]
+ 1146 0022 1B68     		ldr	r3, [r3]
+ 1147 0024 092B     		cmp	r3, #9
+ 1148 0026 25D9     		bls	.L85
+ 1149 0028 7B68     		ldr	r3, [r7, #4]
+ 1150 002a 1B68     		ldr	r3, [r3]
+ 1151 002c D968     		ldr	r1, [r3, #12]
+ 1152 002e 3B68     		ldr	r3, [r7]
+ 1153 0030 1B68     		ldr	r3, [r3]
+ 1154 0032 9BB2     		uxth	r3, r3
+ 1155 0034 1A46     		mov	r2, r3
+ 1156 0036 1346     		mov	r3, r2
+ 1157 0038 5B00     		lsls	r3, r3, #1
+ 1158 003a 1344     		add	r3, r3, r2
+ 1159 003c 1E3B     		subs	r3, r3, #30
+ 1160 003e 0722     		movs	r2, #7
+ 1161 0040 02FA03F3 		lsl	r3, r2, r3
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccehUHz3.s 			page 21
+
+
+ 1162 0044 DA43     		mvns	r2, r3
+ 1163 0046 7B68     		ldr	r3, [r7, #4]
+ 1164 0048 1B68     		ldr	r3, [r3]
+ 1165 004a 0A40     		ands	r2, r2, r1
+ 1166 004c DA60     		str	r2, [r3, #12]
+ 1167 004e 7B68     		ldr	r3, [r7, #4]
+ 1168 0050 1B68     		ldr	r3, [r3]
+ 1169 0052 D968     		ldr	r1, [r3, #12]
+ 1170 0054 3B68     		ldr	r3, [r7]
+ 1171 0056 9A68     		ldr	r2, [r3, #8]
+ 1172 0058 3B68     		ldr	r3, [r7]
+ 1173 005a 1B68     		ldr	r3, [r3]
+ 1174 005c 9BB2     		uxth	r3, r3
+ 1175 005e 1846     		mov	r0, r3
+ 1176 0060 0346     		mov	r3, r0
+ 1177 0062 5B00     		lsls	r3, r3, #1
+ 1178 0064 0344     		add	r3, r3, r0
+ 1179 0066 1E3B     		subs	r3, r3, #30
+ 1180 0068 9A40     		lsls	r2, r2, r3
+ 1181 006a 7B68     		ldr	r3, [r7, #4]
+ 1182 006c 1B68     		ldr	r3, [r3]
+ 1183 006e 0A43     		orrs	r2, r2, r1
+ 1184 0070 DA60     		str	r2, [r3, #12]
+ 1185 0072 22E0     		b	.L86
+ 1186              	.L85:
+ 1187 0074 7B68     		ldr	r3, [r7, #4]
+ 1188 0076 1B68     		ldr	r3, [r3]
+ 1189 0078 1969     		ldr	r1, [r3, #16]
+ 1190 007a 3B68     		ldr	r3, [r7]
+ 1191 007c 1B68     		ldr	r3, [r3]
+ 1192 007e 9BB2     		uxth	r3, r3
+ 1193 0080 1A46     		mov	r2, r3
+ 1194 0082 1346     		mov	r3, r2
+ 1195 0084 5B00     		lsls	r3, r3, #1
+ 1196 0086 1344     		add	r3, r3, r2
+ 1197 0088 0722     		movs	r2, #7
+ 1198 008a 02FA03F3 		lsl	r3, r2, r3
+ 1199 008e DA43     		mvns	r2, r3
+ 1200 0090 7B68     		ldr	r3, [r7, #4]
+ 1201 0092 1B68     		ldr	r3, [r3]
+ 1202 0094 0A40     		ands	r2, r2, r1
+ 1203 0096 1A61     		str	r2, [r3, #16]
+ 1204 0098 7B68     		ldr	r3, [r7, #4]
+ 1205 009a 1B68     		ldr	r3, [r3]
+ 1206 009c 1969     		ldr	r1, [r3, #16]
+ 1207 009e 3B68     		ldr	r3, [r7]
+ 1208 00a0 9A68     		ldr	r2, [r3, #8]
+ 1209 00a2 3B68     		ldr	r3, [r7]
+ 1210 00a4 1B68     		ldr	r3, [r3]
+ 1211 00a6 9BB2     		uxth	r3, r3
+ 1212 00a8 1846     		mov	r0, r3
+ 1213 00aa 0346     		mov	r3, r0
+ 1214 00ac 5B00     		lsls	r3, r3, #1
+ 1215 00ae 0344     		add	r3, r3, r0
+ 1216 00b0 9A40     		lsls	r2, r2, r3
+ 1217 00b2 7B68     		ldr	r3, [r7, #4]
+ 1218 00b4 1B68     		ldr	r3, [r3]
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccehUHz3.s 			page 22
+
+
+ 1219 00b6 0A43     		orrs	r2, r2, r1
+ 1220 00b8 1A61     		str	r2, [r3, #16]
+ 1221              	.L86:
+ 1222 00ba 7B68     		ldr	r3, [r7, #4]
+ 1223 00bc 1B68     		ldr	r3, [r3]
+ 1224 00be 9A6B     		ldr	r2, [r3, #56]
+ 1225 00c0 7B68     		ldr	r3, [r7, #4]
+ 1226 00c2 1B68     		ldr	r3, [r3]
+ 1227 00c4 22F44012 		bic	r2, r2, #3145728
+ 1228 00c8 9A63     		str	r2, [r3, #56]
+ 1229 00ca 7B68     		ldr	r3, [r7, #4]
+ 1230 00cc 1B68     		ldr	r3, [r3]
+ 1231 00ce 996B     		ldr	r1, [r3, #56]
+ 1232 00d0 3B68     		ldr	r3, [r7]
+ 1233 00d2 1B69     		ldr	r3, [r3, #16]
+ 1234 00d4 013B     		subs	r3, r3, #1
+ 1235 00d6 1A05     		lsls	r2, r3, #20
+ 1236 00d8 7B68     		ldr	r3, [r7, #4]
+ 1237 00da 1B68     		ldr	r3, [r3]
+ 1238 00dc 0A43     		orrs	r2, r2, r1
+ 1239 00de 9A63     		str	r2, [r3, #56]
+ 1240 00e0 7B68     		ldr	r3, [r7, #4]
+ 1241 00e2 1B68     		ldr	r3, [r3]
+ 1242 00e4 996B     		ldr	r1, [r3, #56]
+ 1243 00e6 3B68     		ldr	r3, [r7]
+ 1244 00e8 5B68     		ldr	r3, [r3, #4]
+ 1245 00ea DAB2     		uxtb	r2, r3
+ 1246 00ec 3B68     		ldr	r3, [r7]
+ 1247 00ee 1B69     		ldr	r3, [r3, #16]
+ 1248 00f0 DBB2     		uxtb	r3, r3
+ 1249 00f2 D31A     		subs	r3, r2, r3
+ 1250 00f4 DBB2     		uxtb	r3, r3
+ 1251 00f6 0333     		adds	r3, r3, #3
+ 1252 00f8 DBB2     		uxtb	r3, r3
+ 1253 00fa 1A46     		mov	r2, r3
+ 1254 00fc 1346     		mov	r3, r2
+ 1255 00fe 9B00     		lsls	r3, r3, #2
+ 1256 0100 1344     		add	r3, r3, r2
+ 1257 0102 1F22     		movs	r2, #31
+ 1258 0104 02FA03F3 		lsl	r3, r2, r3
+ 1259 0108 DA43     		mvns	r2, r3
+ 1260 010a 7B68     		ldr	r3, [r7, #4]
+ 1261 010c 1B68     		ldr	r3, [r3]
+ 1262 010e 0A40     		ands	r2, r2, r1
+ 1263 0110 9A63     		str	r2, [r3, #56]
+ 1264 0112 7B68     		ldr	r3, [r7, #4]
+ 1265 0114 1B68     		ldr	r3, [r3]
+ 1266 0116 996B     		ldr	r1, [r3, #56]
+ 1267 0118 3B68     		ldr	r3, [r7]
+ 1268 011a 1B68     		ldr	r3, [r3]
+ 1269 011c 9BB2     		uxth	r3, r3
+ 1270 011e 1846     		mov	r0, r3
+ 1271 0120 3B68     		ldr	r3, [r7]
+ 1272 0122 5B68     		ldr	r3, [r3, #4]
+ 1273 0124 DAB2     		uxtb	r2, r3
+ 1274 0126 3B68     		ldr	r3, [r7]
+ 1275 0128 1B69     		ldr	r3, [r3, #16]
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccehUHz3.s 			page 23
+
+
+ 1276 012a DBB2     		uxtb	r3, r3
+ 1277 012c D31A     		subs	r3, r2, r3
+ 1278 012e DBB2     		uxtb	r3, r3
+ 1279 0130 0333     		adds	r3, r3, #3
+ 1280 0132 DBB2     		uxtb	r3, r3
+ 1281 0134 1A46     		mov	r2, r3
+ 1282 0136 1346     		mov	r3, r2
+ 1283 0138 9B00     		lsls	r3, r3, #2
+ 1284 013a 1344     		add	r3, r3, r2
+ 1285 013c 00FA03F2 		lsl	r2, r0, r3
+ 1286 0140 7B68     		ldr	r3, [r7, #4]
+ 1287 0142 1B68     		ldr	r3, [r3]
+ 1288 0144 0A43     		orrs	r2, r2, r1
+ 1289 0146 9A63     		str	r2, [r3, #56]
+ 1290 0148 3B68     		ldr	r3, [r7]
+ 1291 014a 9B69     		ldr	r3, [r3, #24]
+ 1292 014c 744A     		ldr	r2, .L101
+ 1293 014e 9342     		cmp	r3, r2
+ 1294 0150 22D0     		beq	.L87
+ 1295 0152 7B68     		ldr	r3, [r7, #4]
+ 1296 0154 1B68     		ldr	r3, [r3]
+ 1297 0156 9A68     		ldr	r2, [r3, #8]
+ 1298 0158 7B68     		ldr	r3, [r7, #4]
+ 1299 015a 1B68     		ldr	r3, [r3]
+ 1300 015c 22F47022 		bic	r2, r2, #983040
+ 1301 0160 9A60     		str	r2, [r3, #8]
+ 1302 0162 7B68     		ldr	r3, [r7, #4]
+ 1303 0164 1B68     		ldr	r3, [r3]
+ 1304 0166 9968     		ldr	r1, [r3, #8]
+ 1305 0168 3B68     		ldr	r3, [r7]
+ 1306 016a 9A69     		ldr	r2, [r3, #24]
+ 1307 016c 7B68     		ldr	r3, [r7, #4]
+ 1308 016e 1B68     		ldr	r3, [r3]
+ 1309 0170 0A43     		orrs	r2, r2, r1
+ 1310 0172 9A60     		str	r2, [r3, #8]
+ 1311 0174 7B68     		ldr	r3, [r7, #4]
+ 1312 0176 1B68     		ldr	r3, [r3]
+ 1313 0178 9A68     		ldr	r2, [r3, #8]
+ 1314 017a 7B68     		ldr	r3, [r7, #4]
+ 1315 017c 1B68     		ldr	r3, [r3]
+ 1316 017e 22F44012 		bic	r2, r2, #3145728
+ 1317 0182 9A60     		str	r2, [r3, #8]
+ 1318 0184 7B68     		ldr	r3, [r7, #4]
+ 1319 0186 1B68     		ldr	r3, [r3]
+ 1320 0188 9968     		ldr	r1, [r3, #8]
+ 1321 018a 3B68     		ldr	r3, [r7]
+ 1322 018c DA69     		ldr	r2, [r3, #28]
+ 1323 018e 7B68     		ldr	r3, [r7, #4]
+ 1324 0190 1B68     		ldr	r3, [r3]
+ 1325 0192 0A43     		orrs	r2, r2, r1
+ 1326 0194 9A60     		str	r2, [r3, #8]
+ 1327 0196 0FE0     		b	.L88
+ 1328              	.L87:
+ 1329 0198 7B68     		ldr	r3, [r7, #4]
+ 1330 019a 1B68     		ldr	r3, [r3]
+ 1331 019c 9A68     		ldr	r2, [r3, #8]
+ 1332 019e 7B68     		ldr	r3, [r7, #4]
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccehUHz3.s 			page 24
+
+
+ 1333 01a0 1B68     		ldr	r3, [r3]
+ 1334 01a2 22F47022 		bic	r2, r2, #983040
+ 1335 01a6 9A60     		str	r2, [r3, #8]
+ 1336 01a8 7B68     		ldr	r3, [r7, #4]
+ 1337 01aa 1B68     		ldr	r3, [r3]
+ 1338 01ac 9A68     		ldr	r2, [r3, #8]
+ 1339 01ae 7B68     		ldr	r3, [r7, #4]
+ 1340 01b0 1B68     		ldr	r3, [r3]
+ 1341 01b2 22F44012 		bic	r2, r2, #3145728
+ 1342 01b6 9A60     		str	r2, [r3, #8]
+ 1343              	.L88:
+ 1344 01b8 3B68     		ldr	r3, [r7]
+ 1345 01ba 5B7D     		ldrb	r3, [r3, #21]	@ zero_extendqisi2
+ 1346 01bc 002B     		cmp	r3, #0
+ 1347 01be 08D0     		beq	.L89
+ 1348 01c0 7B68     		ldr	r3, [r7, #4]
+ 1349 01c2 1B68     		ldr	r3, [r3]
+ 1350 01c4 5A68     		ldr	r2, [r3, #4]
+ 1351 01c6 7B68     		ldr	r3, [r7, #4]
+ 1352 01c8 1B68     		ldr	r3, [r3]
+ 1353 01ca 42F48062 		orr	r2, r2, #1024
+ 1354 01ce 5A60     		str	r2, [r3, #4]
+ 1355 01d0 07E0     		b	.L90
+ 1356              	.L89:
+ 1357 01d2 7B68     		ldr	r3, [r7, #4]
+ 1358 01d4 1B68     		ldr	r3, [r3]
+ 1359 01d6 5A68     		ldr	r2, [r3, #4]
+ 1360 01d8 7B68     		ldr	r3, [r7, #4]
+ 1361 01da 1B68     		ldr	r3, [r3]
+ 1362 01dc 22F48062 		bic	r2, r2, #1024
+ 1363 01e0 5A60     		str	r2, [r3, #4]
+ 1364              	.L90:
+ 1365 01e2 3B68     		ldr	r3, [r7]
+ 1366 01e4 1B7D     		ldrb	r3, [r3, #20]	@ zero_extendqisi2
+ 1367 01e6 002B     		cmp	r3, #0
+ 1368 01e8 08D0     		beq	.L91
+ 1369 01ea 7B68     		ldr	r3, [r7, #4]
+ 1370 01ec 1B68     		ldr	r3, [r3]
+ 1371 01ee 5A68     		ldr	r2, [r3, #4]
+ 1372 01f0 7B68     		ldr	r3, [r7, #4]
+ 1373 01f2 1B68     		ldr	r3, [r3]
+ 1374 01f4 42F48052 		orr	r2, r2, #4096
+ 1375 01f8 5A60     		str	r2, [r3, #4]
+ 1376 01fa 07E0     		b	.L92
+ 1377              	.L91:
+ 1378 01fc 7B68     		ldr	r3, [r7, #4]
+ 1379 01fe 1B68     		ldr	r3, [r3]
+ 1380 0200 5A68     		ldr	r2, [r3, #4]
+ 1381 0202 7B68     		ldr	r3, [r7, #4]
+ 1382 0204 1B68     		ldr	r3, [r3]
+ 1383 0206 22F48052 		bic	r2, r2, #4096
+ 1384 020a 5A60     		str	r2, [r3, #4]
+ 1385              	.L92:
+ 1386 020c 3B68     		ldr	r3, [r7]
+ 1387 020e 5B68     		ldr	r3, [r3, #4]
+ 1388 0210 032B     		cmp	r3, #3
+ 1389 0212 2ED0     		beq	.L93
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccehUHz3.s 			page 25
+
+
+ 1390 0214 032B     		cmp	r3, #3
+ 1391 0216 40D8     		bhi	.L94
+ 1392 0218 012B     		cmp	r3, #1
+ 1393 021a 02D0     		beq	.L95
+ 1394 021c 022B     		cmp	r3, #2
+ 1395 021e 14D0     		beq	.L96
+ 1396 0220 3BE0     		b	.L94
+ 1397              	.L95:
+ 1398 0222 7B68     		ldr	r3, [r7, #4]
+ 1399 0224 1B68     		ldr	r3, [r3]
+ 1400 0226 5B69     		ldr	r3, [r3, #20]
+ 1401 0228 7A68     		ldr	r2, [r7, #4]
+ 1402 022a 1268     		ldr	r2, [r2]
+ 1403 022c 23F47F63 		bic	r3, r3, #4080
+ 1404 0230 23F00F03 		bic	r3, r3, #15
+ 1405 0234 5361     		str	r3, [r2, #20]
+ 1406 0236 7B68     		ldr	r3, [r7, #4]
+ 1407 0238 1B68     		ldr	r3, [r3]
+ 1408 023a 5969     		ldr	r1, [r3, #20]
+ 1409 023c 3B68     		ldr	r3, [r7]
+ 1410 023e DA68     		ldr	r2, [r3, #12]
+ 1411 0240 7B68     		ldr	r3, [r7, #4]
+ 1412 0242 1B68     		ldr	r3, [r3]
+ 1413 0244 0A43     		orrs	r2, r2, r1
+ 1414 0246 5A61     		str	r2, [r3, #20]
+ 1415 0248 3BE0     		b	.L97
+ 1416              	.L96:
+ 1417 024a 7B68     		ldr	r3, [r7, #4]
+ 1418 024c 1B68     		ldr	r3, [r3]
+ 1419 024e 9B69     		ldr	r3, [r3, #24]
+ 1420 0250 7A68     		ldr	r2, [r7, #4]
+ 1421 0252 1268     		ldr	r2, [r2]
+ 1422 0254 23F47F63 		bic	r3, r3, #4080
+ 1423 0258 23F00F03 		bic	r3, r3, #15
+ 1424 025c 9361     		str	r3, [r2, #24]
+ 1425 025e 7B68     		ldr	r3, [r7, #4]
+ 1426 0260 1B68     		ldr	r3, [r3]
+ 1427 0262 9969     		ldr	r1, [r3, #24]
+ 1428 0264 3B68     		ldr	r3, [r7]
+ 1429 0266 DA68     		ldr	r2, [r3, #12]
+ 1430 0268 7B68     		ldr	r3, [r7, #4]
+ 1431 026a 1B68     		ldr	r3, [r3]
+ 1432 026c 0A43     		orrs	r2, r2, r1
+ 1433 026e 9A61     		str	r2, [r3, #24]
+ 1434 0270 27E0     		b	.L97
+ 1435              	.L93:
+ 1436 0272 7B68     		ldr	r3, [r7, #4]
+ 1437 0274 1B68     		ldr	r3, [r3]
+ 1438 0276 DB69     		ldr	r3, [r3, #28]
+ 1439 0278 7A68     		ldr	r2, [r7, #4]
+ 1440 027a 1268     		ldr	r2, [r2]
+ 1441 027c 23F47F63 		bic	r3, r3, #4080
+ 1442 0280 23F00F03 		bic	r3, r3, #15
+ 1443 0284 D361     		str	r3, [r2, #28]
+ 1444 0286 7B68     		ldr	r3, [r7, #4]
+ 1445 0288 1B68     		ldr	r3, [r3]
+ 1446 028a D969     		ldr	r1, [r3, #28]
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccehUHz3.s 			page 26
+
+
+ 1447 028c 3B68     		ldr	r3, [r7]
+ 1448 028e DA68     		ldr	r2, [r3, #12]
+ 1449 0290 7B68     		ldr	r3, [r7, #4]
+ 1450 0292 1B68     		ldr	r3, [r3]
+ 1451 0294 0A43     		orrs	r2, r2, r1
+ 1452 0296 DA61     		str	r2, [r3, #28]
+ 1453 0298 13E0     		b	.L97
+ 1454              	.L94:
+ 1455 029a 7B68     		ldr	r3, [r7, #4]
+ 1456 029c 1B68     		ldr	r3, [r3]
+ 1457 029e 1B6A     		ldr	r3, [r3, #32]
+ 1458 02a0 7A68     		ldr	r2, [r7, #4]
+ 1459 02a2 1268     		ldr	r2, [r2]
+ 1460 02a4 23F47F63 		bic	r3, r3, #4080
+ 1461 02a8 23F00F03 		bic	r3, r3, #15
+ 1462 02ac 1362     		str	r3, [r2, #32]
+ 1463 02ae 7B68     		ldr	r3, [r7, #4]
+ 1464 02b0 1B68     		ldr	r3, [r3]
+ 1465 02b2 196A     		ldr	r1, [r3, #32]
+ 1466 02b4 3B68     		ldr	r3, [r7]
+ 1467 02b6 DA68     		ldr	r2, [r3, #12]
+ 1468 02b8 7B68     		ldr	r3, [r7, #4]
+ 1469 02ba 1B68     		ldr	r3, [r3]
+ 1470 02bc 0A43     		orrs	r2, r2, r1
+ 1471 02be 1A62     		str	r2, [r3, #32]
+ 1472 02c0 00BF     		nop
+ 1473              	.L97:
+ 1474 02c2 184B     		ldr	r3, .L101+4
+ 1475 02c4 FB60     		str	r3, [r7, #12]
+ 1476 02c6 7B68     		ldr	r3, [r7, #4]
+ 1477 02c8 1B68     		ldr	r3, [r3]
+ 1478 02ca 174A     		ldr	r2, .L101+8
+ 1479 02cc 9342     		cmp	r3, r2
+ 1480 02ce 09D1     		bne	.L98
+ 1481 02d0 3B68     		ldr	r3, [r7]
+ 1482 02d2 1B68     		ldr	r3, [r3]
+ 1483 02d4 122B     		cmp	r3, #18
+ 1484 02d6 05D1     		bne	.L98
+ 1485 02d8 FB68     		ldr	r3, [r7, #12]
+ 1486 02da 5B68     		ldr	r3, [r3, #4]
+ 1487 02dc 43F48002 		orr	r2, r3, #4194304
+ 1488 02e0 FB68     		ldr	r3, [r7, #12]
+ 1489 02e2 5A60     		str	r2, [r3, #4]
+ 1490              	.L98:
+ 1491 02e4 7B68     		ldr	r3, [r7, #4]
+ 1492 02e6 1B68     		ldr	r3, [r3]
+ 1493 02e8 0F4A     		ldr	r2, .L101+8
+ 1494 02ea 9342     		cmp	r3, r2
+ 1495 02ec 0DD1     		bne	.L99
+ 1496 02ee 3B68     		ldr	r3, [r7]
+ 1497 02f0 1B68     		ldr	r3, [r3]
+ 1498 02f2 102B     		cmp	r3, #16
+ 1499 02f4 03D0     		beq	.L100
+ 1500 02f6 3B68     		ldr	r3, [r7]
+ 1501 02f8 1B68     		ldr	r3, [r3]
+ 1502 02fa 112B     		cmp	r3, #17
+ 1503 02fc 05D1     		bne	.L99
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccehUHz3.s 			page 27
+
+
+ 1504              	.L100:
+ 1505 02fe FB68     		ldr	r3, [r7, #12]
+ 1506 0300 5B68     		ldr	r3, [r3, #4]
+ 1507 0302 43F40002 		orr	r2, r3, #8388608
+ 1508 0306 FB68     		ldr	r3, [r7, #12]
+ 1509 0308 5A60     		str	r2, [r3, #4]
+ 1510              	.L99:
+ 1511 030a 7B68     		ldr	r3, [r7, #4]
+ 1512 030c 0022     		movs	r2, #0
+ 1513 030e 83F83C20 		strb	r2, [r3, #60]
+ 1514 0312 0023     		movs	r3, #0
+ 1515              	.L84:
+ 1516 0314 1846     		mov	r0, r3
+ 1517 0316 1437     		adds	r7, r7, #20
+ 1518 0318 BD46     		mov	sp, r7
+ 1519              		@ sp needed
+ 1520 031a 5DF8047B 		ldr	r7, [sp], #4
+ 1521 031e 7047     		bx	lr
+ 1522              	.L102:
+ 1523              		.align	2
+ 1524              	.L101:
+ 1525 0320 01000F00 		.word	983041
+ 1526 0324 00230140 		.word	1073816320
+ 1527 0328 00200140 		.word	1073815552
+ 1529              		.section	.text.HAL_ADCEx_MultiModeConfigChannel,"ax",%progbits
+ 1530              		.align	1
+ 1531              		.global	HAL_ADCEx_MultiModeConfigChannel
+ 1532              		.syntax unified
+ 1533              		.thumb
+ 1534              		.thumb_func
+ 1536              	HAL_ADCEx_MultiModeConfigChannel:
+ 1537              		@ args = 0, pretend = 0, frame = 16
+ 1538              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1539              		@ link register save eliminated.
+ 1540 0000 80B4     		push	{r7}
+ 1541 0002 85B0     		sub	sp, sp, #20
+ 1542 0004 00AF     		add	r7, sp, #0
+ 1543 0006 7860     		str	r0, [r7, #4]
+ 1544 0008 3960     		str	r1, [r7]
+ 1545 000a 7B68     		ldr	r3, [r7, #4]
+ 1546 000c 93F83C30 		ldrb	r3, [r3, #60]	@ zero_extendqisi2
+ 1547 0010 012B     		cmp	r3, #1
+ 1548 0012 01D1     		bne	.L104
+ 1549 0014 0223     		movs	r3, #2
+ 1550 0016 31E0     		b	.L105
+ 1551              	.L104:
+ 1552 0018 7B68     		ldr	r3, [r7, #4]
+ 1553 001a 0122     		movs	r2, #1
+ 1554 001c 83F83C20 		strb	r2, [r3, #60]
+ 1555 0020 194B     		ldr	r3, .L106
+ 1556 0022 FB60     		str	r3, [r7, #12]
+ 1557 0024 FB68     		ldr	r3, [r7, #12]
+ 1558 0026 5B68     		ldr	r3, [r3, #4]
+ 1559 0028 23F01F02 		bic	r2, r3, #31
+ 1560 002c FB68     		ldr	r3, [r7, #12]
+ 1561 002e 5A60     		str	r2, [r3, #4]
+ 1562 0030 FB68     		ldr	r3, [r7, #12]
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccehUHz3.s 			page 28
+
+
+ 1563 0032 5A68     		ldr	r2, [r3, #4]
+ 1564 0034 3B68     		ldr	r3, [r7]
+ 1565 0036 1B68     		ldr	r3, [r3]
+ 1566 0038 1A43     		orrs	r2, r2, r3
+ 1567 003a FB68     		ldr	r3, [r7, #12]
+ 1568 003c 5A60     		str	r2, [r3, #4]
+ 1569 003e FB68     		ldr	r3, [r7, #12]
+ 1570 0040 5B68     		ldr	r3, [r3, #4]
+ 1571 0042 23F44042 		bic	r2, r3, #49152
+ 1572 0046 FB68     		ldr	r3, [r7, #12]
+ 1573 0048 5A60     		str	r2, [r3, #4]
+ 1574 004a FB68     		ldr	r3, [r7, #12]
+ 1575 004c 5A68     		ldr	r2, [r3, #4]
+ 1576 004e 3B68     		ldr	r3, [r7]
+ 1577 0050 5B68     		ldr	r3, [r3, #4]
+ 1578 0052 1A43     		orrs	r2, r2, r3
+ 1579 0054 FB68     		ldr	r3, [r7, #12]
+ 1580 0056 5A60     		str	r2, [r3, #4]
+ 1581 0058 FB68     		ldr	r3, [r7, #12]
+ 1582 005a 5B68     		ldr	r3, [r3, #4]
+ 1583 005c 23F47062 		bic	r2, r3, #3840
+ 1584 0060 FB68     		ldr	r3, [r7, #12]
+ 1585 0062 5A60     		str	r2, [r3, #4]
+ 1586 0064 FB68     		ldr	r3, [r7, #12]
+ 1587 0066 5A68     		ldr	r2, [r3, #4]
+ 1588 0068 3B68     		ldr	r3, [r7]
+ 1589 006a 9B68     		ldr	r3, [r3, #8]
+ 1590 006c 1A43     		orrs	r2, r2, r3
+ 1591 006e FB68     		ldr	r3, [r7, #12]
+ 1592 0070 5A60     		str	r2, [r3, #4]
+ 1593 0072 7B68     		ldr	r3, [r7, #4]
+ 1594 0074 0022     		movs	r2, #0
+ 1595 0076 83F83C20 		strb	r2, [r3, #60]
+ 1596 007a 0023     		movs	r3, #0
+ 1597              	.L105:
+ 1598 007c 1846     		mov	r0, r3
+ 1599 007e 1437     		adds	r7, r7, #20
+ 1600 0080 BD46     		mov	sp, r7
+ 1601              		@ sp needed
+ 1602 0082 5DF8047B 		ldr	r7, [sp], #4
+ 1603 0086 7047     		bx	lr
+ 1604              	.L107:
+ 1605              		.align	2
+ 1606              	.L106:
+ 1607 0088 00230140 		.word	1073816320
+ 1609              		.section	.text.ADC_MultiModeDMAConvCplt,"ax",%progbits
+ 1610              		.align	1
+ 1611              		.syntax unified
+ 1612              		.thumb
+ 1613              		.thumb_func
+ 1615              	ADC_MultiModeDMAConvCplt:
+ 1616              		@ args = 0, pretend = 0, frame = 16
+ 1617              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1618 0000 80B5     		push	{r7, lr}
+ 1619 0002 84B0     		sub	sp, sp, #16
+ 1620 0004 00AF     		add	r7, sp, #0
+ 1621 0006 7860     		str	r0, [r7, #4]
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccehUHz3.s 			page 29
+
+
+ 1622 0008 7B68     		ldr	r3, [r7, #4]
+ 1623 000a 9B6B     		ldr	r3, [r3, #56]
+ 1624 000c FB60     		str	r3, [r7, #12]
+ 1625 000e FB68     		ldr	r3, [r7, #12]
+ 1626 0010 1B6C     		ldr	r3, [r3, #64]
+ 1627 0012 03F05003 		and	r3, r3, #80
+ 1628 0016 002B     		cmp	r3, #0
+ 1629 0018 3CD1     		bne	.L109
+ 1630 001a FB68     		ldr	r3, [r7, #12]
+ 1631 001c 1B6C     		ldr	r3, [r3, #64]
+ 1632 001e 43F40072 		orr	r2, r3, #512
+ 1633 0022 FB68     		ldr	r3, [r7, #12]
+ 1634 0024 1A64     		str	r2, [r3, #64]
+ 1635 0026 FB68     		ldr	r3, [r7, #12]
+ 1636 0028 1B68     		ldr	r3, [r3]
+ 1637 002a 9B68     		ldr	r3, [r3, #8]
+ 1638 002c 03F04053 		and	r3, r3, #805306368
+ 1639 0030 002B     		cmp	r3, #0
+ 1640 0032 2BD1     		bne	.L110
+ 1641 0034 FB68     		ldr	r3, [r7, #12]
+ 1642 0036 1B7E     		ldrb	r3, [r3, #24]	@ zero_extendqisi2
+ 1643 0038 002B     		cmp	r3, #0
+ 1644 003a 27D1     		bne	.L110
+ 1645 003c FB68     		ldr	r3, [r7, #12]
+ 1646 003e 1B68     		ldr	r3, [r3]
+ 1647 0040 DB6A     		ldr	r3, [r3, #44]
+ 1648 0042 03F47003 		and	r3, r3, #15728640
+ 1649 0046 002B     		cmp	r3, #0
+ 1650 0048 06D0     		beq	.L111
+ 1651 004a FB68     		ldr	r3, [r7, #12]
+ 1652 004c 1B68     		ldr	r3, [r3]
+ 1653 004e 9B68     		ldr	r3, [r3, #8]
+ 1654 0050 03F48063 		and	r3, r3, #1024
+ 1655 0054 002B     		cmp	r3, #0
+ 1656 0056 19D1     		bne	.L110
+ 1657              	.L111:
+ 1658 0058 FB68     		ldr	r3, [r7, #12]
+ 1659 005a 1B68     		ldr	r3, [r3]
+ 1660 005c 5A68     		ldr	r2, [r3, #4]
+ 1661 005e FB68     		ldr	r3, [r7, #12]
+ 1662 0060 1B68     		ldr	r3, [r3]
+ 1663 0062 22F02002 		bic	r2, r2, #32
+ 1664 0066 5A60     		str	r2, [r3, #4]
+ 1665 0068 FB68     		ldr	r3, [r7, #12]
+ 1666 006a 1B6C     		ldr	r3, [r3, #64]
+ 1667 006c 23F48072 		bic	r2, r3, #256
+ 1668 0070 FB68     		ldr	r3, [r7, #12]
+ 1669 0072 1A64     		str	r2, [r3, #64]
+ 1670 0074 FB68     		ldr	r3, [r7, #12]
+ 1671 0076 1B6C     		ldr	r3, [r3, #64]
+ 1672 0078 03F48053 		and	r3, r3, #4096
+ 1673 007c 002B     		cmp	r3, #0
+ 1674 007e 05D1     		bne	.L110
+ 1675 0080 FB68     		ldr	r3, [r7, #12]
+ 1676 0082 1B6C     		ldr	r3, [r3, #64]
+ 1677 0084 43F00102 		orr	r2, r3, #1
+ 1678 0088 FB68     		ldr	r3, [r7, #12]
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccehUHz3.s 			page 30
+
+
+ 1679 008a 1A64     		str	r2, [r3, #64]
+ 1680              	.L110:
+ 1681 008c F868     		ldr	r0, [r7, #12]
+ 1682 008e FFF7FEFF 		bl	HAL_ADC_ConvCpltCallback
+ 1683 0092 04E0     		b	.L113
+ 1684              	.L109:
+ 1685 0094 FB68     		ldr	r3, [r7, #12]
+ 1686 0096 9B6B     		ldr	r3, [r3, #56]
+ 1687 0098 DB6C     		ldr	r3, [r3, #76]
+ 1688 009a 7868     		ldr	r0, [r7, #4]
+ 1689 009c 9847     		blx	r3
+ 1690              	.L113:
+ 1691 009e 00BF     		nop
+ 1692 00a0 1037     		adds	r7, r7, #16
+ 1693 00a2 BD46     		mov	sp, r7
+ 1694              		@ sp needed
+ 1695 00a4 80BD     		pop	{r7, pc}
+ 1697              		.section	.text.ADC_MultiModeDMAHalfConvCplt,"ax",%progbits
+ 1698              		.align	1
+ 1699              		.syntax unified
+ 1700              		.thumb
+ 1701              		.thumb_func
+ 1703              	ADC_MultiModeDMAHalfConvCplt:
+ 1704              		@ args = 0, pretend = 0, frame = 16
+ 1705              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1706 0000 80B5     		push	{r7, lr}
+ 1707 0002 84B0     		sub	sp, sp, #16
+ 1708 0004 00AF     		add	r7, sp, #0
+ 1709 0006 7860     		str	r0, [r7, #4]
+ 1710 0008 7B68     		ldr	r3, [r7, #4]
+ 1711 000a 9B6B     		ldr	r3, [r3, #56]
+ 1712 000c FB60     		str	r3, [r7, #12]
+ 1713 000e F868     		ldr	r0, [r7, #12]
+ 1714 0010 FFF7FEFF 		bl	HAL_ADC_ConvHalfCpltCallback
+ 1715 0014 00BF     		nop
+ 1716 0016 1037     		adds	r7, r7, #16
+ 1717 0018 BD46     		mov	sp, r7
+ 1718              		@ sp needed
+ 1719 001a 80BD     		pop	{r7, pc}
+ 1721              		.section	.text.ADC_MultiModeDMAError,"ax",%progbits
+ 1722              		.align	1
+ 1723              		.syntax unified
+ 1724              		.thumb
+ 1725              		.thumb_func
+ 1727              	ADC_MultiModeDMAError:
+ 1728              		@ args = 0, pretend = 0, frame = 16
+ 1729              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1730 0000 80B5     		push	{r7, lr}
+ 1731 0002 84B0     		sub	sp, sp, #16
+ 1732 0004 00AF     		add	r7, sp, #0
+ 1733 0006 7860     		str	r0, [r7, #4]
+ 1734 0008 7B68     		ldr	r3, [r7, #4]
+ 1735 000a 9B6B     		ldr	r3, [r3, #56]
+ 1736 000c FB60     		str	r3, [r7, #12]
+ 1737 000e FB68     		ldr	r3, [r7, #12]
+ 1738 0010 4022     		movs	r2, #64
+ 1739 0012 1A64     		str	r2, [r3, #64]
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccehUHz3.s 			page 31
+
+
+ 1740 0014 FB68     		ldr	r3, [r7, #12]
+ 1741 0016 5B6C     		ldr	r3, [r3, #68]
+ 1742 0018 43F00402 		orr	r2, r3, #4
+ 1743 001c FB68     		ldr	r3, [r7, #12]
+ 1744 001e 5A64     		str	r2, [r3, #68]
+ 1745 0020 F868     		ldr	r0, [r7, #12]
+ 1746 0022 FFF7FEFF 		bl	HAL_ADC_ErrorCallback
+ 1747 0026 00BF     		nop
+ 1748 0028 1037     		adds	r7, r7, #16
+ 1749 002a BD46     		mov	sp, r7
+ 1750              		@ sp needed
+ 1751 002c 80BD     		pop	{r7, pc}
+ 1753              		.ident	"GCC: (GNU Tools for STM32 12.3.rel1.20240306-1730) 12.3.1 20230626"
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccehUHz3.s 			page 32
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 stm32f4xx_hal_adc_ex.c
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:18     .text.HAL_ADCEx_InjectedStart:00000000 $t
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:24     .text.HAL_ADCEx_InjectedStart:00000000 HAL_ADCEx_InjectedStart
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:213    .text.HAL_ADCEx_InjectedStart:00000184 $d
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:219    .text.HAL_ADCEx_InjectedStart_IT:00000000 $t
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:225    .text.HAL_ADCEx_InjectedStart_IT:00000000 HAL_ADCEx_InjectedStart_IT
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:421    .text.HAL_ADCEx_InjectedStart_IT:00000194 $d
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:427    .text.HAL_ADCEx_InjectedStop:00000000 $t
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:433    .text.HAL_ADCEx_InjectedStop:00000000 HAL_ADCEx_InjectedStop
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:507    .text.HAL_ADCEx_InjectedPollForConversion:00000000 $t
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:513    .text.HAL_ADCEx_InjectedPollForConversion:00000000 HAL_ADCEx_InjectedPollForConversion
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:631    .text.HAL_ADCEx_InjectedStop_IT:00000000 $t
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:637    .text.HAL_ADCEx_InjectedStop_IT:00000000 HAL_ADCEx_InjectedStop_IT
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:718    .text.HAL_ADCEx_InjectedGetValue:00000000 $t
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:724    .text.HAL_ADCEx_InjectedGetValue:00000000 HAL_ADCEx_InjectedGetValue
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:747    .text.HAL_ADCEx_InjectedGetValue:00000028 $d
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:751    .text.HAL_ADCEx_InjectedGetValue:00000038 $t
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:788    .text.HAL_ADCEx_MultiModeStart_DMA:00000000 $t
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:794    .text.HAL_ADCEx_MultiModeStart_DMA:00000000 HAL_ADCEx_MultiModeStart_DMA
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:978    .text.HAL_ADCEx_MultiModeStart_DMA:00000180 $d
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:1615   .text.ADC_MultiModeDMAConvCplt:00000000 ADC_MultiModeDMAConvCplt
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:1703   .text.ADC_MultiModeDMAHalfConvCplt:00000000 ADC_MultiModeDMAHalfConvCplt
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:1727   .text.ADC_MultiModeDMAError:00000000 ADC_MultiModeDMAError
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:986    .text.HAL_ADCEx_MultiModeStop_DMA:00000000 $t
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:992    .text.HAL_ADCEx_MultiModeStop_DMA:00000000 HAL_ADCEx_MultiModeStop_DMA
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:1065   .text.HAL_ADCEx_MultiModeStop_DMA:00000094 $d
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:1068   .text.HAL_ADCEx_MultiModeGetValue:00000000 $t
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:1074   .text.HAL_ADCEx_MultiModeGetValue:00000000 HAL_ADCEx_MultiModeGetValue
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:1095   .text.HAL_ADCEx_MultiModeGetValue:0000001c $d
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:1098   .text.HAL_ADCEx_InjectedConvCpltCallback:00000000 $t
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:1104   .text.HAL_ADCEx_InjectedConvCpltCallback:00000000 HAL_ADCEx_InjectedConvCpltCallback
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:1120   .text.HAL_ADCEx_InjectedConfigChannel:00000000 $t
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:1126   .text.HAL_ADCEx_InjectedConfigChannel:00000000 HAL_ADCEx_InjectedConfigChannel
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:1525   .text.HAL_ADCEx_InjectedConfigChannel:00000320 $d
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:1530   .text.HAL_ADCEx_MultiModeConfigChannel:00000000 $t
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:1536   .text.HAL_ADCEx_MultiModeConfigChannel:00000000 HAL_ADCEx_MultiModeConfigChannel
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:1607   .text.HAL_ADCEx_MultiModeConfigChannel:00000088 $d
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:1610   .text.ADC_MultiModeDMAConvCplt:00000000 $t
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:1698   .text.ADC_MultiModeDMAHalfConvCplt:00000000 $t
+C:\Users\user\AppData\Local\Temp\ccehUHz3.s:1722   .text.ADC_MultiModeDMAError:00000000 $t
+
+UNDEFINED SYMBOLS
+SystemCoreClock
+HAL_GetTick
+HAL_DMA_Start_IT
+HAL_DMA_Abort
+HAL_ADC_ConvCpltCallback
+HAL_ADC_ConvHalfCpltCallback
+HAL_ADC_ErrorCallback

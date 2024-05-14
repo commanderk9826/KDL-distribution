@@ -1,0 +1,789 @@
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccFkBNF9.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"ccsbcs.c"
+  16              		.text
+  17              		.section	.rodata.Tbl,"a"
+  18              		.align	2
+  21              	Tbl:
+  22 0000 C700     		.short	199
+  23 0002 FC00     		.short	252
+  24 0004 E900     		.short	233
+  25 0006 E200     		.short	226
+  26 0008 E400     		.short	228
+  27 000a E000     		.short	224
+  28 000c E500     		.short	229
+  29 000e E700     		.short	231
+  30 0010 EA00     		.short	234
+  31 0012 EB00     		.short	235
+  32 0014 E800     		.short	232
+  33 0016 EF00     		.short	239
+  34 0018 EE00     		.short	238
+  35 001a EC00     		.short	236
+  36 001c C400     		.short	196
+  37 001e C500     		.short	197
+  38 0020 C900     		.short	201
+  39 0022 E600     		.short	230
+  40 0024 C600     		.short	198
+  41 0026 F400     		.short	244
+  42 0028 F600     		.short	246
+  43 002a F200     		.short	242
+  44 002c FB00     		.short	251
+  45 002e F900     		.short	249
+  46 0030 FF00     		.short	255
+  47 0032 D600     		.short	214
+  48 0034 DC00     		.short	220
+  49 0036 F800     		.short	248
+  50 0038 A300     		.short	163
+  51 003a D800     		.short	216
+  52 003c D700     		.short	215
+  53 003e 9201     		.short	402
+  54 0040 E100     		.short	225
+  55 0042 ED00     		.short	237
+  56 0044 F300     		.short	243
+  57 0046 FA00     		.short	250
+  58 0048 F100     		.short	241
+  59 004a D100     		.short	209
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccFkBNF9.s 			page 2
+
+
+  60 004c AA00     		.short	170
+  61 004e BA00     		.short	186
+  62 0050 BF00     		.short	191
+  63 0052 AE00     		.short	174
+  64 0054 AC00     		.short	172
+  65 0056 BD00     		.short	189
+  66 0058 BC00     		.short	188
+  67 005a A100     		.short	161
+  68 005c AB00     		.short	171
+  69 005e BB00     		.short	187
+  70 0060 9125     		.short	9617
+  71 0062 9225     		.short	9618
+  72 0064 9325     		.short	9619
+  73 0066 0225     		.short	9474
+  74 0068 2425     		.short	9508
+  75 006a C100     		.short	193
+  76 006c C200     		.short	194
+  77 006e C000     		.short	192
+  78 0070 A900     		.short	169
+  79 0072 6325     		.short	9571
+  80 0074 5125     		.short	9553
+  81 0076 5725     		.short	9559
+  82 0078 5D25     		.short	9565
+  83 007a A200     		.short	162
+  84 007c A500     		.short	165
+  85 007e 1025     		.short	9488
+  86 0080 1425     		.short	9492
+  87 0082 3425     		.short	9524
+  88 0084 2C25     		.short	9516
+  89 0086 1C25     		.short	9500
+  90 0088 0025     		.short	9472
+  91 008a 3C25     		.short	9532
+  92 008c E300     		.short	227
+  93 008e C300     		.short	195
+  94 0090 5A25     		.short	9562
+  95 0092 5425     		.short	9556
+  96 0094 6925     		.short	9577
+  97 0096 6625     		.short	9574
+  98 0098 6025     		.short	9568
+  99 009a 5025     		.short	9552
+ 100 009c 6C25     		.short	9580
+ 101 009e A400     		.short	164
+ 102 00a0 F000     		.short	240
+ 103 00a2 D000     		.short	208
+ 104 00a4 CA00     		.short	202
+ 105 00a6 CB00     		.short	203
+ 106 00a8 C800     		.short	200
+ 107 00aa 3101     		.short	305
+ 108 00ac CD00     		.short	205
+ 109 00ae CE00     		.short	206
+ 110 00b0 CF00     		.short	207
+ 111 00b2 1825     		.short	9496
+ 112 00b4 0C25     		.short	9484
+ 113 00b6 8825     		.short	9608
+ 114 00b8 8425     		.short	9604
+ 115 00ba A600     		.short	166
+ 116 00bc CC00     		.short	204
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccFkBNF9.s 			page 3
+
+
+ 117 00be 8025     		.short	9600
+ 118 00c0 D300     		.short	211
+ 119 00c2 DF00     		.short	223
+ 120 00c4 D400     		.short	212
+ 121 00c6 D200     		.short	210
+ 122 00c8 F500     		.short	245
+ 123 00ca D500     		.short	213
+ 124 00cc B500     		.short	181
+ 125 00ce FE00     		.short	254
+ 126 00d0 DE00     		.short	222
+ 127 00d2 DA00     		.short	218
+ 128 00d4 DB00     		.short	219
+ 129 00d6 D900     		.short	217
+ 130 00d8 FD00     		.short	253
+ 131 00da DD00     		.short	221
+ 132 00dc AF00     		.short	175
+ 133 00de B400     		.short	180
+ 134 00e0 AD00     		.short	173
+ 135 00e2 B100     		.short	177
+ 136 00e4 1720     		.short	8215
+ 137 00e6 BE00     		.short	190
+ 138 00e8 B600     		.short	182
+ 139 00ea A700     		.short	167
+ 140 00ec F700     		.short	247
+ 141 00ee B800     		.short	184
+ 142 00f0 B000     		.short	176
+ 143 00f2 A800     		.short	168
+ 144 00f4 B700     		.short	183
+ 145 00f6 B900     		.short	185
+ 146 00f8 B300     		.short	179
+ 147 00fa B200     		.short	178
+ 148 00fc A025     		.short	9632
+ 149 00fe A000     		.short	160
+ 150              		.section	.text.ff_convert,"ax",%progbits
+ 151              		.align	1
+ 152              		.global	ff_convert
+ 153              		.syntax unified
+ 154              		.thumb
+ 155              		.thumb_func
+ 157              	ff_convert:
+ 158              		@ args = 0, pretend = 0, frame = 16
+ 159              		@ frame_needed = 1, uses_anonymous_args = 0
+ 160              		@ link register save eliminated.
+ 161 0000 80B4     		push	{r7}
+ 162 0002 85B0     		sub	sp, sp, #20
+ 163 0004 00AF     		add	r7, sp, #0
+ 164 0006 0346     		mov	r3, r0
+ 165 0008 3960     		str	r1, [r7]
+ 166 000a FB80     		strh	r3, [r7, #6]	@ movhi
+ 167 000c FB88     		ldrh	r3, [r7, #6]
+ 168 000e 7F2B     		cmp	r3, #127
+ 169 0010 02D8     		bhi	.L2
+ 170 0012 FB88     		ldrh	r3, [r7, #6]	@ movhi
+ 171 0014 FB81     		strh	r3, [r7, #14]	@ movhi
+ 172 0016 25E0     		b	.L3
+ 173              	.L2:
+ 174 0018 3B68     		ldr	r3, [r7]
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccFkBNF9.s 			page 4
+
+
+ 175 001a 002B     		cmp	r3, #0
+ 176 001c 0BD0     		beq	.L4
+ 177 001e FB88     		ldrh	r3, [r7, #6]
+ 178 0020 FF2B     		cmp	r3, #255
+ 179 0022 05D8     		bhi	.L5
+ 180 0024 FB88     		ldrh	r3, [r7, #6]
+ 181 0026 803B     		subs	r3, r3, #128
+ 182 0028 124A     		ldr	r2, .L13
+ 183 002a 32F81330 		ldrh	r3, [r2, r3, lsl #1]
+ 184 002e 00E0     		b	.L6
+ 185              	.L5:
+ 186 0030 0023     		movs	r3, #0
+ 187              	.L6:
+ 188 0032 FB81     		strh	r3, [r7, #14]	@ movhi
+ 189 0034 16E0     		b	.L3
+ 190              	.L4:
+ 191 0036 0023     		movs	r3, #0
+ 192 0038 FB81     		strh	r3, [r7, #14]	@ movhi
+ 193 003a 09E0     		b	.L7
+ 194              	.L10:
+ 195 003c FB89     		ldrh	r3, [r7, #14]
+ 196 003e 0D4A     		ldr	r2, .L13
+ 197 0040 32F81330 		ldrh	r3, [r2, r3, lsl #1]
+ 198 0044 FA88     		ldrh	r2, [r7, #6]
+ 199 0046 9A42     		cmp	r2, r3
+ 200 0048 06D0     		beq	.L12
+ 201 004a FB89     		ldrh	r3, [r7, #14]
+ 202 004c 0133     		adds	r3, r3, #1
+ 203 004e FB81     		strh	r3, [r7, #14]	@ movhi
+ 204              	.L7:
+ 205 0050 FB89     		ldrh	r3, [r7, #14]
+ 206 0052 7F2B     		cmp	r3, #127
+ 207 0054 F2D9     		bls	.L10
+ 208 0056 00E0     		b	.L9
+ 209              	.L12:
+ 210 0058 00BF     		nop
+ 211              	.L9:
+ 212 005a FB89     		ldrh	r3, [r7, #14]	@ movhi
+ 213 005c 8033     		adds	r3, r3, #128
+ 214 005e 9BB2     		uxth	r3, r3
+ 215 0060 DBB2     		uxtb	r3, r3
+ 216 0062 FB81     		strh	r3, [r7, #14]	@ movhi
+ 217              	.L3:
+ 218 0064 FB89     		ldrh	r3, [r7, #14]
+ 219 0066 1846     		mov	r0, r3
+ 220 0068 1437     		adds	r7, r7, #20
+ 221 006a BD46     		mov	sp, r7
+ 222              		@ sp needed
+ 223 006c 5DF8047B 		ldr	r7, [sp], #4
+ 224 0070 7047     		bx	lr
+ 225              	.L14:
+ 226 0072 00BF     		.align	2
+ 227              	.L13:
+ 228 0074 00000000 		.word	Tbl
+ 230              		.section	.text.ff_wtoupper,"ax",%progbits
+ 231              		.align	1
+ 232              		.global	ff_wtoupper
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccFkBNF9.s 			page 5
+
+
+ 233              		.syntax unified
+ 234              		.thumb
+ 235              		.thumb_func
+ 237              	ff_wtoupper:
+ 238              		@ args = 0, pretend = 0, frame = 24
+ 239              		@ frame_needed = 1, uses_anonymous_args = 0
+ 240              		@ link register save eliminated.
+ 241 0000 80B4     		push	{r7}
+ 242 0002 87B0     		sub	sp, sp, #28
+ 243 0004 00AF     		add	r7, sp, #0
+ 244 0006 0346     		mov	r3, r0
+ 245 0008 FB80     		strh	r3, [r7, #6]	@ movhi
+ 246 000a FB88     		ldrh	r3, [r7, #6]
+ 247 000c B3F5805F 		cmp	r3, #4096
+ 248 0010 01D2     		bcs	.L16
+ 249 0012 3E4B     		ldr	r3, .L36
+ 250 0014 00E0     		b	.L17
+ 251              	.L16:
+ 252 0016 3E4B     		ldr	r3, .L36+4
+ 253              	.L17:
+ 254 0018 7B61     		str	r3, [r7, #20]
+ 255              	.L32:
+ 256 001a 7B69     		ldr	r3, [r7, #20]
+ 257 001c 9A1C     		adds	r2, r3, #2
+ 258 001e 7A61     		str	r2, [r7, #20]
+ 259 0020 1B88     		ldrh	r3, [r3]	@ movhi
+ 260 0022 7B82     		strh	r3, [r7, #18]	@ movhi
+ 261 0024 7B8A     		ldrh	r3, [r7, #18]
+ 262 0026 002B     		cmp	r3, #0
+ 263 0028 68D0     		beq	.L18
+ 264 002a FA88     		ldrh	r2, [r7, #6]
+ 265 002c 7B8A     		ldrh	r3, [r7, #18]
+ 266 002e 9A42     		cmp	r2, r3
+ 267 0030 64D3     		bcc	.L18
+ 268 0032 7B69     		ldr	r3, [r7, #20]
+ 269 0034 9A1C     		adds	r2, r3, #2
+ 270 0036 7A61     		str	r2, [r7, #20]
+ 271 0038 1B88     		ldrh	r3, [r3]	@ movhi
+ 272 003a 3B82     		strh	r3, [r7, #16]	@ movhi
+ 273 003c 3B8A     		ldrh	r3, [r7, #16]
+ 274 003e 1B0A     		lsrs	r3, r3, #8
+ 275 0040 FB81     		strh	r3, [r7, #14]	@ movhi
+ 276 0042 3B8A     		ldrh	r3, [r7, #16]	@ movhi
+ 277 0044 DBB2     		uxtb	r3, r3
+ 278 0046 3B82     		strh	r3, [r7, #16]	@ movhi
+ 279 0048 FA88     		ldrh	r2, [r7, #6]
+ 280 004a 798A     		ldrh	r1, [r7, #18]
+ 281 004c 3B8A     		ldrh	r3, [r7, #16]
+ 282 004e 0B44     		add	r3, r3, r1
+ 283 0050 9A42     		cmp	r2, r3
+ 284 0052 49DA     		bge	.L19
+ 285 0054 FB89     		ldrh	r3, [r7, #14]
+ 286 0056 082B     		cmp	r3, #8
+ 287 0058 4FD8     		bhi	.L34
+ 288 005a 01A2     		adr	r2, .L22
+ 289 005c 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+ 290              		.p2align 2
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccFkBNF9.s 			page 6
+
+
+ 291              	.L22:
+ 292 0060 85000000 		.word	.L30+1
+ 293 0064 97000000 		.word	.L29+1
+ 294 0068 AD000000 		.word	.L28+1
+ 295 006c B5000000 		.word	.L27+1
+ 296 0070 BD000000 		.word	.L26+1
+ 297 0074 C5000000 		.word	.L25+1
+ 298 0078 CD000000 		.word	.L24+1
+ 299 007c D5000000 		.word	.L23+1
+ 300 0080 DD000000 		.word	.L21+1
+ 301              		.p2align 1
+ 302              	.L30:
+ 303 0084 FA88     		ldrh	r2, [r7, #6]
+ 304 0086 7B8A     		ldrh	r3, [r7, #18]
+ 305 0088 D31A     		subs	r3, r2, r3
+ 306 008a 5B00     		lsls	r3, r3, #1
+ 307 008c 7A69     		ldr	r2, [r7, #20]
+ 308 008e 1344     		add	r3, r3, r2
+ 309 0090 1B88     		ldrh	r3, [r3]	@ movhi
+ 310 0092 FB80     		strh	r3, [r7, #6]	@ movhi
+ 311 0094 27E0     		b	.L20
+ 312              	.L29:
+ 313 0096 FA88     		ldrh	r2, [r7, #6]	@ movhi
+ 314 0098 7B8A     		ldrh	r3, [r7, #18]	@ movhi
+ 315 009a D31A     		subs	r3, r2, r3
+ 316 009c 9BB2     		uxth	r3, r3
+ 317 009e 03F00103 		and	r3, r3, #1
+ 318 00a2 9BB2     		uxth	r3, r3
+ 319 00a4 FA88     		ldrh	r2, [r7, #6]	@ movhi
+ 320 00a6 D31A     		subs	r3, r2, r3
+ 321 00a8 FB80     		strh	r3, [r7, #6]	@ movhi
+ 322 00aa 1CE0     		b	.L20
+ 323              	.L28:
+ 324 00ac FB88     		ldrh	r3, [r7, #6]	@ movhi
+ 325 00ae 103B     		subs	r3, r3, #16
+ 326 00b0 FB80     		strh	r3, [r7, #6]	@ movhi
+ 327 00b2 18E0     		b	.L20
+ 328              	.L27:
+ 329 00b4 FB88     		ldrh	r3, [r7, #6]	@ movhi
+ 330 00b6 203B     		subs	r3, r3, #32
+ 331 00b8 FB80     		strh	r3, [r7, #6]	@ movhi
+ 332 00ba 14E0     		b	.L20
+ 333              	.L26:
+ 334 00bc FB88     		ldrh	r3, [r7, #6]	@ movhi
+ 335 00be 303B     		subs	r3, r3, #48
+ 336 00c0 FB80     		strh	r3, [r7, #6]	@ movhi
+ 337 00c2 10E0     		b	.L20
+ 338              	.L25:
+ 339 00c4 FB88     		ldrh	r3, [r7, #6]	@ movhi
+ 340 00c6 1A3B     		subs	r3, r3, #26
+ 341 00c8 FB80     		strh	r3, [r7, #6]	@ movhi
+ 342 00ca 0CE0     		b	.L20
+ 343              	.L24:
+ 344 00cc FB88     		ldrh	r3, [r7, #6]	@ movhi
+ 345 00ce 0833     		adds	r3, r3, #8
+ 346 00d0 FB80     		strh	r3, [r7, #6]	@ movhi
+ 347 00d2 08E0     		b	.L20
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccFkBNF9.s 			page 7
+
+
+ 348              	.L23:
+ 349 00d4 FB88     		ldrh	r3, [r7, #6]	@ movhi
+ 350 00d6 503B     		subs	r3, r3, #80
+ 351 00d8 FB80     		strh	r3, [r7, #6]	@ movhi
+ 352 00da 04E0     		b	.L20
+ 353              	.L21:
+ 354 00dc FB88     		ldrh	r3, [r7, #6]	@ movhi
+ 355 00de A3F5E353 		sub	r3, r3, #7264
+ 356 00e2 FB80     		strh	r3, [r7, #6]	@ movhi
+ 357 00e4 00BF     		nop
+ 358              	.L20:
+ 359 00e6 08E0     		b	.L34
+ 360              	.L19:
+ 361 00e8 FB89     		ldrh	r3, [r7, #14]
+ 362 00ea 002B     		cmp	r3, #0
+ 363 00ec 95D1     		bne	.L32
+ 364 00ee 3B8A     		ldrh	r3, [r7, #16]
+ 365 00f0 5B00     		lsls	r3, r3, #1
+ 366 00f2 7A69     		ldr	r2, [r7, #20]
+ 367 00f4 1344     		add	r3, r3, r2
+ 368 00f6 7B61     		str	r3, [r7, #20]
+ 369 00f8 8FE7     		b	.L32
+ 370              	.L34:
+ 371 00fa 00BF     		nop
+ 372              	.L18:
+ 373 00fc FB88     		ldrh	r3, [r7, #6]
+ 374 00fe 1846     		mov	r0, r3
+ 375 0100 1C37     		adds	r7, r7, #28
+ 376 0102 BD46     		mov	sp, r7
+ 377              		@ sp needed
+ 378 0104 5DF8047B 		ldr	r7, [sp], #4
+ 379 0108 7047     		bx	lr
+ 380              	.L37:
+ 381 010a 00BF     		.align	2
+ 382              	.L36:
+ 383 010c 00000000 		.word	cvt1.1
+ 384 0110 00000000 		.word	cvt2.0
+ 386              		.section	.rodata.cvt1.1,"a"
+ 387              		.align	2
+ 390              	cvt1.1:
+ 391 0000 6100     		.short	97
+ 392 0002 1A03     		.short	794
+ 393 0004 E000     		.short	224
+ 394 0006 1703     		.short	791
+ 395 0008 F800     		.short	248
+ 396 000a 0703     		.short	775
+ 397 000c FF00     		.short	255
+ 398 000e 0100     		.short	1
+ 399 0010 7801     		.short	376
+ 400 0012 0001     		.short	256
+ 401 0014 3001     		.short	304
+ 402 0016 3201     		.short	306
+ 403 0018 0601     		.short	262
+ 404 001a 3901     		.short	313
+ 405 001c 1001     		.short	272
+ 406 001e 4A01     		.short	330
+ 407 0020 2E01     		.short	302
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccFkBNF9.s 			page 8
+
+
+ 408 0022 7901     		.short	377
+ 409 0024 0601     		.short	262
+ 410 0026 8001     		.short	384
+ 411 0028 4D00     		.short	77
+ 412 002a 4302     		.short	579
+ 413 002c 8101     		.short	385
+ 414 002e 8201     		.short	386
+ 415 0030 8201     		.short	386
+ 416 0032 8401     		.short	388
+ 417 0034 8401     		.short	388
+ 418 0036 8601     		.short	390
+ 419 0038 8701     		.short	391
+ 420 003a 8701     		.short	391
+ 421 003c 8901     		.short	393
+ 422 003e 8A01     		.short	394
+ 423 0040 8B01     		.short	395
+ 424 0042 8B01     		.short	395
+ 425 0044 8D01     		.short	397
+ 426 0046 8E01     		.short	398
+ 427 0048 8F01     		.short	399
+ 428 004a 9001     		.short	400
+ 429 004c 9101     		.short	401
+ 430 004e 9101     		.short	401
+ 431 0050 9301     		.short	403
+ 432 0052 9401     		.short	404
+ 433 0054 F601     		.short	502
+ 434 0056 9601     		.short	406
+ 435 0058 9701     		.short	407
+ 436 005a 9801     		.short	408
+ 437 005c 9801     		.short	408
+ 438 005e 3D02     		.short	573
+ 439 0060 9B01     		.short	411
+ 440 0062 9C01     		.short	412
+ 441 0064 9D01     		.short	413
+ 442 0066 2002     		.short	544
+ 443 0068 9F01     		.short	415
+ 444 006a A001     		.short	416
+ 445 006c A001     		.short	416
+ 446 006e A201     		.short	418
+ 447 0070 A201     		.short	418
+ 448 0072 A401     		.short	420
+ 449 0074 A401     		.short	420
+ 450 0076 A601     		.short	422
+ 451 0078 A701     		.short	423
+ 452 007a A701     		.short	423
+ 453 007c A901     		.short	425
+ 454 007e AA01     		.short	426
+ 455 0080 AB01     		.short	427
+ 456 0082 AC01     		.short	428
+ 457 0084 AC01     		.short	428
+ 458 0086 AE01     		.short	430
+ 459 0088 AF01     		.short	431
+ 460 008a AF01     		.short	431
+ 461 008c B101     		.short	433
+ 462 008e B201     		.short	434
+ 463 0090 B301     		.short	435
+ 464 0092 B301     		.short	435
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccFkBNF9.s 			page 9
+
+
+ 465 0094 B501     		.short	437
+ 466 0096 B501     		.short	437
+ 467 0098 B701     		.short	439
+ 468 009a B801     		.short	440
+ 469 009c B801     		.short	440
+ 470 009e BA01     		.short	442
+ 471 00a0 BB01     		.short	443
+ 472 00a2 BC01     		.short	444
+ 473 00a4 BC01     		.short	444
+ 474 00a6 BE01     		.short	446
+ 475 00a8 F701     		.short	503
+ 476 00aa C001     		.short	448
+ 477 00ac C101     		.short	449
+ 478 00ae C201     		.short	450
+ 479 00b0 C301     		.short	451
+ 480 00b2 C401     		.short	452
+ 481 00b4 C501     		.short	453
+ 482 00b6 C401     		.short	452
+ 483 00b8 C701     		.short	455
+ 484 00ba C801     		.short	456
+ 485 00bc C701     		.short	455
+ 486 00be CA01     		.short	458
+ 487 00c0 CB01     		.short	459
+ 488 00c2 CA01     		.short	458
+ 489 00c4 CD01     		.short	461
+ 490 00c6 1001     		.short	272
+ 491 00c8 DD01     		.short	477
+ 492 00ca 0100     		.short	1
+ 493 00cc 8E01     		.short	398
+ 494 00ce DE01     		.short	478
+ 495 00d0 1201     		.short	274
+ 496 00d2 F301     		.short	499
+ 497 00d4 0300     		.short	3
+ 498 00d6 F101     		.short	497
+ 499 00d8 F401     		.short	500
+ 500 00da F401     		.short	500
+ 501 00dc F801     		.short	504
+ 502 00de 2801     		.short	296
+ 503 00e0 2202     		.short	546
+ 504 00e2 1201     		.short	274
+ 505 00e4 3A02     		.short	570
+ 506 00e6 0900     		.short	9
+ 507 00e8 652C     		.short	11365
+ 508 00ea 3B02     		.short	571
+ 509 00ec 3B02     		.short	571
+ 510 00ee 3D02     		.short	573
+ 511 00f0 662C     		.short	11366
+ 512 00f2 3F02     		.short	575
+ 513 00f4 4002     		.short	576
+ 514 00f6 4102     		.short	577
+ 515 00f8 4102     		.short	577
+ 516 00fa 4602     		.short	582
+ 517 00fc 0A01     		.short	266
+ 518 00fe 5302     		.short	595
+ 519 0100 4000     		.short	64
+ 520 0102 8101     		.short	385
+ 521 0104 8601     		.short	390
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccFkBNF9.s 			page 10
+
+
+ 522 0106 5502     		.short	597
+ 523 0108 8901     		.short	393
+ 524 010a 8A01     		.short	394
+ 525 010c 5802     		.short	600
+ 526 010e 8F01     		.short	399
+ 527 0110 5A02     		.short	602
+ 528 0112 9001     		.short	400
+ 529 0114 5C02     		.short	604
+ 530 0116 5D02     		.short	605
+ 531 0118 5E02     		.short	606
+ 532 011a 5F02     		.short	607
+ 533 011c 9301     		.short	403
+ 534 011e 6102     		.short	609
+ 535 0120 6202     		.short	610
+ 536 0122 9401     		.short	404
+ 537 0124 6402     		.short	612
+ 538 0126 6502     		.short	613
+ 539 0128 6602     		.short	614
+ 540 012a 6702     		.short	615
+ 541 012c 9701     		.short	407
+ 542 012e 9601     		.short	406
+ 543 0130 6A02     		.short	618
+ 544 0132 622C     		.short	11362
+ 545 0134 6C02     		.short	620
+ 546 0136 6D02     		.short	621
+ 547 0138 6E02     		.short	622
+ 548 013a 9C01     		.short	412
+ 549 013c 7002     		.short	624
+ 550 013e 7102     		.short	625
+ 551 0140 9D01     		.short	413
+ 552 0142 7302     		.short	627
+ 553 0144 7402     		.short	628
+ 554 0146 9F01     		.short	415
+ 555 0148 7602     		.short	630
+ 556 014a 7702     		.short	631
+ 557 014c 7802     		.short	632
+ 558 014e 7902     		.short	633
+ 559 0150 7A02     		.short	634
+ 560 0152 7B02     		.short	635
+ 561 0154 7C02     		.short	636
+ 562 0156 642C     		.short	11364
+ 563 0158 7E02     		.short	638
+ 564 015a 7F02     		.short	639
+ 565 015c A601     		.short	422
+ 566 015e 8102     		.short	641
+ 567 0160 8202     		.short	642
+ 568 0162 A901     		.short	425
+ 569 0164 8402     		.short	644
+ 570 0166 8502     		.short	645
+ 571 0168 8602     		.short	646
+ 572 016a 8702     		.short	647
+ 573 016c AE01     		.short	430
+ 574 016e 4402     		.short	580
+ 575 0170 B101     		.short	433
+ 576 0172 B201     		.short	434
+ 577 0174 4502     		.short	581
+ 578 0176 8D02     		.short	653
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccFkBNF9.s 			page 11
+
+
+ 579 0178 8E02     		.short	654
+ 580 017a 8F02     		.short	655
+ 581 017c 9002     		.short	656
+ 582 017e 9102     		.short	657
+ 583 0180 B701     		.short	439
+ 584 0182 7B03     		.short	891
+ 585 0184 0300     		.short	3
+ 586 0186 FD03     		.short	1021
+ 587 0188 FE03     		.short	1022
+ 588 018a FF03     		.short	1023
+ 589 018c AC03     		.short	940
+ 590 018e 0400     		.short	4
+ 591 0190 8603     		.short	902
+ 592 0192 8803     		.short	904
+ 593 0194 8903     		.short	905
+ 594 0196 8A03     		.short	906
+ 595 0198 B103     		.short	945
+ 596 019a 1103     		.short	785
+ 597 019c C203     		.short	962
+ 598 019e 0200     		.short	2
+ 599 01a0 A303     		.short	931
+ 600 01a2 A303     		.short	931
+ 601 01a4 C403     		.short	964
+ 602 01a6 0803     		.short	776
+ 603 01a8 CC03     		.short	972
+ 604 01aa 0300     		.short	3
+ 605 01ac 8C03     		.short	908
+ 606 01ae 8E03     		.short	910
+ 607 01b0 8F03     		.short	911
+ 608 01b2 D803     		.short	984
+ 609 01b4 1801     		.short	280
+ 610 01b6 F203     		.short	1010
+ 611 01b8 0A00     		.short	10
+ 612 01ba F903     		.short	1017
+ 613 01bc F303     		.short	1011
+ 614 01be F403     		.short	1012
+ 615 01c0 F503     		.short	1013
+ 616 01c2 F603     		.short	1014
+ 617 01c4 F703     		.short	1015
+ 618 01c6 F703     		.short	1015
+ 619 01c8 F903     		.short	1017
+ 620 01ca FA03     		.short	1018
+ 621 01cc FA03     		.short	1018
+ 622 01ce 3004     		.short	1072
+ 623 01d0 2003     		.short	800
+ 624 01d2 5004     		.short	1104
+ 625 01d4 1007     		.short	1808
+ 626 01d6 6004     		.short	1120
+ 627 01d8 2201     		.short	290
+ 628 01da 8A04     		.short	1162
+ 629 01dc 3601     		.short	310
+ 630 01de C104     		.short	1217
+ 631 01e0 0E01     		.short	270
+ 632 01e2 CF04     		.short	1231
+ 633 01e4 0100     		.short	1
+ 634 01e6 C004     		.short	1216
+ 635 01e8 D004     		.short	1232
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccFkBNF9.s 			page 12
+
+
+ 636 01ea 4401     		.short	324
+ 637 01ec 6105     		.short	1377
+ 638 01ee 2604     		.short	1062
+ 639 01f0 0000     		.short	0
+ 640              		.section	.rodata.cvt2.0,"a"
+ 641              		.align	2
+ 644              	cvt2.0:
+ 645 0000 7D1D     		.short	7549
+ 646 0002 0100     		.short	1
+ 647 0004 632C     		.short	11363
+ 648 0006 001E     		.short	7680
+ 649 0008 9601     		.short	406
+ 650 000a A01E     		.short	7840
+ 651 000c 5A01     		.short	346
+ 652 000e 001F     		.short	7936
+ 653 0010 0806     		.short	1544
+ 654 0012 101F     		.short	7952
+ 655 0014 0606     		.short	1542
+ 656 0016 201F     		.short	7968
+ 657 0018 0806     		.short	1544
+ 658 001a 301F     		.short	7984
+ 659 001c 0806     		.short	1544
+ 660 001e 401F     		.short	8000
+ 661 0020 0606     		.short	1542
+ 662 0022 511F     		.short	8017
+ 663 0024 0700     		.short	7
+ 664 0026 591F     		.short	8025
+ 665 0028 521F     		.short	8018
+ 666 002a 5B1F     		.short	8027
+ 667 002c 541F     		.short	8020
+ 668 002e 5D1F     		.short	8029
+ 669 0030 561F     		.short	8022
+ 670 0032 5F1F     		.short	8031
+ 671 0034 601F     		.short	8032
+ 672 0036 0806     		.short	1544
+ 673 0038 701F     		.short	8048
+ 674 003a 0E00     		.short	14
+ 675 003c BA1F     		.short	8122
+ 676 003e BB1F     		.short	8123
+ 677 0040 C81F     		.short	8136
+ 678 0042 C91F     		.short	8137
+ 679 0044 CA1F     		.short	8138
+ 680 0046 CB1F     		.short	8139
+ 681 0048 DA1F     		.short	8154
+ 682 004a DB1F     		.short	8155
+ 683 004c F81F     		.short	8184
+ 684 004e F91F     		.short	8185
+ 685 0050 EA1F     		.short	8170
+ 686 0052 EB1F     		.short	8171
+ 687 0054 FA1F     		.short	8186
+ 688 0056 FB1F     		.short	8187
+ 689 0058 801F     		.short	8064
+ 690 005a 0806     		.short	1544
+ 691 005c 901F     		.short	8080
+ 692 005e 0806     		.short	1544
+ 693 0060 A01F     		.short	8096
+ 694 0062 0806     		.short	1544
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccFkBNF9.s 			page 13
+
+
+ 695 0064 B01F     		.short	8112
+ 696 0066 0400     		.short	4
+ 697 0068 B81F     		.short	8120
+ 698 006a B91F     		.short	8121
+ 699 006c B21F     		.short	8114
+ 700 006e BC1F     		.short	8124
+ 701 0070 CC1F     		.short	8140
+ 702 0072 0100     		.short	1
+ 703 0074 C31F     		.short	8131
+ 704 0076 D01F     		.short	8144
+ 705 0078 0206     		.short	1538
+ 706 007a E01F     		.short	8160
+ 707 007c 0206     		.short	1538
+ 708 007e E51F     		.short	8165
+ 709 0080 0100     		.short	1
+ 710 0082 EC1F     		.short	8172
+ 711 0084 F21F     		.short	8178
+ 712 0086 0100     		.short	1
+ 713 0088 FC1F     		.short	8188
+ 714 008a 4E21     		.short	8526
+ 715 008c 0100     		.short	1
+ 716 008e 3221     		.short	8498
+ 717 0090 7021     		.short	8560
+ 718 0092 1002     		.short	528
+ 719 0094 8421     		.short	8580
+ 720 0096 0100     		.short	1
+ 721 0098 8321     		.short	8579
+ 722 009a D024     		.short	9424
+ 723 009c 1A05     		.short	1306
+ 724 009e 302C     		.short	11312
+ 725 00a0 2F04     		.short	1071
+ 726 00a2 602C     		.short	11360
+ 727 00a4 0201     		.short	258
+ 728 00a6 672C     		.short	11367
+ 729 00a8 0601     		.short	262
+ 730 00aa 752C     		.short	11381
+ 731 00ac 0201     		.short	258
+ 732 00ae 802C     		.short	11392
+ 733 00b0 6401     		.short	356
+ 734 00b2 002D     		.short	11520
+ 735 00b4 2608     		.short	2086
+ 736 00b6 41FF     		.short	-191
+ 737 00b8 1A03     		.short	794
+ 738 00ba 0000     		.short	0
+ 739              		.ident	"GCC: (GNU Tools for STM32 12.3.rel1.20240306-1730) 12.3.1 20230626"
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccFkBNF9.s 			page 14
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 ccsbcs.c
+C:\Users\user\AppData\Local\Temp\ccFkBNF9.s:18     .rodata.Tbl:00000000 $d
+C:\Users\user\AppData\Local\Temp\ccFkBNF9.s:21     .rodata.Tbl:00000000 Tbl
+C:\Users\user\AppData\Local\Temp\ccFkBNF9.s:151    .text.ff_convert:00000000 $t
+C:\Users\user\AppData\Local\Temp\ccFkBNF9.s:157    .text.ff_convert:00000000 ff_convert
+C:\Users\user\AppData\Local\Temp\ccFkBNF9.s:228    .text.ff_convert:00000074 $d
+C:\Users\user\AppData\Local\Temp\ccFkBNF9.s:231    .text.ff_wtoupper:00000000 $t
+C:\Users\user\AppData\Local\Temp\ccFkBNF9.s:237    .text.ff_wtoupper:00000000 ff_wtoupper
+C:\Users\user\AppData\Local\Temp\ccFkBNF9.s:292    .text.ff_wtoupper:00000060 $d
+C:\Users\user\AppData\Local\Temp\ccFkBNF9.s:301    .text.ff_wtoupper:00000084 $t
+C:\Users\user\AppData\Local\Temp\ccFkBNF9.s:383    .text.ff_wtoupper:0000010c $d
+C:\Users\user\AppData\Local\Temp\ccFkBNF9.s:390    .rodata.cvt1.1:00000000 cvt1.1
+C:\Users\user\AppData\Local\Temp\ccFkBNF9.s:644    .rodata.cvt2.0:00000000 cvt2.0
+C:\Users\user\AppData\Local\Temp\ccFkBNF9.s:387    .rodata.cvt1.1:00000000 $d
+C:\Users\user\AppData\Local\Temp\ccFkBNF9.s:641    .rodata.cvt2.0:00000000 $d
+
+NO UNDEFINED SYMBOLS

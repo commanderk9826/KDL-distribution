@@ -1,0 +1,554 @@
+ARM GAS  C:\Users\user\AppData\Local\Temp\cc2hPWD3.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"bsp_driver_sd.c"
+  16              		.text
+  17              		.section	.text.BSP_SD_Init,"ax",%progbits
+  18              		.align	1
+  19              		.weak	BSP_SD_Init
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  24              	BSP_SD_Init:
+  25              		@ args = 0, pretend = 0, frame = 8
+  26              		@ frame_needed = 1, uses_anonymous_args = 0
+  27 0000 80B5     		push	{r7, lr}
+  28 0002 82B0     		sub	sp, sp, #8
+  29 0004 00AF     		add	r7, sp, #0
+  30 0006 0023     		movs	r3, #0
+  31 0008 FB71     		strb	r3, [r7, #7]
+  32 000a FFF7FEFF 		bl	BSP_SD_IsDetected
+  33 000e 0346     		mov	r3, r0
+  34 0010 012B     		cmp	r3, #1
+  35 0012 01D0     		beq	.L2
+  36 0014 0123     		movs	r3, #1
+  37 0016 05E0     		b	.L3
+  38              	.L2:
+  39 0018 0448     		ldr	r0, .L4
+  40 001a FFF7FEFF 		bl	HAL_SD_Init
+  41 001e 0346     		mov	r3, r0
+  42 0020 FB71     		strb	r3, [r7, #7]
+  43 0022 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+  44              	.L3:
+  45 0024 1846     		mov	r0, r3
+  46 0026 0837     		adds	r7, r7, #8
+  47 0028 BD46     		mov	sp, r7
+  48              		@ sp needed
+  49 002a 80BD     		pop	{r7, pc}
+  50              	.L5:
+  51              		.align	2
+  52              	.L4:
+  53 002c 00000000 		.word	hsd
+  55              		.section	.text.BSP_SD_ITConfig,"ax",%progbits
+  56              		.align	1
+  57              		.weak	BSP_SD_ITConfig
+  58              		.syntax unified
+  59              		.thumb
+ARM GAS  C:\Users\user\AppData\Local\Temp\cc2hPWD3.s 			page 2
+
+
+  60              		.thumb_func
+  62              	BSP_SD_ITConfig:
+  63              		@ args = 0, pretend = 0, frame = 0
+  64              		@ frame_needed = 1, uses_anonymous_args = 0
+  65              		@ link register save eliminated.
+  66 0000 80B4     		push	{r7}
+  67 0002 00AF     		add	r7, sp, #0
+  68 0004 0023     		movs	r3, #0
+  69 0006 1846     		mov	r0, r3
+  70 0008 BD46     		mov	sp, r7
+  71              		@ sp needed
+  72 000a 5DF8047B 		ldr	r7, [sp], #4
+  73 000e 7047     		bx	lr
+  75              		.section	.text.BSP_SD_DetectIT,"ax",%progbits
+  76              		.align	1
+  77              		.weak	BSP_SD_DetectIT
+  78              		.syntax unified
+  79              		.thumb
+  80              		.thumb_func
+  82              	BSP_SD_DetectIT:
+  83              		@ args = 0, pretend = 0, frame = 0
+  84              		@ frame_needed = 1, uses_anonymous_args = 0
+  85              		@ link register save eliminated.
+  86 0000 80B4     		push	{r7}
+  87 0002 00AF     		add	r7, sp, #0
+  88 0004 00BF     		nop
+  89 0006 BD46     		mov	sp, r7
+  90              		@ sp needed
+  91 0008 5DF8047B 		ldr	r7, [sp], #4
+  92 000c 7047     		bx	lr
+  94              		.section	.text.BSP_SD_ReadBlocks,"ax",%progbits
+  95              		.align	1
+  96              		.weak	BSP_SD_ReadBlocks
+  97              		.syntax unified
+  98              		.thumb
+  99              		.thumb_func
+ 101              	BSP_SD_ReadBlocks:
+ 102              		@ args = 0, pretend = 0, frame = 24
+ 103              		@ frame_needed = 1, uses_anonymous_args = 0
+ 104 0000 80B5     		push	{r7, lr}
+ 105 0002 88B0     		sub	sp, sp, #32
+ 106 0004 02AF     		add	r7, sp, #8
+ 107 0006 F860     		str	r0, [r7, #12]
+ 108 0008 B960     		str	r1, [r7, #8]
+ 109 000a 7A60     		str	r2, [r7, #4]
+ 110 000c 3B60     		str	r3, [r7]
+ 111 000e 0023     		movs	r3, #0
+ 112 0010 FB75     		strb	r3, [r7, #23]
+ 113 0012 3B68     		ldr	r3, [r7]
+ 114 0014 0093     		str	r3, [sp]
+ 115 0016 7B68     		ldr	r3, [r7, #4]
+ 116 0018 BA68     		ldr	r2, [r7, #8]
+ 117 001a F968     		ldr	r1, [r7, #12]
+ 118 001c 0648     		ldr	r0, .L12
+ 119 001e FFF7FEFF 		bl	HAL_SD_ReadBlocks
+ 120 0022 0346     		mov	r3, r0
+ 121 0024 002B     		cmp	r3, #0
+ARM GAS  C:\Users\user\AppData\Local\Temp\cc2hPWD3.s 			page 3
+
+
+ 122 0026 01D0     		beq	.L10
+ 123 0028 0123     		movs	r3, #1
+ 124 002a FB75     		strb	r3, [r7, #23]
+ 125              	.L10:
+ 126 002c FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 127 002e 1846     		mov	r0, r3
+ 128 0030 1837     		adds	r7, r7, #24
+ 129 0032 BD46     		mov	sp, r7
+ 130              		@ sp needed
+ 131 0034 80BD     		pop	{r7, pc}
+ 132              	.L13:
+ 133 0036 00BF     		.align	2
+ 134              	.L12:
+ 135 0038 00000000 		.word	hsd
+ 137              		.section	.text.BSP_SD_WriteBlocks,"ax",%progbits
+ 138              		.align	1
+ 139              		.weak	BSP_SD_WriteBlocks
+ 140              		.syntax unified
+ 141              		.thumb
+ 142              		.thumb_func
+ 144              	BSP_SD_WriteBlocks:
+ 145              		@ args = 0, pretend = 0, frame = 24
+ 146              		@ frame_needed = 1, uses_anonymous_args = 0
+ 147 0000 80B5     		push	{r7, lr}
+ 148 0002 88B0     		sub	sp, sp, #32
+ 149 0004 02AF     		add	r7, sp, #8
+ 150 0006 F860     		str	r0, [r7, #12]
+ 151 0008 B960     		str	r1, [r7, #8]
+ 152 000a 7A60     		str	r2, [r7, #4]
+ 153 000c 3B60     		str	r3, [r7]
+ 154 000e 0023     		movs	r3, #0
+ 155 0010 FB75     		strb	r3, [r7, #23]
+ 156 0012 3B68     		ldr	r3, [r7]
+ 157 0014 0093     		str	r3, [sp]
+ 158 0016 7B68     		ldr	r3, [r7, #4]
+ 159 0018 BA68     		ldr	r2, [r7, #8]
+ 160 001a F968     		ldr	r1, [r7, #12]
+ 161 001c 0648     		ldr	r0, .L17
+ 162 001e FFF7FEFF 		bl	HAL_SD_WriteBlocks
+ 163 0022 0346     		mov	r3, r0
+ 164 0024 002B     		cmp	r3, #0
+ 165 0026 01D0     		beq	.L15
+ 166 0028 0123     		movs	r3, #1
+ 167 002a FB75     		strb	r3, [r7, #23]
+ 168              	.L15:
+ 169 002c FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 170 002e 1846     		mov	r0, r3
+ 171 0030 1837     		adds	r7, r7, #24
+ 172 0032 BD46     		mov	sp, r7
+ 173              		@ sp needed
+ 174 0034 80BD     		pop	{r7, pc}
+ 175              	.L18:
+ 176 0036 00BF     		.align	2
+ 177              	.L17:
+ 178 0038 00000000 		.word	hsd
+ 180              		.section	.text.BSP_SD_ReadBlocks_DMA,"ax",%progbits
+ 181              		.align	1
+ARM GAS  C:\Users\user\AppData\Local\Temp\cc2hPWD3.s 			page 4
+
+
+ 182              		.weak	BSP_SD_ReadBlocks_DMA
+ 183              		.syntax unified
+ 184              		.thumb
+ 185              		.thumb_func
+ 187              	BSP_SD_ReadBlocks_DMA:
+ 188              		@ args = 0, pretend = 0, frame = 24
+ 189              		@ frame_needed = 1, uses_anonymous_args = 0
+ 190 0000 80B5     		push	{r7, lr}
+ 191 0002 86B0     		sub	sp, sp, #24
+ 192 0004 00AF     		add	r7, sp, #0
+ 193 0006 F860     		str	r0, [r7, #12]
+ 194 0008 B960     		str	r1, [r7, #8]
+ 195 000a 7A60     		str	r2, [r7, #4]
+ 196 000c 0023     		movs	r3, #0
+ 197 000e FB75     		strb	r3, [r7, #23]
+ 198 0010 7B68     		ldr	r3, [r7, #4]
+ 199 0012 BA68     		ldr	r2, [r7, #8]
+ 200 0014 F968     		ldr	r1, [r7, #12]
+ 201 0016 0648     		ldr	r0, .L22
+ 202 0018 FFF7FEFF 		bl	HAL_SD_ReadBlocks_DMA
+ 203 001c 0346     		mov	r3, r0
+ 204 001e 002B     		cmp	r3, #0
+ 205 0020 01D0     		beq	.L20
+ 206 0022 0123     		movs	r3, #1
+ 207 0024 FB75     		strb	r3, [r7, #23]
+ 208              	.L20:
+ 209 0026 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 210 0028 1846     		mov	r0, r3
+ 211 002a 1837     		adds	r7, r7, #24
+ 212 002c BD46     		mov	sp, r7
+ 213              		@ sp needed
+ 214 002e 80BD     		pop	{r7, pc}
+ 215              	.L23:
+ 216              		.align	2
+ 217              	.L22:
+ 218 0030 00000000 		.word	hsd
+ 220              		.section	.text.BSP_SD_WriteBlocks_DMA,"ax",%progbits
+ 221              		.align	1
+ 222              		.weak	BSP_SD_WriteBlocks_DMA
+ 223              		.syntax unified
+ 224              		.thumb
+ 225              		.thumb_func
+ 227              	BSP_SD_WriteBlocks_DMA:
+ 228              		@ args = 0, pretend = 0, frame = 24
+ 229              		@ frame_needed = 1, uses_anonymous_args = 0
+ 230 0000 80B5     		push	{r7, lr}
+ 231 0002 86B0     		sub	sp, sp, #24
+ 232 0004 00AF     		add	r7, sp, #0
+ 233 0006 F860     		str	r0, [r7, #12]
+ 234 0008 B960     		str	r1, [r7, #8]
+ 235 000a 7A60     		str	r2, [r7, #4]
+ 236 000c 0023     		movs	r3, #0
+ 237 000e FB75     		strb	r3, [r7, #23]
+ 238 0010 7B68     		ldr	r3, [r7, #4]
+ 239 0012 BA68     		ldr	r2, [r7, #8]
+ 240 0014 F968     		ldr	r1, [r7, #12]
+ 241 0016 0648     		ldr	r0, .L27
+ARM GAS  C:\Users\user\AppData\Local\Temp\cc2hPWD3.s 			page 5
+
+
+ 242 0018 FFF7FEFF 		bl	HAL_SD_WriteBlocks_DMA
+ 243 001c 0346     		mov	r3, r0
+ 244 001e 002B     		cmp	r3, #0
+ 245 0020 01D0     		beq	.L25
+ 246 0022 0123     		movs	r3, #1
+ 247 0024 FB75     		strb	r3, [r7, #23]
+ 248              	.L25:
+ 249 0026 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 250 0028 1846     		mov	r0, r3
+ 251 002a 1837     		adds	r7, r7, #24
+ 252 002c BD46     		mov	sp, r7
+ 253              		@ sp needed
+ 254 002e 80BD     		pop	{r7, pc}
+ 255              	.L28:
+ 256              		.align	2
+ 257              	.L27:
+ 258 0030 00000000 		.word	hsd
+ 260              		.section	.text.BSP_SD_Erase,"ax",%progbits
+ 261              		.align	1
+ 262              		.weak	BSP_SD_Erase
+ 263              		.syntax unified
+ 264              		.thumb
+ 265              		.thumb_func
+ 267              	BSP_SD_Erase:
+ 268              		@ args = 0, pretend = 0, frame = 16
+ 269              		@ frame_needed = 1, uses_anonymous_args = 0
+ 270 0000 80B5     		push	{r7, lr}
+ 271 0002 84B0     		sub	sp, sp, #16
+ 272 0004 00AF     		add	r7, sp, #0
+ 273 0006 7860     		str	r0, [r7, #4]
+ 274 0008 3960     		str	r1, [r7]
+ 275 000a 0023     		movs	r3, #0
+ 276 000c FB73     		strb	r3, [r7, #15]
+ 277 000e 3A68     		ldr	r2, [r7]
+ 278 0010 7968     		ldr	r1, [r7, #4]
+ 279 0012 0648     		ldr	r0, .L32
+ 280 0014 FFF7FEFF 		bl	HAL_SD_Erase
+ 281 0018 0346     		mov	r3, r0
+ 282 001a 002B     		cmp	r3, #0
+ 283 001c 01D0     		beq	.L30
+ 284 001e 0123     		movs	r3, #1
+ 285 0020 FB73     		strb	r3, [r7, #15]
+ 286              	.L30:
+ 287 0022 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 288 0024 1846     		mov	r0, r3
+ 289 0026 1037     		adds	r7, r7, #16
+ 290 0028 BD46     		mov	sp, r7
+ 291              		@ sp needed
+ 292 002a 80BD     		pop	{r7, pc}
+ 293              	.L33:
+ 294              		.align	2
+ 295              	.L32:
+ 296 002c 00000000 		.word	hsd
+ 298              		.section	.text.BSP_SD_GetCardState,"ax",%progbits
+ 299              		.align	1
+ 300              		.weak	BSP_SD_GetCardState
+ 301              		.syntax unified
+ARM GAS  C:\Users\user\AppData\Local\Temp\cc2hPWD3.s 			page 6
+
+
+ 302              		.thumb
+ 303              		.thumb_func
+ 305              	BSP_SD_GetCardState:
+ 306              		@ args = 0, pretend = 0, frame = 0
+ 307              		@ frame_needed = 1, uses_anonymous_args = 0
+ 308 0000 80B5     		push	{r7, lr}
+ 309 0002 00AF     		add	r7, sp, #0
+ 310 0004 0548     		ldr	r0, .L36
+ 311 0006 FFF7FEFF 		bl	HAL_SD_GetCardState
+ 312 000a 0346     		mov	r3, r0
+ 313 000c 042B     		cmp	r3, #4
+ 314 000e 14BF     		ite	ne
+ 315 0010 0123     		movne	r3, #1
+ 316 0012 0023     		moveq	r3, #0
+ 317 0014 DBB2     		uxtb	r3, r3
+ 318 0016 1846     		mov	r0, r3
+ 319 0018 80BD     		pop	{r7, pc}
+ 320              	.L37:
+ 321 001a 00BF     		.align	2
+ 322              	.L36:
+ 323 001c 00000000 		.word	hsd
+ 325              		.section	.text.BSP_SD_GetCardInfo,"ax",%progbits
+ 326              		.align	1
+ 327              		.weak	BSP_SD_GetCardInfo
+ 328              		.syntax unified
+ 329              		.thumb
+ 330              		.thumb_func
+ 332              	BSP_SD_GetCardInfo:
+ 333              		@ args = 0, pretend = 0, frame = 8
+ 334              		@ frame_needed = 1, uses_anonymous_args = 0
+ 335 0000 80B5     		push	{r7, lr}
+ 336 0002 82B0     		sub	sp, sp, #8
+ 337 0004 00AF     		add	r7, sp, #0
+ 338 0006 7860     		str	r0, [r7, #4]
+ 339 0008 7968     		ldr	r1, [r7, #4]
+ 340 000a 0348     		ldr	r0, .L39
+ 341 000c FFF7FEFF 		bl	HAL_SD_GetCardInfo
+ 342 0010 00BF     		nop
+ 343 0012 0837     		adds	r7, r7, #8
+ 344 0014 BD46     		mov	sp, r7
+ 345              		@ sp needed
+ 346 0016 80BD     		pop	{r7, pc}
+ 347              	.L40:
+ 348              		.align	2
+ 349              	.L39:
+ 350 0018 00000000 		.word	hsd
+ 352              		.section	.text.HAL_SD_AbortCallback,"ax",%progbits
+ 353              		.align	1
+ 354              		.global	HAL_SD_AbortCallback
+ 355              		.syntax unified
+ 356              		.thumb
+ 357              		.thumb_func
+ 359              	HAL_SD_AbortCallback:
+ 360              		@ args = 0, pretend = 0, frame = 8
+ 361              		@ frame_needed = 1, uses_anonymous_args = 0
+ 362 0000 80B5     		push	{r7, lr}
+ 363 0002 82B0     		sub	sp, sp, #8
+ARM GAS  C:\Users\user\AppData\Local\Temp\cc2hPWD3.s 			page 7
+
+
+ 364 0004 00AF     		add	r7, sp, #0
+ 365 0006 7860     		str	r0, [r7, #4]
+ 366 0008 FFF7FEFF 		bl	BSP_SD_AbortCallback
+ 367 000c 00BF     		nop
+ 368 000e 0837     		adds	r7, r7, #8
+ 369 0010 BD46     		mov	sp, r7
+ 370              		@ sp needed
+ 371 0012 80BD     		pop	{r7, pc}
+ 373              		.section	.text.HAL_SD_TxCpltCallback,"ax",%progbits
+ 374              		.align	1
+ 375              		.global	HAL_SD_TxCpltCallback
+ 376              		.syntax unified
+ 377              		.thumb
+ 378              		.thumb_func
+ 380              	HAL_SD_TxCpltCallback:
+ 381              		@ args = 0, pretend = 0, frame = 8
+ 382              		@ frame_needed = 1, uses_anonymous_args = 0
+ 383 0000 80B5     		push	{r7, lr}
+ 384 0002 82B0     		sub	sp, sp, #8
+ 385 0004 00AF     		add	r7, sp, #0
+ 386 0006 7860     		str	r0, [r7, #4]
+ 387 0008 FFF7FEFF 		bl	BSP_SD_WriteCpltCallback
+ 388 000c 00BF     		nop
+ 389 000e 0837     		adds	r7, r7, #8
+ 390 0010 BD46     		mov	sp, r7
+ 391              		@ sp needed
+ 392 0012 80BD     		pop	{r7, pc}
+ 394              		.section	.text.HAL_SD_RxCpltCallback,"ax",%progbits
+ 395              		.align	1
+ 396              		.global	HAL_SD_RxCpltCallback
+ 397              		.syntax unified
+ 398              		.thumb
+ 399              		.thumb_func
+ 401              	HAL_SD_RxCpltCallback:
+ 402              		@ args = 0, pretend = 0, frame = 8
+ 403              		@ frame_needed = 1, uses_anonymous_args = 0
+ 404 0000 80B5     		push	{r7, lr}
+ 405 0002 82B0     		sub	sp, sp, #8
+ 406 0004 00AF     		add	r7, sp, #0
+ 407 0006 7860     		str	r0, [r7, #4]
+ 408 0008 FFF7FEFF 		bl	BSP_SD_ReadCpltCallback
+ 409 000c 00BF     		nop
+ 410 000e 0837     		adds	r7, r7, #8
+ 411 0010 BD46     		mov	sp, r7
+ 412              		@ sp needed
+ 413 0012 80BD     		pop	{r7, pc}
+ 415              		.section	.text.BSP_SD_AbortCallback,"ax",%progbits
+ 416              		.align	1
+ 417              		.weak	BSP_SD_AbortCallback
+ 418              		.syntax unified
+ 419              		.thumb
+ 420              		.thumb_func
+ 422              	BSP_SD_AbortCallback:
+ 423              		@ args = 0, pretend = 0, frame = 0
+ 424              		@ frame_needed = 1, uses_anonymous_args = 0
+ 425              		@ link register save eliminated.
+ 426 0000 80B4     		push	{r7}
+ARM GAS  C:\Users\user\AppData\Local\Temp\cc2hPWD3.s 			page 8
+
+
+ 427 0002 00AF     		add	r7, sp, #0
+ 428 0004 00BF     		nop
+ 429 0006 BD46     		mov	sp, r7
+ 430              		@ sp needed
+ 431 0008 5DF8047B 		ldr	r7, [sp], #4
+ 432 000c 7047     		bx	lr
+ 434              		.section	.text.BSP_SD_WriteCpltCallback,"ax",%progbits
+ 435              		.align	1
+ 436              		.weak	BSP_SD_WriteCpltCallback
+ 437              		.syntax unified
+ 438              		.thumb
+ 439              		.thumb_func
+ 441              	BSP_SD_WriteCpltCallback:
+ 442              		@ args = 0, pretend = 0, frame = 0
+ 443              		@ frame_needed = 1, uses_anonymous_args = 0
+ 444              		@ link register save eliminated.
+ 445 0000 80B4     		push	{r7}
+ 446 0002 00AF     		add	r7, sp, #0
+ 447 0004 00BF     		nop
+ 448 0006 BD46     		mov	sp, r7
+ 449              		@ sp needed
+ 450 0008 5DF8047B 		ldr	r7, [sp], #4
+ 451 000c 7047     		bx	lr
+ 453              		.section	.text.BSP_SD_ReadCpltCallback,"ax",%progbits
+ 454              		.align	1
+ 455              		.weak	BSP_SD_ReadCpltCallback
+ 456              		.syntax unified
+ 457              		.thumb
+ 458              		.thumb_func
+ 460              	BSP_SD_ReadCpltCallback:
+ 461              		@ args = 0, pretend = 0, frame = 0
+ 462              		@ frame_needed = 1, uses_anonymous_args = 0
+ 463              		@ link register save eliminated.
+ 464 0000 80B4     		push	{r7}
+ 465 0002 00AF     		add	r7, sp, #0
+ 466 0004 00BF     		nop
+ 467 0006 BD46     		mov	sp, r7
+ 468              		@ sp needed
+ 469 0008 5DF8047B 		ldr	r7, [sp], #4
+ 470 000c 7047     		bx	lr
+ 472              		.section	.text.BSP_SD_IsDetected,"ax",%progbits
+ 473              		.align	1
+ 474              		.weak	BSP_SD_IsDetected
+ 475              		.syntax unified
+ 476              		.thumb
+ 477              		.thumb_func
+ 479              	BSP_SD_IsDetected:
+ 480              		@ args = 0, pretend = 0, frame = 8
+ 481              		@ frame_needed = 1, uses_anonymous_args = 0
+ 482 0000 80B5     		push	{r7, lr}
+ 483 0002 82B0     		sub	sp, sp, #8
+ 484 0004 00AF     		add	r7, sp, #0
+ 485 0006 0123     		movs	r3, #1
+ 486 0008 FB71     		strb	r3, [r7, #7]
+ 487 000a FFF7FEFF 		bl	BSP_PlatformIsDetected
+ 488 000e 0346     		mov	r3, r0
+ 489 0010 002B     		cmp	r3, #0
+ARM GAS  C:\Users\user\AppData\Local\Temp\cc2hPWD3.s 			page 9
+
+
+ 490 0012 01D1     		bne	.L48
+ 491 0014 0023     		movs	r3, #0
+ 492 0016 FB71     		strb	r3, [r7, #7]
+ 493              	.L48:
+ 494 0018 FB79     		ldrb	r3, [r7, #7]
+ 495 001a DBB2     		uxtb	r3, r3
+ 496 001c 1846     		mov	r0, r3
+ 497 001e 0837     		adds	r7, r7, #8
+ 498 0020 BD46     		mov	sp, r7
+ 499              		@ sp needed
+ 500 0022 80BD     		pop	{r7, pc}
+ 502              		.ident	"GCC: (GNU Tools for STM32 12.3.rel1.20240306-1730) 12.3.1 20230626"
+ARM GAS  C:\Users\user\AppData\Local\Temp\cc2hPWD3.s 			page 10
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 bsp_driver_sd.c
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:18     .text.BSP_SD_Init:00000000 $t
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:24     .text.BSP_SD_Init:00000000 BSP_SD_Init
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:479    .text.BSP_SD_IsDetected:00000000 BSP_SD_IsDetected
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:53     .text.BSP_SD_Init:0000002c $d
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:56     .text.BSP_SD_ITConfig:00000000 $t
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:62     .text.BSP_SD_ITConfig:00000000 BSP_SD_ITConfig
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:76     .text.BSP_SD_DetectIT:00000000 $t
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:82     .text.BSP_SD_DetectIT:00000000 BSP_SD_DetectIT
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:95     .text.BSP_SD_ReadBlocks:00000000 $t
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:101    .text.BSP_SD_ReadBlocks:00000000 BSP_SD_ReadBlocks
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:135    .text.BSP_SD_ReadBlocks:00000038 $d
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:138    .text.BSP_SD_WriteBlocks:00000000 $t
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:144    .text.BSP_SD_WriteBlocks:00000000 BSP_SD_WriteBlocks
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:178    .text.BSP_SD_WriteBlocks:00000038 $d
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:181    .text.BSP_SD_ReadBlocks_DMA:00000000 $t
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:187    .text.BSP_SD_ReadBlocks_DMA:00000000 BSP_SD_ReadBlocks_DMA
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:218    .text.BSP_SD_ReadBlocks_DMA:00000030 $d
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:221    .text.BSP_SD_WriteBlocks_DMA:00000000 $t
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:227    .text.BSP_SD_WriteBlocks_DMA:00000000 BSP_SD_WriteBlocks_DMA
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:258    .text.BSP_SD_WriteBlocks_DMA:00000030 $d
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:261    .text.BSP_SD_Erase:00000000 $t
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:267    .text.BSP_SD_Erase:00000000 BSP_SD_Erase
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:296    .text.BSP_SD_Erase:0000002c $d
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:299    .text.BSP_SD_GetCardState:00000000 $t
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:305    .text.BSP_SD_GetCardState:00000000 BSP_SD_GetCardState
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:323    .text.BSP_SD_GetCardState:0000001c $d
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:326    .text.BSP_SD_GetCardInfo:00000000 $t
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:332    .text.BSP_SD_GetCardInfo:00000000 BSP_SD_GetCardInfo
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:350    .text.BSP_SD_GetCardInfo:00000018 $d
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:353    .text.HAL_SD_AbortCallback:00000000 $t
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:359    .text.HAL_SD_AbortCallback:00000000 HAL_SD_AbortCallback
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:422    .text.BSP_SD_AbortCallback:00000000 BSP_SD_AbortCallback
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:374    .text.HAL_SD_TxCpltCallback:00000000 $t
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:380    .text.HAL_SD_TxCpltCallback:00000000 HAL_SD_TxCpltCallback
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:441    .text.BSP_SD_WriteCpltCallback:00000000 BSP_SD_WriteCpltCallback
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:395    .text.HAL_SD_RxCpltCallback:00000000 $t
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:401    .text.HAL_SD_RxCpltCallback:00000000 HAL_SD_RxCpltCallback
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:460    .text.BSP_SD_ReadCpltCallback:00000000 BSP_SD_ReadCpltCallback
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:416    .text.BSP_SD_AbortCallback:00000000 $t
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:435    .text.BSP_SD_WriteCpltCallback:00000000 $t
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:454    .text.BSP_SD_ReadCpltCallback:00000000 $t
+C:\Users\user\AppData\Local\Temp\cc2hPWD3.s:473    .text.BSP_SD_IsDetected:00000000 $t
+
+UNDEFINED SYMBOLS
+HAL_SD_Init
+hsd
+HAL_SD_ReadBlocks
+HAL_SD_WriteBlocks
+HAL_SD_ReadBlocks_DMA
+HAL_SD_WriteBlocks_DMA
+HAL_SD_Erase
+HAL_SD_GetCardState
+HAL_SD_GetCardInfo
+BSP_PlatformIsDetected

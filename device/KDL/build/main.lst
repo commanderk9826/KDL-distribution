@@ -1,0 +1,1881 @@
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccxBW72l.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"main.c"
+  16              		.text
+  17              		.section	.text.to_uint,"ax",%progbits
+  18              		.align	1
+  19              		.global	to_uint
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  24              	to_uint:
+  25              		@ args = 0, pretend = 0, frame = 16
+  26              		@ frame_needed = 1, uses_anonymous_args = 0
+  27 0000 80B5     		push	{r7, lr}
+  28 0002 84B0     		sub	sp, sp, #16
+  29 0004 00AF     		add	r7, sp, #0
+  30 0006 7860     		str	r0, [r7, #4]
+  31 0008 0B46     		mov	r3, r1
+  32 000a FB70     		strb	r3, [r7, #3]
+  33 000c 7B68     		ldr	r3, [r7, #4]
+  34 000e BB60     		str	r3, [r7, #8]
+  35 0010 BB68     		ldr	r3, [r7, #8]
+  36 0012 FB60     		str	r3, [r7, #12]
+  37 0014 0EE0     		b	.L2
+  38              	.L4:
+  39 0016 FB68     		ldr	r3, [r7, #12]
+  40 0018 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+  41 001a BB68     		ldr	r3, [r7, #8]
+  42 001c 1A70     		strb	r2, [r3]
+  43 001e BB68     		ldr	r3, [r7, #8]
+  44 0020 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  45 0022 FA78     		ldrb	r2, [r7, #3]	@ zero_extendqisi2
+  46 0024 9A42     		cmp	r2, r3
+  47 0026 02D0     		beq	.L3
+  48 0028 BB68     		ldr	r3, [r7, #8]
+  49 002a 0133     		adds	r3, r3, #1
+  50 002c BB60     		str	r3, [r7, #8]
+  51              	.L3:
+  52 002e FB68     		ldr	r3, [r7, #12]
+  53 0030 0133     		adds	r3, r3, #1
+  54 0032 FB60     		str	r3, [r7, #12]
+  55              	.L2:
+  56 0034 FB68     		ldr	r3, [r7, #12]
+  57 0036 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  58 0038 002B     		cmp	r3, #0
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccxBW72l.s 			page 2
+
+
+  59 003a ECD1     		bne	.L4
+  60 003c BB68     		ldr	r3, [r7, #8]
+  61 003e 0022     		movs	r2, #0
+  62 0040 1A70     		strb	r2, [r3]
+  63 0042 7868     		ldr	r0, [r7, #4]
+  64 0044 FFF7FEFF 		bl	atoi
+  65 0048 0346     		mov	r3, r0
+  66 004a 1846     		mov	r0, r3
+  67 004c 1037     		adds	r7, r7, #16
+  68 004e BD46     		mov	sp, r7
+  69              		@ sp needed
+  70 0050 80BD     		pop	{r7, pc}
+  72              		.section	.text.drop_point,"ax",%progbits
+  73              		.align	1
+  74              		.global	drop_point
+  75              		.syntax unified
+  76              		.thumb
+  77              		.thumb_func
+  79              	drop_point:
+  80              		@ args = 0, pretend = 0, frame = 8
+  81              		@ frame_needed = 1, uses_anonymous_args = 0
+  82 0000 80B5     		push	{r7, lr}
+  83 0002 82B0     		sub	sp, sp, #8
+  84 0004 00AF     		add	r7, sp, #0
+  85 0006 7860     		str	r0, [r7, #4]
+  86 0008 2E21     		movs	r1, #46
+  87 000a 7868     		ldr	r0, [r7, #4]
+  88 000c FFF7FEFF 		bl	strchr
+  89 0010 0346     		mov	r3, r0
+  90 0012 0022     		movs	r2, #0
+  91 0014 1A70     		strb	r2, [r3]
+  92 0016 7868     		ldr	r0, [r7, #4]
+  93 0018 FFF7FEFF 		bl	atoi
+  94 001c 0346     		mov	r3, r0
+  95 001e 1846     		mov	r0, r3
+  96 0020 0837     		adds	r7, r7, #8
+  97 0022 BD46     		mov	sp, r7
+  98              		@ sp needed
+  99 0024 80BD     		pop	{r7, pc}
+ 101              		.global	logfile
+ 102              		.section	.bss.logfile,"aw",%nobits
+ 103              		.align	2
+ 106              	logfile:
+ 107 0000 00000000 		.space	4144
+ 107      00000000 
+ 107      00000000 
+ 107      00000000 
+ 107      00000000 
+ 108              		.global	syslog
+ 109              		.section	.bss.syslog,"aw",%nobits
+ 110              		.align	2
+ 113              	syslog:
+ 114 0000 00000000 		.space	16
+ 114      00000000 
+ 114      00000000 
+ 114      00000000 
+ 115              		.global	sys_state
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccxBW72l.s 			page 3
+
+
+ 116              		.section	.bss.sys_state,"aw",%nobits
+ 117              		.align	2
+ 120              	sys_state:
+ 121 0000 00000000 		.space	4
+ 122              		.global	timer_flag
+ 123              		.section	.bss.timer_flag,"aw",%nobits
+ 124              		.align	2
+ 127              	timer_flag:
+ 128 0000 00000000 		.space	4
+ 129              		.global	rtc
+ 130              		.section	.bss.rtc,"aw",%nobits
+ 131              		.align	2
+ 134              	rtc:
+ 135 0000 00000000 		.space	25
+ 135      00000000 
+ 135      00000000 
+ 135      00000000 
+ 135      00000000 
+ 136              		.global	SD_BUFFER
+ 137              		.section	.bss.SD_BUFFER,"aw",%nobits
+ 138              		.align	2
+ 141              	SD_BUFFER:
+ 142 0000 00000000 		.space	16
+ 142      00000000 
+ 142      00000000 
+ 142      00000000 
+ 143              		.global	SD_BUFFER_ARR
+ 144              		.section	.bss.SD_BUFFER_ARR,"aw",%nobits
+ 145              		.align	2
+ 148              	SD_BUFFER_ARR:
+ 149 0000 00000000 		.space	4096
+ 149      00000000 
+ 149      00000000 
+ 149      00000000 
+ 149      00000000 
+ 150              		.global	serial_flag
+ 151              		.section	.bss.serial_flag,"aw",%nobits
+ 152              		.align	2
+ 155              	serial_flag:
+ 156 0000 00000000 		.space	4
+ 157              		.global	SERIAL_BUFFER
+ 158              		.section	.bss.SERIAL_BUFFER,"aw",%nobits
+ 159              		.align	2
+ 162              	SERIAL_BUFFER:
+ 163 0000 00000000 		.space	16
+ 163      00000000 
+ 163      00000000 
+ 163      00000000 
+ 164              		.global	SERIAL_BUFFER_ARR
+ 165              		.section	.bss.SERIAL_BUFFER_ARR,"aw",%nobits
+ 166              		.align	2
+ 169              	SERIAL_BUFFER_ARR:
+ 170 0000 00000000 		.space	16384
+ 170      00000000 
+ 170      00000000 
+ 170      00000000 
+ 170      00000000 
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccxBW72l.s 			page 4
+
+
+ 171              		.global	telemetry_flag
+ 172              		.section	.bss.telemetry_flag,"aw",%nobits
+ 173              		.align	2
+ 176              	telemetry_flag:
+ 177 0000 00000000 		.space	4
+ 178              		.global	handshake_flag
+ 179              		.section	.bss.handshake_flag,"aw",%nobits
+ 180              		.align	2
+ 183              	handshake_flag:
+ 184 0000 00000000 		.space	4
+ 185              		.global	TELEMETRY_BUFFER
+ 186              		.section	.bss.TELEMETRY_BUFFER,"aw",%nobits
+ 187              		.align	2
+ 190              	TELEMETRY_BUFFER:
+ 191 0000 00000000 		.space	16
+ 191      00000000 
+ 191      00000000 
+ 191      00000000 
+ 192              		.global	TELEMETRY_BUFFER_ARR
+ 193              		.section	.bss.TELEMETRY_BUFFER_ARR,"aw",%nobits
+ 194              		.align	2
+ 197              	TELEMETRY_BUFFER_ARR:
+ 198 0000 00000000 		.space	16384
+ 198      00000000 
+ 198      00000000 
+ 198      00000000 
+ 198      00000000 
+ 199              		.global	can_rx_header
+ 200              		.section	.bss.can_rx_header,"aw",%nobits
+ 201              		.align	2
+ 204              	can_rx_header:
+ 205 0000 00000000 		.space	28
+ 205      00000000 
+ 205      00000000 
+ 205      00000000 
+ 205      00000000 
+ 206              		.global	can_rx_data
+ 207              		.section	.bss.can_rx_data,"aw",%nobits
+ 208              		.align	2
+ 211              	can_rx_data:
+ 212 0000 00000000 		.space	8
+ 212      00000000 
+ 213              		.global	adc_flag
+ 214              		.section	.bss.adc_flag,"aw",%nobits
+ 215              		.align	2
+ 218              	adc_flag:
+ 219 0000 00000000 		.space	4
+ 220              		.global	adc_sys_value
+ 221              		.section	.bss.adc_sys_value,"aw",%nobits
+ 222              		.align	2
+ 225              	adc_sys_value:
+ 226 0000 00000000 		.space	8
+ 226      00000000 
+ 227              		.global	adc_ain_value
+ 228              		.section	.bss.adc_ain_value,"aw",%nobits
+ 229              		.align	2
+ 232              	adc_ain_value:
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccxBW72l.s 			page 5
+
+
+ 233 0000 00000000 		.space	16
+ 233      00000000 
+ 233      00000000 
+ 233      00000000 
+ 234              		.global	pulse_flag
+ 235              		.section	.bss.pulse_flag,"aw",%nobits
+ 236              		.align	2
+ 239              	pulse_flag:
+ 240 0000 00000000 		.space	4
+ 241              		.global	pulse_value
+ 242              		.section	.bss.pulse_value,"aw",%nobits
+ 243              		.align	2
+ 246              	pulse_value:
+ 247 0000 00000000 		.space	16
+ 247      00000000 
+ 247      00000000 
+ 247      00000000 
+ 248              		.global	pulse_buffer_0
+ 249              		.section	.bss.pulse_buffer_0,"aw",%nobits
+ 250              		.align	2
+ 253              	pulse_buffer_0:
+ 254 0000 00000000 		.space	16
+ 254      00000000 
+ 254      00000000 
+ 254      00000000 
+ 255              		.global	pulse_buffer_1
+ 256              		.section	.bss.pulse_buffer_1,"aw",%nobits
+ 257              		.align	2
+ 260              	pulse_buffer_1:
+ 261 0000 00000000 		.space	16
+ 261      00000000 
+ 261      00000000 
+ 261      00000000 
+ 262              		.global	accelerometer_flag
+ 263              		.section	.bss.accelerometer_flag,"aw",%nobits
+ 264              		.align	2
+ 267              	accelerometer_flag:
+ 268 0000 00000000 		.space	4
+ 269              		.global	accelerometer_value
+ 270              		.section	.bss.accelerometer_value,"aw",%nobits
+ 271              		.align	2
+ 274              	accelerometer_value:
+ 275 0000 00000000 		.space	6
+ 275      0000
+ 276              		.global	gps_flag
+ 277              		.section	.bss.gps_flag,"aw",%nobits
+ 278              		.align	2
+ 281              	gps_flag:
+ 282 0000 00000000 		.space	4
+ 283              		.global	gps_data
+ 284              		.section	.bss.gps_data,"aw",%nobits
+ 285              		.align	2
+ 288              	gps_data:
+ 289 0000 00000000 		.space	128
+ 289      00000000 
+ 289      00000000 
+ 289      00000000 
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccxBW72l.s 			page 6
+
+
+ 289      00000000 
+ 290              		.section	.text._close,"ax",%progbits
+ 291              		.align	1
+ 292              		.weak	_close
+ 293              		.syntax unified
+ 294              		.thumb
+ 295              		.thumb_func
+ 297              	_close:
+ 298              		@ args = 0, pretend = 0, frame = 0
+ 299              		@ frame_needed = 1, uses_anonymous_args = 0
+ 300              		@ link register save eliminated.
+ 301 0000 80B4     		push	{r7}
+ 302 0002 00AF     		add	r7, sp, #0
+ 303 0004 00BF     		nop
+ 304 0006 BD46     		mov	sp, r7
+ 305              		@ sp needed
+ 306 0008 5DF8047B 		ldr	r7, [sp], #4
+ 307 000c 7047     		bx	lr
+ 309              		.section	.text._lseek,"ax",%progbits
+ 310              		.align	1
+ 311              		.weak	_lseek
+ 312              		.syntax unified
+ 313              		.thumb
+ 314              		.thumb_func
+ 316              	_lseek:
+ 317              		@ args = 0, pretend = 0, frame = 0
+ 318              		@ frame_needed = 1, uses_anonymous_args = 0
+ 319              		@ link register save eliminated.
+ 320 0000 80B4     		push	{r7}
+ 321 0002 00AF     		add	r7, sp, #0
+ 322 0004 00BF     		nop
+ 323 0006 BD46     		mov	sp, r7
+ 324              		@ sp needed
+ 325 0008 5DF8047B 		ldr	r7, [sp], #4
+ 326 000c 7047     		bx	lr
+ 328              		.section	.text._read,"ax",%progbits
+ 329              		.align	1
+ 330              		.weak	_read
+ 331              		.syntax unified
+ 332              		.thumb
+ 333              		.thumb_func
+ 335              	_read:
+ 336              		@ args = 0, pretend = 0, frame = 0
+ 337              		@ frame_needed = 1, uses_anonymous_args = 0
+ 338              		@ link register save eliminated.
+ 339 0000 80B4     		push	{r7}
+ 340 0002 00AF     		add	r7, sp, #0
+ 341 0004 00BF     		nop
+ 342 0006 BD46     		mov	sp, r7
+ 343              		@ sp needed
+ 344 0008 5DF8047B 		ldr	r7, [sp], #4
+ 345 000c 7047     		bx	lr
+ 347              		.section	.text._write,"ax",%progbits
+ 348              		.align	1
+ 349              		.global	_write
+ 350              		.syntax unified
+ 351              		.thumb
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccxBW72l.s 			page 7
+
+
+ 352              		.thumb_func
+ 354              	_write:
+ 355              		@ args = 0, pretend = 0, frame = 16
+ 356              		@ frame_needed = 1, uses_anonymous_args = 0
+ 357 0000 80B5     		push	{r7, lr}
+ 358 0002 84B0     		sub	sp, sp, #16
+ 359 0004 00AF     		add	r7, sp, #0
+ 360 0006 F860     		str	r0, [r7, #12]
+ 361 0008 B960     		str	r1, [r7, #8]
+ 362 000a 7A60     		str	r2, [r7, #4]
+ 363 000c 7B68     		ldr	r3, [r7, #4]
+ 364 000e 9AB2     		uxth	r2, r3
+ 365 0010 1E23     		movs	r3, #30
+ 366 0012 B968     		ldr	r1, [r7, #8]
+ 367 0014 0348     		ldr	r0, .L13
+ 368 0016 FFF7FEFF 		bl	HAL_UART_Transmit
+ 369 001a 7B68     		ldr	r3, [r7, #4]
+ 370 001c 1846     		mov	r0, r3
+ 371 001e 1037     		adds	r7, r7, #16
+ 372 0020 BD46     		mov	sp, r7
+ 373              		@ sp needed
+ 374 0022 80BD     		pop	{r7, pc}
+ 375              	.L14:
+ 376              		.align	2
+ 377              	.L13:
+ 378 0024 00000000 		.word	huart1
+ 380              		.section	.text.main,"ax",%progbits
+ 381              		.align	1
+ 382              		.global	main
+ 383              		.syntax unified
+ 384              		.thumb
+ 385              		.thumb_func
+ 387              	main:
+ 388              		@ args = 0, pretend = 0, frame = 16
+ 389              		@ frame_needed = 1, uses_anonymous_args = 0
+ 390 0000 80B5     		push	{r7, lr}
+ 391 0002 84B0     		sub	sp, sp, #16
+ 392 0004 00AF     		add	r7, sp, #0
+ 393 0006 FFF7FEFF 		bl	HAL_Init
+ 394 000a FFF7FEFF 		bl	SystemClock_Config
+ 395 000e FFF7FEFF 		bl	MX_GPIO_Init
+ 396 0012 FFF7FEFF 		bl	MX_DMA_Init
+ 397 0016 FFF7FEFF 		bl	MX_ADC1_Init
+ 398 001a FFF7FEFF 		bl	MX_ADC2_Init
+ 399 001e FFF7FEFF 		bl	MX_RTC_Init
+ 400 0022 FFF7FEFF 		bl	MX_TIM1_Init
+ 401 0026 FFF7FEFF 		bl	MX_TIM5_Init
+ 402 002a FFF7FEFF 		bl	MX_CAN1_Init
+ 403 002e FFF7FEFF 		bl	MX_I2C1_Init
+ 404 0032 FFF7FEFF 		bl	MX_I2C3_Init
+ 405 0036 FFF7FEFF 		bl	MX_SDIO_SD_Init
+ 406 003a FFF7FEFF 		bl	MX_USART1_UART_Init
+ 407 003e FFF7FEFF 		bl	MX_USART3_UART_Init
+ 408 0042 FFF7FEFF 		bl	MX_FATFS_Init
+ 409 0046 FFF7FEFF 		bl	MX_USART6_UART_Init
+ 410 004a 3B1D     		adds	r3, r7, #4
+ 411 004c 1846     		mov	r0, r3
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccxBW72l.s 			page 8
+
+
+ 412 004e FFF7FEFF 		bl	RTC_READ
+ 413 0052 3B1D     		adds	r3, r7, #4
+ 414 0054 1846     		mov	r0, r3
+ 415 0056 FFF7FEFF 		bl	SD_SETUP
+ 416 005a F860     		str	r0, [r7, #12]
+ 417 005c FB68     		ldr	r3, [r7, #12]
+ 418 005e 002B     		cmp	r3, #0
+ 419 0060 0ED1     		bne	.L16
+ 420 0062 BB4B     		ldr	r3, .L42
+ 421 0064 0122     		movs	r2, #1
+ 422 0066 5A70     		strb	r2, [r3, #1]
+ 423 0068 0122     		movs	r2, #1
+ 424 006a 4FF40051 		mov	r1, #8192
+ 425 006e B948     		ldr	r0, .L42+4
+ 426 0070 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 427 0074 0022     		movs	r2, #0
+ 428 0076 0021     		movs	r1, #0
+ 429 0078 0320     		movs	r0, #3
+ 430 007a FFF7FEFF 		bl	SYS_LOG
+ 431 007e 11E0     		b	.L17
+ 432              	.L16:
+ 433 0080 B34B     		ldr	r3, .L42
+ 434 0082 0022     		movs	r2, #0
+ 435 0084 5A70     		strb	r2, [r3, #1]
+ 436 0086 0022     		movs	r2, #0
+ 437 0088 4FF40051 		mov	r1, #8192
+ 438 008c B148     		ldr	r0, .L42+4
+ 439 008e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 440 0092 FB68     		ldr	r3, [r7, #12]
+ 441 0094 DAB2     		uxtb	r2, r3
+ 442 0096 B04B     		ldr	r3, .L42+8
+ 443 0098 1A72     		strb	r2, [r3, #8]
+ 444 009a 0022     		movs	r2, #0
+ 445 009c 0021     		movs	r1, #0
+ 446 009e 0120     		movs	r0, #1
+ 447 00a0 FFF7FEFF 		bl	SYS_LOG
+ 448              	.L17:
+ 449 00a4 0022     		movs	r2, #0
+ 450 00a6 4021     		movs	r1, #64
+ 451 00a8 AC48     		ldr	r0, .L42+12
+ 452 00aa FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 453 00ae 0022     		movs	r2, #0
+ 454 00b0 8021     		movs	r1, #128
+ 455 00b2 AA48     		ldr	r0, .L42+12
+ 456 00b4 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 457 00b8 0022     		movs	r2, #0
+ 458 00ba 4FF40071 		mov	r1, #512
+ 459 00be A548     		ldr	r0, .L42+4
+ 460 00c0 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 461 00c4 0022     		movs	r2, #0
+ 462 00c6 4FF48061 		mov	r1, #1024
+ 463 00ca A248     		ldr	r0, .L42+4
+ 464 00cc FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 465 00d0 9F4B     		ldr	r3, .L42
+ 466 00d2 0022     		movs	r2, #0
+ 467 00d4 1A70     		strb	r2, [r3]
+ 468 00d6 9E4B     		ldr	r3, .L42
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccxBW72l.s 			page 9
+
+
+ 469 00d8 0022     		movs	r2, #0
+ 470 00da DA70     		strb	r2, [r3, #3]
+ 471 00dc 9C4B     		ldr	r3, .L42
+ 472 00de 0022     		movs	r2, #0
+ 473 00e0 9A70     		strb	r2, [r3, #2]
+ 474 00e2 0022     		movs	r2, #0
+ 475 00e4 4FF40061 		mov	r1, #2048
+ 476 00e8 9A48     		ldr	r0, .L42+4
+ 477 00ea FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 478 00ee 0122     		movs	r2, #1
+ 479 00f0 4FF48051 		mov	r1, #4096
+ 480 00f4 9748     		ldr	r0, .L42+4
+ 481 00f6 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 482 00fa 0022     		movs	r2, #0
+ 483 00fc 4FF48041 		mov	r1, #16384
+ 484 0100 9448     		ldr	r0, .L42+4
+ 485 0102 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 486 0106 0022     		movs	r2, #0
+ 487 0108 4FF40041 		mov	r1, #32768
+ 488 010c 9148     		ldr	r0, .L42+4
+ 489 010e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 490 0112 1422     		movs	r2, #20
+ 491 0114 9249     		ldr	r1, .L42+16
+ 492 0116 9348     		ldr	r0, .L42+20
+ 493 0118 FFF7FEFF 		bl	HAL_UART_Receive_IT
+ 494 011c 0122     		movs	r2, #1
+ 495 011e 0021     		movs	r1, #0
+ 496 0120 0320     		movs	r0, #3
+ 497 0122 FFF7FEFF 		bl	SYS_LOG
+ 498 0126 FFF7FEFF 		bl	SERIAL_SETUP
+ 499 012a F860     		str	r0, [r7, #12]
+ 500 012c FB68     		ldr	r3, [r7, #12]
+ 501 012e 002B     		cmp	r3, #0
+ 502 0130 05D1     		bne	.L18
+ 503 0132 0222     		movs	r2, #2
+ 504 0134 0021     		movs	r1, #0
+ 505 0136 0320     		movs	r0, #3
+ 506 0138 FFF7FEFF 		bl	SYS_LOG
+ 507 013c 08E0     		b	.L19
+ 508              	.L18:
+ 509 013e FB68     		ldr	r3, [r7, #12]
+ 510 0140 DAB2     		uxtb	r2, r3
+ 511 0142 854B     		ldr	r3, .L42+8
+ 512 0144 1A72     		strb	r2, [r3, #8]
+ 513 0146 0222     		movs	r2, #2
+ 514 0148 0021     		movs	r1, #0
+ 515 014a 0120     		movs	r0, #1
+ 516 014c FFF7FEFF 		bl	SYS_LOG
+ 517              	.L19:
+ 518 0150 FFF7FEFF 		bl	TELEMETRY_SETUP
+ 519 0154 F860     		str	r0, [r7, #12]
+ 520 0156 FB68     		ldr	r3, [r7, #12]
+ 521 0158 002B     		cmp	r3, #0
+ 522 015a 5FD1     		bne	.L20
+ 523 015c 7C4B     		ldr	r3, .L42
+ 524 015e 0122     		movs	r2, #1
+ 525 0160 9A70     		strb	r2, [r3, #2]
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccxBW72l.s 			page 10
+
+
+ 526 0162 0122     		movs	r2, #1
+ 527 0164 4FF40041 		mov	r1, #32768
+ 528 0168 7A48     		ldr	r0, .L42+4
+ 529 016a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 530 016e 6420     		movs	r0, #100
+ 531 0170 FFF7FEFF 		bl	HAL_Delay
+ 532 0174 0022     		movs	r2, #0
+ 533 0176 4FF40041 		mov	r1, #32768
+ 534 017a 7648     		ldr	r0, .L42+4
+ 535 017c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 536 0180 6420     		movs	r0, #100
+ 537 0182 FFF7FEFF 		bl	HAL_Delay
+ 538 0186 0122     		movs	r2, #1
+ 539 0188 4FF40041 		mov	r1, #32768
+ 540 018c 7148     		ldr	r0, .L42+4
+ 541 018e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 542 0192 6420     		movs	r0, #100
+ 543 0194 FFF7FEFF 		bl	HAL_Delay
+ 544 0198 0022     		movs	r2, #0
+ 545 019a 4FF40041 		mov	r1, #32768
+ 546 019e 6D48     		ldr	r0, .L42+4
+ 547 01a0 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 548 01a4 6420     		movs	r0, #100
+ 549 01a6 FFF7FEFF 		bl	HAL_Delay
+ 550 01aa 0122     		movs	r2, #1
+ 551 01ac 4FF40041 		mov	r1, #32768
+ 552 01b0 6848     		ldr	r0, .L42+4
+ 553 01b2 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 554 01b6 6420     		movs	r0, #100
+ 555 01b8 FFF7FEFF 		bl	HAL_Delay
+ 556 01bc 0022     		movs	r2, #0
+ 557 01be 4FF40041 		mov	r1, #32768
+ 558 01c2 6448     		ldr	r0, .L42+4
+ 559 01c4 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 560 01c8 6420     		movs	r0, #100
+ 561 01ca FFF7FEFF 		bl	HAL_Delay
+ 562 01ce 0122     		movs	r2, #1
+ 563 01d0 4FF40041 		mov	r1, #32768
+ 564 01d4 5F48     		ldr	r0, .L42+4
+ 565 01d6 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 566 01da 6420     		movs	r0, #100
+ 567 01dc FFF7FEFF 		bl	HAL_Delay
+ 568 01e0 0022     		movs	r2, #0
+ 569 01e2 4FF40041 		mov	r1, #32768
+ 570 01e6 5B48     		ldr	r0, .L42+4
+ 571 01e8 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 572 01ec 6420     		movs	r0, #100
+ 573 01ee FFF7FEFF 		bl	HAL_Delay
+ 574 01f2 0122     		movs	r2, #1
+ 575 01f4 4FF40041 		mov	r1, #32768
+ 576 01f8 5648     		ldr	r0, .L42+4
+ 577 01fa FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 578 01fe 6420     		movs	r0, #100
+ 579 0200 FFF7FEFF 		bl	HAL_Delay
+ 580 0204 0022     		movs	r2, #0
+ 581 0206 4FF40041 		mov	r1, #32768
+ 582 020a 5248     		ldr	r0, .L42+4
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccxBW72l.s 			page 11
+
+
+ 583 020c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 584 0210 0422     		movs	r2, #4
+ 585 0212 0021     		movs	r1, #0
+ 586 0214 0320     		movs	r0, #3
+ 587 0216 FFF7FEFF 		bl	SYS_LOG
+ 588 021a 11E0     		b	.L21
+ 589              	.L20:
+ 590 021c 4C4B     		ldr	r3, .L42
+ 591 021e 0022     		movs	r2, #0
+ 592 0220 9A70     		strb	r2, [r3, #2]
+ 593 0222 0022     		movs	r2, #0
+ 594 0224 4FF40041 		mov	r1, #32768
+ 595 0228 4A48     		ldr	r0, .L42+4
+ 596 022a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 597 022e FB68     		ldr	r3, [r7, #12]
+ 598 0230 DAB2     		uxtb	r2, r3
+ 599 0232 494B     		ldr	r3, .L42+8
+ 600 0234 1A72     		strb	r2, [r3, #8]
+ 601 0236 0422     		movs	r2, #4
+ 602 0238 0021     		movs	r1, #0
+ 603 023a 0120     		movs	r0, #1
+ 604 023c FFF7FEFF 		bl	SYS_LOG
+ 605              	.L21:
+ 606 0240 FFF7FEFF 		bl	CAN_SETUP
+ 607 0244 F860     		str	r0, [r7, #12]
+ 608 0246 FB68     		ldr	r3, [r7, #12]
+ 609 0248 002B     		cmp	r3, #0
+ 610 024a 0ED1     		bne	.L22
+ 611 024c 404B     		ldr	r3, .L42
+ 612 024e 0122     		movs	r2, #1
+ 613 0250 DA70     		strb	r2, [r3, #3]
+ 614 0252 0122     		movs	r2, #1
+ 615 0254 4FF48041 		mov	r1, #16384
+ 616 0258 3E48     		ldr	r0, .L42+4
+ 617 025a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 618 025e 0522     		movs	r2, #5
+ 619 0260 0021     		movs	r1, #0
+ 620 0262 0320     		movs	r0, #3
+ 621 0264 FFF7FEFF 		bl	SYS_LOG
+ 622 0268 11E0     		b	.L23
+ 623              	.L22:
+ 624 026a 394B     		ldr	r3, .L42
+ 625 026c 0022     		movs	r2, #0
+ 626 026e DA70     		strb	r2, [r3, #3]
+ 627 0270 0022     		movs	r2, #0
+ 628 0272 4FF48041 		mov	r1, #16384
+ 629 0276 3748     		ldr	r0, .L42+4
+ 630 0278 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 631 027c FB68     		ldr	r3, [r7, #12]
+ 632 027e DAB2     		uxtb	r2, r3
+ 633 0280 354B     		ldr	r3, .L42+8
+ 634 0282 1A72     		strb	r2, [r3, #8]
+ 635 0284 0522     		movs	r2, #5
+ 636 0286 0021     		movs	r1, #0
+ 637 0288 0120     		movs	r0, #1
+ 638 028a FFF7FEFF 		bl	SYS_LOG
+ 639              	.L23:
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccxBW72l.s 			page 12
+
+
+ 640 028e FFF7FEFF 		bl	DIGITAL_SETUP
+ 641 0292 F860     		str	r0, [r7, #12]
+ 642 0294 FB68     		ldr	r3, [r7, #12]
+ 643 0296 002B     		cmp	r3, #0
+ 644 0298 05D1     		bne	.L24
+ 645 029a 0622     		movs	r2, #6
+ 646 029c 0021     		movs	r1, #0
+ 647 029e 0320     		movs	r0, #3
+ 648 02a0 FFF7FEFF 		bl	SYS_LOG
+ 649 02a4 08E0     		b	.L25
+ 650              	.L24:
+ 651 02a6 FB68     		ldr	r3, [r7, #12]
+ 652 02a8 DAB2     		uxtb	r2, r3
+ 653 02aa 2B4B     		ldr	r3, .L42+8
+ 654 02ac 1A72     		strb	r2, [r3, #8]
+ 655 02ae 0622     		movs	r2, #6
+ 656 02b0 0021     		movs	r1, #0
+ 657 02b2 0120     		movs	r0, #1
+ 658 02b4 FFF7FEFF 		bl	SYS_LOG
+ 659              	.L25:
+ 660 02b8 FFF7FEFF 		bl	ANALOG_SETUP
+ 661 02bc F860     		str	r0, [r7, #12]
+ 662 02be FB68     		ldr	r3, [r7, #12]
+ 663 02c0 002B     		cmp	r3, #0
+ 664 02c2 05D1     		bne	.L26
+ 665 02c4 0722     		movs	r2, #7
+ 666 02c6 0021     		movs	r1, #0
+ 667 02c8 0320     		movs	r0, #3
+ 668 02ca FFF7FEFF 		bl	SYS_LOG
+ 669 02ce 08E0     		b	.L27
+ 670              	.L26:
+ 671 02d0 FB68     		ldr	r3, [r7, #12]
+ 672 02d2 DAB2     		uxtb	r2, r3
+ 673 02d4 204B     		ldr	r3, .L42+8
+ 674 02d6 1A72     		strb	r2, [r3, #8]
+ 675 02d8 0722     		movs	r2, #7
+ 676 02da 0021     		movs	r1, #0
+ 677 02dc 0120     		movs	r0, #1
+ 678 02de FFF7FEFF 		bl	SYS_LOG
+ 679              	.L27:
+ 680 02e2 FFF7FEFF 		bl	PULSE_SETUP
+ 681 02e6 F860     		str	r0, [r7, #12]
+ 682 02e8 FB68     		ldr	r3, [r7, #12]
+ 683 02ea 002B     		cmp	r3, #0
+ 684 02ec 05D1     		bne	.L28
+ 685 02ee 0822     		movs	r2, #8
+ 686 02f0 0021     		movs	r1, #0
+ 687 02f2 0320     		movs	r0, #3
+ 688 02f4 FFF7FEFF 		bl	SYS_LOG
+ 689 02f8 08E0     		b	.L29
+ 690              	.L28:
+ 691 02fa FB68     		ldr	r3, [r7, #12]
+ 692 02fc DAB2     		uxtb	r2, r3
+ 693 02fe 164B     		ldr	r3, .L42+8
+ 694 0300 1A72     		strb	r2, [r3, #8]
+ 695 0302 0822     		movs	r2, #8
+ 696 0304 0021     		movs	r1, #0
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccxBW72l.s 			page 13
+
+
+ 697 0306 0120     		movs	r0, #1
+ 698 0308 FFF7FEFF 		bl	SYS_LOG
+ 699              	.L29:
+ 700 030c FFF7FEFF 		bl	ACCELEROMETER_SETUP
+ 701 0310 F860     		str	r0, [r7, #12]
+ 702 0312 FB68     		ldr	r3, [r7, #12]
+ 703 0314 002B     		cmp	r3, #0
+ 704 0316 05D1     		bne	.L30
+ 705 0318 0922     		movs	r2, #9
+ 706 031a 0021     		movs	r1, #0
+ 707 031c 0320     		movs	r0, #3
+ 708 031e FFF7FEFF 		bl	SYS_LOG
+ 709 0322 08E0     		b	.L31
+ 710              	.L30:
+ 711 0324 FB68     		ldr	r3, [r7, #12]
+ 712 0326 DAB2     		uxtb	r2, r3
+ 713 0328 0B4B     		ldr	r3, .L42+8
+ 714 032a 1A72     		strb	r2, [r3, #8]
+ 715 032c 0922     		movs	r2, #9
+ 716 032e 0021     		movs	r1, #0
+ 717 0330 0120     		movs	r0, #1
+ 718 0332 FFF7FEFF 		bl	SYS_LOG
+ 719              	.L31:
+ 720 0336 FFF7FEFF 		bl	GPS_SETUP
+ 721 033a F860     		str	r0, [r7, #12]
+ 722 033c FB68     		ldr	r3, [r7, #12]
+ 723 033e 002B     		cmp	r3, #0
+ 724 0340 12D1     		bne	.L32
+ 725 0342 0A22     		movs	r2, #10
+ 726 0344 0021     		movs	r1, #0
+ 727 0346 0320     		movs	r0, #3
+ 728 0348 FFF7FEFF 		bl	SYS_LOG
+ 729 034c 15E0     		b	.L33
+ 730              	.L43:
+ 731 034e 00BF     		.align	2
+ 732              	.L42:
+ 733 0350 00000000 		.word	sys_state
+ 734 0354 00100240 		.word	1073876992
+ 735 0358 00000000 		.word	syslog
+ 736 035c 00000240 		.word	1073872896
+ 737 0360 00000000 		.word	rtc
+ 738 0364 00000000 		.word	huart1
+ 739              	.L32:
+ 740 0368 FB68     		ldr	r3, [r7, #12]
+ 741 036a DAB2     		uxtb	r2, r3
+ 742 036c 5F4B     		ldr	r3, .L44
+ 743 036e 1A72     		strb	r2, [r3, #8]
+ 744 0370 0A22     		movs	r2, #10
+ 745 0372 0021     		movs	r1, #0
+ 746 0374 0120     		movs	r0, #1
+ 747 0376 FFF7FEFF 		bl	SYS_LOG
+ 748              	.L33:
+ 749 037a 0B22     		movs	r2, #11
+ 750 037c 0021     		movs	r1, #0
+ 751 037e 0320     		movs	r0, #3
+ 752 0380 FFF7FEFF 		bl	SYS_LOG
+ 753 0384 5A48     		ldr	r0, .L44+4
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccxBW72l.s 			page 14
+
+
+ 754 0386 FFF7FEFF 		bl	HAL_TIM_Base_Start_IT
+ 755              	.L41:
+ 756 038a 5A4B     		ldr	r3, .L44+8
+ 757 038c 1B68     		ldr	r3, [r3]
+ 758 038e 03F00103 		and	r3, r3, #1
+ 759 0392 002B     		cmp	r3, #0
+ 760 0394 14D0     		beq	.L34
+ 761 0396 574B     		ldr	r3, .L44+8
+ 762 0398 1B68     		ldr	r3, [r3]
+ 763 039a 23F00103 		bic	r3, r3, #1
+ 764 039e 554A     		ldr	r2, .L44+8
+ 765 03a0 1360     		str	r3, [r2]
+ 766 03a2 554B     		ldr	r3, .L44+12
+ 767 03a4 1A68     		ldr	r2, [r3]
+ 768 03a6 554B     		ldr	r3, .L44+16
+ 769 03a8 92B2     		uxth	r2, r2
+ 770 03aa 1A80     		strh	r2, [r3]	@ movhi
+ 771 03ac 524B     		ldr	r3, .L44+12
+ 772 03ae 5A68     		ldr	r2, [r3, #4]
+ 773 03b0 534B     		ldr	r3, .L44+20
+ 774 03b2 92B2     		uxth	r2, r2
+ 775 03b4 1A80     		strh	r2, [r3]	@ movhi
+ 776 03b6 0022     		movs	r2, #0
+ 777 03b8 0321     		movs	r1, #3
+ 778 03ba 0320     		movs	r0, #3
+ 779 03bc FFF7FEFF 		bl	SYS_LOG
+ 780              	.L34:
+ 781 03c0 4C4B     		ldr	r3, .L44+8
+ 782 03c2 1B68     		ldr	r3, [r3]
+ 783 03c4 03F00203 		and	r3, r3, #2
+ 784 03c8 002B     		cmp	r3, #0
+ 785 03ca 1ED0     		beq	.L35
+ 786 03cc 494B     		ldr	r3, .L44+8
+ 787 03ce 1B68     		ldr	r3, [r3]
+ 788 03d0 23F00203 		bic	r3, r3, #2
+ 789 03d4 474A     		ldr	r2, .L44+8
+ 790 03d6 1360     		str	r3, [r2]
+ 791 03d8 4A4B     		ldr	r3, .L44+24
+ 792 03da 1A68     		ldr	r2, [r3]
+ 793 03dc 474B     		ldr	r3, .L44+16
+ 794 03de 92B2     		uxth	r2, r2
+ 795 03e0 1A80     		strh	r2, [r3]	@ movhi
+ 796 03e2 484B     		ldr	r3, .L44+24
+ 797 03e4 5A68     		ldr	r2, [r3, #4]
+ 798 03e6 464B     		ldr	r3, .L44+20
+ 799 03e8 92B2     		uxth	r2, r2
+ 800 03ea 1A80     		strh	r2, [r3]	@ movhi
+ 801 03ec 454B     		ldr	r3, .L44+24
+ 802 03ee 9A68     		ldr	r2, [r3, #8]
+ 803 03f0 454B     		ldr	r3, .L44+28
+ 804 03f2 92B2     		uxth	r2, r2
+ 805 03f4 1A80     		strh	r2, [r3]	@ movhi
+ 806 03f6 434B     		ldr	r3, .L44+24
+ 807 03f8 DA68     		ldr	r2, [r3, #12]
+ 808 03fa 444B     		ldr	r3, .L44+32
+ 809 03fc 92B2     		uxth	r2, r2
+ 810 03fe 1A80     		strh	r2, [r3]	@ movhi
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccxBW72l.s 			page 15
+
+
+ 811 0400 0122     		movs	r2, #1
+ 812 0402 0321     		movs	r1, #3
+ 813 0404 0320     		movs	r0, #3
+ 814 0406 FFF7FEFF 		bl	SYS_LOG
+ 815              	.L35:
+ 816 040a 414B     		ldr	r3, .L44+36
+ 817 040c 1B68     		ldr	r3, [r3]
+ 818 040e 03F40073 		and	r3, r3, #512
+ 819 0412 002B     		cmp	r3, #0
+ 820 0414 2BD0     		beq	.L36
+ 821 0416 3F4B     		ldr	r3, .L44+40
+ 822 0418 1B68     		ldr	r3, [r3]
+ 823 041a 3F4A     		ldr	r2, .L44+44
+ 824 041c A2FB0323 		umull	r2, r3, r2, r3
+ 825 0420 DA08     		lsrs	r2, r3, #3
+ 826 0422 364B     		ldr	r3, .L44+16
+ 827 0424 92B2     		uxth	r2, r2
+ 828 0426 1A80     		strh	r2, [r3]	@ movhi
+ 829 0428 3A4B     		ldr	r3, .L44+40
+ 830 042a 5B68     		ldr	r3, [r3, #4]
+ 831 042c 3A4A     		ldr	r2, .L44+44
+ 832 042e A2FB0323 		umull	r2, r3, r2, r3
+ 833 0432 DA08     		lsrs	r2, r3, #3
+ 834 0434 324B     		ldr	r3, .L44+20
+ 835 0436 92B2     		uxth	r2, r2
+ 836 0438 1A80     		strh	r2, [r3]	@ movhi
+ 837 043a 364B     		ldr	r3, .L44+40
+ 838 043c 9B68     		ldr	r3, [r3, #8]
+ 839 043e 364A     		ldr	r2, .L44+44
+ 840 0440 A2FB0323 		umull	r2, r3, r2, r3
+ 841 0444 DA08     		lsrs	r2, r3, #3
+ 842 0446 304B     		ldr	r3, .L44+28
+ 843 0448 92B2     		uxth	r2, r2
+ 844 044a 1A80     		strh	r2, [r3]	@ movhi
+ 845 044c 314B     		ldr	r3, .L44+40
+ 846 044e DB68     		ldr	r3, [r3, #12]
+ 847 0450 314A     		ldr	r2, .L44+44
+ 848 0452 A2FB0323 		umull	r2, r3, r2, r3
+ 849 0456 DA08     		lsrs	r2, r3, #3
+ 850 0458 2C4B     		ldr	r3, .L44+32
+ 851 045a 92B2     		uxth	r2, r2
+ 852 045c 1A80     		strh	r2, [r3]	@ movhi
+ 853 045e 0022     		movs	r2, #0
+ 854 0460 0421     		movs	r1, #4
+ 855 0462 0320     		movs	r0, #3
+ 856 0464 FFF7FEFF 		bl	SYS_LOG
+ 857 0468 294B     		ldr	r3, .L44+36
+ 858 046a 0022     		movs	r2, #0
+ 859 046c 1A60     		str	r2, [r3]
+ 860              	.L36:
+ 861 046e 2B4B     		ldr	r3, .L44+48
+ 862 0470 1B68     		ldr	r3, [r3]
+ 863 0472 012B     		cmp	r3, #1
+ 864 0474 0DD1     		bne	.L37
+ 865 0476 294B     		ldr	r3, .L44+48
+ 866 0478 0022     		movs	r2, #0
+ 867 047a 1A60     		str	r2, [r3]
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccxBW72l.s 			page 16
+
+
+ 868 047c 284B     		ldr	r3, .L44+52
+ 869 047e 1F49     		ldr	r1, .L44+16
+ 870 0480 D3E90023 		ldrd	r2, [r3]
+ 871 0484 C1E90023 		strd	r2, [r1]
+ 872 0488 0022     		movs	r2, #0
+ 873 048a 0521     		movs	r1, #5
+ 874 048c 0320     		movs	r0, #3
+ 875 048e FFF7FEFF 		bl	SYS_LOG
+ 876              	.L37:
+ 877 0492 244B     		ldr	r3, .L44+56
+ 878 0494 1B68     		ldr	r3, [r3]
+ 879 0496 012B     		cmp	r3, #1
+ 880 0498 04D1     		bne	.L38
+ 881 049a 224B     		ldr	r3, .L44+56
+ 882 049c 0022     		movs	r2, #0
+ 883 049e 1A60     		str	r2, [r3]
+ 884 04a0 FFF7FEFF 		bl	GPS_PARSE
+ 885              	.L38:
+ 886 04a4 FFF7FEFF 		bl	SD_WRITE
+ 887 04a8 FFF7FEFF 		bl	SERIAL_TRANSMIT_LOG
+ 888 04ac FFF7FEFF 		bl	TELEMETRY_TRANSMIT_LOG
+ 889 04b0 1D4B     		ldr	r3, .L44+60
+ 890 04b2 1B68     		ldr	r3, [r3]
+ 891 04b4 03F00103 		and	r3, r3, #1
+ 892 04b8 002B     		cmp	r3, #0
+ 893 04ba 07D0     		beq	.L39
+ 894 04bc 1A4B     		ldr	r3, .L44+60
+ 895 04be 1B68     		ldr	r3, [r3]
+ 896 04c0 23F00103 		bic	r3, r3, #1
+ 897 04c4 184A     		ldr	r2, .L44+60
+ 898 04c6 1360     		str	r3, [r2]
+ 899 04c8 FFF7FEFF 		bl	TIMER_100ms
+ 900              	.L39:
+ 901 04cc 164B     		ldr	r3, .L44+60
+ 902 04ce 1B68     		ldr	r3, [r3]
+ 903 04d0 03F00203 		and	r3, r3, #2
+ 904 04d4 002B     		cmp	r3, #0
+ 905 04d6 3FF458AF 		beq	.L41
+ 906 04da 134B     		ldr	r3, .L44+60
+ 907 04dc 1B68     		ldr	r3, [r3]
+ 908 04de 23F00203 		bic	r3, r3, #2
+ 909 04e2 114A     		ldr	r2, .L44+60
+ 910 04e4 1360     		str	r3, [r2]
+ 911 04e6 FFF7FEFF 		bl	TIMER_1s
+ 912 04ea 4EE7     		b	.L41
+ 913              	.L45:
+ 914              		.align	2
+ 915              	.L44:
+ 916 04ec 00000000 		.word	syslog
+ 917 04f0 00000000 		.word	htim1
+ 918 04f4 00000000 		.word	adc_flag
+ 919 04f8 00000000 		.word	adc_sys_value
+ 920 04fc 08000000 		.word	syslog+8
+ 921 0500 0A000000 		.word	syslog+10
+ 922 0504 00000000 		.word	adc_ain_value
+ 923 0508 0C000000 		.word	syslog+12
+ 924 050c 0E000000 		.word	syslog+14
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccxBW72l.s 			page 17
+
+
+ 925 0510 00000000 		.word	pulse_flag
+ 926 0514 00000000 		.word	pulse_value
+ 927 0518 CDCCCCCC 		.word	-858993459
+ 928 051c 00000000 		.word	accelerometer_flag
+ 929 0520 00000000 		.word	accelerometer_value
+ 930 0524 00000000 		.word	gps_flag
+ 931 0528 00000000 		.word	timer_flag
+ 933              		.section	.text.SystemClock_Config,"ax",%progbits
+ 934              		.align	1
+ 935              		.global	SystemClock_Config
+ 936              		.syntax unified
+ 937              		.thumb
+ 938              		.thumb_func
+ 940              	SystemClock_Config:
+ 941              		@ args = 0, pretend = 0, frame = 80
+ 942              		@ frame_needed = 1, uses_anonymous_args = 0
+ 943 0000 80B5     		push	{r7, lr}
+ 944 0002 94B0     		sub	sp, sp, #80
+ 945 0004 00AF     		add	r7, sp, #0
+ 946 0006 07F12003 		add	r3, r7, #32
+ 947 000a 3022     		movs	r2, #48
+ 948 000c 0021     		movs	r1, #0
+ 949 000e 1846     		mov	r0, r3
+ 950 0010 FFF7FEFF 		bl	memset
+ 951 0014 07F10C03 		add	r3, r7, #12
+ 952 0018 0022     		movs	r2, #0
+ 953 001a 1A60     		str	r2, [r3]
+ 954 001c 5A60     		str	r2, [r3, #4]
+ 955 001e 9A60     		str	r2, [r3, #8]
+ 956 0020 DA60     		str	r2, [r3, #12]
+ 957 0022 1A61     		str	r2, [r3, #16]
+ 958 0024 0023     		movs	r3, #0
+ 959 0026 BB60     		str	r3, [r7, #8]
+ 960 0028 2B4B     		ldr	r3, .L49
+ 961 002a 1B6C     		ldr	r3, [r3, #64]
+ 962 002c 2A4A     		ldr	r2, .L49
+ 963 002e 43F08053 		orr	r3, r3, #268435456
+ 964 0032 1364     		str	r3, [r2, #64]
+ 965 0034 284B     		ldr	r3, .L49
+ 966 0036 1B6C     		ldr	r3, [r3, #64]
+ 967 0038 03F08053 		and	r3, r3, #268435456
+ 968 003c BB60     		str	r3, [r7, #8]
+ 969 003e BB68     		ldr	r3, [r7, #8]
+ 970 0040 0023     		movs	r3, #0
+ 971 0042 7B60     		str	r3, [r7, #4]
+ 972 0044 254B     		ldr	r3, .L49+4
+ 973 0046 1B68     		ldr	r3, [r3]
+ 974 0048 244A     		ldr	r2, .L49+4
+ 975 004a 43F48043 		orr	r3, r3, #16384
+ 976 004e 1360     		str	r3, [r2]
+ 977 0050 224B     		ldr	r3, .L49+4
+ 978 0052 1B68     		ldr	r3, [r3]
+ 979 0054 03F48043 		and	r3, r3, #16384
+ 980 0058 7B60     		str	r3, [r7, #4]
+ 981 005a 7B68     		ldr	r3, [r7, #4]
+ 982 005c 0D23     		movs	r3, #13
+ 983 005e 3B62     		str	r3, [r7, #32]
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccxBW72l.s 			page 18
+
+
+ 984 0060 4FF48033 		mov	r3, #65536
+ 985 0064 7B62     		str	r3, [r7, #36]
+ 986 0066 0123     		movs	r3, #1
+ 987 0068 BB62     		str	r3, [r7, #40]
+ 988 006a 0123     		movs	r3, #1
+ 989 006c 7B63     		str	r3, [r7, #52]
+ 990 006e 0223     		movs	r3, #2
+ 991 0070 BB63     		str	r3, [r7, #56]
+ 992 0072 4FF48003 		mov	r3, #4194304
+ 993 0076 FB63     		str	r3, [r7, #60]
+ 994 0078 0423     		movs	r3, #4
+ 995 007a 3B64     		str	r3, [r7, #64]
+ 996 007c A823     		movs	r3, #168
+ 997 007e 7B64     		str	r3, [r7, #68]
+ 998 0080 0223     		movs	r3, #2
+ 999 0082 BB64     		str	r3, [r7, #72]
+ 1000 0084 0723     		movs	r3, #7
+ 1001 0086 FB64     		str	r3, [r7, #76]
+ 1002 0088 07F12003 		add	r3, r7, #32
+ 1003 008c 1846     		mov	r0, r3
+ 1004 008e FFF7FEFF 		bl	HAL_RCC_OscConfig
+ 1005 0092 0346     		mov	r3, r0
+ 1006 0094 002B     		cmp	r3, #0
+ 1007 0096 01D0     		beq	.L47
+ 1008 0098 FFF7FEFF 		bl	Error_Handler
+ 1009              	.L47:
+ 1010 009c 0F23     		movs	r3, #15
+ 1011 009e FB60     		str	r3, [r7, #12]
+ 1012 00a0 0223     		movs	r3, #2
+ 1013 00a2 3B61     		str	r3, [r7, #16]
+ 1014 00a4 0023     		movs	r3, #0
+ 1015 00a6 7B61     		str	r3, [r7, #20]
+ 1016 00a8 4FF4A053 		mov	r3, #5120
+ 1017 00ac BB61     		str	r3, [r7, #24]
+ 1018 00ae 4FF48053 		mov	r3, #4096
+ 1019 00b2 FB61     		str	r3, [r7, #28]
+ 1020 00b4 07F10C03 		add	r3, r7, #12
+ 1021 00b8 0521     		movs	r1, #5
+ 1022 00ba 1846     		mov	r0, r3
+ 1023 00bc FFF7FEFF 		bl	HAL_RCC_ClockConfig
+ 1024 00c0 0346     		mov	r3, r0
+ 1025 00c2 002B     		cmp	r3, #0
+ 1026 00c4 01D0     		beq	.L48
+ 1027 00c6 FFF7FEFF 		bl	Error_Handler
+ 1028              	.L48:
+ 1029 00ca FFF7FEFF 		bl	HAL_RCC_EnableCSS
+ 1030 00ce 00BF     		nop
+ 1031 00d0 5037     		adds	r7, r7, #80
+ 1032 00d2 BD46     		mov	sp, r7
+ 1033              		@ sp needed
+ 1034 00d4 80BD     		pop	{r7, pc}
+ 1035              	.L50:
+ 1036 00d6 00BF     		.align	2
+ 1037              	.L49:
+ 1038 00d8 00380240 		.word	1073887232
+ 1039 00dc 00700040 		.word	1073770496
+ 1041              		.section	.text.TIMER_100ms,"ax",%progbits
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccxBW72l.s 			page 19
+
+
+ 1042              		.align	1
+ 1043              		.global	TIMER_100ms
+ 1044              		.syntax unified
+ 1045              		.thumb
+ 1046              		.thumb_func
+ 1048              	TIMER_100ms:
+ 1049              		@ args = 0, pretend = 0, frame = 0
+ 1050              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1051 0000 80B5     		push	{r7, lr}
+ 1052 0002 82B0     		sub	sp, sp, #8
+ 1053 0004 02AF     		add	r7, sp, #8
+ 1054 0006 4FF48071 		mov	r1, #256
+ 1055 000a 4848     		ldr	r0, .L55
+ 1056 000c FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 1057 0010 0346     		mov	r3, r0
+ 1058 0012 002B     		cmp	r3, #0
+ 1059 0014 0CBF     		ite	eq
+ 1060 0016 0123     		moveq	r3, #1
+ 1061 0018 0023     		movne	r3, #0
+ 1062 001a DBB2     		uxtb	r3, r3
+ 1063 001c 1A46     		mov	r2, r3
+ 1064 001e 444B     		ldr	r3, .L55+4
+ 1065 0020 1A72     		strb	r2, [r3, #8]
+ 1066 0022 4FF40071 		mov	r1, #512
+ 1067 0026 4148     		ldr	r0, .L55
+ 1068 0028 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 1069 002c 0346     		mov	r3, r0
+ 1070 002e 002B     		cmp	r3, #0
+ 1071 0030 0CBF     		ite	eq
+ 1072 0032 0123     		moveq	r3, #1
+ 1073 0034 0023     		movne	r3, #0
+ 1074 0036 DBB2     		uxtb	r3, r3
+ 1075 0038 1A46     		mov	r2, r3
+ 1076 003a 3D4B     		ldr	r3, .L55+4
+ 1077 003c 5A72     		strb	r2, [r3, #9]
+ 1078 003e 4FF48061 		mov	r1, #1024
+ 1079 0042 3A48     		ldr	r0, .L55
+ 1080 0044 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 1081 0048 0346     		mov	r3, r0
+ 1082 004a 002B     		cmp	r3, #0
+ 1083 004c 0CBF     		ite	eq
+ 1084 004e 0123     		moveq	r3, #1
+ 1085 0050 0023     		movne	r3, #0
+ 1086 0052 DBB2     		uxtb	r3, r3
+ 1087 0054 1A46     		mov	r2, r3
+ 1088 0056 364B     		ldr	r3, .L55+4
+ 1089 0058 9A72     		strb	r2, [r3, #10]
+ 1090 005a 4FF40061 		mov	r1, #2048
+ 1091 005e 3348     		ldr	r0, .L55
+ 1092 0060 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 1093 0064 0346     		mov	r3, r0
+ 1094 0066 002B     		cmp	r3, #0
+ 1095 0068 0CBF     		ite	eq
+ 1096 006a 0123     		moveq	r3, #1
+ 1097 006c 0023     		movne	r3, #0
+ 1098 006e DBB2     		uxtb	r3, r3
+ 1099 0070 1A46     		mov	r2, r3
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccxBW72l.s 			page 20
+
+
+ 1100 0072 2F4B     		ldr	r3, .L55+4
+ 1101 0074 DA72     		strb	r2, [r3, #11]
+ 1102 0076 4FF48051 		mov	r1, #4096
+ 1103 007a 2C48     		ldr	r0, .L55
+ 1104 007c FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 1105 0080 0346     		mov	r3, r0
+ 1106 0082 002B     		cmp	r3, #0
+ 1107 0084 0CBF     		ite	eq
+ 1108 0086 0123     		moveq	r3, #1
+ 1109 0088 0023     		movne	r3, #0
+ 1110 008a DBB2     		uxtb	r3, r3
+ 1111 008c 1A46     		mov	r2, r3
+ 1112 008e 284B     		ldr	r3, .L55+4
+ 1113 0090 1A73     		strb	r2, [r3, #12]
+ 1114 0092 4FF40051 		mov	r1, #8192
+ 1115 0096 2548     		ldr	r0, .L55
+ 1116 0098 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 1117 009c 0346     		mov	r3, r0
+ 1118 009e 002B     		cmp	r3, #0
+ 1119 00a0 0CBF     		ite	eq
+ 1120 00a2 0123     		moveq	r3, #1
+ 1121 00a4 0023     		movne	r3, #0
+ 1122 00a6 DBB2     		uxtb	r3, r3
+ 1123 00a8 1A46     		mov	r2, r3
+ 1124 00aa 214B     		ldr	r3, .L55+4
+ 1125 00ac 5A73     		strb	r2, [r3, #13]
+ 1126 00ae 4FF48041 		mov	r1, #16384
+ 1127 00b2 1E48     		ldr	r0, .L55
+ 1128 00b4 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 1129 00b8 0346     		mov	r3, r0
+ 1130 00ba 002B     		cmp	r3, #0
+ 1131 00bc 0CBF     		ite	eq
+ 1132 00be 0123     		moveq	r3, #1
+ 1133 00c0 0023     		movne	r3, #0
+ 1134 00c2 DBB2     		uxtb	r3, r3
+ 1135 00c4 1A46     		mov	r2, r3
+ 1136 00c6 1A4B     		ldr	r3, .L55+4
+ 1137 00c8 9A73     		strb	r2, [r3, #14]
+ 1138 00ca 4FF40041 		mov	r1, #32768
+ 1139 00ce 1748     		ldr	r0, .L55
+ 1140 00d0 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 1141 00d4 0346     		mov	r3, r0
+ 1142 00d6 002B     		cmp	r3, #0
+ 1143 00d8 0CBF     		ite	eq
+ 1144 00da 0123     		moveq	r3, #1
+ 1145 00dc 0023     		movne	r3, #0
+ 1146 00de DBB2     		uxtb	r3, r3
+ 1147 00e0 1A46     		mov	r2, r3
+ 1148 00e2 134B     		ldr	r3, .L55+4
+ 1149 00e4 DA73     		strb	r2, [r3, #15]
+ 1150 00e6 0022     		movs	r2, #0
+ 1151 00e8 0221     		movs	r1, #2
+ 1152 00ea 0320     		movs	r0, #3
+ 1153 00ec FFF7FEFF 		bl	SYS_LOG
+ 1154 00f0 104B     		ldr	r3, .L55+8
+ 1155 00f2 1B68     		ldr	r3, [r3]
+ 1156 00f4 03F00203 		and	r3, r3, #2
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccxBW72l.s 			page 21
+
+
+ 1157 00f8 002B     		cmp	r3, #0
+ 1158 00fa 04D1     		bne	.L52
+ 1159 00fc 0422     		movs	r2, #4
+ 1160 00fe 0E49     		ldr	r1, .L55+12
+ 1161 0100 0E48     		ldr	r0, .L55+16
+ 1162 0102 FFF7FEFF 		bl	HAL_ADC_Start_DMA
+ 1163              	.L52:
+ 1164 0106 FFF7FEFF 		bl	PULSE_CAPTURE
+ 1165 010a 0D4B     		ldr	r3, .L55+20
+ 1166 010c 1B68     		ldr	r3, [r3]
+ 1167 010e 002B     		cmp	r3, #0
+ 1168 0110 09D1     		bne	.L54
+ 1169 0112 0623     		movs	r3, #6
+ 1170 0114 0193     		str	r3, [sp, #4]
+ 1171 0116 0B4B     		ldr	r3, .L55+24
+ 1172 0118 0093     		str	r3, [sp]
+ 1173 011a 0123     		movs	r3, #1
+ 1174 011c 3222     		movs	r2, #50
+ 1175 011e A621     		movs	r1, #166
+ 1176 0120 0948     		ldr	r0, .L55+28
+ 1177 0122 FFF7FEFF 		bl	HAL_I2C_Mem_Read_IT
+ 1178              	.L54:
+ 1179 0126 00BF     		nop
+ 1180 0128 BD46     		mov	sp, r7
+ 1181              		@ sp needed
+ 1182 012a 80BD     		pop	{r7, pc}
+ 1183              	.L56:
+ 1184              		.align	2
+ 1185              	.L55:
+ 1186 012c 000C0240 		.word	1073875968
+ 1187 0130 00000000 		.word	syslog
+ 1188 0134 00000000 		.word	adc_flag
+ 1189 0138 00000000 		.word	adc_ain_value
+ 1190 013c 00000000 		.word	hadc2
+ 1191 0140 00000000 		.word	accelerometer_flag
+ 1192 0144 00000000 		.word	accelerometer_value
+ 1193 0148 00000000 		.word	hi2c3
+ 1195              		.section	.text.TIMER_1s,"ax",%progbits
+ 1196              		.align	1
+ 1197              		.global	TIMER_1s
+ 1198              		.syntax unified
+ 1199              		.thumb
+ 1200              		.thumb_func
+ 1202              	TIMER_1s:
+ 1203              		@ args = 0, pretend = 0, frame = 0
+ 1204              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1205 0000 80B5     		push	{r7, lr}
+ 1206 0002 00AF     		add	r7, sp, #0
+ 1207 0004 174B     		ldr	r3, .L61
+ 1208 0006 1B68     		ldr	r3, [r3]
+ 1209 0008 03F00103 		and	r3, r3, #1
+ 1210 000c 002B     		cmp	r3, #0
+ 1211 000e 04D1     		bne	.L58
+ 1212 0010 0222     		movs	r2, #2
+ 1213 0012 1549     		ldr	r1, .L61+4
+ 1214 0014 1548     		ldr	r0, .L61+8
+ 1215 0016 FFF7FEFF 		bl	HAL_ADC_Start_DMA
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccxBW72l.s 			page 22
+
+
+ 1216              	.L58:
+ 1217 001a FFF7FEFF 		bl	SD_SYNC
+ 1218 001e 144B     		ldr	r3, .L61+12
+ 1219 0020 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1220 0022 002B     		cmp	r3, #0
+ 1221 0024 06D0     		beq	.L59
+ 1222 0026 0122     		movs	r2, #1
+ 1223 0028 4FF48051 		mov	r1, #4096
+ 1224 002c 1148     		ldr	r0, .L61+16
+ 1225 002e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1226 0032 05E0     		b	.L60
+ 1227              	.L59:
+ 1228 0034 0022     		movs	r2, #0
+ 1229 0036 4FF48051 		mov	r1, #4096
+ 1230 003a 0E48     		ldr	r0, .L61+16
+ 1231 003c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1232              	.L60:
+ 1233 0040 0B4B     		ldr	r3, .L61+12
+ 1234 0042 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1235 0044 002B     		cmp	r3, #0
+ 1236 0046 14BF     		ite	ne
+ 1237 0048 0123     		movne	r3, #1
+ 1238 004a 0023     		moveq	r3, #0
+ 1239 004c DBB2     		uxtb	r3, r3
+ 1240 004e 83F00103 		eor	r3, r3, #1
+ 1241 0052 DBB2     		uxtb	r3, r3
+ 1242 0054 03F00103 		and	r3, r3, #1
+ 1243 0058 DAB2     		uxtb	r2, r3
+ 1244 005a 054B     		ldr	r3, .L61+12
+ 1245 005c 1A70     		strb	r2, [r3]
+ 1246 005e 00BF     		nop
+ 1247 0060 80BD     		pop	{r7, pc}
+ 1248              	.L62:
+ 1249 0062 00BF     		.align	2
+ 1250              	.L61:
+ 1251 0064 00000000 		.word	adc_flag
+ 1252 0068 00000000 		.word	adc_sys_value
+ 1253 006c 00000000 		.word	hadc1
+ 1254 0070 00000000 		.word	heartbeat.4
+ 1255 0074 00100240 		.word	1073876992
+ 1257              		.section	.rodata
+ 1258              		.align	2
+ 1259              	.LC0:
+ 1260 0000 24475052 		.ascii	"$GPRMC\000"
+ 1260      4D4300
+ 1261              		.global	__aeabi_dmul
+ 1262              		.global	__aeabi_d2iz
+ 1263              		.section	.text.GPS_PARSE,"ax",%progbits
+ 1264              		.align	1
+ 1265              		.global	GPS_PARSE
+ 1266              		.syntax unified
+ 1267              		.thumb
+ 1268              		.thumb_func
+ 1270              	GPS_PARSE:
+ 1271              		@ args = 0, pretend = 0, frame = 0
+ 1272              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1273 0000 80B5     		push	{r7, lr}
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccxBW72l.s 			page 23
+
+
+ 1274 0002 00AF     		add	r7, sp, #0
+ 1275 0004 0622     		movs	r2, #6
+ 1276 0006 A349     		ldr	r1, .L66
+ 1277 0008 A348     		ldr	r0, .L66+4
+ 1278 000a FFF7FEFF 		bl	strncmp
+ 1279 000e 0346     		mov	r3, r0
+ 1280 0010 002B     		cmp	r3, #0
+ 1281 0012 40F05981 		bne	.L65
+ 1282 0016 A14B     		ldr	r3, .L66+8
+ 1283 0018 9F4A     		ldr	r2, .L66+4
+ 1284 001a 1A60     		str	r2, [r3]
+ 1285 001c 9F4B     		ldr	r3, .L66+8
+ 1286 001e 1B68     		ldr	r3, [r3]
+ 1287 0020 2C21     		movs	r1, #44
+ 1288 0022 1846     		mov	r0, r3
+ 1289 0024 FFF7FEFF 		bl	strchr
+ 1290 0028 0346     		mov	r3, r0
+ 1291 002a 9C4A     		ldr	r2, .L66+8
+ 1292 002c 5360     		str	r3, [r2, #4]
+ 1293 002e 9B4B     		ldr	r3, .L66+8
+ 1294 0030 5B68     		ldr	r3, [r3, #4]
+ 1295 0032 0022     		movs	r2, #0
+ 1296 0034 1A70     		strb	r2, [r3]
+ 1297 0036 994B     		ldr	r3, .L66+8
+ 1298 0038 5B68     		ldr	r3, [r3, #4]
+ 1299 003a 0133     		adds	r3, r3, #1
+ 1300 003c 974A     		ldr	r2, .L66+8
+ 1301 003e 5360     		str	r3, [r2, #4]
+ 1302 0040 964B     		ldr	r3, .L66+8
+ 1303 0042 5B68     		ldr	r3, [r3, #4]
+ 1304 0044 954A     		ldr	r2, .L66+8
+ 1305 0046 5360     		str	r3, [r2, #4]
+ 1306 0048 944B     		ldr	r3, .L66+8
+ 1307 004a 5B68     		ldr	r3, [r3, #4]
+ 1308 004c 2C21     		movs	r1, #44
+ 1309 004e 1846     		mov	r0, r3
+ 1310 0050 FFF7FEFF 		bl	strchr
+ 1311 0054 0346     		mov	r3, r0
+ 1312 0056 914A     		ldr	r2, .L66+8
+ 1313 0058 9360     		str	r3, [r2, #8]
+ 1314 005a 904B     		ldr	r3, .L66+8
+ 1315 005c 9B68     		ldr	r3, [r3, #8]
+ 1316 005e 0022     		movs	r2, #0
+ 1317 0060 1A70     		strb	r2, [r3]
+ 1318 0062 8E4B     		ldr	r3, .L66+8
+ 1319 0064 9B68     		ldr	r3, [r3, #8]
+ 1320 0066 0133     		adds	r3, r3, #1
+ 1321 0068 8C4A     		ldr	r2, .L66+8
+ 1322 006a 9360     		str	r3, [r2, #8]
+ 1323 006c 8B4B     		ldr	r3, .L66+8
+ 1324 006e 9B68     		ldr	r3, [r3, #8]
+ 1325 0070 8A4A     		ldr	r2, .L66+8
+ 1326 0072 9360     		str	r3, [r2, #8]
+ 1327 0074 894B     		ldr	r3, .L66+8
+ 1328 0076 9B68     		ldr	r3, [r3, #8]
+ 1329 0078 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1330 007a 412B     		cmp	r3, #65
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccxBW72l.s 			page 24
+
+
+ 1331 007c 40F02481 		bne	.L65
+ 1332 0080 864B     		ldr	r3, .L66+8
+ 1333 0082 9B68     		ldr	r3, [r3, #8]
+ 1334 0084 2C21     		movs	r1, #44
+ 1335 0086 1846     		mov	r0, r3
+ 1336 0088 FFF7FEFF 		bl	strchr
+ 1337 008c 0346     		mov	r3, r0
+ 1338 008e 834A     		ldr	r2, .L66+8
+ 1339 0090 D360     		str	r3, [r2, #12]
+ 1340 0092 824B     		ldr	r3, .L66+8
+ 1341 0094 DB68     		ldr	r3, [r3, #12]
+ 1342 0096 0022     		movs	r2, #0
+ 1343 0098 1A70     		strb	r2, [r3]
+ 1344 009a 804B     		ldr	r3, .L66+8
+ 1345 009c DB68     		ldr	r3, [r3, #12]
+ 1346 009e 0133     		adds	r3, r3, #1
+ 1347 00a0 7E4A     		ldr	r2, .L66+8
+ 1348 00a2 D360     		str	r3, [r2, #12]
+ 1349 00a4 7D4B     		ldr	r3, .L66+8
+ 1350 00a6 DB68     		ldr	r3, [r3, #12]
+ 1351 00a8 7C4A     		ldr	r2, .L66+8
+ 1352 00aa D360     		str	r3, [r2, #12]
+ 1353 00ac 7B4B     		ldr	r3, .L66+8
+ 1354 00ae DB68     		ldr	r3, [r3, #12]
+ 1355 00b0 2C21     		movs	r1, #44
+ 1356 00b2 1846     		mov	r0, r3
+ 1357 00b4 FFF7FEFF 		bl	strchr
+ 1358 00b8 0346     		mov	r3, r0
+ 1359 00ba 784A     		ldr	r2, .L66+8
+ 1360 00bc 1361     		str	r3, [r2, #16]
+ 1361 00be 774B     		ldr	r3, .L66+8
+ 1362 00c0 1B69     		ldr	r3, [r3, #16]
+ 1363 00c2 0022     		movs	r2, #0
+ 1364 00c4 1A70     		strb	r2, [r3]
+ 1365 00c6 754B     		ldr	r3, .L66+8
+ 1366 00c8 1B69     		ldr	r3, [r3, #16]
+ 1367 00ca 0133     		adds	r3, r3, #1
+ 1368 00cc 734A     		ldr	r2, .L66+8
+ 1369 00ce 1361     		str	r3, [r2, #16]
+ 1370 00d0 724B     		ldr	r3, .L66+8
+ 1371 00d2 1B69     		ldr	r3, [r3, #16]
+ 1372 00d4 714A     		ldr	r2, .L66+8
+ 1373 00d6 1361     		str	r3, [r2, #16]
+ 1374 00d8 704B     		ldr	r3, .L66+8
+ 1375 00da 1B69     		ldr	r3, [r3, #16]
+ 1376 00dc 2C21     		movs	r1, #44
+ 1377 00de 1846     		mov	r0, r3
+ 1378 00e0 FFF7FEFF 		bl	strchr
+ 1379 00e4 0346     		mov	r3, r0
+ 1380 00e6 6D4A     		ldr	r2, .L66+8
+ 1381 00e8 5361     		str	r3, [r2, #20]
+ 1382 00ea 6C4B     		ldr	r3, .L66+8
+ 1383 00ec 5B69     		ldr	r3, [r3, #20]
+ 1384 00ee 0022     		movs	r2, #0
+ 1385 00f0 1A70     		strb	r2, [r3]
+ 1386 00f2 6A4B     		ldr	r3, .L66+8
+ 1387 00f4 5B69     		ldr	r3, [r3, #20]
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccxBW72l.s 			page 25
+
+
+ 1388 00f6 0133     		adds	r3, r3, #1
+ 1389 00f8 684A     		ldr	r2, .L66+8
+ 1390 00fa 5361     		str	r3, [r2, #20]
+ 1391 00fc 674B     		ldr	r3, .L66+8
+ 1392 00fe 5B69     		ldr	r3, [r3, #20]
+ 1393 0100 664A     		ldr	r2, .L66+8
+ 1394 0102 5361     		str	r3, [r2, #20]
+ 1395 0104 654B     		ldr	r3, .L66+8
+ 1396 0106 5B69     		ldr	r3, [r3, #20]
+ 1397 0108 2C21     		movs	r1, #44
+ 1398 010a 1846     		mov	r0, r3
+ 1399 010c FFF7FEFF 		bl	strchr
+ 1400 0110 0346     		mov	r3, r0
+ 1401 0112 624A     		ldr	r2, .L66+8
+ 1402 0114 9361     		str	r3, [r2, #24]
+ 1403 0116 614B     		ldr	r3, .L66+8
+ 1404 0118 9B69     		ldr	r3, [r3, #24]
+ 1405 011a 0022     		movs	r2, #0
+ 1406 011c 1A70     		strb	r2, [r3]
+ 1407 011e 5F4B     		ldr	r3, .L66+8
+ 1408 0120 9B69     		ldr	r3, [r3, #24]
+ 1409 0122 0133     		adds	r3, r3, #1
+ 1410 0124 5D4A     		ldr	r2, .L66+8
+ 1411 0126 9361     		str	r3, [r2, #24]
+ 1412 0128 5C4B     		ldr	r3, .L66+8
+ 1413 012a 9B69     		ldr	r3, [r3, #24]
+ 1414 012c 5B4A     		ldr	r2, .L66+8
+ 1415 012e 9361     		str	r3, [r2, #24]
+ 1416 0130 5A4B     		ldr	r3, .L66+8
+ 1417 0132 9B69     		ldr	r3, [r3, #24]
+ 1418 0134 2C21     		movs	r1, #44
+ 1419 0136 1846     		mov	r0, r3
+ 1420 0138 FFF7FEFF 		bl	strchr
+ 1421 013c 0346     		mov	r3, r0
+ 1422 013e 574A     		ldr	r2, .L66+8
+ 1423 0140 D361     		str	r3, [r2, #28]
+ 1424 0142 564B     		ldr	r3, .L66+8
+ 1425 0144 DB69     		ldr	r3, [r3, #28]
+ 1426 0146 0022     		movs	r2, #0
+ 1427 0148 1A70     		strb	r2, [r3]
+ 1428 014a 544B     		ldr	r3, .L66+8
+ 1429 014c DB69     		ldr	r3, [r3, #28]
+ 1430 014e 0133     		adds	r3, r3, #1
+ 1431 0150 524A     		ldr	r2, .L66+8
+ 1432 0152 D361     		str	r3, [r2, #28]
+ 1433 0154 514B     		ldr	r3, .L66+8
+ 1434 0156 DB69     		ldr	r3, [r3, #28]
+ 1435 0158 504A     		ldr	r2, .L66+8
+ 1436 015a D361     		str	r3, [r2, #28]
+ 1437 015c 4F4B     		ldr	r3, .L66+8
+ 1438 015e DB69     		ldr	r3, [r3, #28]
+ 1439 0160 2C21     		movs	r1, #44
+ 1440 0162 1846     		mov	r0, r3
+ 1441 0164 FFF7FEFF 		bl	strchr
+ 1442 0168 0346     		mov	r3, r0
+ 1443 016a 4C4A     		ldr	r2, .L66+8
+ 1444 016c 1362     		str	r3, [r2, #32]
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccxBW72l.s 			page 26
+
+
+ 1445 016e 4B4B     		ldr	r3, .L66+8
+ 1446 0170 1B6A     		ldr	r3, [r3, #32]
+ 1447 0172 0022     		movs	r2, #0
+ 1448 0174 1A70     		strb	r2, [r3]
+ 1449 0176 494B     		ldr	r3, .L66+8
+ 1450 0178 1B6A     		ldr	r3, [r3, #32]
+ 1451 017a 0133     		adds	r3, r3, #1
+ 1452 017c 474A     		ldr	r2, .L66+8
+ 1453 017e 1362     		str	r3, [r2, #32]
+ 1454 0180 464B     		ldr	r3, .L66+8
+ 1455 0182 1B6A     		ldr	r3, [r3, #32]
+ 1456 0184 454A     		ldr	r2, .L66+8
+ 1457 0186 1362     		str	r3, [r2, #32]
+ 1458 0188 444B     		ldr	r3, .L66+8
+ 1459 018a 1B6A     		ldr	r3, [r3, #32]
+ 1460 018c 2C21     		movs	r1, #44
+ 1461 018e 1846     		mov	r0, r3
+ 1462 0190 FFF7FEFF 		bl	strchr
+ 1463 0194 0346     		mov	r3, r0
+ 1464 0196 414A     		ldr	r2, .L66+8
+ 1465 0198 5362     		str	r3, [r2, #36]
+ 1466 019a 404B     		ldr	r3, .L66+8
+ 1467 019c 5B6A     		ldr	r3, [r3, #36]
+ 1468 019e 0022     		movs	r2, #0
+ 1469 01a0 1A70     		strb	r2, [r3]
+ 1470 01a2 3E4B     		ldr	r3, .L66+8
+ 1471 01a4 5B6A     		ldr	r3, [r3, #36]
+ 1472 01a6 0133     		adds	r3, r3, #1
+ 1473 01a8 3C4A     		ldr	r2, .L66+8
+ 1474 01aa 5362     		str	r3, [r2, #36]
+ 1475 01ac 3B4B     		ldr	r3, .L66+8
+ 1476 01ae 5B6A     		ldr	r3, [r3, #36]
+ 1477 01b0 3A4A     		ldr	r2, .L66+8
+ 1478 01b2 5362     		str	r3, [r2, #36]
+ 1479 01b4 394B     		ldr	r3, .L66+8
+ 1480 01b6 5B6A     		ldr	r3, [r3, #36]
+ 1481 01b8 2C21     		movs	r1, #44
+ 1482 01ba 1846     		mov	r0, r3
+ 1483 01bc FFF7FEFF 		bl	strchr
+ 1484 01c0 0346     		mov	r3, r0
+ 1485 01c2 364A     		ldr	r2, .L66+8
+ 1486 01c4 9362     		str	r3, [r2, #40]
+ 1487 01c6 354B     		ldr	r3, .L66+8
+ 1488 01c8 9B6A     		ldr	r3, [r3, #40]
+ 1489 01ca 0022     		movs	r2, #0
+ 1490 01cc 1A70     		strb	r2, [r3]
+ 1491 01ce 334B     		ldr	r3, .L66+8
+ 1492 01d0 9B6A     		ldr	r3, [r3, #40]
+ 1493 01d2 0133     		adds	r3, r3, #1
+ 1494 01d4 314A     		ldr	r2, .L66+8
+ 1495 01d6 9362     		str	r3, [r2, #40]
+ 1496 01d8 304B     		ldr	r3, .L66+8
+ 1497 01da 9B6A     		ldr	r3, [r3, #40]
+ 1498 01dc 2F4A     		ldr	r2, .L66+8
+ 1499 01de 9362     		str	r3, [r2, #40]
+ 1500 01e0 2E4B     		ldr	r3, .L66+8
+ 1501 01e2 DB68     		ldr	r3, [r3, #12]
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccxBW72l.s 			page 27
+
+
+ 1502 01e4 2E21     		movs	r1, #46
+ 1503 01e6 1846     		mov	r0, r3
+ 1504 01e8 FFF7FEFF 		bl	to_uint
+ 1505 01ec 0346     		mov	r3, r0
+ 1506 01ee 2C4A     		ldr	r2, .L66+12
+ 1507 01f0 1360     		str	r3, [r2]
+ 1508 01f2 2A4B     		ldr	r3, .L66+8
+ 1509 01f4 5B69     		ldr	r3, [r3, #20]
+ 1510 01f6 2E21     		movs	r1, #46
+ 1511 01f8 1846     		mov	r0, r3
+ 1512 01fa FFF7FEFF 		bl	to_uint
+ 1513 01fe 0346     		mov	r3, r0
+ 1514 0200 274A     		ldr	r2, .L66+12
+ 1515 0202 5360     		str	r3, [r2, #4]
+ 1516 0204 254B     		ldr	r3, .L66+8
+ 1517 0206 DB69     		ldr	r3, [r3, #28]
+ 1518 0208 1846     		mov	r0, r3
+ 1519 020a FFF7FEFF 		bl	atof
+ 1520 020e 51EC100B 		vmov	r0, r1, d0
+ 1521 0212 4FF00002 		mov	r2, #0
+ 1522 0216 234B     		ldr	r3, .L66+16
+ 1523 0218 FFF7FEFF 		bl	__aeabi_dmul
+ 1524 021c 0246     		mov	r2, r0
+ 1525 021e 0B46     		mov	r3, r1
+ 1526 0220 1046     		mov	r0, r2
+ 1527 0222 1946     		mov	r1, r3
+ 1528 0224 FFF7FEFF 		bl	__aeabi_d2iz
+ 1529 0228 0346     		mov	r3, r0
+ 1530 022a 1A46     		mov	r2, r3
+ 1531 022c 1E4B     		ldr	r3, .L66+20
+ 1532 022e 1A60     		str	r2, [r3]
+ 1533 0230 1A4B     		ldr	r3, .L66+8
+ 1534 0232 1B6A     		ldr	r3, [r3, #32]
+ 1535 0234 1846     		mov	r0, r3
+ 1536 0236 FFF7FEFF 		bl	drop_point
+ 1537 023a 0346     		mov	r3, r0
+ 1538 023c 1A4A     		ldr	r2, .L66+20
+ 1539 023e 5360     		str	r3, [r2, #4]
+ 1540 0240 164B     		ldr	r3, .L66+8
+ 1541 0242 5B6A     		ldr	r3, [r3, #36]
+ 1542 0244 1846     		mov	r0, r3
+ 1543 0246 FFF7FEFF 		bl	atoi
+ 1544 024a 0346     		mov	r3, r0
+ 1545 024c 1A46     		mov	r2, r3
+ 1546 024e 174B     		ldr	r3, .L66+24
+ 1547 0250 1A60     		str	r2, [r3]
+ 1548 0252 124B     		ldr	r3, .L66+8
+ 1549 0254 5B68     		ldr	r3, [r3, #4]
+ 1550 0256 1846     		mov	r0, r3
+ 1551 0258 FFF7FEFF 		bl	drop_point
+ 1552 025c 0346     		mov	r3, r0
+ 1553 025e 134A     		ldr	r2, .L66+24
+ 1554 0260 5360     		str	r3, [r2, #4]
+ 1555 0262 0F4B     		ldr	r3, .L66+12
+ 1556 0264 1249     		ldr	r1, .L66+28
+ 1557 0266 D3E90023 		ldrd	r2, [r3]
+ 1558 026a C1E90023 		strd	r2, [r1]
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccxBW72l.s 			page 28
+
+
+ 1559 026e 0022     		movs	r2, #0
+ 1560 0270 0621     		movs	r1, #6
+ 1561 0272 0320     		movs	r0, #3
+ 1562 0274 FFF7FEFF 		bl	SYS_LOG
+ 1563 0278 0B4B     		ldr	r3, .L66+20
+ 1564 027a 0D49     		ldr	r1, .L66+28
+ 1565 027c D3E90023 		ldrd	r2, [r3]
+ 1566 0280 C1E90023 		strd	r2, [r1]
+ 1567 0284 0122     		movs	r2, #1
+ 1568 0286 0621     		movs	r1, #6
+ 1569 0288 0320     		movs	r0, #3
+ 1570 028a FFF7FEFF 		bl	SYS_LOG
+ 1571 028e 074B     		ldr	r3, .L66+24
+ 1572 0290 10E0     		b	.L67
+ 1573              	.L68:
+ 1574 0292 00BF     		.align	2
+ 1575              	.L66:
+ 1576 0294 00000000 		.word	.LC0
+ 1577 0298 00000000 		.word	gps_data
+ 1578 029c 00000000 		.word	gprmc.3
+ 1579 02a0 00000000 		.word	gps_coord.2
+ 1580 02a4 00005940 		.word	1079574528
+ 1581 02a8 00000000 		.word	gps_vector.1
+ 1582 02ac 00000000 		.word	gps_datetime.0
+ 1583 02b0 08000000 		.word	syslog+8
+ 1584              	.L67:
+ 1585 02b4 0549     		ldr	r1, .L69
+ 1586 02b6 D3E90023 		ldrd	r2, [r3]
+ 1587 02ba C1E90023 		strd	r2, [r1]
+ 1588 02be 0222     		movs	r2, #2
+ 1589 02c0 0621     		movs	r1, #6
+ 1590 02c2 0320     		movs	r0, #3
+ 1591 02c4 FFF7FEFF 		bl	SYS_LOG
+ 1592              	.L65:
+ 1593 02c8 00BF     		nop
+ 1594 02ca 80BD     		pop	{r7, pc}
+ 1595              	.L70:
+ 1596              		.align	2
+ 1597              	.L69:
+ 1598 02cc 08000000 		.word	syslog+8
+ 1600              		.section	.text.Error_Handler,"ax",%progbits
+ 1601              		.align	1
+ 1602              		.global	Error_Handler
+ 1603              		.syntax unified
+ 1604              		.thumb
+ 1605              		.thumb_func
+ 1607              	Error_Handler:
+ 1608              		@ args = 0, pretend = 0, frame = 0
+ 1609              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1610              		@ link register save eliminated.
+ 1611 0000 80B4     		push	{r7}
+ 1612 0002 00AF     		add	r7, sp, #0
+ 1613              		.syntax unified
+ 1614              	@ 142 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 1615 0004 72B6     		cpsid i
+ 1616              	@ 0 "" 2
+ 1617              		.thumb
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccxBW72l.s 			page 29
+
+
+ 1618              		.syntax unified
+ 1619 0006 00BF     		nop
+ 1620              	.L72:
+ 1621 0008 00BF     		nop
+ 1622 000a FDE7     		b	.L72
+ 1624              		.section	.data.heartbeat.4,"aw"
+ 1627              	heartbeat.4:
+ 1628 0000 01       		.byte	1
+ 1629              		.section	.bss.gprmc.3,"aw",%nobits
+ 1630              		.align	2
+ 1633              	gprmc.3:
+ 1634 0000 00000000 		.space	44
+ 1634      00000000 
+ 1634      00000000 
+ 1634      00000000 
+ 1634      00000000 
+ 1635              		.section	.bss.gps_coord.2,"aw",%nobits
+ 1636              		.align	2
+ 1639              	gps_coord.2:
+ 1640 0000 00000000 		.space	8
+ 1640      00000000 
+ 1641              		.section	.bss.gps_vector.1,"aw",%nobits
+ 1642              		.align	2
+ 1645              	gps_vector.1:
+ 1646 0000 00000000 		.space	8
+ 1646      00000000 
+ 1647              		.section	.bss.gps_datetime.0,"aw",%nobits
+ 1648              		.align	2
+ 1651              	gps_datetime.0:
+ 1652 0000 00000000 		.space	8
+ 1652      00000000 
+ 1653              		.ident	"GCC: (GNU Tools for STM32 12.3.rel1.20240306-1730) 12.3.1 20230626"
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccxBW72l.s 			page 30
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:18     .text.to_uint:00000000 $t
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:24     .text.to_uint:00000000 to_uint
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:73     .text.drop_point:00000000 $t
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:79     .text.drop_point:00000000 drop_point
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:106    .bss.logfile:00000000 logfile
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:103    .bss.logfile:00000000 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:113    .bss.syslog:00000000 syslog
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:110    .bss.syslog:00000000 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:120    .bss.sys_state:00000000 sys_state
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:117    .bss.sys_state:00000000 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:127    .bss.timer_flag:00000000 timer_flag
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:124    .bss.timer_flag:00000000 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:134    .bss.rtc:00000000 rtc
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:131    .bss.rtc:00000000 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:141    .bss.SD_BUFFER:00000000 SD_BUFFER
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:138    .bss.SD_BUFFER:00000000 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:148    .bss.SD_BUFFER_ARR:00000000 SD_BUFFER_ARR
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:145    .bss.SD_BUFFER_ARR:00000000 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:155    .bss.serial_flag:00000000 serial_flag
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:152    .bss.serial_flag:00000000 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:162    .bss.SERIAL_BUFFER:00000000 SERIAL_BUFFER
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:159    .bss.SERIAL_BUFFER:00000000 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:169    .bss.SERIAL_BUFFER_ARR:00000000 SERIAL_BUFFER_ARR
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:166    .bss.SERIAL_BUFFER_ARR:00000000 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:176    .bss.telemetry_flag:00000000 telemetry_flag
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:173    .bss.telemetry_flag:00000000 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:183    .bss.handshake_flag:00000000 handshake_flag
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:180    .bss.handshake_flag:00000000 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:190    .bss.TELEMETRY_BUFFER:00000000 TELEMETRY_BUFFER
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:187    .bss.TELEMETRY_BUFFER:00000000 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:197    .bss.TELEMETRY_BUFFER_ARR:00000000 TELEMETRY_BUFFER_ARR
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:194    .bss.TELEMETRY_BUFFER_ARR:00000000 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:204    .bss.can_rx_header:00000000 can_rx_header
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:201    .bss.can_rx_header:00000000 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:211    .bss.can_rx_data:00000000 can_rx_data
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:208    .bss.can_rx_data:00000000 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:218    .bss.adc_flag:00000000 adc_flag
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:215    .bss.adc_flag:00000000 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:225    .bss.adc_sys_value:00000000 adc_sys_value
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:222    .bss.adc_sys_value:00000000 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:232    .bss.adc_ain_value:00000000 adc_ain_value
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:229    .bss.adc_ain_value:00000000 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:239    .bss.pulse_flag:00000000 pulse_flag
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:236    .bss.pulse_flag:00000000 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:246    .bss.pulse_value:00000000 pulse_value
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:243    .bss.pulse_value:00000000 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:253    .bss.pulse_buffer_0:00000000 pulse_buffer_0
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:250    .bss.pulse_buffer_0:00000000 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:260    .bss.pulse_buffer_1:00000000 pulse_buffer_1
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:257    .bss.pulse_buffer_1:00000000 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:267    .bss.accelerometer_flag:00000000 accelerometer_flag
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:264    .bss.accelerometer_flag:00000000 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:274    .bss.accelerometer_value:00000000 accelerometer_value
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:271    .bss.accelerometer_value:00000000 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:281    .bss.gps_flag:00000000 gps_flag
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccxBW72l.s 			page 31
+
+
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:278    .bss.gps_flag:00000000 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:288    .bss.gps_data:00000000 gps_data
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:285    .bss.gps_data:00000000 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:291    .text._close:00000000 $t
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:297    .text._close:00000000 _close
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:310    .text._lseek:00000000 $t
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:316    .text._lseek:00000000 _lseek
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:329    .text._read:00000000 $t
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:335    .text._read:00000000 _read
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:348    .text._write:00000000 $t
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:354    .text._write:00000000 _write
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:378    .text._write:00000024 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:381    .text.main:00000000 $t
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:387    .text.main:00000000 main
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:940    .text.SystemClock_Config:00000000 SystemClock_Config
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:733    .text.main:00000350 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:740    .text.main:00000368 $t
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:1270   .text.GPS_PARSE:00000000 GPS_PARSE
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:1048   .text.TIMER_100ms:00000000 TIMER_100ms
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:1202   .text.TIMER_1s:00000000 TIMER_1s
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:916    .text.main:000004ec $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:934    .text.SystemClock_Config:00000000 $t
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:1607   .text.Error_Handler:00000000 Error_Handler
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:1038   .text.SystemClock_Config:000000d8 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:1042   .text.TIMER_100ms:00000000 $t
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:1186   .text.TIMER_100ms:0000012c $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:1196   .text.TIMER_1s:00000000 $t
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:1251   .text.TIMER_1s:00000064 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:1627   .data.heartbeat.4:00000000 heartbeat.4
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:1258   .rodata:00000000 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:1264   .text.GPS_PARSE:00000000 $t
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:1576   .text.GPS_PARSE:00000294 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:1633   .bss.gprmc.3:00000000 gprmc.3
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:1639   .bss.gps_coord.2:00000000 gps_coord.2
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:1645   .bss.gps_vector.1:00000000 gps_vector.1
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:1651   .bss.gps_datetime.0:00000000 gps_datetime.0
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:1585   .text.GPS_PARSE:000002b4 $t
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:1598   .text.GPS_PARSE:000002cc $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:1601   .text.Error_Handler:00000000 $t
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:1630   .bss.gprmc.3:00000000 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:1636   .bss.gps_coord.2:00000000 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:1642   .bss.gps_vector.1:00000000 $d
+C:\Users\user\AppData\Local\Temp\ccxBW72l.s:1648   .bss.gps_datetime.0:00000000 $d
+
+UNDEFINED SYMBOLS
+atoi
+strchr
+HAL_UART_Transmit
+huart1
+HAL_Init
+MX_GPIO_Init
+MX_DMA_Init
+MX_ADC1_Init
+MX_ADC2_Init
+MX_RTC_Init
+MX_TIM1_Init
+MX_TIM5_Init
+ARM GAS  C:\Users\user\AppData\Local\Temp\ccxBW72l.s 			page 32
+
+
+MX_CAN1_Init
+MX_I2C1_Init
+MX_I2C3_Init
+MX_SDIO_SD_Init
+MX_USART1_UART_Init
+MX_USART3_UART_Init
+MX_FATFS_Init
+MX_USART6_UART_Init
+RTC_READ
+SD_SETUP
+HAL_GPIO_WritePin
+SYS_LOG
+HAL_UART_Receive_IT
+SERIAL_SETUP
+TELEMETRY_SETUP
+HAL_Delay
+CAN_SETUP
+DIGITAL_SETUP
+ANALOG_SETUP
+PULSE_SETUP
+ACCELEROMETER_SETUP
+GPS_SETUP
+HAL_TIM_Base_Start_IT
+SD_WRITE
+SERIAL_TRANSMIT_LOG
+TELEMETRY_TRANSMIT_LOG
+htim1
+memset
+HAL_RCC_OscConfig
+HAL_RCC_ClockConfig
+HAL_RCC_EnableCSS
+HAL_GPIO_ReadPin
+HAL_ADC_Start_DMA
+PULSE_CAPTURE
+HAL_I2C_Mem_Read_IT
+hadc2
+hi2c3
+SD_SYNC
+hadc1
+__aeabi_dmul
+__aeabi_d2iz
+strncmp
+atof

@@ -1,0 +1,772 @@
+ARM GAS  C:\Users\user\AppData\Local\Temp\cc5kGYo4.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"adc.c"
+  16              		.text
+  17              		.global	__aeabi_ui2d
+  18              		.global	__aeabi_dmul
+  19              		.global	__aeabi_i2d
+  20              		.global	__aeabi_ddiv
+  21              		.global	__aeabi_dadd
+  22              		.global	__aeabi_d2uiz
+  23              		.section	.text.HAL_ADC_ConvCpltCallback,"ax",%progbits
+  24              		.align	1
+  25              		.global	HAL_ADC_ConvCpltCallback
+  26              		.syntax unified
+  27              		.thumb
+  28              		.thumb_func
+  30              	HAL_ADC_ConvCpltCallback:
+  31              		@ args = 0, pretend = 0, frame = 8
+  32              		@ frame_needed = 1, uses_anonymous_args = 0
+  33 0000 B0B5     		push	{r4, r5, r7, lr}
+  34 0002 82B0     		sub	sp, sp, #8
+  35 0004 00AF     		add	r7, sp, #0
+  36 0006 7860     		str	r0, [r7, #4]
+  37 0008 7B68     		ldr	r3, [r7, #4]
+  38 000a 1B68     		ldr	r3, [r3]
+  39 000c 2A4A     		ldr	r2, .L5
+  40 000e 9342     		cmp	r3, r2
+  41 0010 43D1     		bne	.L2
+  42 0012 2A4B     		ldr	r3, .L5+4
+  43 0014 1B68     		ldr	r3, [r3]
+  44 0016 2A4A     		ldr	r2, .L5+8
+  45 0018 1288     		ldrh	r2, [r2]
+  46 001a 9B1A     		subs	r3, r3, r2
+  47 001c 1846     		mov	r0, r3
+  48 001e FFF7FEFF 		bl	__aeabi_ui2d
+  49 0022 4FF00002 		mov	r2, #0
+  50 0026 274B     		ldr	r3, .L5+12
+  51 0028 FFF7FEFF 		bl	__aeabi_dmul
+  52 002c 0246     		mov	r2, r0
+  53 002e 0B46     		mov	r3, r1
+  54 0030 1446     		mov	r4, r2
+  55 0032 1D46     		mov	r5, r3
+  56 0034 244B     		ldr	r3, .L5+16
+  57 0036 1B88     		ldrh	r3, [r3]
+  58 0038 1A46     		mov	r2, r3
+ARM GAS  C:\Users\user\AppData\Local\Temp\cc5kGYo4.s 			page 2
+
+
+  59 003a 214B     		ldr	r3, .L5+8
+  60 003c 1B88     		ldrh	r3, [r3]
+  61 003e D31A     		subs	r3, r2, r3
+  62 0040 1846     		mov	r0, r3
+  63 0042 FFF7FEFF 		bl	__aeabi_i2d
+  64 0046 0246     		mov	r2, r0
+  65 0048 0B46     		mov	r3, r1
+  66 004a 2046     		mov	r0, r4
+  67 004c 2946     		mov	r1, r5
+  68 004e FFF7FEFF 		bl	__aeabi_ddiv
+  69 0052 0246     		mov	r2, r0
+  70 0054 0B46     		mov	r3, r1
+  71 0056 1046     		mov	r0, r2
+  72 0058 1946     		mov	r1, r3
+  73 005a 4FF00002 		mov	r2, #0
+  74 005e 1B4B     		ldr	r3, .L5+20
+  75 0060 FFF7FEFF 		bl	__aeabi_dadd
+  76 0064 0246     		mov	r2, r0
+  77 0066 0B46     		mov	r3, r1
+  78 0068 1046     		mov	r0, r2
+  79 006a 1946     		mov	r1, r3
+  80 006c 4FF00002 		mov	r2, #0
+  81 0070 174B     		ldr	r3, .L5+24
+  82 0072 FFF7FEFF 		bl	__aeabi_dmul
+  83 0076 0246     		mov	r2, r0
+  84 0078 0B46     		mov	r3, r1
+  85 007a 1046     		mov	r0, r2
+  86 007c 1946     		mov	r1, r3
+  87 007e FFF7FEFF 		bl	__aeabi_d2uiz
+  88 0082 0346     		mov	r3, r0
+  89 0084 9BB2     		uxth	r3, r3
+  90 0086 1A46     		mov	r2, r3
+  91 0088 0C4B     		ldr	r3, .L5+4
+  92 008a 1A60     		str	r2, [r3]
+  93 008c 114B     		ldr	r3, .L5+28
+  94 008e 1B68     		ldr	r3, [r3]
+  95 0090 43F00103 		orr	r3, r3, #1
+  96 0094 0F4A     		ldr	r2, .L5+28
+  97 0096 1360     		str	r3, [r2]
+  98 0098 0AE0     		b	.L4
+  99              	.L2:
+ 100 009a 7B68     		ldr	r3, [r7, #4]
+ 101 009c 1B68     		ldr	r3, [r3]
+ 102 009e 0E4A     		ldr	r2, .L5+32
+ 103 00a0 9342     		cmp	r3, r2
+ 104 00a2 05D1     		bne	.L4
+ 105 00a4 0B4B     		ldr	r3, .L5+28
+ 106 00a6 1B68     		ldr	r3, [r3]
+ 107 00a8 43F00203 		orr	r3, r3, #2
+ 108 00ac 094A     		ldr	r2, .L5+28
+ 109 00ae 1360     		str	r3, [r2]
+ 110              	.L4:
+ 111 00b0 00BF     		nop
+ 112 00b2 0837     		adds	r7, r7, #8
+ 113 00b4 BD46     		mov	sp, r7
+ 114              		@ sp needed
+ 115 00b6 B0BD     		pop	{r4, r5, r7, pc}
+ARM GAS  C:\Users\user\AppData\Local\Temp\cc5kGYo4.s 			page 3
+
+
+ 116              	.L6:
+ 117              		.align	2
+ 118              	.L5:
+ 119 00b8 00200140 		.word	1073815552
+ 120 00bc 00000000 		.word	adc_sys_value
+ 121 00c0 2C7AFF1F 		.word	536836652
+ 122 00c4 00005440 		.word	1079246848
+ 123 00c8 2E7AFF1F 		.word	536836654
+ 124 00cc 00003E40 		.word	1077805056
+ 125 00d0 00002440 		.word	1076101120
+ 126 00d4 00000000 		.word	adc_flag
+ 127 00d8 00210140 		.word	1073815808
+ 129              		.section	.text.ANALOG_SETUP,"ax",%progbits
+ 130              		.align	1
+ 131              		.global	ANALOG_SETUP
+ 132              		.syntax unified
+ 133              		.thumb
+ 134              		.thumb_func
+ 136              	ANALOG_SETUP:
+ 137              		@ args = 0, pretend = 0, frame = 0
+ 138              		@ frame_needed = 1, uses_anonymous_args = 0
+ 139              		@ link register save eliminated.
+ 140 0000 80B4     		push	{r7}
+ 141 0002 00AF     		add	r7, sp, #0
+ 142 0004 0023     		movs	r3, #0
+ 143 0006 1846     		mov	r0, r3
+ 144 0008 BD46     		mov	sp, r7
+ 145              		@ sp needed
+ 146 000a 5DF8047B 		ldr	r7, [sp], #4
+ 147 000e 7047     		bx	lr
+ 149              		.global	hadc1
+ 150              		.section	.bss.hadc1,"aw",%nobits
+ 151              		.align	2
+ 154              	hadc1:
+ 155 0000 00000000 		.space	72
+ 155      00000000 
+ 155      00000000 
+ 155      00000000 
+ 155      00000000 
+ 156              		.global	hadc2
+ 157              		.section	.bss.hadc2,"aw",%nobits
+ 158              		.align	2
+ 161              	hadc2:
+ 162 0000 00000000 		.space	72
+ 162      00000000 
+ 162      00000000 
+ 162      00000000 
+ 162      00000000 
+ 163              		.global	hdma_adc1
+ 164              		.section	.bss.hdma_adc1,"aw",%nobits
+ 165              		.align	2
+ 168              	hdma_adc1:
+ 169 0000 00000000 		.space	96
+ 169      00000000 
+ 169      00000000 
+ 169      00000000 
+ 169      00000000 
+ARM GAS  C:\Users\user\AppData\Local\Temp\cc5kGYo4.s 			page 4
+
+
+ 170              		.global	hdma_adc2
+ 171              		.section	.bss.hdma_adc2,"aw",%nobits
+ 172              		.align	2
+ 175              	hdma_adc2:
+ 176 0000 00000000 		.space	96
+ 176      00000000 
+ 176      00000000 
+ 176      00000000 
+ 176      00000000 
+ 177              		.section	.text.MX_ADC1_Init,"ax",%progbits
+ 178              		.align	1
+ 179              		.global	MX_ADC1_Init
+ 180              		.syntax unified
+ 181              		.thumb
+ 182              		.thumb_func
+ 184              	MX_ADC1_Init:
+ 185              		@ args = 0, pretend = 0, frame = 16
+ 186              		@ frame_needed = 1, uses_anonymous_args = 0
+ 187 0000 80B5     		push	{r7, lr}
+ 188 0002 84B0     		sub	sp, sp, #16
+ 189 0004 00AF     		add	r7, sp, #0
+ 190 0006 3B46     		mov	r3, r7
+ 191 0008 0022     		movs	r2, #0
+ 192 000a 1A60     		str	r2, [r3]
+ 193 000c 5A60     		str	r2, [r3, #4]
+ 194 000e 9A60     		str	r2, [r3, #8]
+ 195 0010 DA60     		str	r2, [r3, #12]
+ 196 0012 284B     		ldr	r3, .L14
+ 197 0014 284A     		ldr	r2, .L14+4
+ 198 0016 1A60     		str	r2, [r3]
+ 199 0018 264B     		ldr	r3, .L14
+ 200 001a 4FF48032 		mov	r2, #65536
+ 201 001e 5A60     		str	r2, [r3, #4]
+ 202 0020 244B     		ldr	r3, .L14
+ 203 0022 0022     		movs	r2, #0
+ 204 0024 9A60     		str	r2, [r3, #8]
+ 205 0026 234B     		ldr	r3, .L14
+ 206 0028 0122     		movs	r2, #1
+ 207 002a 1A61     		str	r2, [r3, #16]
+ 208 002c 214B     		ldr	r3, .L14
+ 209 002e 0022     		movs	r2, #0
+ 210 0030 1A76     		strb	r2, [r3, #24]
+ 211 0032 204B     		ldr	r3, .L14
+ 212 0034 0022     		movs	r2, #0
+ 213 0036 83F82020 		strb	r2, [r3, #32]
+ 214 003a 1E4B     		ldr	r3, .L14
+ 215 003c 0022     		movs	r2, #0
+ 216 003e DA62     		str	r2, [r3, #44]
+ 217 0040 1C4B     		ldr	r3, .L14
+ 218 0042 1E4A     		ldr	r2, .L14+8
+ 219 0044 9A62     		str	r2, [r3, #40]
+ 220 0046 1B4B     		ldr	r3, .L14
+ 221 0048 0022     		movs	r2, #0
+ 222 004a DA60     		str	r2, [r3, #12]
+ 223 004c 194B     		ldr	r3, .L14
+ 224 004e 0222     		movs	r2, #2
+ 225 0050 DA61     		str	r2, [r3, #28]
+ARM GAS  C:\Users\user\AppData\Local\Temp\cc5kGYo4.s 			page 5
+
+
+ 226 0052 184B     		ldr	r3, .L14
+ 227 0054 0122     		movs	r2, #1
+ 228 0056 83F83020 		strb	r2, [r3, #48]
+ 229 005a 164B     		ldr	r3, .L14
+ 230 005c 0022     		movs	r2, #0
+ 231 005e 5A61     		str	r2, [r3, #20]
+ 232 0060 1448     		ldr	r0, .L14
+ 233 0062 FFF7FEFF 		bl	HAL_ADC_Init
+ 234 0066 0346     		mov	r3, r0
+ 235 0068 002B     		cmp	r3, #0
+ 236 006a 01D0     		beq	.L10
+ 237 006c FFF7FEFF 		bl	Error_Handler
+ 238              	.L10:
+ 239 0070 1023     		movs	r3, #16
+ 240 0072 3B60     		str	r3, [r7]
+ 241 0074 0123     		movs	r3, #1
+ 242 0076 7B60     		str	r3, [r7, #4]
+ 243 0078 0123     		movs	r3, #1
+ 244 007a BB60     		str	r3, [r7, #8]
+ 245 007c 3B46     		mov	r3, r7
+ 246 007e 1946     		mov	r1, r3
+ 247 0080 0C48     		ldr	r0, .L14
+ 248 0082 FFF7FEFF 		bl	HAL_ADC_ConfigChannel
+ 249 0086 0346     		mov	r3, r0
+ 250 0088 002B     		cmp	r3, #0
+ 251 008a 01D0     		beq	.L11
+ 252 008c FFF7FEFF 		bl	Error_Handler
+ 253              	.L11:
+ 254 0090 0F23     		movs	r3, #15
+ 255 0092 3B60     		str	r3, [r7]
+ 256 0094 0223     		movs	r3, #2
+ 257 0096 7B60     		str	r3, [r7, #4]
+ 258 0098 3B46     		mov	r3, r7
+ 259 009a 1946     		mov	r1, r3
+ 260 009c 0548     		ldr	r0, .L14
+ 261 009e FFF7FEFF 		bl	HAL_ADC_ConfigChannel
+ 262 00a2 0346     		mov	r3, r0
+ 263 00a4 002B     		cmp	r3, #0
+ 264 00a6 01D0     		beq	.L13
+ 265 00a8 FFF7FEFF 		bl	Error_Handler
+ 266              	.L13:
+ 267 00ac 00BF     		nop
+ 268 00ae 1037     		adds	r7, r7, #16
+ 269 00b0 BD46     		mov	sp, r7
+ 270              		@ sp needed
+ 271 00b2 80BD     		pop	{r7, pc}
+ 272              	.L15:
+ 273              		.align	2
+ 274              	.L14:
+ 275 00b4 00000000 		.word	hadc1
+ 276 00b8 00200140 		.word	1073815552
+ 277 00bc 0100000F 		.word	251658241
+ 279              		.section	.text.MX_ADC2_Init,"ax",%progbits
+ 280              		.align	1
+ 281              		.global	MX_ADC2_Init
+ 282              		.syntax unified
+ 283              		.thumb
+ARM GAS  C:\Users\user\AppData\Local\Temp\cc5kGYo4.s 			page 6
+
+
+ 284              		.thumb_func
+ 286              	MX_ADC2_Init:
+ 287              		@ args = 0, pretend = 0, frame = 16
+ 288              		@ frame_needed = 1, uses_anonymous_args = 0
+ 289 0000 80B5     		push	{r7, lr}
+ 290 0002 84B0     		sub	sp, sp, #16
+ 291 0004 00AF     		add	r7, sp, #0
+ 292 0006 3B46     		mov	r3, r7
+ 293 0008 0022     		movs	r2, #0
+ 294 000a 1A60     		str	r2, [r3]
+ 295 000c 5A60     		str	r2, [r3, #4]
+ 296 000e 9A60     		str	r2, [r3, #8]
+ 297 0010 DA60     		str	r2, [r3, #12]
+ 298 0012 364B     		ldr	r3, .L23
+ 299 0014 364A     		ldr	r2, .L23+4
+ 300 0016 1A60     		str	r2, [r3]
+ 301 0018 344B     		ldr	r3, .L23
+ 302 001a 4FF48032 		mov	r2, #65536
+ 303 001e 5A60     		str	r2, [r3, #4]
+ 304 0020 324B     		ldr	r3, .L23
+ 305 0022 0022     		movs	r2, #0
+ 306 0024 9A60     		str	r2, [r3, #8]
+ 307 0026 314B     		ldr	r3, .L23
+ 308 0028 0122     		movs	r2, #1
+ 309 002a 1A61     		str	r2, [r3, #16]
+ 310 002c 2F4B     		ldr	r3, .L23
+ 311 002e 0022     		movs	r2, #0
+ 312 0030 1A76     		strb	r2, [r3, #24]
+ 313 0032 2E4B     		ldr	r3, .L23
+ 314 0034 0022     		movs	r2, #0
+ 315 0036 83F82020 		strb	r2, [r3, #32]
+ 316 003a 2C4B     		ldr	r3, .L23
+ 317 003c 0022     		movs	r2, #0
+ 318 003e DA62     		str	r2, [r3, #44]
+ 319 0040 2A4B     		ldr	r3, .L23
+ 320 0042 2C4A     		ldr	r2, .L23+8
+ 321 0044 9A62     		str	r2, [r3, #40]
+ 322 0046 294B     		ldr	r3, .L23
+ 323 0048 0022     		movs	r2, #0
+ 324 004a DA60     		str	r2, [r3, #12]
+ 325 004c 274B     		ldr	r3, .L23
+ 326 004e 0422     		movs	r2, #4
+ 327 0050 DA61     		str	r2, [r3, #28]
+ 328 0052 264B     		ldr	r3, .L23
+ 329 0054 0122     		movs	r2, #1
+ 330 0056 83F83020 		strb	r2, [r3, #48]
+ 331 005a 244B     		ldr	r3, .L23
+ 332 005c 0022     		movs	r2, #0
+ 333 005e 5A61     		str	r2, [r3, #20]
+ 334 0060 2248     		ldr	r0, .L23
+ 335 0062 FFF7FEFF 		bl	HAL_ADC_Init
+ 336 0066 0346     		mov	r3, r0
+ 337 0068 002B     		cmp	r3, #0
+ 338 006a 01D0     		beq	.L17
+ 339 006c FFF7FEFF 		bl	Error_Handler
+ 340              	.L17:
+ 341 0070 0A23     		movs	r3, #10
+ARM GAS  C:\Users\user\AppData\Local\Temp\cc5kGYo4.s 			page 7
+
+
+ 342 0072 3B60     		str	r3, [r7]
+ 343 0074 0123     		movs	r3, #1
+ 344 0076 7B60     		str	r3, [r7, #4]
+ 345 0078 0123     		movs	r3, #1
+ 346 007a BB60     		str	r3, [r7, #8]
+ 347 007c 3B46     		mov	r3, r7
+ 348 007e 1946     		mov	r1, r3
+ 349 0080 1A48     		ldr	r0, .L23
+ 350 0082 FFF7FEFF 		bl	HAL_ADC_ConfigChannel
+ 351 0086 0346     		mov	r3, r0
+ 352 0088 002B     		cmp	r3, #0
+ 353 008a 01D0     		beq	.L18
+ 354 008c FFF7FEFF 		bl	Error_Handler
+ 355              	.L18:
+ 356 0090 0B23     		movs	r3, #11
+ 357 0092 3B60     		str	r3, [r7]
+ 358 0094 0223     		movs	r3, #2
+ 359 0096 7B60     		str	r3, [r7, #4]
+ 360 0098 3B46     		mov	r3, r7
+ 361 009a 1946     		mov	r1, r3
+ 362 009c 1348     		ldr	r0, .L23
+ 363 009e FFF7FEFF 		bl	HAL_ADC_ConfigChannel
+ 364 00a2 0346     		mov	r3, r0
+ 365 00a4 002B     		cmp	r3, #0
+ 366 00a6 01D0     		beq	.L19
+ 367 00a8 FFF7FEFF 		bl	Error_Handler
+ 368              	.L19:
+ 369 00ac 0C23     		movs	r3, #12
+ 370 00ae 3B60     		str	r3, [r7]
+ 371 00b0 0323     		movs	r3, #3
+ 372 00b2 7B60     		str	r3, [r7, #4]
+ 373 00b4 3B46     		mov	r3, r7
+ 374 00b6 1946     		mov	r1, r3
+ 375 00b8 0C48     		ldr	r0, .L23
+ 376 00ba FFF7FEFF 		bl	HAL_ADC_ConfigChannel
+ 377 00be 0346     		mov	r3, r0
+ 378 00c0 002B     		cmp	r3, #0
+ 379 00c2 01D0     		beq	.L20
+ 380 00c4 FFF7FEFF 		bl	Error_Handler
+ 381              	.L20:
+ 382 00c8 0D23     		movs	r3, #13
+ 383 00ca 3B60     		str	r3, [r7]
+ 384 00cc 0423     		movs	r3, #4
+ 385 00ce 7B60     		str	r3, [r7, #4]
+ 386 00d0 3B46     		mov	r3, r7
+ 387 00d2 1946     		mov	r1, r3
+ 388 00d4 0548     		ldr	r0, .L23
+ 389 00d6 FFF7FEFF 		bl	HAL_ADC_ConfigChannel
+ 390 00da 0346     		mov	r3, r0
+ 391 00dc 002B     		cmp	r3, #0
+ 392 00de 01D0     		beq	.L22
+ 393 00e0 FFF7FEFF 		bl	Error_Handler
+ 394              	.L22:
+ 395 00e4 00BF     		nop
+ 396 00e6 1037     		adds	r7, r7, #16
+ 397 00e8 BD46     		mov	sp, r7
+ 398              		@ sp needed
+ARM GAS  C:\Users\user\AppData\Local\Temp\cc5kGYo4.s 			page 8
+
+
+ 399 00ea 80BD     		pop	{r7, pc}
+ 400              	.L24:
+ 401              		.align	2
+ 402              	.L23:
+ 403 00ec 00000000 		.word	hadc2
+ 404 00f0 00210140 		.word	1073815808
+ 405 00f4 0100000F 		.word	251658241
+ 407              		.section	.text.HAL_ADC_MspInit,"ax",%progbits
+ 408              		.align	1
+ 409              		.global	HAL_ADC_MspInit
+ 410              		.syntax unified
+ 411              		.thumb
+ 412              		.thumb_func
+ 414              	HAL_ADC_MspInit:
+ 415              		@ args = 0, pretend = 0, frame = 48
+ 416              		@ frame_needed = 1, uses_anonymous_args = 0
+ 417 0000 80B5     		push	{r7, lr}
+ 418 0002 8CB0     		sub	sp, sp, #48
+ 419 0004 00AF     		add	r7, sp, #0
+ 420 0006 7860     		str	r0, [r7, #4]
+ 421 0008 07F11C03 		add	r3, r7, #28
+ 422 000c 0022     		movs	r2, #0
+ 423 000e 1A60     		str	r2, [r3]
+ 424 0010 5A60     		str	r2, [r3, #4]
+ 425 0012 9A60     		str	r2, [r3, #8]
+ 426 0014 DA60     		str	r2, [r3, #12]
+ 427 0016 1A61     		str	r2, [r3, #16]
+ 428 0018 7B68     		ldr	r3, [r7, #4]
+ 429 001a 1B68     		ldr	r3, [r3]
+ 430 001c 664A     		ldr	r2, .L31
+ 431 001e 9342     		cmp	r3, r2
+ 432 0020 60D1     		bne	.L26
+ 433 0022 0023     		movs	r3, #0
+ 434 0024 BB61     		str	r3, [r7, #24]
+ 435 0026 654B     		ldr	r3, .L31+4
+ 436 0028 5B6C     		ldr	r3, [r3, #68]
+ 437 002a 644A     		ldr	r2, .L31+4
+ 438 002c 43F48073 		orr	r3, r3, #256
+ 439 0030 5364     		str	r3, [r2, #68]
+ 440 0032 624B     		ldr	r3, .L31+4
+ 441 0034 5B6C     		ldr	r3, [r3, #68]
+ 442 0036 03F48073 		and	r3, r3, #256
+ 443 003a BB61     		str	r3, [r7, #24]
+ 444 003c BB69     		ldr	r3, [r7, #24]
+ 445 003e 0023     		movs	r3, #0
+ 446 0040 7B61     		str	r3, [r7, #20]
+ 447 0042 5E4B     		ldr	r3, .L31+4
+ 448 0044 1B6B     		ldr	r3, [r3, #48]
+ 449 0046 5D4A     		ldr	r2, .L31+4
+ 450 0048 43F00403 		orr	r3, r3, #4
+ 451 004c 1363     		str	r3, [r2, #48]
+ 452 004e 5B4B     		ldr	r3, .L31+4
+ 453 0050 1B6B     		ldr	r3, [r3, #48]
+ 454 0052 03F00403 		and	r3, r3, #4
+ 455 0056 7B61     		str	r3, [r7, #20]
+ 456 0058 7B69     		ldr	r3, [r7, #20]
+ 457 005a 2023     		movs	r3, #32
+ARM GAS  C:\Users\user\AppData\Local\Temp\cc5kGYo4.s 			page 9
+
+
+ 458 005c FB61     		str	r3, [r7, #28]
+ 459 005e 0323     		movs	r3, #3
+ 460 0060 3B62     		str	r3, [r7, #32]
+ 461 0062 0023     		movs	r3, #0
+ 462 0064 7B62     		str	r3, [r7, #36]
+ 463 0066 07F11C03 		add	r3, r7, #28
+ 464 006a 1946     		mov	r1, r3
+ 465 006c 5448     		ldr	r0, .L31+8
+ 466 006e FFF7FEFF 		bl	HAL_GPIO_Init
+ 467 0072 544B     		ldr	r3, .L31+12
+ 468 0074 544A     		ldr	r2, .L31+16
+ 469 0076 1A60     		str	r2, [r3]
+ 470 0078 524B     		ldr	r3, .L31+12
+ 471 007a 0022     		movs	r2, #0
+ 472 007c 5A60     		str	r2, [r3, #4]
+ 473 007e 514B     		ldr	r3, .L31+12
+ 474 0080 0022     		movs	r2, #0
+ 475 0082 9A60     		str	r2, [r3, #8]
+ 476 0084 4F4B     		ldr	r3, .L31+12
+ 477 0086 0022     		movs	r2, #0
+ 478 0088 DA60     		str	r2, [r3, #12]
+ 479 008a 4E4B     		ldr	r3, .L31+12
+ 480 008c 4FF48062 		mov	r2, #1024
+ 481 0090 1A61     		str	r2, [r3, #16]
+ 482 0092 4C4B     		ldr	r3, .L31+12
+ 483 0094 4FF48052 		mov	r2, #4096
+ 484 0098 5A61     		str	r2, [r3, #20]
+ 485 009a 4A4B     		ldr	r3, .L31+12
+ 486 009c 4FF48042 		mov	r2, #16384
+ 487 00a0 9A61     		str	r2, [r3, #24]
+ 488 00a2 484B     		ldr	r3, .L31+12
+ 489 00a4 4FF48072 		mov	r2, #256
+ 490 00a8 DA61     		str	r2, [r3, #28]
+ 491 00aa 464B     		ldr	r3, .L31+12
+ 492 00ac 0022     		movs	r2, #0
+ 493 00ae 1A62     		str	r2, [r3, #32]
+ 494 00b0 444B     		ldr	r3, .L31+12
+ 495 00b2 0022     		movs	r2, #0
+ 496 00b4 5A62     		str	r2, [r3, #36]
+ 497 00b6 4348     		ldr	r0, .L31+12
+ 498 00b8 FFF7FEFF 		bl	HAL_DMA_Init
+ 499 00bc 0346     		mov	r3, r0
+ 500 00be 002B     		cmp	r3, #0
+ 501 00c0 01D0     		beq	.L27
+ 502 00c2 FFF7FEFF 		bl	Error_Handler
+ 503              	.L27:
+ 504 00c6 7B68     		ldr	r3, [r7, #4]
+ 505 00c8 3E4A     		ldr	r2, .L31+12
+ 506 00ca 9A63     		str	r2, [r3, #56]
+ 507 00cc 3D4A     		ldr	r2, .L31+12
+ 508 00ce 7B68     		ldr	r3, [r7, #4]
+ 509 00d0 9363     		str	r3, [r2, #56]
+ 510 00d2 0022     		movs	r2, #0
+ 511 00d4 0021     		movs	r1, #0
+ 512 00d6 1220     		movs	r0, #18
+ 513 00d8 FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 514 00dc 1220     		movs	r0, #18
+ARM GAS  C:\Users\user\AppData\Local\Temp\cc5kGYo4.s 			page 10
+
+
+ 515 00de FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 516 00e2 65E0     		b	.L30
+ 517              	.L26:
+ 518 00e4 7B68     		ldr	r3, [r7, #4]
+ 519 00e6 1B68     		ldr	r3, [r3]
+ 520 00e8 384A     		ldr	r2, .L31+20
+ 521 00ea 9342     		cmp	r3, r2
+ 522 00ec 60D1     		bne	.L30
+ 523 00ee 0023     		movs	r3, #0
+ 524 00f0 3B61     		str	r3, [r7, #16]
+ 525 00f2 324B     		ldr	r3, .L31+4
+ 526 00f4 5B6C     		ldr	r3, [r3, #68]
+ 527 00f6 314A     		ldr	r2, .L31+4
+ 528 00f8 43F40073 		orr	r3, r3, #512
+ 529 00fc 5364     		str	r3, [r2, #68]
+ 530 00fe 2F4B     		ldr	r3, .L31+4
+ 531 0100 5B6C     		ldr	r3, [r3, #68]
+ 532 0102 03F40073 		and	r3, r3, #512
+ 533 0106 3B61     		str	r3, [r7, #16]
+ 534 0108 3B69     		ldr	r3, [r7, #16]
+ 535 010a 0023     		movs	r3, #0
+ 536 010c FB60     		str	r3, [r7, #12]
+ 537 010e 2B4B     		ldr	r3, .L31+4
+ 538 0110 1B6B     		ldr	r3, [r3, #48]
+ 539 0112 2A4A     		ldr	r2, .L31+4
+ 540 0114 43F00403 		orr	r3, r3, #4
+ 541 0118 1363     		str	r3, [r2, #48]
+ 542 011a 284B     		ldr	r3, .L31+4
+ 543 011c 1B6B     		ldr	r3, [r3, #48]
+ 544 011e 03F00403 		and	r3, r3, #4
+ 545 0122 FB60     		str	r3, [r7, #12]
+ 546 0124 FB68     		ldr	r3, [r7, #12]
+ 547 0126 0F23     		movs	r3, #15
+ 548 0128 FB61     		str	r3, [r7, #28]
+ 549 012a 0323     		movs	r3, #3
+ 550 012c 3B62     		str	r3, [r7, #32]
+ 551 012e 0023     		movs	r3, #0
+ 552 0130 7B62     		str	r3, [r7, #36]
+ 553 0132 07F11C03 		add	r3, r7, #28
+ 554 0136 1946     		mov	r1, r3
+ 555 0138 2148     		ldr	r0, .L31+8
+ 556 013a FFF7FEFF 		bl	HAL_GPIO_Init
+ 557 013e 244B     		ldr	r3, .L31+24
+ 558 0140 244A     		ldr	r2, .L31+28
+ 559 0142 1A60     		str	r2, [r3]
+ 560 0144 224B     		ldr	r3, .L31+24
+ 561 0146 4FF00072 		mov	r2, #33554432
+ 562 014a 5A60     		str	r2, [r3, #4]
+ 563 014c 204B     		ldr	r3, .L31+24
+ 564 014e 0022     		movs	r2, #0
+ 565 0150 9A60     		str	r2, [r3, #8]
+ 566 0152 1F4B     		ldr	r3, .L31+24
+ 567 0154 0022     		movs	r2, #0
+ 568 0156 DA60     		str	r2, [r3, #12]
+ 569 0158 1D4B     		ldr	r3, .L31+24
+ 570 015a 4FF48062 		mov	r2, #1024
+ 571 015e 1A61     		str	r2, [r3, #16]
+ARM GAS  C:\Users\user\AppData\Local\Temp\cc5kGYo4.s 			page 11
+
+
+ 572 0160 1B4B     		ldr	r3, .L31+24
+ 573 0162 4FF48052 		mov	r2, #4096
+ 574 0166 5A61     		str	r2, [r3, #20]
+ 575 0168 194B     		ldr	r3, .L31+24
+ 576 016a 4FF48042 		mov	r2, #16384
+ 577 016e 9A61     		str	r2, [r3, #24]
+ 578 0170 174B     		ldr	r3, .L31+24
+ 579 0172 4FF48072 		mov	r2, #256
+ 580 0176 DA61     		str	r2, [r3, #28]
+ 581 0178 154B     		ldr	r3, .L31+24
+ 582 017a 0022     		movs	r2, #0
+ 583 017c 1A62     		str	r2, [r3, #32]
+ 584 017e 144B     		ldr	r3, .L31+24
+ 585 0180 0022     		movs	r2, #0
+ 586 0182 5A62     		str	r2, [r3, #36]
+ 587 0184 1248     		ldr	r0, .L31+24
+ 588 0186 FFF7FEFF 		bl	HAL_DMA_Init
+ 589 018a 0346     		mov	r3, r0
+ 590 018c 002B     		cmp	r3, #0
+ 591 018e 01D0     		beq	.L29
+ 592 0190 FFF7FEFF 		bl	Error_Handler
+ 593              	.L29:
+ 594 0194 7B68     		ldr	r3, [r7, #4]
+ 595 0196 0E4A     		ldr	r2, .L31+24
+ 596 0198 9A63     		str	r2, [r3, #56]
+ 597 019a 0D4A     		ldr	r2, .L31+24
+ 598 019c 7B68     		ldr	r3, [r7, #4]
+ 599 019e 9363     		str	r3, [r2, #56]
+ 600 01a0 0022     		movs	r2, #0
+ 601 01a2 0021     		movs	r1, #0
+ 602 01a4 1220     		movs	r0, #18
+ 603 01a6 FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 604 01aa 1220     		movs	r0, #18
+ 605 01ac FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 606              	.L30:
+ 607 01b0 00BF     		nop
+ 608 01b2 3037     		adds	r7, r7, #48
+ 609 01b4 BD46     		mov	sp, r7
+ 610              		@ sp needed
+ 611 01b6 80BD     		pop	{r7, pc}
+ 612              	.L32:
+ 613              		.align	2
+ 614              	.L31:
+ 615 01b8 00200140 		.word	1073815552
+ 616 01bc 00380240 		.word	1073887232
+ 617 01c0 00080240 		.word	1073874944
+ 618 01c4 00000000 		.word	hdma_adc1
+ 619 01c8 10640240 		.word	1073898512
+ 620 01cc 00210140 		.word	1073815808
+ 621 01d0 00000000 		.word	hdma_adc2
+ 622 01d4 40640240 		.word	1073898560
+ 624              		.section	.text.HAL_ADC_MspDeInit,"ax",%progbits
+ 625              		.align	1
+ 626              		.global	HAL_ADC_MspDeInit
+ 627              		.syntax unified
+ 628              		.thumb
+ 629              		.thumb_func
+ARM GAS  C:\Users\user\AppData\Local\Temp\cc5kGYo4.s 			page 12
+
+
+ 631              	HAL_ADC_MspDeInit:
+ 632              		@ args = 0, pretend = 0, frame = 8
+ 633              		@ frame_needed = 1, uses_anonymous_args = 0
+ 634 0000 80B5     		push	{r7, lr}
+ 635 0002 82B0     		sub	sp, sp, #8
+ 636 0004 00AF     		add	r7, sp, #0
+ 637 0006 7860     		str	r0, [r7, #4]
+ 638 0008 7B68     		ldr	r3, [r7, #4]
+ 639 000a 1B68     		ldr	r3, [r3]
+ 640 000c 154A     		ldr	r2, .L37
+ 641 000e 9342     		cmp	r3, r2
+ 642 0010 0FD1     		bne	.L34
+ 643 0012 154B     		ldr	r3, .L37+4
+ 644 0014 5B6C     		ldr	r3, [r3, #68]
+ 645 0016 144A     		ldr	r2, .L37+4
+ 646 0018 23F48073 		bic	r3, r3, #256
+ 647 001c 5364     		str	r3, [r2, #68]
+ 648 001e 2021     		movs	r1, #32
+ 649 0020 1248     		ldr	r0, .L37+8
+ 650 0022 FFF7FEFF 		bl	HAL_GPIO_DeInit
+ 651 0026 7B68     		ldr	r3, [r7, #4]
+ 652 0028 9B6B     		ldr	r3, [r3, #56]
+ 653 002a 1846     		mov	r0, r3
+ 654 002c FFF7FEFF 		bl	HAL_DMA_DeInit
+ 655 0030 13E0     		b	.L36
+ 656              	.L34:
+ 657 0032 7B68     		ldr	r3, [r7, #4]
+ 658 0034 1B68     		ldr	r3, [r3]
+ 659 0036 0E4A     		ldr	r2, .L37+12
+ 660 0038 9342     		cmp	r3, r2
+ 661 003a 0ED1     		bne	.L36
+ 662 003c 0A4B     		ldr	r3, .L37+4
+ 663 003e 5B6C     		ldr	r3, [r3, #68]
+ 664 0040 094A     		ldr	r2, .L37+4
+ 665 0042 23F40073 		bic	r3, r3, #512
+ 666 0046 5364     		str	r3, [r2, #68]
+ 667 0048 0F21     		movs	r1, #15
+ 668 004a 0848     		ldr	r0, .L37+8
+ 669 004c FFF7FEFF 		bl	HAL_GPIO_DeInit
+ 670 0050 7B68     		ldr	r3, [r7, #4]
+ 671 0052 9B6B     		ldr	r3, [r3, #56]
+ 672 0054 1846     		mov	r0, r3
+ 673 0056 FFF7FEFF 		bl	HAL_DMA_DeInit
+ 674              	.L36:
+ 675 005a 00BF     		nop
+ 676 005c 0837     		adds	r7, r7, #8
+ 677 005e BD46     		mov	sp, r7
+ 678              		@ sp needed
+ 679 0060 80BD     		pop	{r7, pc}
+ 680              	.L38:
+ 681 0062 00BF     		.align	2
+ 682              	.L37:
+ 683 0064 00200140 		.word	1073815552
+ 684 0068 00380240 		.word	1073887232
+ 685 006c 00080240 		.word	1073874944
+ 686 0070 00210140 		.word	1073815808
+ 688              		.ident	"GCC: (GNU Tools for STM32 12.3.rel1.20240306-1730) 12.3.1 20230626"
+ARM GAS  C:\Users\user\AppData\Local\Temp\cc5kGYo4.s 			page 13
+
+
+ARM GAS  C:\Users\user\AppData\Local\Temp\cc5kGYo4.s 			page 14
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 adc.c
+C:\Users\user\AppData\Local\Temp\cc5kGYo4.s:24     .text.HAL_ADC_ConvCpltCallback:00000000 $t
+C:\Users\user\AppData\Local\Temp\cc5kGYo4.s:30     .text.HAL_ADC_ConvCpltCallback:00000000 HAL_ADC_ConvCpltCallback
+C:\Users\user\AppData\Local\Temp\cc5kGYo4.s:119    .text.HAL_ADC_ConvCpltCallback:000000b8 $d
+C:\Users\user\AppData\Local\Temp\cc5kGYo4.s:130    .text.ANALOG_SETUP:00000000 $t
+C:\Users\user\AppData\Local\Temp\cc5kGYo4.s:136    .text.ANALOG_SETUP:00000000 ANALOG_SETUP
+C:\Users\user\AppData\Local\Temp\cc5kGYo4.s:154    .bss.hadc1:00000000 hadc1
+C:\Users\user\AppData\Local\Temp\cc5kGYo4.s:151    .bss.hadc1:00000000 $d
+C:\Users\user\AppData\Local\Temp\cc5kGYo4.s:161    .bss.hadc2:00000000 hadc2
+C:\Users\user\AppData\Local\Temp\cc5kGYo4.s:158    .bss.hadc2:00000000 $d
+C:\Users\user\AppData\Local\Temp\cc5kGYo4.s:168    .bss.hdma_adc1:00000000 hdma_adc1
+C:\Users\user\AppData\Local\Temp\cc5kGYo4.s:165    .bss.hdma_adc1:00000000 $d
+C:\Users\user\AppData\Local\Temp\cc5kGYo4.s:175    .bss.hdma_adc2:00000000 hdma_adc2
+C:\Users\user\AppData\Local\Temp\cc5kGYo4.s:172    .bss.hdma_adc2:00000000 $d
+C:\Users\user\AppData\Local\Temp\cc5kGYo4.s:178    .text.MX_ADC1_Init:00000000 $t
+C:\Users\user\AppData\Local\Temp\cc5kGYo4.s:184    .text.MX_ADC1_Init:00000000 MX_ADC1_Init
+C:\Users\user\AppData\Local\Temp\cc5kGYo4.s:275    .text.MX_ADC1_Init:000000b4 $d
+C:\Users\user\AppData\Local\Temp\cc5kGYo4.s:280    .text.MX_ADC2_Init:00000000 $t
+C:\Users\user\AppData\Local\Temp\cc5kGYo4.s:286    .text.MX_ADC2_Init:00000000 MX_ADC2_Init
+C:\Users\user\AppData\Local\Temp\cc5kGYo4.s:403    .text.MX_ADC2_Init:000000ec $d
+C:\Users\user\AppData\Local\Temp\cc5kGYo4.s:408    .text.HAL_ADC_MspInit:00000000 $t
+C:\Users\user\AppData\Local\Temp\cc5kGYo4.s:414    .text.HAL_ADC_MspInit:00000000 HAL_ADC_MspInit
+C:\Users\user\AppData\Local\Temp\cc5kGYo4.s:615    .text.HAL_ADC_MspInit:000001b8 $d
+C:\Users\user\AppData\Local\Temp\cc5kGYo4.s:625    .text.HAL_ADC_MspDeInit:00000000 $t
+C:\Users\user\AppData\Local\Temp\cc5kGYo4.s:631    .text.HAL_ADC_MspDeInit:00000000 HAL_ADC_MspDeInit
+C:\Users\user\AppData\Local\Temp\cc5kGYo4.s:683    .text.HAL_ADC_MspDeInit:00000064 $d
+
+UNDEFINED SYMBOLS
+__aeabi_ui2d
+__aeabi_dmul
+__aeabi_i2d
+__aeabi_ddiv
+__aeabi_dadd
+__aeabi_d2uiz
+adc_sys_value
+adc_flag
+HAL_ADC_Init
+Error_Handler
+HAL_ADC_ConfigChannel
+HAL_GPIO_Init
+HAL_DMA_Init
+HAL_NVIC_SetPriority
+HAL_NVIC_EnableIRQ
+HAL_GPIO_DeInit
+HAL_DMA_DeInit
