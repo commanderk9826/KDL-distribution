@@ -62,7 +62,7 @@ io.sockets.on('connection', socket => {
     return;
   }
 
-  // TMA-1 device register
+  // KDL device register
   if (socket.handshake.query.device) {
     register_device(socket);
   }
