@@ -2,7 +2,7 @@ log = [];
 filename = '';
 
 let map = new kakao.maps.Map(document.getElementById('map'), {
-  center: new kakao.maps.LatLng(37.611709, 126.994029)
+  center: new kakao.maps.LatLng(37.611709, 126.994029) //Kookmin University, Seoul.
 });
 Chart.register(window['chartjs-plugin-autocolors']);
 
