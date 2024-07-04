@@ -35,7 +35,7 @@ PCB제작 : 고민제<br>
 
 <br>각 기능에 대한 설명은 [KDL가이드](https://github.com/commanderk9826/KDL-distribution/wiki/KDL-가이드)를 참고합니다.
 
-![1-1.jpeg](https://www.commanderk.site/assets/readme/1-1.jpeg)
+<img src='https://www.commanderk.site/assets/readme/1-1.jpeg' style='width: 400px'>
 
 
 ## 2. 텔레메트리 모니터
@@ -46,23 +46,20 @@ PCB제작 : 고민제<br>
 따로 설정하지 않는 한 데이터로거는 기본적으로 [commanderk.site](http://commanderk.site) 를 사용하여 데이터를 실시간으로 전송합니다.
 
 > 기본 제공되는 텔레메트리 서버는 확인된 사용자만 이용할 수 있습니다.
-
+>
 > 별도의 비용은 없으며, lch9826@gmail.com 로 팀 이름, 사용할 차량 ID와 key를 보내 주시면 사용자 등록이 완료됩니다.
 
 
 서버를 개별적으로 구축하고 싶다면 [서버 구축 가이드](https://github.com/commanderk9826/KDL-distribution/wiki/서버-구축-가이드)와 [웹 활용 가이드](https://github.com/commanderk9826/KDL-distribution/wiki/웹-활용-가이드)를 참고하여 직접 self-hosting할 수 있습니다.
 
 ### 클라이언트
----
-
 실시간 모니터링 웹 클라이언트는 [https://commanderk.site/live](https://commanderk.site/live) 에서 제공됩니다.
 
 각 사용자가 개별적으로 UI를 설정할 수 있으며, UI 설정 파일을 내보내고 불러오는 기능을 지원합니다.
 
 자세한 사용법은 [클라이언트 사용 가이드](https://github.com/commanderk9826/KDL-distribution/wiki/클라이언트-사용-가이드)를 참고합니다.
 
-![1-2.jpeg](https://www.commanderk.site/assets/readme/1-2.jpeg)
-
+<img src='https://www.commanderk.site/assets/readme/1-2.jpeg' style='width: 500px'>
 
 ## 데이터분석도구
 
@@ -74,4 +71,4 @@ PCB제작 : 고민제<br>
 
 자세한 사용법은 [데이터 분석 도구 가이드](https://github.com/commanderk9826/KDL-distribution/wiki/데이터-분석-도구-가이드)를 참고합니다.
 
-![1-3.jpeg](https://www.commanderk.site/assets/readme/1-3.jpeg)
+<img src='https://www.commanderk.site/assets/readme/1-3.jpeg' style='width: 500px'>
