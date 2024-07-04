@@ -1,0 +1,714 @@
+[
+  {
+    "name": "KDL state",
+    "icon": "gauge-simple-high",
+    "data": [
+      {
+        "name": "CPU 온도",
+        "icon": "temperature-three-quarters",
+        "display": "graph",
+        "type": "standard",
+        "source": "ANALOG / CPU_TEMP",
+        "scale": 1,
+        "unit": "°C"
+      },
+      {
+        "name": "LV 전압",
+        "icon": "bolt",
+        "display": "graph",
+        "type": "standard",
+        "source": "ANALOG / INPUT_VOLTAGE",
+        "scale": 1,
+        "unit": "V"
+      }
+    ]
+  },
+  {
+    "name": "Negative Current",
+    "icon": "plug",
+    "data": [
+      {
+        "name": "FC_A",
+        "icon": "plug",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 2,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "0",
+            "end": "0"
+          }
+        },
+        "scale": -0.1,
+        "unit": "A"
+      },
+      {
+        "name": "SC_A",
+        "icon": "plug",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 2,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "1",
+            "end": "1"
+          }
+        },
+        "scale": -0.1,
+        "unit": "A"
+      },
+      {
+        "name": "DCDC_IN_A",
+        "icon": "plug",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 2,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "2",
+            "end": "2"
+          }
+        },
+        "scale": -0.1,
+        "unit": "A"
+      },
+      {
+        "name": "MC_A",
+        "icon": "plug",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 2,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "3",
+            "end": "3"
+          }
+        },
+        "scale": -0.1,
+        "unit": "A"
+      },
+      {
+        "name": "REGEN_DCDC_OUT_A",
+        "icon": "plug",
+        "display": "graph",
+        "type": "can",
+        "source": {
+          "id": 2,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "4",
+            "end": "4"
+          }
+        },
+        "scale": -0.1,
+        "unit": "A"
+      },
+      {
+        "name": "ACCBAT_A",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 2,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "5",
+            "end": "5"
+          }
+        },
+        "scale": -0.1,
+        "unit": "A"
+      }
+    ]
+  },
+  {
+    "name": "Positive Current",
+    "icon": "circle-info",
+    "data": [
+      {
+        "name": "FC_A",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 3,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "0",
+            "end": "0"
+          }
+        },
+        "scale": 0.1,
+        "unit": "A"
+      },
+      {
+        "name": "SC_A",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 3,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "1",
+            "end": "1"
+          }
+        },
+        "scale": 0.1,
+        "unit": "A"
+      },
+      {
+        "name": "DCDC_IN_A",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 3,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "2",
+            "end": "2"
+          }
+        },
+        "scale": 0.1,
+        "unit": "A"
+      },
+      {
+        "name": "MC_A",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 3,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "3",
+            "end": "3"
+          }
+        },
+        "scale": 0.1,
+        "unit": "A"
+      },
+      {
+        "name": "REGEN_DCDC_OUT_A",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 3,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "4",
+            "end": "4"
+          }
+        },
+        "scale": 0.1,
+        "unit": "A"
+      },
+      {
+        "name": "ACCBAT_A",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 3,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "5",
+            "end": "5"
+          }
+        },
+        "scale": 0.1,
+        "unit": "A"
+      }
+    ]
+  },
+  {
+    "name": "Up Voltage",
+    "icon": "circle-info",
+    "data": [
+      {
+        "name": "DCDC_IN_V",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 4,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "0",
+            "end": "0"
+          }
+        },
+        "scale": 0.2,
+        "unit": "V"
+      },
+      {
+        "name": "MC_V",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 4,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "1",
+            "end": "1"
+          }
+        },
+        "scale": 0.2,
+        "unit": "V"
+      },
+      {
+        "name": "REGEN_DCDC_OUT_V",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 4,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "2",
+            "end": "2"
+          }
+        },
+        "scale": 0.2,
+        "unit": "V"
+      },
+      {
+        "name": "ACCBAT_V",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 4,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "3",
+            "end": "3"
+          }
+        },
+        "scale": 0.2,
+        "unit": "V"
+      }
+    ]
+  },
+  {
+    "name": "Down Voltage",
+    "icon": "circle-info",
+    "data": [
+      {
+        "name": "DCDC_IN_V",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 5,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "0",
+            "end": "0"
+          }
+        },
+        "scale": 0.1,
+        "unit": "V"
+      },
+      {
+        "name": "MC_V",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 5,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "1",
+            "end": "1"
+          }
+        },
+        "scale": 0.1,
+        "unit": "V"
+      },
+      {
+        "name": "REGEN_DCDC_OUT_V",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 5,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "2",
+            "end": "2"
+          }
+        },
+        "scale": 0.1,
+        "unit": "V"
+      },
+      {
+        "name": "ACCBAT_V",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 5,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "3",
+            "end": "3"
+          }
+        },
+        "scale": 0.1,
+        "unit": "V"
+      }
+    ]
+  },
+  {
+    "name": "Up Power",
+    "icon": "circle-info",
+    "data": [
+      {
+        "name": "FC_W",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 6,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "0",
+            "end": "0"
+          }
+        },
+        "scale": 2,
+        "unit": "W"
+      },
+      {
+        "name": "SC_W",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 6,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "1",
+            "end": "1"
+          }
+        },
+        "scale": 2,
+        "unit": "W"
+      },
+      {
+        "name": "DCDC_IN_W",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 6,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "2",
+            "end": "2"
+          }
+        },
+        "scale": 2,
+        "unit": "W"
+      },
+      {
+        "name": "MC_W",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 6,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "3",
+            "end": "3"
+          }
+        },
+        "scale": 2,
+        "unit": "W"
+      },
+      {
+        "name": "REGEN_DCDC_OUT_W",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 6,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "4",
+            "end": "4"
+          }
+        },
+        "scale": 2,
+        "unit": "W"
+      },
+      {
+        "name": "ACCBAT_W",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 6,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "5",
+            "end": "5"
+          }
+        },
+        "scale": 2,
+        "unit": "W"
+      }
+    ]
+  },
+  {
+    "name": "Down Power",
+    "icon": "circle-info",
+    "data": [
+      {
+        "name": "FC_W",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 7,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "0",
+            "end": "0"
+          }
+        },
+        "scale": 1,
+        "unit": "W"
+      },
+      {
+        "name": "SC_W",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 7,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "1",
+            "end": "1"
+          }
+        },
+        "scale": 1,
+        "unit": "W"
+      },
+      {
+        "name": "DCDC_IN_W",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 7,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "2",
+            "end": "2"
+          }
+        },
+        "scale": 1,
+        "unit": "W"
+      },
+      {
+        "name": "MC_W",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 7,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "3",
+            "end": "3"
+          }
+        },
+        "scale": 1,
+        "unit": "W"
+      },
+      {
+        "name": "REGEN_DCDC_OUT_W",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 7,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "4",
+            "end": "4"
+          }
+        },
+        "scale": 1,
+        "unit": "W"
+      },
+      {
+        "name": "ACCBAT_W",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 7,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "5",
+            "end": "5"
+          }
+        },
+        "scale": 1,
+        "unit": "W"
+      }
+    ]
+  },
+  {
+    "name": "Driving ECU",
+    "icon": "circle-info",
+    "data": [
+      {
+        "name": "목표 속도",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 1,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "0",
+            "end": "0"
+          }
+        },
+        "scale": 1,
+        "unit": "km/h"
+      },
+      {
+        "name": "현재 속도",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 1,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "1",
+            "end": "1"
+          }
+        },
+        "scale": 1,
+        "unit": "km/h"
+      },
+      {
+        "name": "핸들 좌우",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 1,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "2",
+            "end": "2"
+          }
+        },
+        "scale": 1,
+        "unit": "방향"
+      },
+      {
+        "name": "핸들 크기",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 1,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "3",
+            "end": "3"
+          }
+        },
+        "scale": 1,
+        "unit": "정도 꺽음"
+      },
+      {
+        "name": "위도",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 1,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "4",
+            "end": "4"
+          }
+        },
+        "scale": 1,
+        "unit": "위도"
+      },
+      {
+        "name": "경도",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 1,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "5",
+            "end": "5"
+          }
+        },
+        "scale": 1,
+        "unit": "경도"
+      }
+    ]
+  }
+]
