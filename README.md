@@ -16,7 +16,6 @@ PCB제작 : 고민제<br>
 - 웹 기반 데이터 시각화 및 분석 도구
 
 
-
 >**[가이드 문서](https://github.com/commanderk9826/KDL-distribution/wiki)**
 >
 >데이터로거 , 텔레메트리 모니터, 데이터 분석도구로 구성되어있습니다.
@@ -35,8 +34,7 @@ PCB제작 : 고민제<br>
 
 <br>각 기능에 대한 설명은 [KDL가이드](https://github.com/commanderk9826/KDL-distribution/wiki/KDL-가이드)를 참고합니다.
 
-<img src='https://www.commanderk.site/assets/readme/1-1.jpeg' style='width: 400px'>
-
+<img src='https://www.commanderk.site/assets/readme/1-1.jpeg' width="500" height="300" >
 
 ## 2. 텔레메트리 모니터
 
@@ -59,7 +57,7 @@ PCB제작 : 고민제<br>
 
 자세한 사용법은 [클라이언트 사용 가이드](https://github.com/commanderk9826/KDL-distribution/wiki/클라이언트-사용-가이드)를 참고합니다.
 
-<img src='https://www.commanderk.site/assets/readme/1-2.jpeg' style='width: 500px'>
+<img src='https://www.commanderk.site/assets/readme/1-2.jpeg' width="700" height="400" >
 
 ## 데이터분석도구
 
@@ -71,4 +69,4 @@ PCB제작 : 고민제<br>
 
 자세한 사용법은 [데이터 분석 도구 가이드](https://github.com/commanderk9826/KDL-distribution/wiki/데이터-분석-도구-가이드)를 참고합니다.
 
-<img src='https://www.commanderk.site/assets/readme/1-3.jpeg' style='width: 500px'>
+<img src='https://www.commanderk.site/assets/readme/1-3.jpeg' width="700" height="1200" >
