@@ -194,7 +194,58 @@
     "icon": "car-battery",
     "data": [
       {
-        "name": "HV PACK voltage",
+        "name": "HV PACK",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 21,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "0",
+            "end": "1"
+          }
+        },
+        "scale": 1,
+        "unit": "V"
+      },
+      {
+        "name": "SEG1 BMS STAT",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 16,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "6",
+            "end": "6"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "SEG2 BMS STAT",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 17,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "6",
+            "end": "6"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "SEG3 BMS STAT",
         "icon": "database",
         "display": "value",
         "type": "can",
@@ -203,46 +254,46 @@
           "type": "byte",
           "byte": {
             "endian": "big",
-            "start": "4",
-            "end": "5"
+            "start": "6",
+            "end": "6"
           }
         },
         "scale": 1,
-        "unit": "V"
+        "unit": ""
       },
       {
-        "name": "IC TEMP MAX",
+        "name": "SEG4 BMS STAT",
         "icon": "database",
         "display": "value",
         "type": "can",
         "source": {
-          "id": 21,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "4",
-            "end": "5"
-          }
-        },
-        "scale": 1,
-        "unit": "ºC"
-      },
-      {
-        "name": "IC TEMP MIN",
-        "icon": "database",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 21,
+          "id": 19,
           "type": "byte",
           "byte": {
             "endian": "big",
             "start": "6",
-            "end": "7"
+            "end": "6"
           }
         },
         "scale": 1,
-        "unit": "ºC"
+        "unit": ""
+      },
+      {
+        "name": "SEG5 BMS STAT",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 20,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "6",
+            "end": "6"
+          }
+        },
+        "scale": 1,
+        "unit": ""
       }
     ]
   },
@@ -251,7 +302,7 @@
     "icon": "car-battery",
     "data": [
       {
-        "name": "SEG_1 CELL MAX",
+        "name": "SEG1 CELL MAX",
         "icon": "database",
         "display": "value",
         "type": "can",
@@ -265,10 +316,10 @@
           }
         },
         "scale": 1,
-        "unit": "V"
+        "unit": ""
       },
       {
-        "name": "SEG_1 CELL MIN",
+        "name": "SEG1 CELL MIN",
         "icon": "database",
         "display": "value",
         "type": "can",
@@ -282,44 +333,10 @@
           }
         },
         "scale": 1,
-        "unit": "V"
+        "unit": ""
       },
       {
-        "name": "SEG_2 CELL MAX",
-        "icon": "database",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 16,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "4",
-            "end": "5"
-          }
-        },
-        "scale": 1,
-        "unit": "V"
-      },
-      {
-        "name": "SEG_2 CELL MIN",
-        "icon": "database",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 16,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "6",
-            "end": "7"
-          }
-        },
-        "scale": 1,
-        "unit": "V"
-      },
-      {
-        "name": "SEG_3 CELL MAX",
+        "name": "SEG2 CELL MAX",
         "icon": "database",
         "display": "value",
         "type": "can",
@@ -333,10 +350,10 @@
           }
         },
         "scale": 1,
-        "unit": "V"
+        "unit": ""
       },
       {
-        "name": "SEG_3 CELL MIN",
+        "name": "SEG2 CELL MIN",
         "icon": "database",
         "display": "value",
         "type": "can",
@@ -350,44 +367,10 @@
           }
         },
         "scale": 1,
-        "unit": "V"
+        "unit": ""
       },
       {
-        "name": "SEG_4 CELL MAX",
-        "icon": "database",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 17,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "4",
-            "end": "5"
-          }
-        },
-        "scale": 1,
-        "unit": "V"
-      },
-      {
-        "name": "SEG_4 CELL MIN",
-        "icon": "database",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 17,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "6",
-            "end": "7"
-          }
-        },
-        "scale": 1,
-        "unit": "V"
-      },
-      {
-        "name": "SEG_5 CELL MAX",
+        "name": "SEG3 CELL MAX",
         "icon": "database",
         "display": "value",
         "type": "can",
@@ -401,10 +384,10 @@
           }
         },
         "scale": 1,
-        "unit": "V"
+        "unit": ""
       },
       {
-        "name": "SEG_5 CELL MIN",
+        "name": "SEG3 CELL MIN",
         "icon": "database",
         "display": "value",
         "type": "can",
@@ -418,7 +401,75 @@
           }
         },
         "scale": 1,
-        "unit": "V"
+        "unit": ""
+      },
+      {
+        "name": "SEG4 CELL MAX",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 19,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "0",
+            "end": "1"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "SEG4 CELL MIN",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 19,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "2",
+            "end": "3"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "SEG5 CELL MAX",
+        "icon": "database",
+        "display": "graph",
+        "type": "can",
+        "source": {
+          "id": 20,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "0",
+            "end": "1"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "SEG5 CELL MIN",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 20,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "2",
+            "end": "3"
+          }
+        },
+        "scale": 1,
+        "unit": ""
       }
     ]
   },
@@ -427,41 +478,109 @@
     "icon": "car-battery",
     "data": [
       {
-        "name": "SEG_1 TEMP MAX",
+        "name": "SEG1_TEMP MAX",
         "icon": "database",
         "display": "value",
         "type": "can",
         "source": {
-          "id": 19,
+          "id": 16,
           "type": "byte",
           "byte": {
             "endian": "big",
-            "start": "0",
-            "end": "1"
+            "start": "4",
+            "end": "4"
           }
         },
         "scale": 1,
         "unit": "ºC"
       },
       {
-        "name": "SEG_1 TEMP MIN",
+        "name": "SEG1_TEMP MIN",
         "icon": "database",
         "display": "value",
         "type": "can",
         "source": {
-          "id": 19,
+          "id": 16,
           "type": "byte",
           "byte": {
             "endian": "big",
-            "start": "2",
-            "end": "3"
+            "start": "5",
+            "end": "5"
           }
         },
         "scale": 1,
         "unit": "ºC"
       },
       {
-        "name": "SEG_2 TEMP MAX",
+        "name": "SEG2_TEMP MAX",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 17,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "4",
+            "end": "4"
+          }
+        },
+        "scale": 1,
+        "unit": "ºC"
+      },
+      {
+        "name": "SEG2_TEMP MIN",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 17,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "5",
+            "end": "5"
+          }
+        },
+        "scale": 1,
+        "unit": "ºC"
+      },
+      {
+        "name": "SEG3_TEMP MAX",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 18,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "4",
+            "end": "4"
+          }
+        },
+        "scale": 1,
+        "unit": "ºC"
+      },
+      {
+        "name": "SEG3_TEMP MIN",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 18,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "5",
+            "end": "5"
+          }
+        },
+        "scale": 1,
+        "unit": "ºC"
+      },
+      {
+        "name": "SEG4_TEMP MAX",
         "icon": "database",
         "display": "value",
         "type": "can",
@@ -471,14 +590,14 @@
           "byte": {
             "endian": "big",
             "start": "4",
-            "end": "5"
+            "end": "4"
           }
         },
         "scale": 1,
         "unit": "ºC"
       },
       {
-        "name": "SEG_2 TEMP MIN",
+        "name": "SEG4_TEMP MIN",
         "icon": "database",
         "display": "value",
         "type": "can",
@@ -487,49 +606,15 @@
           "type": "byte",
           "byte": {
             "endian": "big",
-            "start": "6",
-            "end": "7"
+            "start": "5",
+            "end": "5"
           }
         },
         "scale": 1,
         "unit": "ºC"
       },
       {
-        "name": "SEG_3 TEMP MAX",
-        "icon": "database",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 20,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "0",
-            "end": "1"
-          }
-        },
-        "scale": 1,
-        "unit": "ºC"
-      },
-      {
-        "name": "SEG_3 TEMP MIN",
-        "icon": "database",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 20,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "2",
-            "end": "3"
-          }
-        },
-        "scale": 1,
-        "unit": "ºC"
-      },
-      {
-        "name": "SEG_4 TEMP MAX",
+        "name": "SEG5_TEMP MAX",
         "icon": "database",
         "display": "value",
         "type": "can",
@@ -539,14 +624,14 @@
           "byte": {
             "endian": "big",
             "start": "4",
-            "end": "5"
+            "end": "4"
           }
         },
         "scale": 1,
         "unit": "ºC"
       },
       {
-        "name": "SEG_4 TEMP MIN",
+        "name": "SEG5_TEMP MIN",
         "icon": "database",
         "display": "value",
         "type": "can",
@@ -555,42 +640,8 @@
           "type": "byte",
           "byte": {
             "endian": "big",
-            "start": "6",
-            "end": "7"
-          }
-        },
-        "scale": 1,
-        "unit": "ºC"
-      },
-      {
-        "name": "SEG_5 TEMP MAX",
-        "icon": "database",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 21,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "0",
-            "end": "1"
-          }
-        },
-        "scale": 1,
-        "unit": "ºC"
-      },
-      {
-        "name": "SEG_5 TEMP MIN",
-        "icon": "database",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 21,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "2",
-            "end": "3"
+            "start": "5",
+            "end": "5"
           }
         },
         "scale": 1,
@@ -890,6 +941,23 @@
         },
         "scale": 1,
         "unit": "ms"
+      },
+      {
+        "name": "AccumulatedCharge_Ti",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 83,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "4",
+            "end": "7"
+          }
+        },
+        "scale": 1,
+        "unit": ""
       }
     ]
   },
@@ -1757,7 +1825,7 @@
           "id": 172,
           "type": "byte",
           "byte": {
-            "endian": "big",
+            "endian": "little",
             "start": "4",
             "end": "7"
           }
@@ -1774,7 +1842,7 @@
           "id": 173,
           "type": "byte",
           "byte": {
-            "endian": "big",
+            "endian": "little",
             "start": "0",
             "end": "1"
           }
@@ -1883,6 +1951,182 @@
         },
         "scale": 1,
         "unit": "km/h"
+      }
+    ]
+  },
+  {
+    "name": "JCU(에어로)",
+    "icon": "toggle-on",
+    "data": [
+      {
+        "name": "TSAL",
+        "icon": "toggle-on",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 32,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "0",
+            "end": "0"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "AIR1_SIG(반전)",
+        "icon": "toggle-on",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 32,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "1",
+            "end": "1"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "AIR2_SIG(반전)",
+        "icon": "toggle-on",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 32,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "2",
+            "end": "2"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "AIR_REL_PWR",
+        "icon": "toggle-on",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 32,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "3",
+            "end": "3"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "PRE_REL_PWR",
+        "icon": "toggle-on",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 32,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "4",
+            "end": "4"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "SDC",
+        "icon": "toggle-on",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 32,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "5",
+            "end": "5"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "PRE_REL_HV_V",
+        "icon": "toggle-on",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 32,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "7",
+            "end": "7"
+          }
+        },
+        "scale": 0.001,
+        "unit": "mV"
+      },
+      {
+        "name": "PRE_REL_HV_V",
+        "icon": "toggle-on",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 33,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "0",
+            "end": "1"
+          }
+        },
+        "scale": 0.001,
+        "unit": "mV"
+      },
+      {
+        "name": "PRE_REL_MC_V",
+        "icon": "toggle-on",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 33,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "2",
+            "end": "4"
+          }
+        },
+        "scale": 0.001,
+        "unit": "mV"
+      },
+      {
+        "name": "DIS_REL_MC_V",
+        "icon": "toggle-on",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 33,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "5",
+            "end": "7"
+          }
+        },
+        "scale": 0.001,
+        "unit": "mV"
       }
     ]
   }

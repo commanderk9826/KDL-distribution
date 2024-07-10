@@ -34,7 +34,7 @@ PCB제작 : 고민제<br>
 
 <br>각 기능에 대한 설명은 [KDL가이드](https://github.com/commanderk9826/KDL-distribution/wiki/KDL-가이드)를 참고합니다.
 
-<img src='https://www.commanderk.site/assets/readme/1-1.jpeg' width="475px" height="300px">
+<img src='https://www.commanderk.site/assets/readme/1-1.jpeg' width="450px" height="250px">
 
 ## 2. 텔레메트리 모니터
 
