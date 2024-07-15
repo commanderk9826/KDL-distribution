@@ -1,6 +1,6 @@
 [
   {
-    "name": "KDL State",
+    "name": "KDL State, GYRO",
     "icon": "clipboard-user",
     "data": [
       {
@@ -20,13 +20,7 @@
         "source": "ANALOG / INPUT_VOLTAGE",
         "scale": 1,
         "unit": "V"
-      }
-    ]
-  },
-  {
-    "name": "GYRO",
-    "icon": "compass",
-    "data": [
+      },
       {
         "name": "X-plane",
         "icon": "x",
@@ -55,7 +49,7 @@
         "unit": "g"
       },
       {
-        "name": "SYS_Gyro_ID",
+        "name": "SYS Gyro ID",
         "icon": "database",
         "display": "value",
         "type": "can",
@@ -72,7 +66,7 @@
         "unit": ""
       },
       {
-        "name": "SYS_GYRO_X-plane",
+        "name": "SYS GYRO X-plane",
         "icon": "x",
         "display": "value",
         "type": "can",
@@ -89,7 +83,7 @@
         "unit": "g"
       },
       {
-        "name": "SYS_GYRO_Y-plane",
+        "name": "SYS GYRO Y-plane",
         "icon": "y",
         "display": "value",
         "type": "can",
@@ -106,7 +100,7 @@
         "unit": "g"
       },
       {
-        "name": "SYS_GYRO_Z-plane",
+        "name": "SYS GYRO Z-plane",
         "icon": "z",
         "display": "value",
         "type": "can",
@@ -125,7 +119,7 @@
     ]
   },
   {
-    "name": "GPS",
+    "name": "GPS(현재x)",
     "icon": "map",
     "data": [
       {
@@ -166,7 +160,7 @@
       },
       {
         "name": "GPS 날짜(mm-dd-yy)",
-        "icon": "calendar",
+        "icon": "calendar-days",
         "display": "value",
         "type": "standard",
         "source": "GPS / utc_date",
@@ -175,7 +169,7 @@
       },
       {
         "name": "GPS 시간",
-        "icon": "database",
+        "icon": "stopwatch",
         "display": "value",
         "type": "standard",
         "source": "GPS / utc_time",
@@ -190,12 +184,12 @@
     ]
   },
   {
-    "name": "HV BMS",
+    "name": "HV BMS(State, V)",
     "icon": "car-battery",
     "data": [
       {
-        "name": "HV PACK",
-        "icon": "database",
+        "name": "HV PACK(현재 x)",
+        "icon": "toggle-on",
         "display": "value",
         "type": "can",
         "source": {
@@ -208,11 +202,11 @@
           }
         },
         "scale": 1,
-        "unit": "V"
+        "unit": ""
       },
       {
         "name": "SEG1 BMS STAT",
-        "icon": "database",
+        "icon": "toggle-on",
         "display": "value",
         "type": "can",
         "source": {
@@ -229,7 +223,7 @@
       },
       {
         "name": "SEG2 BMS STAT",
-        "icon": "database",
+        "icon": "toggle-on",
         "display": "value",
         "type": "can",
         "source": {
@@ -246,7 +240,7 @@
       },
       {
         "name": "SEG3 BMS STAT",
-        "icon": "database",
+        "icon": "toggle-on",
         "display": "value",
         "type": "can",
         "source": {
@@ -263,7 +257,7 @@
       },
       {
         "name": "SEG4 BMS STAT",
-        "icon": "database",
+        "icon": "toggle-on",
         "display": "value",
         "type": "can",
         "source": {
@@ -280,7 +274,7 @@
       },
       {
         "name": "SEG5 BMS STAT",
-        "icon": "database",
+        "icon": "toggle-on",
         "display": "value",
         "type": "can",
         "source": {
@@ -294,6 +288,91 @@
         },
         "scale": 1,
         "unit": ""
+      },
+      {
+        "name": "SEG1 Voltage",
+        "icon": "battery-half",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 16,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "7",
+            "end": "7"
+          }
+        },
+        "scale": 1,
+        "unit": "V"
+      },
+      {
+        "name": "SEG2 Voltage",
+        "icon": "battery-half",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 17,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "7",
+            "end": "7"
+          }
+        },
+        "scale": 1,
+        "unit": "V"
+      },
+      {
+        "name": "SEG3 Voltage",
+        "icon": "battery-half",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 18,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "7",
+            "end": "7"
+          }
+        },
+        "scale": 1,
+        "unit": "V"
+      },
+      {
+        "name": "SEG4 Voltage",
+        "icon": "battery-half",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 19,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "7",
+            "end": "7"
+          }
+        },
+        "scale": 1,
+        "unit": "V"
+      },
+      {
+        "name": "SEG5 Voltage",
+        "icon": "battery-half",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 20,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "7",
+            "end": "7"
+          }
+        },
+        "scale": 1,
+        "unit": "V"
       }
     ]
   },
@@ -303,7 +382,7 @@
     "data": [
       {
         "name": "SEG1 CELL MAX",
-        "icon": "database",
+        "icon": "battery-three-quarters",
         "display": "value",
         "type": "can",
         "source": {
@@ -316,11 +395,11 @@
           }
         },
         "scale": 0.01,
-        "unit": ""
+        "unit": "V"
       },
       {
         "name": "SEG1 CELL MIN",
-        "icon": "database",
+        "icon": "battery-empty",
         "display": "value",
         "type": "can",
         "source": {
@@ -333,11 +412,11 @@
           }
         },
         "scale": 0.01,
-        "unit": ""
+        "unit": "V"
       },
       {
         "name": "SEG2 CELL MAX",
-        "icon": "database",
+        "icon": "battery-three-quarters",
         "display": "value",
         "type": "can",
         "source": {
@@ -350,11 +429,11 @@
           }
         },
         "scale": 0.01,
-        "unit": ""
+        "unit": "V"
       },
       {
         "name": "SEG2 CELL MIN",
-        "icon": "database",
+        "icon": "battery-empty",
         "display": "value",
         "type": "can",
         "source": {
@@ -367,11 +446,11 @@
           }
         },
         "scale": 0.01,
-        "unit": ""
+        "unit": "V"
       },
       {
         "name": "SEG3 CELL MAX",
-        "icon": "database",
+        "icon": "battery-three-quarters",
         "display": "value",
         "type": "can",
         "source": {
@@ -384,11 +463,11 @@
           }
         },
         "scale": 0.01,
-        "unit": ""
+        "unit": "V"
       },
       {
         "name": "SEG3 CELL MIN",
-        "icon": "database",
+        "icon": "battery-empty",
         "display": "value",
         "type": "can",
         "source": {
@@ -401,11 +480,11 @@
           }
         },
         "scale": 0.01,
-        "unit": ""
+        "unit": "V"
       },
       {
         "name": "SEG4 CELL MAX",
-        "icon": "database",
+        "icon": "battery-three-quarters",
         "display": "value",
         "type": "can",
         "source": {
@@ -418,11 +497,11 @@
           }
         },
         "scale": 0.01,
-        "unit": ""
+        "unit": "V"
       },
       {
         "name": "SEG4 CELL MIN",
-        "icon": "database",
+        "icon": "battery-empty",
         "display": "value",
         "type": "can",
         "source": {
@@ -435,12 +514,12 @@
           }
         },
         "scale": 0.01,
-        "unit": ""
+        "unit": "V"
       },
       {
         "name": "SEG5 CELL MAX",
-        "icon": "database",
-        "display": "graph",
+        "icon": "battery-three-quarters",
+        "display": "value",
         "type": "can",
         "source": {
           "id": 20,
@@ -452,11 +531,11 @@
           }
         },
         "scale": 0.01,
-        "unit": ""
+        "unit": "V"
       },
       {
         "name": "SEG5 CELL MIN",
-        "icon": "database",
+        "icon": "battery-empty",
         "display": "value",
         "type": "can",
         "source": {
@@ -469,7 +548,7 @@
           }
         },
         "scale": 0.01,
-        "unit": ""
+        "unit": "V"
       }
     ]
   },
@@ -478,8 +557,8 @@
     "icon": "car-battery",
     "data": [
       {
-        "name": "SEG1_TEMP MAX",
-        "icon": "database",
+        "name": "SEG1 TEMP MAX",
+        "icon": "temperature-arrow-up",
         "display": "value",
         "type": "can",
         "source": {
@@ -495,8 +574,8 @@
         "unit": "ºC"
       },
       {
-        "name": "SEG1_TEMP MIN",
-        "icon": "database",
+        "name": "SEG1 TEMP MIN",
+        "icon": "temperature-arrow-down",
         "display": "value",
         "type": "can",
         "source": {
@@ -512,8 +591,8 @@
         "unit": "ºC"
       },
       {
-        "name": "SEG2_TEMP MAX",
-        "icon": "database",
+        "name": "SEG2 TEMP MAX",
+        "icon": "temperature-arrow-up",
         "display": "value",
         "type": "can",
         "source": {
@@ -529,8 +608,8 @@
         "unit": "ºC"
       },
       {
-        "name": "SEG2_TEMP MIN",
-        "icon": "database",
+        "name": "SEG2 TEMP MIN",
+        "icon": "temperature-arrow-down",
         "display": "value",
         "type": "can",
         "source": {
@@ -546,8 +625,8 @@
         "unit": "ºC"
       },
       {
-        "name": "SEG3_TEMP MAX",
-        "icon": "database",
+        "name": "SEG3 TEMP MAX",
+        "icon": "temperature-arrow-up",
         "display": "value",
         "type": "can",
         "source": {
@@ -563,8 +642,8 @@
         "unit": "ºC"
       },
       {
-        "name": "SEG3_TEMP MIN",
-        "icon": "database",
+        "name": "SEG3 TEMP MIN",
+        "icon": "temperature-arrow-down",
         "display": "value",
         "type": "can",
         "source": {
@@ -580,8 +659,8 @@
         "unit": "ºC"
       },
       {
-        "name": "SEG4_TEMP MAX",
-        "icon": "database",
+        "name": "SEG4 TEMP MAX",
+        "icon": "temperature-arrow-up",
         "display": "value",
         "type": "can",
         "source": {
@@ -597,8 +676,8 @@
         "unit": "ºC"
       },
       {
-        "name": "SEG4_TEMP MIN",
-        "icon": "database",
+        "name": "SEG4 TEMP MIN",
+        "icon": "temperature-arrow-down",
         "display": "value",
         "type": "can",
         "source": {
@@ -614,8 +693,8 @@
         "unit": "ºC"
       },
       {
-        "name": "SEG5_TEMP MAX",
-        "icon": "database",
+        "name": "SEG5 TEMP MAX",
+        "icon": "temperature-arrow-up",
         "display": "value",
         "type": "can",
         "source": {
@@ -631,8 +710,8 @@
         "unit": "ºC"
       },
       {
-        "name": "SEG5_TEMP MIN",
-        "icon": "database",
+        "name": "SEG5 TEMP MIN",
+        "icon": "temperature-arrow-down",
         "display": "value",
         "type": "can",
         "source": {
@@ -650,8 +729,865 @@
     ]
   },
   {
-    "name": "LV BMS",
-    "icon": "battery-half",
+    "name": "SCU",
+    "icon": "sitemap",
+    "data": [
+      {
+        "name": "FR Linear",
+        "icon": "circle-info",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 96,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "0",
+            "end": "1"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "FL Linear",
+        "icon": "circle-info",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 96,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "2",
+            "end": "3"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "RR Linear",
+        "icon": "circle-info",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 96,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "4",
+            "end": "5"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "RL Linear",
+        "icon": "circle-info",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 96,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "6",
+            "end": "7"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "FR WheelSpeed",
+        "icon": "circle-info",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 97,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "0",
+            "end": "1"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "FL WheelSpeed",
+        "icon": "circle-info",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 97,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "2",
+            "end": "3"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "RR WheelSpeed",
+        "icon": "circle-info",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 97,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "4",
+            "end": "5"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "RL WheelSpeed",
+        "icon": "circle-info",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 97,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "6",
+            "end": "7"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "Steer Linear",
+        "icon": "circle-info",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 98,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "0",
+            "end": "1"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "Break Pressure(현재 x)",
+        "icon": "circle-info",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 98,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "2",
+            "end": "3"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      }
+    ]
+  },
+  {
+    "name": "PM100DX(°C, A, V)",
+    "icon": "truck-monster",
+    "data": [
+      {
+        "name": "Module A Temp",
+        "icon": "temperature-three-quarters",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 160,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "0",
+            "end": "1"
+          }
+        },
+        "scale": 0.1,
+        "unit": "°C"
+      },
+      {
+        "name": "Module B Temp",
+        "icon": "temperature-three-quarters",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 160,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "2",
+            "end": "3"
+          }
+        },
+        "scale": 0.1,
+        "unit": "°C"
+      },
+      {
+        "name": "Module C Temp",
+        "icon": "temperature-three-quarters",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 160,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "4",
+            "end": "5"
+          }
+        },
+        "scale": 0.1,
+        "unit": "°C"
+      },
+      {
+        "name": "Gate Driver Board Temp",
+        "icon": "temperature-three-quarters",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 160,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "6",
+            "end": "7"
+          }
+        },
+        "scale": 0.1,
+        "unit": "°C"
+      },
+      {
+        "name": "Control Board Temp",
+        "icon": "temperature-three-quarters",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 161,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "0",
+            "end": "1"
+          }
+        },
+        "scale": 0.1,
+        "unit": "°C"
+      },
+      {
+        "name": "Motor Temp",
+        "icon": "temperature-three-quarters",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 162,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "4",
+            "end": "5"
+          }
+        },
+        "scale": 0.1,
+        "unit": "°C"
+      },
+      {
+        "name": "Phase A Current",
+        "icon": "plug",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 166,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "0",
+            "end": "1"
+          }
+        },
+        "scale": 1,
+        "unit": "A"
+      },
+      {
+        "name": "Phase B Current",
+        "icon": "plug",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 166,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "2",
+            "end": "3"
+          }
+        },
+        "scale": 1,
+        "unit": "A"
+      },
+      {
+        "name": "Phase C Current",
+        "icon": "plug",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 166,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "4",
+            "end": "5"
+          }
+        },
+        "scale": 1,
+        "unit": "A"
+      },
+      {
+        "name": "Output Voltage",
+        "icon": "v",
+        "display": "graph",
+        "type": "can",
+        "source": {
+          "id": 167,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "2",
+            "end": "3"
+          }
+        },
+        "scale": 1,
+        "unit": "V"
+      },
+      {
+        "name": "DC Bus Current",
+        "icon": "a",
+        "display": "graph",
+        "type": "can",
+        "source": {
+          "id": 166,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "6",
+            "end": "7"
+          }
+        },
+        "scale": 1,
+        "unit": "A"
+      },
+      {
+        "name": "DC Bus Voltage",
+        "icon": "v",
+        "display": "graph",
+        "type": "can",
+        "source": {
+          "id": 167,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "0",
+            "end": "1"
+          }
+        },
+        "scale": 0.1,
+        "unit": "V"
+      }
+    ]
+  },
+  {
+    "name": "PM100DX_Info",
+    "icon": "truck-monster",
+    "data": [
+      {
+        "name": "Motor Speed 1",
+        "icon": "dharmachakra",
+        "display": "graph",
+        "type": "can",
+        "source": {
+          "id": 165,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "2",
+            "end": "3"
+          }
+        },
+        "scale": 1,
+        "unit": "rpm"
+      },
+      {
+        "name": "Command Torque",
+        "icon": "circle-info",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 172,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "0",
+            "end": "1"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "Feedback Torque",
+        "icon": "circle-info",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 172,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "2",
+            "end": "3"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "Id Feedback",
+        "icon": "circle-info",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 168,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "4",
+            "end": "5"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "Id Command",
+        "icon": "circle-info",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 173,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "4",
+            "end": "5"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "Iq Feedback",
+        "icon": "circle-info",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 168,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "6",
+            "end": "7"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "Iq Command",
+        "icon": "circle-info",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 173,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "6",
+            "end": "7"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "Power on Timer",
+        "icon": "hourglass-start",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 172,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "4",
+            "end": "7"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "VSM State",
+        "icon": "toggle-on",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 170,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "0",
+            "end": "0"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "Inverter State",
+        "icon": "toggle-on",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 170,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "2",
+            "end": "2"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "Relay State",
+        "icon": "toggle-on",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 170,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "3",
+            "end": "3"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "Post Fault Lo",
+        "icon": "circle-info",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 171,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "0",
+            "end": "1"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "Post Fault Hi",
+        "icon": "circle-info",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 171,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "2",
+            "end": "3"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "Run Fault Lo",
+        "icon": "circle-info",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 171,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "4",
+            "end": "5"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "Run Fault Hi",
+        "icon": "circle-info",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 171,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "6",
+            "end": "7"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "Modulation Index",
+        "icon": "circle-info",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 173,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "0",
+            "end": "1"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "Flux Weakening Output",
+        "icon": "circle-info",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 173,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "2",
+            "end": "3"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      }
+    ]
+  },
+  {
+    "name": "JCU(현재 x)",
+    "icon": "toggle-on",
+    "data": [
+      {
+        "name": "TSAL",
+        "icon": "toggle-on",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 32,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "0",
+            "end": "0"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "AIR1 SIG(반전)",
+        "icon": "toggle-on",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 32,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "1",
+            "end": "1"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "AIR2 SIG(반전)",
+        "icon": "toggle-on",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 32,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "2",
+            "end": "2"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "AIR REL PWR",
+        "icon": "toggle-on",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 32,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "3",
+            "end": "3"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "PRE REL PWR",
+        "icon": "toggle-on",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 32,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "4",
+            "end": "4"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "SDC",
+        "icon": "toggle-on",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 32,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "5",
+            "end": "5"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "PRE REL HV V",
+        "icon": "v",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 32,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "7",
+            "end": "7"
+          }
+        },
+        "scale": 0.001,
+        "unit": "mV"
+      },
+      {
+        "name": "PRE REL HV V",
+        "icon": "v",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 33,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "0",
+            "end": "1"
+          }
+        },
+        "scale": 0.001,
+        "unit": "mV"
+      },
+      {
+        "name": "PRE REL MC V",
+        "icon": "v",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 33,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "2",
+            "end": "4"
+          }
+        },
+        "scale": 0.001,
+        "unit": "mV"
+      },
+      {
+        "name": "DIS REL MC V",
+        "icon": "v",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 33,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "5",
+            "end": "7"
+          }
+        },
+        "scale": 0.001,
+        "unit": "mV"
+      }
+    ]
+  },
+  {
+    "name": "LV BMS(현재x)",
+    "icon": "battery-full",
     "data": [
       {
         "name": "Max Cell Voltage",
@@ -736,11 +1672,11 @@
           }
         },
         "scale": 1,
-        "unit": "V"
+        "unit": "A"
       },
       {
         "name": "CELL temperature",
-        "icon": "temperature-low",
+        "icon": "temperature-three-quarters",
         "display": "value",
         "type": "can",
         "source": {
@@ -757,7 +1693,7 @@
       },
       {
         "name": "FET temperature",
-        "icon": "temperature-low",
+        "icon": "temperature-three-quarters",
         "display": "value",
         "type": "can",
         "source": {
@@ -773,8 +1709,8 @@
         "unit": "ºC"
       },
       {
-        "name": "CB_ActiveCells",
-        "icon": "circle-info",
+        "name": "CB ActiveCells",
+        "icon": "toggle-on",
         "display": "value",
         "type": "can",
         "source": {
@@ -791,7 +1727,7 @@
       },
       {
         "name": "SafeyStatus A",
-        "icon": "circle-info",
+        "icon": "toggle-on",
         "display": "value",
         "type": "can",
         "source": {
@@ -808,7 +1744,7 @@
       },
       {
         "name": "SafeyStatus B",
-        "icon": "circle-info",
+        "icon": "toggle-on",
         "display": "value",
         "type": "can",
         "source": {
@@ -825,7 +1761,7 @@
       },
       {
         "name": "SafeyStatus C",
-        "icon": "circle-info",
+        "icon": "toggle-on",
         "display": "value",
         "type": "can",
         "source": {
@@ -842,7 +1778,7 @@
       },
       {
         "name": "PFStatus A",
-        "icon": "circle-info",
+        "icon": "toggle-on",
         "display": "value",
         "type": "can",
         "source": {
@@ -859,7 +1795,7 @@
       },
       {
         "name": "PFStatus B",
-        "icon": "circle-info",
+        "icon": "toggle-on",
         "display": "value",
         "type": "can",
         "source": {
@@ -876,7 +1812,7 @@
       },
       {
         "name": "PFStatus C",
-        "icon": "circle-info",
+        "icon": "toggle-on",
         "display": "value",
         "type": "can",
         "source": {
@@ -910,7 +1846,7 @@
       },
       {
         "name": "FET_Status",
-        "icon": "circle-info",
+        "icon": "toggle-on",
         "display": "value",
         "type": "can",
         "source": {
@@ -926,7 +1862,7 @@
         "unit": ""
       },
       {
-        "name": "Charged_Time",
+        "name": "Charged Time",
         "icon": "hourglass-start",
         "display": "value",
         "type": "can",
@@ -943,8 +1879,8 @@
         "unit": "ms"
       },
       {
-        "name": "AccumulatedCharge_Ti",
-        "icon": "database",
+        "name": "A Charged Time",
+        "icon": "hourglass-end",
         "display": "value",
         "type": "can",
         "source": {
@@ -957,17 +1893,17 @@
           }
         },
         "scale": 1,
-        "unit": ""
+        "unit": "ms"
       }
     ]
   },
   {
-    "name": "LV CHARGER",
+    "name": "LV CHARGER(현재 x)",
     "icon": "battery-full",
     "data": [
       {
-        "name": "STAT_1",
-        "icon": "database",
+        "name": "STAT 1",
+        "icon": "toggle-on",
         "display": "value",
         "type": "can",
         "source": {
@@ -983,8 +1919,8 @@
         "unit": ""
       },
       {
-        "name": "STAT_2",
-        "icon": "database",
+        "name": "STAT 2",
+        "icon": "toggle-on",
         "display": "value",
         "type": "can",
         "source": {
@@ -1000,8 +1936,8 @@
         "unit": ""
       },
       {
-        "name": "STAT_3",
-        "icon": "database",
+        "name": "STAT 3",
+        "icon": "toggle-on",
         "display": "value",
         "type": "can",
         "source": {
@@ -1017,8 +1953,8 @@
         "unit": ""
       },
       {
-        "name": "Fault_STAT",
-        "icon": "database",
+        "name": "Fault STAT",
+        "icon": "toggle-on",
         "display": "value",
         "type": "can",
         "source": {
@@ -1034,8 +1970,8 @@
         "unit": ""
       },
       {
-        "name": "IAC_ADC",
-        "icon": "a",
+        "name": "IAC ADC",
+        "icon": "plug",
         "display": "value",
         "type": "can",
         "source": {
@@ -1051,8 +1987,8 @@
         "unit": "A"
       },
       {
-        "name": "IBAT_ADC",
-        "icon": "a",
+        "name": "IBAT ADC",
+        "icon": "plug",
         "display": "value",
         "type": "can",
         "source": {
@@ -1068,8 +2004,8 @@
         "unit": "A"
       },
       {
-        "name": "VAC_ADC",
-        "icon": "v",
+        "name": "VAC ADC",
+        "icon": "battery-half",
         "display": "value",
         "type": "can",
         "source": {
@@ -1085,8 +2021,8 @@
         "unit": "V"
       },
       {
-        "name": "VFB_ADC",
-        "icon": "v",
+        "name": "VFB ADC",
+        "icon": "battery-half",
         "display": "value",
         "type": "can",
         "source": {
@@ -1100,1073 +2036,6 @@
         },
         "scale": 1,
         "unit": "V"
-      }
-    ]
-  },
-  {
-    "name": "SCU",
-    "icon": "magnifying-glass-chart",
-    "data": [
-      {
-        "name": "FR_Linear",
-        "icon": "circle-info",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 96,
-          "type": "byte",
-          "byte": {
-            "endian": "little",
-            "start": "0",
-            "end": "1"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "FL_Linear",
-        "icon": "circle-info",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 96,
-          "type": "byte",
-          "byte": {
-            "endian": "little",
-            "start": "2",
-            "end": "3"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "RR_Linear",
-        "icon": "circle-info",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 96,
-          "type": "byte",
-          "byte": {
-            "endian": "little",
-            "start": "4",
-            "end": "5"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "RL_Linear",
-        "icon": "circle-info",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 96,
-          "type": "byte",
-          "byte": {
-            "endian": "little",
-            "start": "6",
-            "end": "7"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "FR_WheelSpeed",
-        "icon": "circle-info",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 97,
-          "type": "byte",
-          "byte": {
-            "endian": "little",
-            "start": "0",
-            "end": "1"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "FL_WheelSpeed",
-        "icon": "circle-info",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 97,
-          "type": "byte",
-          "byte": {
-            "endian": "little",
-            "start": "2",
-            "end": "3"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "RR_WheelSpeed",
-        "icon": "circle-info",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 97,
-          "type": "byte",
-          "byte": {
-            "endian": "little",
-            "start": "4",
-            "end": "5"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "RL_WheelSpeed",
-        "icon": "circle-info",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 97,
-          "type": "byte",
-          "byte": {
-            "endian": "little",
-            "start": "6",
-            "end": "7"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "Steer_Linear",
-        "icon": "circle-info",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 98,
-          "type": "byte",
-          "byte": {
-            "endian": "little",
-            "start": "0",
-            "end": "1"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "Break_Pressure",
-        "icon": "circle-info",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 98,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "2",
-            "end": "3"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      }
-    ]
-  },
-  {
-    "name": "PM100DX(°C, A, V)",
-    "icon": "truck-monster",
-    "data": [
-      {
-        "name": "Module A Temperature",
-        "icon": "temperature-full",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 160,
-          "type": "byte",
-          "byte": {
-            "endian": "little",
-            "start": "0",
-            "end": "1"
-          }
-        },
-        "scale": 1,
-        "unit": "°C"
-      },
-      {
-        "name": "Module B Temperature",
-        "icon": "temperature-full",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 160,
-          "type": "byte",
-          "byte": {
-            "endian": "little",
-            "start": "2",
-            "end": "3"
-          }
-        },
-        "scale": 1,
-        "unit": "°C"
-      },
-      {
-        "name": "Module C Temperature",
-        "icon": "temperature-full",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 160,
-          "type": "byte",
-          "byte": {
-            "endian": "little",
-            "start": "4",
-            "end": "5"
-          }
-        },
-        "scale": 1,
-        "unit": "°C"
-      },
-      {
-        "name": "Gate Driver Board Temp.",
-        "icon": "temperature-full",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 160,
-          "type": "byte",
-          "byte": {
-            "endian": "little",
-            "start": "6",
-            "end": "7"
-          }
-        },
-        "scale": 1,
-        "unit": "°C"
-      },
-      {
-        "name": "Control Board Temp.",
-        "icon": "temperature-full",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 161,
-          "type": "byte",
-          "byte": {
-            "endian": "little",
-            "start": "0",
-            "end": "1"
-          }
-        },
-        "scale": 1,
-        "unit": "°C"
-      },
-      {
-        "name": "RTD #1 Temp.",
-        "icon": "temperature-full",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 161,
-          "type": "byte",
-          "byte": {
-            "endian": "little",
-            "start": "2",
-            "end": "3"
-          }
-        },
-        "scale": 1,
-        "unit": "°C"
-      },
-      {
-        "name": "RTD #2 Temp.",
-        "icon": "temperature-full",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 161,
-          "type": "byte",
-          "byte": {
-            "endian": "little",
-            "start": "4",
-            "end": "5"
-          }
-        },
-        "scale": 1,
-        "unit": "°C"
-      },
-      {
-        "name": "RTD #3 Temp.",
-        "icon": "temperature-full",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 161,
-          "type": "byte",
-          "byte": {
-            "endian": "little",
-            "start": "6",
-            "end": "7"
-          }
-        },
-        "scale": 1,
-        "unit": "°C"
-      },
-      {
-        "name": "Motor Temp",
-        "icon": "temperature-full",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 162,
-          "type": "byte",
-          "byte": {
-            "endian": "little",
-            "start": "4",
-            "end": "5"
-          }
-        },
-        "scale": 1,
-        "unit": "°C"
-      },
-      {
-        "name": "Phase A Current",
-        "icon": "a",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 166,
-          "type": "byte",
-          "byte": {
-            "endian": "little",
-            "start": "0",
-            "end": "1"
-          }
-        },
-        "scale": 1,
-        "unit": "A"
-      },
-      {
-        "name": "Phase B Current",
-        "icon": "a",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 166,
-          "type": "byte",
-          "byte": {
-            "endian": "little",
-            "start": "2",
-            "end": "3"
-          }
-        },
-        "scale": 1,
-        "unit": "A"
-      },
-      {
-        "name": "Phase C Current",
-        "icon": "a",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 166,
-          "type": "byte",
-          "byte": {
-            "endian": "little",
-            "start": "4",
-            "end": "5"
-          }
-        },
-        "scale": 1,
-        "unit": "A"
-      },
-      {
-        "name": "DC Bus Voltage1",
-        "icon": "v",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 166,
-          "type": "byte",
-          "byte": {
-            "endian": "little",
-            "start": "6",
-            "end": "7"
-          }
-        },
-        "scale": 1,
-        "unit": "V"
-      },
-      {
-        "name": "DC Bus Voltage2",
-        "icon": "v",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 167,
-          "type": "byte",
-          "byte": {
-            "endian": "little",
-            "start": "0",
-            "end": "1"
-          }
-        },
-        "scale": 1,
-        "unit": "V"
-      },
-      {
-        "name": "Output Voltage",
-        "icon": "v",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 167,
-          "type": "byte",
-          "byte": {
-            "endian": "little",
-            "start": "2",
-            "end": "3"
-          }
-        },
-        "scale": 1,
-        "unit": "V"
-      },
-      {
-        "name": "VAB_Vd Voltage",
-        "icon": "v",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 167,
-          "type": "byte",
-          "byte": {
-            "endian": "little",
-            "start": "4",
-            "end": "5"
-          }
-        },
-        "scale": 1,
-        "unit": "V"
-      },
-      {
-        "name": "VBC_Vd Voltage",
-        "icon": "v",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 167,
-          "type": "byte",
-          "byte": {
-            "endian": "little",
-            "start": "6",
-            "end": "7"
-          }
-        },
-        "scale": 1,
-        "unit": "V"
-      },
-      {
-        "name": "DC Bus Voltage3",
-        "icon": "v",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 176,
-          "type": "byte",
-          "byte": {
-            "endian": "little",
-            "start": "3",
-            "end": "3"
-          }
-        },
-        "scale": 1,
-        "unit": "V"
-      }
-    ]
-  },
-  {
-    "name": "PM100DX_Info",
-    "icon": "truck-monster",
-    "data": [
-      {
-        "name": "Torque Shudder",
-        "icon": "temperature-full",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 162,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "6",
-            "end": "7"
-          }
-        },
-        "scale": 1,
-        "unit": "°C"
-      },
-      {
-        "name": "Motor Speed 1",
-        "icon": "dharmachakra",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 165,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "2",
-            "end": "3"
-          }
-        },
-        "scale": 1,
-        "unit": "km/h"
-      },
-      {
-        "name": "Id_feedback",
-        "icon": "circle-info",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 168,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "4",
-            "end": "5"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "Iq_feedback",
-        "icon": "circle-info",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 168,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "6",
-            "end": "7"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "VSM State",
-        "icon": "circle-info",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 170,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "0",
-            "end": "0"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "Inverter State",
-        "icon": "circle-info",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 170,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "2",
-            "end": "2"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "Relay State",
-        "icon": "circle-info",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 170,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "3",
-            "end": "3"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "Post Fault Lo",
-        "icon": "circle-info",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 171,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "0",
-            "end": "1"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "Post Fault Hi",
-        "icon": "circle-info",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 171,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "2",
-            "end": "3"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "Run Fault Lo",
-        "icon": "circle-info",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 171,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "4",
-            "end": "5"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "Run Fault Hi",
-        "icon": "circle-info",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 171,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "6",
-            "end": "7"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "Command Torque",
-        "icon": "circle-info",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 172,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "0",
-            "end": "1"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "Torque Feedback",
-        "icon": "circle-info",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 172,
-          "type": "byte",
-          "byte": {
-            "endian": "little",
-            "start": "2",
-            "end": "3"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "Power on Timer",
-        "icon": "circle-info",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 172,
-          "type": "byte",
-          "byte": {
-            "endian": "little",
-            "start": "4",
-            "end": "7"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "Modulation Index",
-        "icon": "circle-info",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 173,
-          "type": "byte",
-          "byte": {
-            "endian": "little",
-            "start": "0",
-            "end": "1"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "Flux Weakening Output",
-        "icon": "circle-info",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 173,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "2",
-            "end": "3"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "Id_Command",
-        "icon": "circle-info",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 173,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "4",
-            "end": "5"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "Iq_Command",
-        "icon": "circle-info",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 173,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "6",
-            "end": "7"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "Torque Command",
-        "icon": "circle-info",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 176,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "0",
-            "end": "1"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "Torque Feedback",
-        "icon": "circle-info",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 176,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "2",
-            "end": "3"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "Motor Speed 2",
-        "icon": "truck-monster",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 176,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "4",
-            "end": "5"
-          }
-        },
-        "scale": 1,
-        "unit": "km/h"
-      }
-    ]
-  },
-  {
-    "name": "JCU(에어로)",
-    "icon": "toggle-on",
-    "data": [
-      {
-        "name": "TSAL",
-        "icon": "toggle-on",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 32,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "0",
-            "end": "0"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "AIR1_SIG(반전)",
-        "icon": "toggle-on",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 32,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "1",
-            "end": "1"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "AIR2_SIG(반전)",
-        "icon": "toggle-on",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 32,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "2",
-            "end": "2"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "AIR_REL_PWR",
-        "icon": "toggle-on",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 32,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "3",
-            "end": "3"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "PRE_REL_PWR",
-        "icon": "toggle-on",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 32,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "4",
-            "end": "4"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "SDC",
-        "icon": "toggle-on",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 32,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "5",
-            "end": "5"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "PRE_REL_HV_V",
-        "icon": "toggle-on",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 32,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "7",
-            "end": "7"
-          }
-        },
-        "scale": 0.001,
-        "unit": "mV"
-      },
-      {
-        "name": "PRE_REL_HV_V",
-        "icon": "toggle-on",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 33,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "0",
-            "end": "1"
-          }
-        },
-        "scale": 0.001,
-        "unit": "mV"
-      },
-      {
-        "name": "PRE_REL_MC_V",
-        "icon": "toggle-on",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 33,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "2",
-            "end": "4"
-          }
-        },
-        "scale": 0.001,
-        "unit": "mV"
-      },
-      {
-        "name": "DIS_REL_MC_V",
-        "icon": "toggle-on",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 33,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "5",
-            "end": "7"
-          }
-        },
-        "scale": 0.001,
-        "unit": "mV"
-      }
-    ]
-  },
-  {
-    "name": "CAN",
-    "icon": "circle-info",
-    "data": [
-      {
-        "name": "01",
-        "icon": "database",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 1,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "0",
-            "end": "0"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "02",
-        "icon": "database",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 2,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "0",
-            "end": "0"
-          }
-        },
-        "scale": 1,
-        "unit": ""
       }
     ]
   }
