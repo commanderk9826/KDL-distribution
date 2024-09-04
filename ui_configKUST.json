@@ -1,6 +1,6 @@
 [
   {
-    "name": "KDL State, GYRO",
+    "name": "KDL STAT, GYRO",
     "icon": "clipboard-user",
     "data": [
       {
@@ -13,7 +13,7 @@
         "unit": "ºC"
       },
       {
-        "name": "LV Voltage",
+        "name": "LV Volt",
         "icon": "battery-half",
         "display": "value",
         "type": "standard",
@@ -47,83 +47,15 @@
         "source": "ACCELEROMETER / z",
         "scale": 1,
         "unit": "g"
-      },
-      {
-        "name": "SYS Gyro ID",
-        "icon": "database",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 255,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "1",
-            "end": "1"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "SYS GYRO X-plane",
-        "icon": "x",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 255,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "2",
-            "end": "3"
-          }
-        },
-        "scale": 1,
-        "unit": "g"
-      },
-      {
-        "name": "SYS GYRO Y-plane",
-        "icon": "y",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 255,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "4",
-            "end": "5"
-          }
-        },
-        "scale": 1,
-        "unit": "g"
-      },
-      {
-        "name": "SYS GYRO Z-plane",
-        "icon": "z",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 255,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "6",
-            "end": "7"
-          }
-        },
-        "scale": 1,
-        "unit": "g"
       }
     ]
   },
   {
-    "name": "GPS(현재x)",
+    "name": "GPS",
     "icon": "map",
     "data": [
       {
-        "name": "위도",
+        "name": "Lat",
         "icon": "compass",
         "display": "value",
         "type": "standard",
@@ -132,7 +64,7 @@
         "unit": "°"
       },
       {
-        "name": "경도",
+        "name": "Lon",
         "icon": "compass",
         "display": "value",
         "type": "standard",
@@ -141,7 +73,7 @@
         "unit": "°"
       },
       {
-        "name": "GPS 속도",
+        "name": "Speed",
         "icon": "gauge-simple-high",
         "display": "graph",
         "type": "standard",
@@ -150,7 +82,7 @@
         "unit": "km/h"
       },
       {
-        "name": "차량 진행 방향",
+        "name": "Direction",
         "icon": "location-arrow",
         "display": "value",
         "type": "standard",
@@ -159,7 +91,7 @@
         "unit": "°"
       },
       {
-        "name": "GPS 날짜(mm-dd-yy)",
+        "name": "Date(DDMMYY)",
         "icon": "calendar-days",
         "display": "value",
         "type": "standard",
@@ -168,7 +100,7 @@
         "unit": ""
       },
       {
-        "name": "GPS 시간",
+        "name": "Time",
         "icon": "stopwatch",
         "display": "value",
         "type": "standard",
@@ -184,13 +116,13 @@
     ]
   },
   {
-    "name": "HV BMS(State, V)",
+    "name": "HV BMS(STAT, VOLT)",
     "icon": "car-battery",
     "data": [
       {
-        "name": "HV PACK(현재 x)",
-        "icon": "toggle-on",
-        "display": "value",
+        "name": "PACK VOLTAGE",
+        "icon": "battery-half",
+        "display": "graph",
         "type": "can",
         "source": {
           "id": 21,
@@ -201,16 +133,84 @@
             "end": "1"
           }
         },
-        "scale": 1,
-        "unit": ""
+        "scale": 0.1,
+        "unit": "V"
       },
       {
-        "name": "SEG1 BMS STAT",
-        "icon": "toggle-on",
+        "name": "SEG1 VOLTAGE",
+        "icon": "battery-half",
         "display": "value",
         "type": "can",
         "source": {
-          "id": 16,
+          "id": 21,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "2",
+            "end": "2"
+          }
+        },
+        "scale": 1,
+        "unit": "V"
+      },
+      {
+        "name": "SEG2 VOLTAGE",
+        "icon": "battery-half",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 21,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "3",
+            "end": "3"
+          }
+        },
+        "scale": 1,
+        "unit": "V"
+      },
+      {
+        "name": "SEG3 VOLTAGE",
+        "icon": "battery-half",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 21,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "4",
+            "end": "4"
+          }
+        },
+        "scale": 1,
+        "unit": "V"
+      },
+      {
+        "name": "SEG4 VOLTAGE",
+        "icon": "battery-half",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 21,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "5",
+            "end": "5"
+          }
+        },
+        "scale": 1,
+        "unit": "V"
+      },
+      {
+        "name": "SEG5 VOLTAGE",
+        "icon": "battery-half",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 21,
           "type": "byte",
           "byte": {
             "endian": "big",
@@ -219,83 +219,15 @@
           }
         },
         "scale": 1,
-        "unit": ""
+        "unit": "V"
       },
       {
-        "name": "SEG2 BMS STAT",
-        "icon": "toggle-on",
+        "name": "BMS STAT",
+        "icon": "star",
         "display": "value",
         "type": "can",
         "source": {
-          "id": 17,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "6",
-            "end": "6"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "SEG3 BMS STAT",
-        "icon": "toggle-on",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 18,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "6",
-            "end": "6"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "SEG4 BMS STAT",
-        "icon": "toggle-on",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 19,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "6",
-            "end": "6"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "SEG5 BMS STAT",
-        "icon": "toggle-on",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 20,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "6",
-            "end": "6"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "SEG1 Voltage",
-        "icon": "battery-half",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 16,
+          "id": 21,
           "type": "byte",
           "byte": {
             "endian": "big",
@@ -304,84 +236,16 @@
           }
         },
         "scale": 1,
-        "unit": "V"
-      },
-      {
-        "name": "SEG2 Voltage",
-        "icon": "battery-half",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 17,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "7",
-            "end": "7"
-          }
-        },
-        "scale": 1,
-        "unit": "V"
-      },
-      {
-        "name": "SEG3 Voltage",
-        "icon": "battery-half",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 18,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "7",
-            "end": "7"
-          }
-        },
-        "scale": 1,
-        "unit": "V"
-      },
-      {
-        "name": "SEG4 Voltage",
-        "icon": "battery-half",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 19,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "7",
-            "end": "7"
-          }
-        },
-        "scale": 1,
-        "unit": "V"
-      },
-      {
-        "name": "SEG5 Voltage",
-        "icon": "battery-half",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 20,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "7",
-            "end": "7"
-          }
-        },
-        "scale": 1,
-        "unit": "V"
+        "unit": ""
       }
     ]
   },
   {
-    "name": "HV BMS(CELL MAX, MIN)",
+    "name": "HV BMS(VOLTAGE MAX, MIN)",
     "icon": "car-battery",
     "data": [
       {
-        "name": "SEG1 CELL MAX",
+        "name": "SEG1 VOLTAGE MAX",
         "icon": "battery-three-quarters",
         "display": "value",
         "type": "can",
@@ -398,7 +262,7 @@
         "unit": "V"
       },
       {
-        "name": "SEG1 CELL MIN",
+        "name": "SEG1 VOLTAGE MIN",
         "icon": "battery-empty",
         "display": "value",
         "type": "can",
@@ -415,7 +279,7 @@
         "unit": "V"
       },
       {
-        "name": "SEG2 CELL MAX",
+        "name": "SEG2 VOLTAGE MAX",
         "icon": "battery-three-quarters",
         "display": "value",
         "type": "can",
@@ -432,7 +296,7 @@
         "unit": "V"
       },
       {
-        "name": "SEG2 CELL MIN",
+        "name": "SEG2 VOLTAGE MIN",
         "icon": "battery-empty",
         "display": "value",
         "type": "can",
@@ -449,7 +313,7 @@
         "unit": "V"
       },
       {
-        "name": "SEG3 CELL MAX",
+        "name": "SEG3 VOLTAGE MAX",
         "icon": "battery-three-quarters",
         "display": "value",
         "type": "can",
@@ -466,7 +330,7 @@
         "unit": "V"
       },
       {
-        "name": "SEG3 CELL MIN",
+        "name": "SEG3 VOLTAGE MIN",
         "icon": "battery-empty",
         "display": "value",
         "type": "can",
@@ -483,7 +347,7 @@
         "unit": "V"
       },
       {
-        "name": "SEG4 CELL MAX",
+        "name": "SEG4 VOLTAGE MAX",
         "icon": "battery-three-quarters",
         "display": "value",
         "type": "can",
@@ -500,7 +364,7 @@
         "unit": "V"
       },
       {
-        "name": "SEG4 CELL MIN",
+        "name": "SEG4 VOLTAGE MIN",
         "icon": "battery-empty",
         "display": "value",
         "type": "can",
@@ -517,7 +381,7 @@
         "unit": "V"
       },
       {
-        "name": "SEG5 CELL MAX",
+        "name": "SEG5 VOLTAGE MAX",
         "icon": "battery-three-quarters",
         "display": "value",
         "type": "can",
@@ -534,7 +398,7 @@
         "unit": "V"
       },
       {
-        "name": "SEG5 CELL MIN",
+        "name": "SEG5 VOLTAGE MIN",
         "icon": "battery-empty",
         "display": "value",
         "type": "can",
@@ -567,10 +431,10 @@
           "byte": {
             "endian": "big",
             "start": "4",
-            "end": "4"
+            "end": "5"
           }
         },
-        "scale": 1,
+        "scale": 0.1,
         "unit": "ºC"
       },
       {
@@ -583,11 +447,11 @@
           "type": "byte",
           "byte": {
             "endian": "big",
-            "start": "5",
-            "end": "5"
+            "start": "6",
+            "end": "7"
           }
         },
-        "scale": 1,
+        "scale": 0.1,
         "unit": "ºC"
       },
       {
@@ -601,10 +465,10 @@
           "byte": {
             "endian": "big",
             "start": "4",
-            "end": "4"
+            "end": "5"
           }
         },
-        "scale": 1,
+        "scale": 0.1,
         "unit": "ºC"
       },
       {
@@ -617,11 +481,11 @@
           "type": "byte",
           "byte": {
             "endian": "big",
-            "start": "5",
-            "end": "5"
+            "start": "6",
+            "end": "7"
           }
         },
-        "scale": 1,
+        "scale": 0.1,
         "unit": "ºC"
       },
       {
@@ -635,10 +499,10 @@
           "byte": {
             "endian": "big",
             "start": "4",
-            "end": "4"
+            "end": "5"
           }
         },
-        "scale": 1,
+        "scale": 0.1,
         "unit": "ºC"
       },
       {
@@ -651,11 +515,11 @@
           "type": "byte",
           "byte": {
             "endian": "big",
-            "start": "5",
-            "end": "5"
+            "start": "6",
+            "end": "7"
           }
         },
-        "scale": 1,
+        "scale": 0.1,
         "unit": "ºC"
       },
       {
@@ -669,10 +533,10 @@
           "byte": {
             "endian": "big",
             "start": "4",
-            "end": "4"
+            "end": "5"
           }
         },
-        "scale": 1,
+        "scale": 0.1,
         "unit": "ºC"
       },
       {
@@ -685,11 +549,11 @@
           "type": "byte",
           "byte": {
             "endian": "big",
-            "start": "5",
-            "end": "5"
+            "start": "6",
+            "end": "7"
           }
         },
-        "scale": 1,
+        "scale": 0.1,
         "unit": "ºC"
       },
       {
@@ -703,10 +567,10 @@
           "byte": {
             "endian": "big",
             "start": "4",
-            "end": "4"
+            "end": "5"
           }
         },
-        "scale": 1,
+        "scale": 0.1,
         "unit": "ºC"
       },
       {
@@ -719,11 +583,11 @@
           "type": "byte",
           "byte": {
             "endian": "big",
-            "start": "5",
-            "end": "5"
+            "start": "6",
+            "end": "7"
           }
         },
-        "scale": 1,
+        "scale": 0.1,
         "unit": "ºC"
       }
     ]
@@ -746,7 +610,7 @@
             "end": "1"
           }
         },
-        "scale": 1,
+        "scale": 0.01831,
         "unit": ""
       },
       {
@@ -763,7 +627,7 @@
             "end": "3"
           }
         },
-        "scale": 1,
+        "scale": 0.01831,
         "unit": ""
       },
       {
@@ -780,7 +644,7 @@
             "end": "5"
           }
         },
-        "scale": 1,
+        "scale": 0.01831,
         "unit": ""
       },
       {
@@ -797,7 +661,7 @@
             "end": "7"
           }
         },
-        "scale": 1,
+        "scale": 0.01831,
         "unit": ""
       },
       {
@@ -882,25 +746,42 @@
             "end": "1"
           }
         },
-        "scale": 1,
+        "scale": 0.036621,
         "unit": ""
       },
       {
-        "name": "Break Pressure(현재 x)",
+        "name": "Brake Pressure1",
         "icon": "circle-info",
-        "display": "value",
+        "display": "graph",
         "type": "can",
         "source": {
           "id": 98,
           "type": "byte",
           "byte": {
-            "endian": "little",
+            "endian": "big",
             "start": "2",
             "end": "3"
           }
         },
         "scale": 1,
-        "unit": ""
+        "unit": "psi"
+      },
+      {
+        "name": "Brake Pressure2",
+        "icon": "circle-info",
+        "display": "graph",
+        "type": "can",
+        "source": {
+          "id": 98,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "4",
+            "end": "5"
+          }
+        },
+        "scale": 1,
+        "unit": "psi"
       }
     ]
   },
@@ -1062,7 +943,7 @@
         "unit": "A"
       },
       {
-        "name": "Output Voltage",
+        "name": "Output Volt",
         "icon": "v",
         "display": "graph",
         "type": "can",
@@ -1096,7 +977,7 @@
         "unit": "A"
       },
       {
-        "name": "DC Bus Voltage",
+        "name": "DC Bus Volt",
         "icon": "v",
         "display": "graph",
         "type": "can",
@@ -1115,11 +996,11 @@
     ]
   },
   {
-    "name": "PM100DX_Info",
+    "name": "PM100DX(INFO)",
     "icon": "truck-monster",
     "data": [
       {
-        "name": "Motor Speed 1",
+        "name": "Motor Speed",
         "icon": "dharmachakra",
         "display": "graph",
         "type": "can",
@@ -1133,7 +1014,7 @@
           }
         },
         "scale": 1,
-        "unit": "rpm"
+        "unit": "RPM"
       },
       {
         "name": "Command Torque",
@@ -1149,7 +1030,7 @@
             "end": "1"
           }
         },
-        "scale": 1,
+        "scale": 0.1,
         "unit": ""
       },
       {
@@ -1166,7 +1047,7 @@
             "end": "3"
           }
         },
-        "scale": 1,
+        "scale": 0.1,
         "unit": ""
       },
       {
@@ -1255,8 +1136,8 @@
         "unit": ""
       },
       {
-        "name": "VSM State",
-        "icon": "toggle-on",
+        "name": "VSM STAT",
+        "icon": "star",
         "display": "value",
         "type": "can",
         "source": {
@@ -1272,8 +1153,8 @@
         "unit": ""
       },
       {
-        "name": "Inverter State",
-        "icon": "toggle-on",
+        "name": "Inverter STAT",
+        "icon": "star",
         "display": "value",
         "type": "can",
         "source": {
@@ -1289,8 +1170,8 @@
         "unit": ""
       },
       {
-        "name": "Relay State",
-        "icon": "toggle-on",
+        "name": "Relay STAT",
+        "icon": "star",
         "display": "value",
         "type": "can",
         "source": {
@@ -1410,9 +1291,26 @@
     ]
   },
   {
-    "name": "JCU(현재 x)",
+    "name": "JCU",
     "icon": "toggle-on",
     "data": [
+      {
+        "name": "AL",
+        "icon": "toggle-on",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 32,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "0",
+            "end": "0"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
       {
         "name": "TSAL",
         "icon": "toggle-on",
@@ -1422,24 +1320,7 @@
           "id": 32,
           "type": "byte",
           "byte": {
-            "endian": "big",
-            "start": "0",
-            "end": "0"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "AIR1 SIG(반전)",
-        "icon": "toggle-on",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 32,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
+            "endian": "little",
             "start": "1",
             "end": "1"
           }
@@ -1448,7 +1329,7 @@
         "unit": ""
       },
       {
-        "name": "AIR2 SIG(반전)",
+        "name": "AIR1 SIG",
         "icon": "toggle-on",
         "display": "value",
         "type": "can",
@@ -1456,7 +1337,7 @@
           "id": 32,
           "type": "byte",
           "byte": {
-            "endian": "big",
+            "endian": "little",
             "start": "2",
             "end": "2"
           }
@@ -1465,7 +1346,7 @@
         "unit": ""
       },
       {
-        "name": "AIR REL PWR",
+        "name": "AIR2 SIG",
         "icon": "toggle-on",
         "display": "value",
         "type": "can",
@@ -1473,7 +1354,7 @@
           "id": 32,
           "type": "byte",
           "byte": {
-            "endian": "big",
+            "endian": "little",
             "start": "3",
             "end": "3"
           }
@@ -1482,7 +1363,7 @@
         "unit": ""
       },
       {
-        "name": "PRE REL PWR",
+        "name": "AIR1 PWR",
         "icon": "toggle-on",
         "display": "value",
         "type": "can",
@@ -1490,7 +1371,7 @@
           "id": 32,
           "type": "byte",
           "byte": {
-            "endian": "big",
+            "endian": "little",
             "start": "4",
             "end": "4"
           }
@@ -1499,7 +1380,7 @@
         "unit": ""
       },
       {
-        "name": "SDC",
+        "name": "PRE2 REL",
         "icon": "toggle-on",
         "display": "value",
         "type": "can",
@@ -1507,7 +1388,7 @@
           "id": 32,
           "type": "byte",
           "byte": {
-            "endian": "big",
+            "endian": "little",
             "start": "5",
             "end": "5"
           }
@@ -1516,7 +1397,7 @@
         "unit": ""
       },
       {
-        "name": "PRE REL HV V",
+        "name": "SDC V",
         "icon": "v",
         "display": "value",
         "type": "can",
@@ -1524,16 +1405,16 @@
           "id": 32,
           "type": "byte",
           "byte": {
-            "endian": "big",
-            "start": "7",
-            "end": "7"
+            "endian": "little",
+            "start": "6",
+            "end": "6"
           }
         },
         "scale": 0.001,
         "unit": "mV"
       },
       {
-        "name": "PRE REL HV V",
+        "name": "PRE1 HV V",
         "icon": "v",
         "display": "value",
         "type": "can",
@@ -1541,7 +1422,7 @@
           "id": 33,
           "type": "byte",
           "byte": {
-            "endian": "big",
+            "endian": "little",
             "start": "0",
             "end": "1"
           }
@@ -1550,7 +1431,7 @@
         "unit": "mV"
       },
       {
-        "name": "PRE REL MC V",
+        "name": "PRE1 MC V",
         "icon": "v",
         "display": "value",
         "type": "can",
@@ -1558,16 +1439,16 @@
           "id": 33,
           "type": "byte",
           "byte": {
-            "endian": "big",
+            "endian": "little",
             "start": "2",
-            "end": "4"
+            "end": "3"
           }
         },
         "scale": 0.001,
         "unit": "mV"
       },
       {
-        "name": "DIS REL MC V",
+        "name": "DIS MC V",
         "icon": "v",
         "display": "value",
         "type": "can",
@@ -1575,9 +1456,9 @@
           "id": 33,
           "type": "byte",
           "byte": {
-            "endian": "big",
-            "start": "5",
-            "end": "7"
+            "endian": "little",
+            "start": "4",
+            "end": "5"
           }
         },
         "scale": 0.001,
@@ -1586,16 +1467,16 @@
     ]
   },
   {
-    "name": "LV BMS(현재x)",
-    "icon": "battery-full",
+    "name": "SOC",
+    "icon": "circle-info",
     "data": [
       {
-        "name": "Max Cell Voltage",
-        "icon": "battery-half",
+        "name": "PACK SOC",
+        "icon": "percent",
         "display": "value",
         "type": "can",
         "source": {
-          "id": 80,
+          "id": 48,
           "type": "byte",
           "byte": {
             "endian": "big",
@@ -1603,16 +1484,16 @@
             "end": "1"
           }
         },
-        "scale": 1,
-        "unit": "V"
+        "scale": 0.01,
+        "unit": "%"
       },
       {
-        "name": "Min Cell Voltage",
-        "icon": "battery-half",
-        "display": "value",
+        "name": "HV Sensor Current",
+        "icon": "plug",
+        "display": "graph",
         "type": "can",
         "source": {
-          "id": 80,
+          "id": 48,
           "type": "byte",
           "byte": {
             "endian": "big",
@@ -1620,16 +1501,16 @@
             "end": "3"
           }
         },
-        "scale": 1,
-        "unit": "V"
+        "scale": 0.1,
+        "unit": "A"
       },
       {
-        "name": "Pack Voltage",
-        "icon": "battery-half",
+        "name": "HV Power",
+        "icon": "w",
         "display": "value",
         "type": "can",
         "source": {
-          "id": 80,
+          "id": 48,
           "type": "byte",
           "byte": {
             "endian": "big",
@@ -1637,169 +1518,16 @@
             "end": "5"
           }
         },
-        "scale": 1,
-        "unit": "V"
+        "scale": 0.1,
+        "unit": "W"
       },
       {
-        "name": "Stack Voltage",
-        "icon": "battery-half",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 80,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "6",
-            "end": "7"
-          }
-        },
-        "scale": 1,
-        "unit": "V"
-      },
-      {
-        "name": "Pack Current",
+        "name": "PEAK Current",
         "icon": "plug",
         "display": "value",
         "type": "can",
         "source": {
-          "id": 81,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "0",
-            "end": "1"
-          }
-        },
-        "scale": 1,
-        "unit": "A"
-      },
-      {
-        "name": "CELL temperature",
-        "icon": "temperature-three-quarters",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 81,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "2",
-            "end": "3"
-          }
-        },
-        "scale": 1,
-        "unit": "ºC"
-      },
-      {
-        "name": "FET temperature",
-        "icon": "temperature-three-quarters",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 81,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "4",
-            "end": "5"
-          }
-        },
-        "scale": 1,
-        "unit": "ºC"
-      },
-      {
-        "name": "CB ActiveCells",
-        "icon": "toggle-on",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 82,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "0",
-            "end": "1"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "SafeyStatus A",
-        "icon": "toggle-on",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 82,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "2",
-            "end": "2"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "SafeyStatus B",
-        "icon": "toggle-on",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 82,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "3",
-            "end": "3"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "SafeyStatus C",
-        "icon": "toggle-on",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 82,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "4",
-            "end": "4"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "PFStatus A",
-        "icon": "toggle-on",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 82,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "5",
-            "end": "5"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "PFStatus B",
-        "icon": "toggle-on",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 82,
+          "id": 48,
           "type": "byte",
           "byte": {
             "endian": "big",
@@ -1808,234 +1536,7 @@
           }
         },
         "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "PFStatus C",
-        "icon": "toggle-on",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 82,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "7",
-            "end": "7"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "AlarmRaw Bits",
-        "icon": "circle-info",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 83,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "0",
-            "end": "1"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "FET_Status",
-        "icon": "toggle-on",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 83,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "2",
-            "end": "2"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "Charged Time",
-        "icon": "hourglass-start",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 83,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "4",
-            "end": "7"
-          }
-        },
-        "scale": 1,
-        "unit": "ms"
-      },
-      {
-        "name": "A Charged Time",
-        "icon": "hourglass-end",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 83,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "4",
-            "end": "7"
-          }
-        },
-        "scale": 1,
-        "unit": "ms"
-      }
-    ]
-  },
-  {
-    "name": "LV CHARGER(현재 x)",
-    "icon": "battery-full",
-    "data": [
-      {
-        "name": "STAT 1",
-        "icon": "toggle-on",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 84,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "0",
-            "end": "0"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "STAT 2",
-        "icon": "toggle-on",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 84,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "1",
-            "end": "1"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "STAT 3",
-        "icon": "toggle-on",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 84,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "2",
-            "end": "2"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "Fault STAT",
-        "icon": "toggle-on",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 84,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "3",
-            "end": "3"
-          }
-        },
-        "scale": 1,
-        "unit": ""
-      },
-      {
-        "name": "IAC ADC",
-        "icon": "plug",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 85,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "0",
-            "end": "1"
-          }
-        },
-        "scale": 1,
         "unit": "A"
-      },
-      {
-        "name": "IBAT ADC",
-        "icon": "plug",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 85,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "2",
-            "end": "3"
-          }
-        },
-        "scale": 1,
-        "unit": "A"
-      },
-      {
-        "name": "VAC ADC",
-        "icon": "battery-half",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 85,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "4",
-            "end": "5"
-          }
-        },
-        "scale": 1,
-        "unit": "V"
-      },
-      {
-        "name": "VFB ADC",
-        "icon": "battery-half",
-        "display": "value",
-        "type": "can",
-        "source": {
-          "id": 85,
-          "type": "byte",
-          "byte": {
-            "endian": "big",
-            "start": "6",
-            "end": "7"
-          }
-        },
-        "scale": 1,
-        "unit": "V"
       }
     ]
   }
