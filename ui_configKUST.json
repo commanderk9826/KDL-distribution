@@ -13,7 +13,7 @@
         "unit": "ºC"
       },
       {
-        "name": "LV Volt",
+        "name": "LV Voltage",
         "icon": "battery-half",
         "display": "value",
         "type": "standard",
@@ -112,6 +112,284 @@
         "name": "gps",
         "icon": "database",
         "display": "gps"
+      }
+    ]
+  },
+  {
+    "name": "LV BMS",
+    "icon": "car-battery",
+    "data": [
+      {
+        "name": "MAX CELL VOLTAGE",
+        "icon": "battery-three-quarters",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 80,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "0",
+            "end": "1"
+          }
+        },
+        "scale": 0.01,
+        "unit": "V"
+      },
+      {
+        "name": "MIN CELL VOLTAGE",
+        "icon": "battery-empty",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 80,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "2",
+            "end": "3"
+          }
+        },
+        "scale": 0.01,
+        "unit": "V"
+      },
+      {
+        "name": "PACK VOLTAGE",
+        "icon": "battery-half",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 80,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "4",
+            "end": "5"
+          }
+        },
+        "scale": 0.01,
+        "unit": "V"
+      },
+      {
+        "name": "STACK VOLTAGE",
+        "icon": "battery-half",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 80,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "6",
+            "end": "7"
+          }
+        },
+        "scale": 0.01,
+        "unit": "V"
+      },
+      {
+        "name": "PACK Current",
+        "icon": "plug",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 81,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "0",
+            "end": "1"
+          }
+        },
+        "scale": 10,
+        "unit": "A"
+      },
+      {
+        "name": "CELL Temp",
+        "icon": "temperature-three-quarters",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 81,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "2",
+            "end": "3"
+          }
+        },
+        "scale": 0.01,
+        "unit": "°C"
+      },
+      {
+        "name": "FET Temp",
+        "icon": "temperature-three-quarters",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 81,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "4",
+            "end": "5"
+          }
+        },
+        "scale": 0.01,
+        "unit": "°C"
+      },
+      {
+        "name": "CONV Temp",
+        "icon": "temperature-three-quarters",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 81,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "6",
+            "end": "7"
+          }
+        },
+        "scale": 0.01,
+        "unit": "°C"
+      },
+      {
+        "name": "hi2c1.ErrorCode",
+        "icon": "circle-info",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 82,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "0",
+            "end": "0"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "FET STAT",
+        "icon": "star",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 82,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "1",
+            "end": "1"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "Safety STAT A",
+        "icon": "star",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 82,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "2",
+            "end": "2"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "Safety STAT B",
+        "icon": "star",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 82,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "3",
+            "end": "3"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "Safety STAT C",
+        "icon": "star",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 82,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "4",
+            "end": "4"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "PF STAT A",
+        "icon": "star",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 82,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "5",
+            "end": "5"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "PF STAT B",
+        "icon": "star",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 82,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "6",
+            "end": "6"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "PF STAT C",
+        "icon": "star",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 82,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "7",
+            "end": "7"
+          }
+        },
+        "scale": 1,
+        "unit": ""
       }
     ]
   },
