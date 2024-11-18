@@ -1,0 +1,360 @@
+[
+  {
+    "name": "가속도",
+    "icon": "car-on",
+    "data": [
+      {
+        "name": "X-axis",
+        "icon": "x",
+        "display": "graph",
+        "type": "standard",
+        "source": "ACCELEROMETER / x",
+        "scale": 1,
+        "unit": "G"
+      },
+      {
+        "name": "Y-axis",
+        "icon": "y",
+        "display": "graph",
+        "type": "standard",
+        "source": "ACCELEROMETER / y",
+        "scale": 1,
+        "unit": "G"
+      },
+      {
+        "name": "Z-axis",
+        "icon": "z",
+        "display": "graph",
+        "type": "standard",
+        "source": "ACCELEROMETER / z",
+        "scale": 1,
+        "unit": "G"
+      }
+    ]
+  },
+  {
+    "name": "GPS",
+    "icon": "satellite",
+    "data": [
+      {
+        "name": "map",
+        "icon": "map-location-dot",
+        "display": "gps"
+      },
+      {
+        "name": "위도",
+        "icon": "map-location-dot",
+        "display": "value",
+        "type": "standard",
+        "source": "GPS / lat",
+        "scale": 1,
+        "unit": "°"
+      },
+      {
+        "name": "경도",
+        "icon": "map-location-dot",
+        "display": "value",
+        "type": "standard",
+        "source": "GPS / lon",
+        "scale": 1,
+        "unit": "°"
+      },
+      {
+        "name": "GPS 속도",
+        "icon": "plane",
+        "display": "graph",
+        "type": "standard",
+        "source": "GPS / speed",
+        "scale": 1,
+        "unit": "km/h"
+      },
+      {
+        "name": "진행 방향",
+        "icon": "location-arrow",
+        "display": "value",
+        "type": "standard",
+        "source": "GPS / speed",
+        "scale": 1,
+        "unit": "°"
+      }
+    ]
+  },
+  {
+    "name": "CAN",
+    "icon": "circle-info",
+    "data": [
+      {
+        "name": "0x01_0",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 1,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "0",
+            "end": "0"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "0x01_1",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 1,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "1",
+            "end": "1"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "0x01_2",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 1,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "2",
+            "end": "2"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "0x01_3",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 1,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "3",
+            "end": "3"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "0x01_4",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 1,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "4",
+            "end": "4"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "0x01_5",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 1,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "5",
+            "end": "5"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "0x01_6",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 1,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "6",
+            "end": "6"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "0x01_7",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 1,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "7",
+            "end": "7"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "0x10_0",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 16,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "0",
+            "end": "0"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "0x10_1",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 16,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "1",
+            "end": "1"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "0x10_2",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 16,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "2",
+            "end": "2"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "0x10_3",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 16,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "3",
+            "end": "3"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "0x10_4",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 16,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "4",
+            "end": "4"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "0x10_5",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 16,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "5",
+            "end": "5"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "0x10_6",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 16,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "6",
+            "end": "6"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "0x10_7",
+        "icon": "database",
+        "display": "value",
+        "type": "can",
+        "source": {
+          "id": 16,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "7",
+            "end": "7"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      }
+    ]
+  }
+]

@@ -1,0 +1,110 @@
+[
+  {
+    "name": "KDL STAT, GYRO",
+    "icon": "clipboard-user",
+    "data": [
+      {
+        "name": "CPU Temp",
+        "icon": "temperature-three-quarters",
+        "display": "value",
+        "type": "standard",
+        "source": "ANALOG / CPU_TEMP",
+        "scale": 1,
+        "unit": "ºC"
+      },
+      {
+        "name": "LV Volt",
+        "icon": "battery-half",
+        "display": "value",
+        "type": "standard",
+        "source": "ANALOG / INPUT_VOLTAGE",
+        "scale": 1,
+        "unit": "V"
+      },
+      {
+        "name": "X-plane",
+        "icon": "x",
+        "display": "value",
+        "type": "standard",
+        "source": "ACCELEROMETER / x",
+        "scale": 1,
+        "unit": "g"
+      },
+      {
+        "name": "Y-plane",
+        "icon": "y",
+        "display": "value",
+        "type": "standard",
+        "source": "ACCELEROMETER / y",
+        "scale": 1,
+        "unit": "g"
+      },
+      {
+        "name": "Z-plane",
+        "icon": "z",
+        "display": "value",
+        "type": "standard",
+        "source": "ACCELEROMETER / z",
+        "scale": 1,
+        "unit": "g"
+      }
+    ]
+  },
+  {
+    "name": "BSPD 무부하",
+    "icon": "circle-info",
+    "data": [
+      {
+        "name": "VSM State",
+        "icon": "database",
+        "display": "graph",
+        "type": "can",
+        "source": {
+          "id": 170,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "0",
+            "end": "0"
+          }
+        },
+        "scale": 1,
+        "unit": ""
+      },
+      {
+        "name": "HV Sensor Current",
+        "icon": "database",
+        "display": "graph",
+        "type": "can",
+        "source": {
+          "id": 48,
+          "type": "byte",
+          "byte": {
+            "endian": "big",
+            "start": "2",
+            "end": "3"
+          }
+        },
+        "scale": 0.1,
+        "unit": "A"
+      },
+      {
+        "name": "Brake Pressure 2",
+        "icon": "database",
+        "display": "graph",
+        "type": "can",
+        "source": {
+          "id": 98,
+          "type": "byte",
+          "byte": {
+            "endian": "little",
+            "start": "4",
+            "end": "5"
+          }
+        },
+        "scale": 0.02422,
+        "unit": "psi"
+      }
+    ]
+  }
+]

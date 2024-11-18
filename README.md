@@ -5,7 +5,6 @@ KDL(Kust Data Logger)는 대학생 자작자동차대회 출전차량을 위해 
 
 참여자 : 이채훈, 옹미령, 강호, 이지규<br>
 PCB제작 : 고민제<br>
-원작자 : [LUFT-AQUILA](https://github.com/luftaquila)<br>
 최신버전 [ui_config.json](https://github.com/commanderk9826/KDL-distribution/blob/main/ui_configKUST.json)
 
 **주요 기능**
